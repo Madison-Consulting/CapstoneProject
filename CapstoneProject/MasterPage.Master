@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Lab2.MasterPage" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Caitlyn Meyer, Matt Donald, Matt Wasem</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+             <asp:Table ID="Table1" runat="server" Style="width:30%;">
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell  Width ="110px">
+                        <asp:Label runat="server" Text="Caitlyn Meyer, Matt Donald, Matt Wasem"></asp:Label>
+                    </asp:TableCell>
+                     <asp:TableCell>
+                         <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center" >
+
+                    <asp:TableCell ColumnSpan="5" HorizontalAlign="Right"> 
+                        <asp:Button ID="btnViewInventory" runat="server" Text="View Inventory" OnClick="btnViewInventory_Click" CausesValidation="false"/></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnMyAccount" runat="server" Text="My Account" OnClick ="btnMyAccount_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell>
+                        <asp:Button ID="btnAddCustomer" runat="server" Text="Add a Customer" OnClick="btnAddCustomer_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnAddServiceEvent" runat="server" Text="Add a Service Event" OnClick="btnAddServiceEvent_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnEditViewCustomer" runat="server" Text="Edit/View Customer" OnClick="btnEditViewCustomer_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnEditViewServiceEvent" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnNotifications" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnSearch" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
+
