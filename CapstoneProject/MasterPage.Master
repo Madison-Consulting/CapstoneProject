@@ -10,7 +10,7 @@
     <body>
         <form id="form1" runat="server">
             <div>
-                <asp:Table ID="header" runat="server" Height="16px" Width="421px" HorizontalAlign="Center">
+                <asp:Table ID="header" runat="server" Height="16px" Width="421px">
                     <asp:TableRow HorizontalAlign="Center">
                         <asp:TableCell  Width ="110px">
                             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
@@ -53,7 +53,7 @@
 
             <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1171px" HorizontalAlign="Center">
+                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1171px" >
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
