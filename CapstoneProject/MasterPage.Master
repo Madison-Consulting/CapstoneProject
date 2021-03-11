@@ -3,7 +3,7 @@
 
 <html>
 <head runat="server">
-    <title>Caitlyn Meyer, Matt Donald, Matt Wasem</title>
+    <title>Caitlyn Meyer, Matt Donald, Matt Wasem, Dylan Freeman</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
