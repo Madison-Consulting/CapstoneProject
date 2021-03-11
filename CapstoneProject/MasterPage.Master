@@ -7,55 +7,79 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-             <asp:Table ID="Table1" runat="server" Style="width:30%;">
-                <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell  Width ="110px">
-                        <asp:Label runat="server" Text="Caitlyn Meyer, Matt Donald, Matt Wasem"></asp:Label>
-                    </asp:TableCell>
-                     <asp:TableCell>
-                         <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center" >
+    <body>
+        <form id="form1" runat="server">
+            <div>
+                <asp:Table ID="header" runat="server" Height="16px" Width="421px" HorizontalAlign="Center">
+                    <asp:TableRow HorizontalAlign="Center">
+                        <asp:TableCell  Width ="110px">
+                            <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell ColumnSpan="6" HorizontalAlign="Right"> 
+                            <asp:Button ID="btnViewInventory" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="View Inventory" OnClick="btnViewInventory_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnMyAccount" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="My Account" OnClick ="btnMyAccount_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnLogout" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
 
-                    <asp:TableCell ColumnSpan="5" HorizontalAlign="Right"> 
-                        <asp:Button ID="btnViewInventory" runat="server" Text="View Inventory" OnClick="btnViewInventory_Click" CausesValidation="false"/></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnMyAccount" runat="server" Text="My Account" OnClick ="btnMyAccount_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                </asp:TableRow>
 
-                <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell>
-                        <asp:Button ID="btnAddCustomer" runat="server" Text="Add a Customer" OnClick="btnAddCustomer_Click" CausesValidation="false" />
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnAddServiceEvent" runat="server" Text="Add a Service Event" OnClick="btnAddServiceEvent_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnEditViewCustomer" runat="server" Text="Edit/View Customer" OnClick="btnEditViewCustomer_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnEditViewServiceEvent" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnNotifications" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnSearch" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
-</body>
+                    <asp:TableRow HorizontalAlign="Right">
+                        <asp:TableCell>
+                            <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Customer" OnClick="btnAddCustomer_Click" CausesValidation="false" />
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnAddServiceEvent" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Service Event" OnClick="btnAddServiceEvent_Click" CausesValidation="false"/>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnEditViewCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Customer" OnClick="btnEditViewCustomer_Click" CausesValidation="false"/>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnEditViewServiceEvent" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnSearch" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnNotifications" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+            <div id="ftr">
+
+                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1171px" HorizontalAlign="Center">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="address1" ForeColor="White" Font-Bold="true" runat="server" Text="2559 Green Valley Lane"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="address2" ForeColor="White" Font-Bold="true" runat="server" Text="Mount Crawford, Virginia 22841"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="phone" ForeColor="White" Font-Bold="true" runat="server" Text="(540) 434-4260"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+
+            </div>
+            </div>
+        </form>
+    </body>
+
 </html>
 
