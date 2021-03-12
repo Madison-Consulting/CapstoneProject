@@ -11,7 +11,22 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                divPickup.Visible = false;
+            }
+        }
 
+        protected void radioBtnProcurement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (radioBtnProcurement.SelectedValue == "bringin")
+            {
+                divPickup.Visible = false;
+            }
+            if (radioBtnProcurement.SelectedValue == "pickup")
+            {
+                divPickup.Visible = true;
+            }
         }
     }
 }

@@ -48,24 +48,22 @@
             <asp:TableCell>
                 <asp:Label ID="lblProcurementMethod" runat="server" Text="Procurement: "></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
-                <asp:RadioButtonList ID="radioBtnProcurement" runat="server" RepeatDirection="Horizontal">
-                    <asp:ListItem Value="bring-in">Consignor Bring-In</asp:ListItem>
-                    <asp:ListItem Value="pick-up">GVA&M Pick-Up</asp:ListItem>
+            <asp:TableCell ColumnSpan="5">
+                <asp:RadioButtonList ID="radioBtnProcurement" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="radioBtnProcurement_SelectedIndexChanged">
+                    <asp:ListItem Value="bringin">Consignor Bring-In</asp:ListItem>
+                    <asp:ListItem Value="pickup">GVA&M Pick-Up</asp:ListItem>
                 </asp:RadioButtonList>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell ColumnSpan="5">
                 <%-- here we begin making a table within a tablecell --%>
-                <div id="divPickup">  <%-- going to hide this div at pageload unless "pick-up" radio button is selected --%>
+                <div class="divPickup" id="divPickup" runat="server">  <%-- going to hide this div at pageload unless "pick-up" radio button is selected --%>
                     <asp:Table ID="tblPickUp" runat="server">
                         <asp:TableRow>
-                            <asp:TableCell>
+                            <asp:TableCell ColumnSpan="5">
                                 <asp:Label ID="lblTruckAccess" runat="server" Text="Truck Access: "></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell>
-                                <asp:RadioButtonList ID="radioBtnTruckAccess" runat="server" RepeatDirection="Horizontal">
+                                <asp:RadioButtonList ID="radioBtnTruckAccess" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" >
                                     <asp:ListItem Value="yes">Yes</asp:ListItem>
                                     <asp:ListItem Value="no">No</asp:ListItem>
                                 </asp:RadioButtonList>
@@ -111,8 +109,6 @@
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label ID="lblCrewSize" runat="server" Text="Crew Size: "></asp:Label>
-                            </asp:TableCell>
-                            <asp:TableCell ColumnSpan="4">
                                 <asp:TextBox ID="txtCrewSize" runat="server" MaxLength="5" Width="70"></asp:TextBox>
                             </asp:TableCell>
                         </asp:TableRow>
@@ -154,6 +150,7 @@
                         </asp:TableRow>
                     </asp:Table>
                 </div>
+                <%-- end of hideable "pickup" div --%>
             </asp:TableCell>
         </asp:TableRow>
         
