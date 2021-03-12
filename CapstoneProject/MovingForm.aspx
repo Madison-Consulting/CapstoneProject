@@ -48,6 +48,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click" />
+                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" />
                 <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"/>
             </asp:TableCell>
         </asp:TableRow>

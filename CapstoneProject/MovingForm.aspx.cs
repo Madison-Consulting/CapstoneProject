@@ -39,6 +39,10 @@ namespace CapstoneProject
         cmd.ExecuteNonQuery();
             con.Close();
         }
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MoveFormPt2.aspx");
+        }
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
