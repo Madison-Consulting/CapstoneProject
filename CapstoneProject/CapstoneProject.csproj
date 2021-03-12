@@ -91,6 +91,7 @@
     <Content Include="InitialContact.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="MoveFormPt2.aspx" />
     <Content Include="MovingForm.aspx" />
     <Content Include="NewEmployee.aspx" />
     <Content Include="Notifications.aspx" />
@@ -304,6 +305,13 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MoveFormPt2.aspx.cs">
+      <DependentUpon>MoveFormPt2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MoveFormPt2.aspx.designer.cs">
+      <DependentUpon>MoveFormPt2.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovingForm.aspx.cs">
       <DependentUpon>MovingForm.aspx</DependentUpon>
