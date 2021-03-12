@@ -74,6 +74,7 @@
   <ItemGroup>
     <Content Include="AddCust2.aspx" />
     <Content Include="AddServ.aspx" />
+    <Content Include="AuctionForm.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="AddServ.aspx.designer.cs">
       <DependentUpon>AddServ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuctionForm.aspx.cs">
+      <DependentUpon>AuctionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuctionForm.aspx.designer.cs">
+      <DependentUpon>AuctionForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerCreate.aspx.cs">
       <DependentUpon>CustomerCreate.aspx</DependentUpon>

@@ -33,7 +33,7 @@ namespace CapstoneProject
         //Fills the customers database with the txt boxes filled out by the user and enters it into the database
 
         con.Open();
-            string query = 
+        string query = "";
 
         SqlCommand cmd = new SqlCommand(query, con);
         cmd.ExecuteNonQuery();
