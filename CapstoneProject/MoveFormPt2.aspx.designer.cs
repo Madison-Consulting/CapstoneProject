@@ -11,17 +11,17 @@ namespace CapstoneProject
 {
 
 
-    public partial class MovingForm
+    public partial class MoveFormPt2
     {
 
         /// <summary>
-        /// tblMoving control.
+        /// MoveTwo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblMoving;
+        protected global::System.Web.UI.WebControls.Table MoveTwo;
 
         /// <summary>
         /// lblPlz control.
@@ -33,76 +33,130 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblPlz;
 
         /// <summary>
-        /// lblStories control.
+        /// lblRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStories;
+        protected global::System.Web.UI.WebControls.Label lblRoom;
 
         /// <summary>
-        /// txtStories control.
+        /// txtRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStories;
+        protected global::System.Web.UI.WebControls.TextBox txtRoom;
 
         /// <summary>
-        /// lblDistance control.
+        /// lblBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDistance;
+        protected global::System.Web.UI.WebControls.Label lblBox;
 
         /// <summary>
-        /// txtDistance control.
+        /// txtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistance;
+        protected global::System.Web.UI.WebControls.TextBox txtBox;
 
         /// <summary>
-        /// lblLoad control.
+        /// lblBoxQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoad;
+        protected global::System.Web.UI.WebControls.Label lblBoxQty;
 
         /// <summary>
-        /// txtLoad control.
+        /// txtBoxQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLoad;
+        protected global::System.Web.UI.WebControls.TextBox txtBoxQty;
 
         /// <summary>
-        /// lblDriveway control.
+        /// lblMoveEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDriveway;
+        protected global::System.Web.UI.WebControls.Label lblMoveEquip;
 
         /// <summary>
-        /// ddlDriveway control.
+        /// txtMoveEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDriveway;
+        protected global::System.Web.UI.WebControls.TextBox txtMoveEquip;
+
+        /// <summary>
+        /// lblItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItem;
+
+        /// <summary>
+        /// txtItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItem;
+
+        /// <summary>
+        /// lblItemQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItemQty;
+
+        /// <summary>
+        /// txtItemQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItemQty;
+
+        /// <summary>
+        /// lblValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValue;
+
+        /// <summary>
+        /// ddlValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlValue;
 
         /// <summary>
         /// btnCommit control.
@@ -112,15 +166,6 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCommit;
-
-        /// <summary>
-        /// lnkAnother control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAnother;
 
         /// <summary>
         /// btnBack control.
@@ -139,5 +184,14 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblStatus;
+
+        /// <summary>
+        /// lnkAnother control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAnother;
     }
 }

@@ -19,30 +19,82 @@ namespace CapstoneProject
 
         }
 
-        protected void ddlDriveway_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnCommit_Click(object sender, EventArgs e)
-        { 
-        // Connection to the customer database
-
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-        //Fills the customers database with the txt boxes filled out by the user and enters it into the database
-
-        con.Open();
-        string query = "";
-
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.ExecuteNonQuery();
-            con.Close();
-        }
-
-        protected void btnBack_Click(object sender, EventArgs e)
         {
-        Server.Transfer("HomeMaster.aspx");
+            // Connection to the customer database
+            HttpUtility.HtmlEncode(txtLoad.Text);
+            HttpUtility.HtmlEncode(txtStories.Text);
+            HttpUtility.HtmlEncode(txtDistance.Text);
+            HttpUtility.HtmlEncode(ddlDriveway.Text);
+
+
+            if (txtLoad.Text != "" && txtStories.Text != "" && txtDistance.Text != "" && ddlDriveway.Text != "") // fields must be filled
+            {
+                // COMMIT VALUES
+                try
+                {
+                    System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+                    lblStatus.Text = "Database Connection Successful";
+
+
+                    //sc.Open();
+
+
+                    sc.Open();
+
+
+                    System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
+                    createUser.Connection = sc;
+                    // INSERT USER RECORD
+                    createUser.CommandText = "INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition) VALUES (@HouseStories, @TruckDistance, @Accessibility, @LoadingCondition)";
+                    createUser.Parameters.Add(new SqlParameter("@HouseStories", txtStories.Text));
+                    createUser.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
+                    createUser.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
+                    createUser.Parameters.Add(new SqlParameter("@Accessibility", ddlDriveway.Text));
+                    createUser.ExecuteNonQuery();
+
+
+
+
+                    sc.Close();
+
+                    lblStatus.Text = "Information committed!";
+                    txtStories.Enabled = false;
+                    txtLoad.Enabled = false;
+                    txtDistance.Enabled = false;
+                    ddlDriveway.Enabled = false;
+                  
+                    btnCommit.Enabled = false;
+                    lnkAnother.Visible = true;
+
+                }
+                catch
+                {
+                    lblStatus.Text = "Database Error - Information not committed";
+                }
+
+            }
+            else
+                lblStatus.Text = "Please fill all fields";
         }
+
+        protected void lnkAnother_Click(object sender, EventArgs e)
+        {
+            txtStories.Enabled = true;
+            txtLoad.Enabled = true;
+            txtDistance.Enabled = true;
+            ddlDriveway.Enabled = true;
+            btnCommit.Enabled = true;
+            lnkAnother.Visible = false;
+            txtStories.Text = "";
+            txtLoad.Text = "";
+            txtDistance.Text = "";
+            ddlDriveway.Text = "";
+           
+        }
+
     }
+
 }
