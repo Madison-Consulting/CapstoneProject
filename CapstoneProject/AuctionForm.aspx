@@ -72,7 +72,7 @@
                         <asp:TableRow>
                             <asp:TableCell ColumnSpan="5">
                                 <%-- going to hide this table at pageload unless "yes" is selected from radioBtnTruckAccess--%>
-                                <asp:Table ID="tblSelectTrucks" runat="server">
+                                <asp:Table ID="tblSelectTrucks" runat="server" OnLoad="tblSelectTrucks_Load">
                                     <asp:TableRow>
                                         <asp:TableCell>
                                             <asp:Label ID="lblTrucksNeeded" runat="server" Text="Trucks Needed: "></asp:Label>
