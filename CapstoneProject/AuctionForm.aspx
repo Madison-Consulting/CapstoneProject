@@ -98,6 +98,9 @@
                                             <asp:ListBox ID="lstboxTruckInventory" runat="server"
                                                 Height="150"
                                                 Width="180"
+                                                DataSourceID="dtasrcTruckInventory"
+                                                DataTextField="EquipmentName"
+                                                DataValueField="EquipmentID"
                                                 AutoPostBack="false"></asp:ListBox>
                                             <%-- need to add DataSourceID, DataTextField, and DataValueField with truck query to allow selection of available trucks--%>
                                         </asp:TableCell>
@@ -157,4 +160,11 @@
         
 
     </asp:Table>
+
+    <asp:SqlDataSource runat="server"
+        ID="dtasrcEquipmentInventory"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT Equipment.EquipmentID Equipment.EquipmentType, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentType = 'Truck';" >
+    </asp:SqlDataSource>
+
 </asp:Content>
