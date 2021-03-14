@@ -13,7 +13,10 @@
                 <asp:Label ID="lblCustomer" runat="server" Text="Customer (consignor?)"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:DropDownList ID="ddlCustomer" runat="server">
+                <asp:DropDownList ID="ddlCustomer" runat="server"
+                     DataSourceID="dtasrcCustomer"
+                     DataTextField="CustomerName"
+                     DataValueField="CustomerID">
                     <asp:ListItem>-Select-</asp:ListItem>
                     <asp:ListItem>we will get this</asp:ListItem>
                     <asp:ListItem>from a sql dataset</asp:ListItem>
@@ -41,7 +44,7 @@
                 <asp:Label ID="lblPhotoSpot" runat="server" Text="Photo Spot: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Label ID="lblTemporaryHolder" runat="server" Text="*note*is this a file upload?"></asp:Label>
+                <asp:TextBox ID="txtPhotoSpot" runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -99,7 +102,7 @@
                                                 Height="150"
                                                 Width="180"
                                                 DataSourceID="dtasrcTruckInventory"
-                                                DataTextField="EquipmentName"
+                                                DataTextField="EquipmentDescription"
                                                 DataValueField="EquipmentID"
                                                 AutoPostBack="false"></asp:ListBox>
                                             <%-- need to add DataSourceID, DataTextField, and DataValueField with truck query to allow selection of available trucks--%>
@@ -136,16 +139,24 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddEquipment" runat="server" Text="<-Add" Width="75"  />
-                                            <asp:Button ID="btnRemoveEquipment" runat="server" Text="Remove->" Width="75"  />
+                                            <asp:Button ID="btnAddEquipment" runat="server" Text="<-Add" Width="75" OnClick="btnAddEquipment_Click"  />
+                                            <asp:Button ID="btnRemoveEquipment" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveEquipment_Click"  />
                                             <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
                                             <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
                                                 Height="150"
                                                 Width="180"
+                                                DataSourceID="dtasrcEquipment"
+                                                DataTextField="EquipmentDescription"
+                                                DataValueField="EquipmentID"
                                                 AutoPostBack="false"></asp:ListBox>
                                             <%-- need to add DataSourceID, DataTextField, and DataValueField with Equipment query to allow selection of available Equipment--%>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>
+                                            <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click"/>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
@@ -162,9 +173,21 @@
     </asp:Table>
 
     <asp:SqlDataSource runat="server"
-        ID="dtasrcEquipmentInventory"
+        ID="dtasrcTruckInventory"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT Equipment.EquipmentID Equipment.EquipmentType, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentType = 'Truck';" >
+        SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName = 'truck';" >
+    </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+        ID="dtasrcEquipment"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';" >
+    </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+        ID="dtasrcCustomer"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
     </asp:SqlDataSource>
 
 </asp:Content>
