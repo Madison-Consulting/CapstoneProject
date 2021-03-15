@@ -48,7 +48,7 @@
      
 
 
-     <asp:Table ID="Table3" runat="server" Width="737px" style ="float:right" >
+     <asp:Table ID="Table3" runat="server" Width="737px" horizontalalign ="center" >
                   <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblServiceType" runat="server" Text="Service Type:"></asp:Label>

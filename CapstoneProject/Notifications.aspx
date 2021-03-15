@@ -10,7 +10,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
-                <asp:ListBox ID="lstNotifications" runat="server" Width="800" OnLoad="lstNotifications_Load"></asp:ListBox>
+                <asp:ListBox ID="lstNotifications" runat="server" Width="1200" OnLoad="lstNotifications_Load"></asp:ListBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

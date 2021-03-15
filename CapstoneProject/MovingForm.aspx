@@ -9,7 +9,14 @@
                 <asp:Label ID="lblPlz" runat="server" Font-Bold="true" Text="Please, provide the following moving information!"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
-        
+                <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblCustName" runat="server" Text="Customer Name: "></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtCustName" runat="server"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblStories" runat="server" Text="Stories within house: "></asp:Label>

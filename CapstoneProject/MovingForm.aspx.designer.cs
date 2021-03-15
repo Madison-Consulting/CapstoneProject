@@ -33,6 +33,24 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblPlz;
 
         /// <summary>
+        /// lblCustName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustName;
+
+        /// <summary>
+        /// txtCustName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCustName;
+
+        /// <summary>
         /// lblStories control.
         /// </summary>
         /// <remarks>
