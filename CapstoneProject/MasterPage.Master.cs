@@ -80,9 +80,9 @@ namespace Lab2
             Response.Redirect("Notifications.aspx");
         }
 
-        protected void btnAuctionForm_Click(object sender, EventArgs e)
+        protected System.Void btnMovingForm_Click(System.Object sender, System.EventArgs e)
         {
-            Response.Redirect("AuctionForm.aspx");
+            response.Redirect("MovingForm.aspx");
         }
     }
 
