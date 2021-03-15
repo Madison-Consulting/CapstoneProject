@@ -1,4 +1,13 @@
-﻿namespace CapstoneProject
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+namespace CapstoneProject
 {
     public partial class MovingForm : System.Web.UI.Page
     {
@@ -83,9 +92,19 @@
 
         }
 
-        protected System.Void btnNext_Click(System.Object sender, System.EventArgs e)
+        protected void btnNext_Click(System.Object sender, System.EventArgs e)
         {
-            response.Redirect("MovingFormPt2.aspx");
+            Response.Redirect("MoveFormPt2.aspx");
+        }
+
+        protected void ddlDriveway_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

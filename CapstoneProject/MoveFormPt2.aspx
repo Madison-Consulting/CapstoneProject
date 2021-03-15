@@ -61,7 +61,7 @@
                 <asp:Label ID="lblValue" runat="server" Text="Item Type: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:DropDownList ID="ddlValue" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDriveway_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlValue" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlValue_SelectedIndexChanged">
                     <asp:ListItem>Select Type</asp:ListItem>
                     <asp:ListItem>Furniture</asp:ListItem>
                     <asp:ListItem>Tool</asp:ListItem>

@@ -1,4 +1,13 @@
-﻿namespace Lab2
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+namespace Lab2
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
@@ -72,9 +81,14 @@
             Response.Redirect("Notifications.aspx");
         }
 
-        protected System.Void btnMovingForm_Click(System.Object sender, System.EventArgs e)
+        protected void btnMovingForm_Click(object sender, EventArgs e)
         {
-            response.Redirect("MovingForm.aspx");
+            Response.Redirect("MovingForm.aspx");
+        }
+
+        protected void btnAuctionForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AuctionForm.aspx");
         }
     }
 

@@ -1,4 +1,13 @@
-﻿namespace CapstoneProject
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+namespace CapstoneProject
 {
     public partial class MoveFormPt2 : System.Web.UI.Page
     {
@@ -96,6 +105,20 @@
             ddlValue.Text = "";
         }
 
+        protected void ddlValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCommit_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

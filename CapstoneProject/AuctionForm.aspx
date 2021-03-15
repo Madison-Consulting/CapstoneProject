@@ -22,7 +22,7 @@
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
-                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/CustomerCreate.aspx" />
+                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust2.aspx" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -32,9 +32,9 @@
             <asp:TableCell>
                 <asp:TextBox ID="txtAuctionDate" runat="server"></asp:TextBox>
             </asp:TableCell>
-            <asp:TableCell>
+<%--            <asp:TableCell>
                 <asp:Label ID="lblTempHolder2" runat="server" Text="should we have this as text box?"></asp:Label>
-            </asp:TableCell>
+            </asp:TableCell>--%>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
