@@ -99,11 +99,6 @@
                         <asp:TextBox ID="txtServiceID1" runat="server" Visible="false"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>    
-                         <asp:TableRow>
-                     <asp:TableCell>
-                        <asp:TextBox ID="txtItemID1" runat="server" Visible="false"></asp:TextBox>
-                    </asp:TableCell>
-                 </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
                 <asp:Button ID="btnAddInv" runat="server" Text="Add" OnClick="btnAddInv_Click"/>

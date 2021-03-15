@@ -52,22 +52,18 @@ namespace Lab2
 
         protected void btnAddInv_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int ItemID = rnd.Next(1, 100000);
-            txtItemID1.Text = ItemID.ToString();
             {
 
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
 
 
-                String query = "INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ItemID,ServiceID) VALUES (@ItemName, @InventoryDate, @Cost, @ItemID, @ServiceID)";
+                String query = "INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES (@ItemName, @InventoryDate, @Cost, @ServiceID)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ItemName", HttpUtility.HtmlEncode(txtItemName1.Text));
                 cmd.Parameters.AddWithValue("@InventoryDate", HttpUtility.HtmlEncode(txtInventoryDate1.Text));
                 cmd.Parameters.AddWithValue("@Cost", HttpUtility.HtmlEncode(txtItemCost1.Text));
-                cmd.Parameters.AddWithValue("@ItemID", HttpUtility.HtmlEncode(txtItemID1.Text));
                 cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
 
                 cmd.ExecuteNonQuery();
@@ -78,23 +74,14 @@ namespace Lab2
 
         protected void btnPopulateInv_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int ItemID = rnd.Next(1, 100000);
-            txtItemID1.Text = ItemID.ToString();
 
             txtItemName1.Text = "Desk";
             txtInventoryDate1.Text = "03/22/2020";
             txtItemCost1.Text = "210";
             txtServiceID1.Text = "837164";
-            //txtCustName.Text = "John Crogh";
+            txtCustName.Text = "John Crogh";
         }
 
-        protected void btnGenerateItemID_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            int ItemID = rnd.Next(1, 100000);
-            txtItemID1.Text = ItemID.ToString();
-        }
 
         protected void ddlInv_SelectedIndexChanged1(object sender, EventArgs e)
         {
