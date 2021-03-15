@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab3
+﻿namespace Lab3
 {
     public partial class CustomerSearch : System.Web.UI.Page
     {
@@ -136,8 +126,8 @@ namespace Lab3
 
 
         //        string serviceTicketID = queryResults["ServiceID"].ToString();
-            
-            
+
+
 
         //    String queryTicketHistoryandServiceTicket = "SELECT ServiceTicket.TicketStatus, TicketHistory.TicketChangeDate FROM ServiceTicket INNER JOIN TicketHistory ON ServiceTicket.ServiceTicketID = TicketHistory.ServiceTicketID WHERE ServiceTicket.ServiceTicketID = '" + serviceTicketID + "'; ";
         //    while (queryResults.Read())

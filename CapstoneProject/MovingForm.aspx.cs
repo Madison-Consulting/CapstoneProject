@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Drawing;
-using System.Data;
-using System.Security.Cryptography;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace CapstoneProject
+﻿namespace CapstoneProject
 {
     public partial class MovingForm : System.Web.UI.Page
     {
@@ -65,7 +53,7 @@ namespace CapstoneProject
                     txtLoad.Enabled = false;
                     txtDistance.Enabled = false;
                     ddlDriveway.Enabled = false;
-                  
+
                     btnCommit.Enabled = false;
                     lnkAnother.Visible = true;
 
@@ -92,7 +80,7 @@ namespace CapstoneProject
             txtLoad.Text = "";
             txtDistance.Text = "";
             ddlDriveway.Text = "";
-           
+
         }
 
         protected System.Void btnNext_Click(System.Object sender, System.EventArgs e)

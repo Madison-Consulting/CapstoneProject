@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Drawing;
-using System.Data;
-using System.Security.Cryptography;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace CapstoneProject
+﻿namespace CapstoneProject
 {
     public partial class MoveFormPt2 : System.Web.UI.Page
     {
@@ -61,7 +49,7 @@ namespace CapstoneProject
                     createUser.ExecuteNonQuery();
 
 
-                   
+
 
                     sc.Close();
 
@@ -107,7 +95,7 @@ namespace CapstoneProject
             txtItemQty.Text = "";
             ddlValue.Text = "";
         }
-      
+
     }
-    
+
 }

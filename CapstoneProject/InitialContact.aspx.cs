@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab3
+﻿namespace Lab3
 {
     public partial class InitialContact : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             txtCustomerID.Text = (string)Session["ID"];
             string fn = (string)Session["Firstname"];
             string ln = (string)Session["Lastname"];
@@ -28,7 +18,7 @@ namespace Lab3
             //{
 
             //    SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-             
+
             //    con.Open();
 
 
@@ -50,7 +40,7 @@ namespace Lab3
 
         protected void btnPopulateInitial_Click(object sender, EventArgs e)
         {
-            
+
             ddlContact.SelectedValue = "Other";
             txtOther.Text = "Employee is a Friend";
             txtHearAbout.Text = "A friend";
@@ -127,7 +117,7 @@ namespace Lab3
 
         protected void btnSaveInitial_Click(object sender, EventArgs e)
         {
-      
+
 
             String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, " +
                 "MoveCity =  @MoveCity, MoveState = @MoveState, MoveZip = @MoveZip, DateTimeInitial = @DateTimeInitial, Deadline = @Deadline, Time1 = @Time1, Deadline2 = @Deadline2, " +

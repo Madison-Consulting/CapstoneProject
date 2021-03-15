@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-namespace Lab2
+﻿namespace Lab2
 {
     public partial class EditServ2 : System.Web.UI.Page
     {
@@ -21,7 +11,7 @@ namespace Lab2
                 txtYourName.Text = "Kevin Jonas";
                 txtYourEmployeeID.Text = "481947219";
             }
-           
+
         }
 
 
@@ -92,7 +82,7 @@ namespace Lab2
             con.Close();
         }
 
-        
+
         protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -161,8 +151,8 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@Empname", HttpUtility.HtmlEncode(txtYourName.Text));
             try
             {
-            cmd.ExecuteNonQuery();
-            lblSuccess.Text = "Ticket History Added Successfully";
+                cmd.ExecuteNonQuery();
+                lblSuccess.Text = "Ticket History Added Successfully";
             }
             catch (Exception)
             {

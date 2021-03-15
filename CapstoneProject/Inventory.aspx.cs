@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab2
+﻿namespace Lab2
 {
     public partial class Inventory : System.Web.UI.Page
     {
@@ -40,7 +29,7 @@ namespace Lab2
             grdviewInvDisplay.DataBind();
 
             String sqlQuery = "SELECT CustomerFirstName, CustomerLastName, ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Service INNER JOIN Inventory On Service.ServiceID = Inventory.ServiceID ORDER BY CustomerLastName";
-            
+
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
@@ -49,7 +38,7 @@ namespace Lab2
             grdviewInvDisplay.DataSource = dtCustomerGridView;
             grdviewInvDisplay.DataBind();
         }
-    
+
 
 
         protected void btnAddInv_Click(object sender, EventArgs e)
@@ -98,21 +87,21 @@ namespace Lab2
             txtItemID1.Text = ItemID.ToString();
         }
 
-        protected void ddlInv_SelectedIndexChanged1(object sender, EventArgs e) 
-        { 
-                grdviewInvDisplay.DataSource = null;
-                grdviewInvDisplay.DataBind();
+        protected void ddlInv_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            grdviewInvDisplay.DataSource = null;
+            grdviewInvDisplay.DataBind();
 
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Service INNER JOIN Inventory On Service.ServiceID = Inventory.ServiceID WHERE CustomerID = @CustomerID ORDER BY CustomerLastName",con);
-            
+            SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Service INNER JOIN Inventory On Service.ServiceID = Inventory.ServiceID WHERE CustomerID = @CustomerID ORDER BY CustomerLastName", con);
+
             cmd.Parameters.AddWithValue("@CustomerID", ddlInv.SelectedValue);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             DataTable dtCustomerGridView = new DataTable();
-                sqlAdapter.Fill(dtCustomerGridView);
-                grdviewInvDisplay.DataSource = dtCustomerGridView;
-                grdviewInvDisplay.DataBind();
+            sqlAdapter.Fill(dtCustomerGridView);
+            grdviewInvDisplay.DataSource = dtCustomerGridView;
+            grdviewInvDisplay.DataBind();
         }
 
         protected void ClearAllText(Control p1)

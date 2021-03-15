@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab3
+﻿namespace Lab3
 {
     public partial class Notifications : System.Web.UI.Page
     {
@@ -89,8 +79,8 @@ namespace Lab3
 
 
 
-            firstName = lstNotifications.SelectedValue.Substring(x, lstNotifications.SelectedValue.IndexOf("CUSTOMER LAST NAME:")-x);
-            lastName = lstNotifications.SelectedValue.Substring(y, lstNotifications.SelectedValue.IndexOf(": CUSTOMER EMAIL:")-y);
+            firstName = lstNotifications.SelectedValue.Substring(x, lstNotifications.SelectedValue.IndexOf("CUSTOMER LAST NAME:") - x);
+            lastName = lstNotifications.SelectedValue.Substring(y, lstNotifications.SelectedValue.IndexOf(": CUSTOMER EMAIL:") - y);
 
             Session["Firstname"] = firstName;
             Session["Lastname"] = lastName;

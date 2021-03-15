@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab3
+﻿namespace Lab3
 {
     public partial class CustomerServInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           if (Session["Email"] != null)
+            if (Session["Email"] != null)
             {
                 lblLoggedIn.Text = Session["Email"].ToString() + " successfully logged in";
                 txtEmail.Text = Session["Email"].ToString();
@@ -24,10 +14,10 @@ namespace Lab3
         protected void btnSubmitRequest_Click(object sender, EventArgs e)
         {
 
-                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                con.Open();
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
 
-                        string status = "Unassigned";
+            string status = "Unassigned";
 
             SqlCommand cmd1 = new SqlCommand("SELECT CustomerID From Customer WHERE Email = @Email", con);
 
@@ -52,7 +42,7 @@ namespace Lab3
                     cmd.Parameters.AddWithValue("@ServiceDate", HttpUtility.HtmlEncode(txtDate.Text));
                     cmd.Parameters.AddWithValue("@Needs", HttpUtility.HtmlEncode(txtNeeds.Text));
                     cmd.Parameters.AddWithValue("@Status", status);
-                    
+
                     cmd.ExecuteNonQuery();
                     con1.Close();
 
@@ -60,10 +50,10 @@ namespace Lab3
                 myReader3.Close();
             }
             con.Close();
-            
+
         }
 
-        
+
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {

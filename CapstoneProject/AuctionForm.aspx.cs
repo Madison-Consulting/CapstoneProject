@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace CapstoneProject
+﻿namespace CapstoneProject
 {
     public partial class AuctionForm : System.Web.UI.Page
     {
@@ -58,10 +48,10 @@ namespace CapstoneProject
                     lstboxEquipmentUsed.Items.Add(newItem);
                 }
 
-                
+
 
             }
-            
+
         }
 
         protected void btnRemoveEquipment_Click(object sender, EventArgs e)
@@ -114,9 +104,9 @@ namespace CapstoneProject
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
                 //Need To have multiple auction dates
                 cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-               
 
-                
+
+
                 cmd.ExecuteNonQuery();
             }
             con.Close();

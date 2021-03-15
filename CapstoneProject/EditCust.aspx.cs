@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-namespace Lab2
+﻿namespace Lab2
 {
     public partial class EditCust : System.Web.UI.Page
     {
@@ -19,7 +9,7 @@ namespace Lab2
         }
 
         //Button Click Events
-    
+
 
         //populate customer fields
         protected void btnPopulateCust_Click(object sender, EventArgs e)
@@ -36,7 +26,7 @@ namespace Lab2
 
         }
 
-       
+
         //clear all data fields
         protected void btnClear_Click(object sender, EventArgs e)
         {
@@ -118,8 +108,8 @@ namespace Lab2
             }
             con.Close();
         }
-                //view all customers in a grid view
-                protected void btnViewAll_Click(object sender, EventArgs e)
+        //view all customers in a grid view
+        protected void btnViewAll_Click(object sender, EventArgs e)
         {
             grdvwCustDisplay.DataSource = null;
             grdvwCustDisplay.DataBind();

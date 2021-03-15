@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-
-namespace Lab2
+﻿namespace Lab2
 {
     public partial class AddServ : System.Web.UI.Page
 
@@ -120,7 +109,7 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(txtServType1.Text));
             cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
             cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
-            cmd.Parameters.AddWithValue("@CompletionDate" , HttpUtility.HtmlEncode(txtCompDate1.Text));
+            cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
             cmd.Parameters.AddWithValue("@VehicleUsed", HttpUtility.HtmlEncode(txtVehicleUsed1.Text));
             cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
             cmd.Parameters.AddWithValue("@MoveTime", HttpUtility.HtmlEncode(txtMoveTime1.Text));
@@ -131,14 +120,14 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestinationAddress1.Text));
             cmd.Parameters.AddWithValue("@DestCity", HttpUtility.HtmlEncode(txtDestinationCity1.Text));
             cmd.Parameters.AddWithValue("@DestState", HttpUtility.HtmlEncode(txtDestinationState1.Text));
-            cmd.Parameters.AddWithValue("@DestZip" , HttpUtility.HtmlEncode(txtDestinationZip1.Text));
+            cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
             cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
-            cmd.Parameters.AddWithValue("@Note" , HttpUtility.HtmlEncode(txtNote.Text));
+            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
             cmd.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(txtEmployeeID.Text));
             cmd.ExecuteNonQuery();
             con.Close();
 
-         
+
 
 
         }
@@ -161,8 +150,8 @@ namespace Lab2
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
                 cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
-                cmd.Parameters.AddWithValue("@TicketID" , HttpUtility.HtmlEncode(txtTicketID.Text));
-                cmd.Parameters.AddWithValue("@Status" , HttpUtility.HtmlEncode(txtStatus.Text));
+                cmd.Parameters.AddWithValue("@TicketID", HttpUtility.HtmlEncode(txtTicketID.Text));
+                cmd.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode(txtStatus.Text));
                 cmd.Parameters.AddWithValue("@EmployeeID", HttpUtility.HtmlEncode(txtEmployeeID.Text));
                 cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
 

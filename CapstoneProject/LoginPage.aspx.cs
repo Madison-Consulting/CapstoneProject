@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Drawing;
-
-using System.Data;
-using System.Data.SqlClient;
-using System.Web.Configuration;
-using Lab3.App_Code;
+﻿using Lab3.App_Code;
 
 namespace Lab2
 {

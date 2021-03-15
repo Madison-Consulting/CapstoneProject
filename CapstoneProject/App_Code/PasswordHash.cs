@@ -1,8 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.
+/* Unmerged change from project '2_App_Code'
+Before:
 using System.Web;
 using System.Security.Cryptography;
+After:
+using System.Security.Cryptography;
+using System.Web;
+*/
+Security.Cryptography;
 
 namespace Lab3.App_Code
 {
