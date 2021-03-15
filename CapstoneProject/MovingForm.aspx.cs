@@ -97,7 +97,7 @@ namespace CapstoneProject
 
         protected System.Void btnNext_Click(System.Object sender, System.EventArgs e)
         {
-            response.redirect("MovingFormPt2.aspx");
+            response.Redirect("MovingFormPt2.aspx");
         }
     }
 
