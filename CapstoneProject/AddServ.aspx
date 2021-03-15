@@ -50,9 +50,6 @@
 
      <asp:Table ID="Table3" runat="server" Width="737px" style ="float:right" >
                   <asp:TableRow>
-                      <asp:TableCell>
-                          <asp:Button ID="btnTestAuction" runat="server" Text="*testing* auction form" PostBackUrl="~/AuctionForm.aspx" />
-                      </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblServiceType" runat="server" Text="Service Type:"></asp:Label>
                      </asp:TableCell> 

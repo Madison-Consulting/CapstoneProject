@@ -45,6 +45,9 @@
                         <asp:TableCell>
                             <asp:Button ID="btnNotifications" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
                         </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Button ID="btnAuctionForm" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Auction Form" OnClick="btnAuctionForm_Click" CausesValidation="false"/>
+                        </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
 

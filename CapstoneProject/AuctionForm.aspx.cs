@@ -83,8 +83,8 @@ namespace CapstoneProject
 
             if (radioBtnProcurement.SelectedValue.Equals("bringin"))
             {
-                truckAcc = "NULL";
-                String query = "INSERT INTO AuctionSchedule VALUES (@PhotoSpot, @CustomerID, @AuctionDate)";
+                //truckAcc = "NULL";
+                String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate) VALUES (@PhotoSpot, @CustomerID, @AuctionDate)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
@@ -97,23 +97,26 @@ namespace CapstoneProject
             {
 
                 //Check for Truck Acc
-                truckAcc = radioBtnTruckAccess.SelectedValue;
+                truckAcc = radioBtnTruckAccess.SelectedValue.ToString();
 
                 //Later add inventoryID
 
-                String query = "INSERT INTO AuctionSchedule VALUES (@PhotoSpot, @TruckAcc, @Crew, @EquipmentID, " +
+                String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, EquipmentID, CustomerID, AuctionDate) VALUES (@PhotoSpot, @TruckAcc, @Crew, @EquipmentID, " +
               "@CustomerID, @AuctionDate)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
+                cmd.Parameters.AddWithValue("@TruckAcc", HttpUtility.HtmlEncode(truckAcc));
                 //Later maybe change crew Crew Table
                 cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
-                //Need To have multiple auction dates
-                cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-                cmd.Parameters.AddWithValue("@TruckAcc", HttpUtility.HtmlEncode(truckAcc));
-                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
                 //Allow for multiple equipment to be used at once
                 cmd.Parameters.AddWithValue("@EquipmentID", HttpUtility.HtmlEncode(lstboxEquipmentUsed.SelectedValue));
+                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
+                //Need To have multiple auction dates
+                cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
+               
+
+                
                 cmd.ExecuteNonQuery();
             }
             con.Close();

@@ -79,6 +79,11 @@ namespace Lab2
         {
             Response.Redirect("Notifications.aspx");
         }
+
+        protected void btnAuctionForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AuctionForm.aspx");
+        }
     }
 
 }

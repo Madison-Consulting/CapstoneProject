@@ -13,14 +13,11 @@
                 <asp:Label ID="lblCustomer" runat="server" Text="Customer (consignor?)"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
+                <%--Get Defult Value For DropDown--%>
                 <asp:DropDownList ID="ddlCustomer" runat="server"
                      DataSourceID="dtasrcCustomer"
                      DataTextField="CustomerName"
                      DataValueField="CustomerID">
-                    <asp:ListItem>-Select-</asp:ListItem>
-                    <asp:ListItem>we will get this</asp:ListItem>
-                    <asp:ListItem>from a sql dataset</asp:ListItem>
-                    <asp:ListItem>if consignor==customer</asp:ListItem>
                 </asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>
