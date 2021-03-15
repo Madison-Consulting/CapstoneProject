@@ -40,6 +40,9 @@
                             <asp:Button ID="btnEditViewServiceEvent" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
                         </asp:TableCell>
                         <asp:TableCell>
+                            <asp:Button ID="btnMovingForm" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Moving Form" OnClick="btnMovingForm_Click" CausesValidation="false" />
+                        </asp:TableCell>
+                        <asp:TableCell>
                             <asp:Button ID="btnSearch" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
@@ -53,7 +56,7 @@
 
             <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1171px" >
+                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1300px" >
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>

@@ -79,6 +79,11 @@ namespace Lab2
         {
             Response.Redirect("Notifications.aspx");
         }
+
+        protected System.Void btnMovingForm_Click(System.Object sender, System.EventArgs e)
+        {
+            response.Redirect("MovingForm.aspx");
+        }
     }
 
 }

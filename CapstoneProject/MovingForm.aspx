@@ -53,6 +53,7 @@
                 <asp:TableCell>
                 <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click" />
                 <asp:LinkButton ID="lnkAnother" runat="server" OnClick="lnkAnother_Click" Visible="False">Create Another</asp:LinkButton>
+                    <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" />
                 <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"/>
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
             </asp:TableCell>
