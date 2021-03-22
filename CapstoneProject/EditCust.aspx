@@ -26,7 +26,12 @@
                     </asp:TableCell>
                     <asp:TableCell>
                      <asp:dropDownList ID="DropDownList1" runat="server" AutoPostBack="true" DataSourceID="datasrcCustomerList" 
-                         DataTextField="fullName" DataValueField="CustomerID" OnSelectedIndexChanged="CustDropDownList_SelectedIndexChanged" ></asp:dropDownList>
+                         DataTextField="fullName" 
+                         DataValueField="CustomerID" 
+                         OnSelectedIndexChanged="CustDropDownList_SelectedIndexChanged" 
+                         AppendDataBoundItems="true">
+                         <asp:ListItem Value="">- Select -</asp:ListItem>
+                     </asp:dropDownList>
                     </asp:TableCell>
                 </asp:TableRow>
                 </asp:Table>

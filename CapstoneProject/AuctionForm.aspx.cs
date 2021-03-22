@@ -56,11 +56,7 @@ namespace CapstoneProject
                     newItem.Text = lstboxEquipmentInventory.SelectedItem.Text;
                     lstboxEquipmentUsed.Items.Add(newItem);
                 }
-
-
-
             }
-
         }
 
         protected void btnRemoveEquipment_Click(object sender, EventArgs e)
@@ -69,56 +65,91 @@ namespace CapstoneProject
             {
                 lstboxEquipmentUsed.Items.Remove(lstboxEquipmentUsed.SelectedItem);
             }
-
         }
+
+        protected void btnAddTruck_Click(object sender, EventArgs e)
+        {
+            bool truckUsed = false;
+            if (lstboxTruckInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxTruckUsed.Items)
+                {
+                    if (lstboxTruckInventory.SelectedValue.Equals(li.Value))
+                    {
+                        truckUsed = true;
+                    }
+                }
+                if (!truckUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxTruckInventory.SelectedValue;
+                    newItem.Text = lstboxTruckInventory.SelectedItem.Text;
+                    lstboxTruckUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveTruck_Click(object sender, EventArgs e)
+        {
+            if (lstboxTruckUsed.SelectedIndex != -1)
+            {
+                lstboxTruckUsed.Items.Remove(lstboxTruckUsed.SelectedItem);
+            }
+        }
+
 
         protected void btnCommit_Click(object sender, EventArgs e)
         {
-            string truckAcc;
-
-
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
-
-            if (radioBtnProcurement.SelectedValue.Equals("bringin"))
+            if (!ddlCustomer.SelectedValue.Equals(""))
             {
-                //truckAcc = "NULL";
-                String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate) VALUES (@PhotoSpot, @CustomerID, @AuctionDate)";
-                SqlCommand cmd = new SqlCommand(query, con);
+                string truckAcc;
 
-                cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
-                //Need To have multiple auction dates
-                cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
-                cmd.ExecuteNonQuery();
+
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+
+                if (radioBtnProcurement.SelectedValue.Equals("bringin"))
+                {
+                    //truckAcc = "NULL";
+                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate) VALUES (@PhotoSpot, @CustomerID, @AuctionDate)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
+                    //Need To have multiple auction dates
+                    cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
+                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+
+                    //Check for Truck Acc
+                    truckAcc = radioBtnTruckAccess.SelectedValue.ToString();
+
+                    //Later add inventoryID
+
+                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, EquipmentID, CustomerID, AuctionDate) VALUES (@PhotoSpot, @TruckAcc, @Crew, @EquipmentID, " +
+                  "@CustomerID, @AuctionDate)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
+                    cmd.Parameters.AddWithValue("@TruckAcc", HttpUtility.HtmlEncode(truckAcc));
+                    //Later maybe change crew Crew Table
+                    cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
+                    //Allow for multiple equipment to be used at once
+                    cmd.Parameters.AddWithValue("@EquipmentID", HttpUtility.HtmlEncode(lstboxEquipmentUsed.SelectedValue));
+                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
+                    //Need To have multiple auction dates
+                    cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
+
+
+
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
             }
-            else
-            {
-
-                //Check for Truck Acc
-                truckAcc = radioBtnTruckAccess.SelectedValue.ToString();
-
-                //Later add inventoryID
-
-                String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, EquipmentID, CustomerID, AuctionDate) VALUES (@PhotoSpot, @TruckAcc, @Crew, @EquipmentID, " +
-              "@CustomerID, @AuctionDate)";
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
-                cmd.Parameters.AddWithValue("@TruckAcc", HttpUtility.HtmlEncode(truckAcc));
-                //Later maybe change crew Crew Table
-                cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
-                //Allow for multiple equipment to be used at once
-                cmd.Parameters.AddWithValue("@EquipmentID", HttpUtility.HtmlEncode(lstboxEquipmentUsed.SelectedValue));
-                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
-                //Need To have multiple auction dates
-                cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-
-
-
-                cmd.ExecuteNonQuery();
-            }
-            con.Close();
         }
+
     }
 }

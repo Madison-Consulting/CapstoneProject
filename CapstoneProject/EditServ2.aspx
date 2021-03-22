@@ -9,7 +9,14 @@
                         <asp:Label ID="lblDropDownList" runat="server" Text="Choose a Service to View"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:dropDownList ID="ddlService" runat="server" AutoPostBack="true" DataSourceID="datasrcCustomerList" DataTextField="fullName" DataValueField="CustomerID" OnSelectedIndexChanged="ddlService_SelectedIndexChanged" ></asp:dropDownList>
+                        <asp:dropDownList ID="ddlService" runat="server" AutoPostBack="true" 
+                            DataSourceID="datasrcCustomerList" 
+                            DataTextField="fullName" 
+                            DataValueField="CustomerID" 
+                            OnSelectedIndexChanged="ddlService_SelectedIndexChanged" 
+                            AppendDataBoundItems="true">
+                            <asp:ListItem Value="">- Select -</asp:ListItem>
+                        </asp:dropDownList>
                     </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>

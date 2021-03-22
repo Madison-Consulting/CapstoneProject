@@ -15,9 +15,11 @@
             <asp:TableCell>
                 <%--Get Defult Value For DropDown--%>
                 <asp:DropDownList ID="ddlCustomer" runat="server"
-                     DataSourceID="dtasrcCustomer"
-                     DataTextField="CustomerName"
-                     DataValueField="CustomerID">
+                    DataSourceID="dtasrcCustomer"
+                    DataTextField="CustomerName"
+                    DataValueField="CustomerID"
+                    AppendDataBoundItems="true">
+                    <asp:ListItem Value="">- Select -</asp:ListItem>
                 </asp:DropDownList>
             </asp:TableCell>
             <asp:TableCell>
@@ -90,8 +92,8 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddTruck" runat="server" Text="<-Add" Width="75"  />
-                                            <asp:Button ID="btnRemoveTruck" runat="server" Text="Remove->" Width="75"  />
+                                            <asp:Button ID="btnAddTruck" runat="server" Text="<-Add" Width="75" OnClick="btnAddTruck_Click"  />
+                                            <asp:Button ID="btnRemoveTruck" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveTruck_Click"  />
                                             <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
@@ -151,17 +153,13 @@
                                             <%-- need to add DataSourceID, DataTextField, and DataValueField with Equipment query to allow selection of available Equipment--%>
                                         </asp:TableCell>
                                     </asp:TableRow>
-                                    <asp:TableRow>
-                                        <asp:TableCell>
-                                            <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click"/>
-                                        </asp:TableCell>
-                                    </asp:TableRow>
                                 </asp:Table>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
                 </div>
                 <%-- end of hideable "pickup" div --%>
+                <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click"/>
             </asp:TableCell>
         </asp:TableRow>
         

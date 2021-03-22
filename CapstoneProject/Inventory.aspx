@@ -32,7 +32,13 @@
                         <asp:Label ID="lblDropDownListnv" runat="server" Text="Choose a Service to View Inventory For"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                     <asp:dropDownList ID="ddlInv" runat="server" AutoPostBack="true" DataSourceID="datasrcInvList" DataTextField="fullDate" DataValueField="CustomerID" OnSelectedIndexChanged="ddlInv_SelectedIndexChanged1" ></asp:dropDownList>
+                     <asp:dropDownList ID="ddlInv" runat="server" AutoPostBack="true" DataSourceID="datasrcInvList" 
+                         DataTextField="fullDate" 
+                         DataValueField="CustomerID" 
+                         OnSelectedIndexChanged="ddlInv_SelectedIndexChanged1" 
+                         AppendDataBoundItems="true">
+                         <asp:ListItem Value="">- Select -</asp:ListItem>
+                     </asp:dropDownList>
                     </asp:TableCell>
                 </asp:TableRow>  
           </asp:Table>
@@ -54,10 +60,10 @@
                         <asp:TextBox ID="txtItemName1" runat="server"></asp:TextBox>
                     </asp:TableCell>
                         <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" 
-                ControlToValidate="txtItemName1" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
+                                ControlToValidate="txtItemName1" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                         </asp:TableCell>
-                 </asp:TableRow> 
+                    </asp:TableRow> 
                  <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblItemCost" runat="server" Text="Item Cost"></asp:Label>

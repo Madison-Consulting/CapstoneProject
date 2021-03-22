@@ -94,48 +94,55 @@ namespace Lab2
 
         protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, Service.CustomerID, ServiceType, ServiceDate," +
-                "EstimatedCost, CompletionDate, VehicleUsed, Service.ServiceID, MoveTime, FoodCost, FuelCost, LodgingCost," +
-                "EquipmentNeeded, DestinationAddress, DestinationCity, DestinationState, DestinationZip, NoteHeader, Note, ServiceTicket.ServiceTicketID FROM Service RIGHT OUTER JOIN ServiceTicket ON Service.ServiceID = ServiceTicket.ServiceID WHERE Service.CustomerID  = @CustomerID", con);
-
-
-            cmd.Parameters.AddWithValue("@CustomerID", ddlService.SelectedValue);
-
-            SqlDataReader myReader = cmd.ExecuteReader();
-            if (myReader.HasRows)
+            if (ddlService.SelectedValue.Equals(""))
             {
-                while (myReader.Read())
-                {
-                    txtFirstName.Text = Convert.ToString(myReader[0]);
-                    txtLastName.Text = Convert.ToString(myReader[1]);
-                    txtCustID1.Text = Convert.ToString(myReader[2]);
-                    txtServType1.Text = Convert.ToString(myReader[3]);
-                    txtDate1.Text = Convert.ToString(myReader[4]);
-                    txtEstCost1.Text = Convert.ToString(myReader[5]);
-                    txtCompDate1.Text = Convert.ToString(myReader[6]);
-                    txtVehicleUsed1.Text = Convert.ToString(myReader[7]);
-                    txtServiceID1.Text = Convert.ToString(myReader[8]);
-                    txtMoveTime1.Text = Convert.ToString(myReader[9]);
-                    txtFoodCost1.Text = Convert.ToString(myReader[10]);
-                    txtFuelCost1.Text = Convert.ToString(myReader[11]);
-                    txtLodgeCost1.Text = Convert.ToString(myReader[12]);
-                    txtEquip1.Text = Convert.ToString(myReader[13]);
-                    txtDestinationAddress1.Text = Convert.ToString(myReader[14]);
-                    txtDestinationCity1.Text = Convert.ToString(myReader[15]);
-                    txtDestinationState1.Text = Convert.ToString(myReader[16]);
-                    txtDestinationZip1.Text = Convert.ToString(myReader[17]);
-                    txtHeader.Text = Convert.ToString(myReader[18]);
-                    txtNote.Text = Convert.ToString(myReader[19]);
-                    txtServTicketID.Text = Convert.ToString(myReader[20]);
-
-
-                }
-                myReader.Close();
+                btnClearServ_Click(sender, e);
             }
-            con.Close();
 
+            else
+            {
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, Service.CustomerID, ServiceType, ServiceDate," +
+                    "EstimatedCost, CompletionDate, VehicleUsed, Service.ServiceID, MoveTime, FoodCost, FuelCost, LodgingCost," +
+                    "EquipmentNeeded, DestinationAddress, DestinationCity, DestinationState, DestinationZip, NoteHeader, Note, ServiceTicket.ServiceTicketID FROM Service RIGHT OUTER JOIN ServiceTicket ON Service.ServiceID = ServiceTicket.ServiceID WHERE Service.CustomerID  = @CustomerID", con);
+
+
+                cmd.Parameters.AddWithValue("@CustomerID", ddlService.SelectedValue);
+
+                SqlDataReader myReader = cmd.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        txtFirstName.Text = Convert.ToString(myReader[0]);
+                        txtLastName.Text = Convert.ToString(myReader[1]);
+                        txtCustID1.Text = Convert.ToString(myReader[2]);
+                        txtServType1.Text = Convert.ToString(myReader[3]);
+                        txtDate1.Text = Convert.ToString(myReader[4]);
+                        txtEstCost1.Text = Convert.ToString(myReader[5]);
+                        txtCompDate1.Text = Convert.ToString(myReader[6]);
+                        txtVehicleUsed1.Text = Convert.ToString(myReader[7]);
+                        txtServiceID1.Text = Convert.ToString(myReader[8]);
+                        txtMoveTime1.Text = Convert.ToString(myReader[9]);
+                        txtFoodCost1.Text = Convert.ToString(myReader[10]);
+                        txtFuelCost1.Text = Convert.ToString(myReader[11]);
+                        txtLodgeCost1.Text = Convert.ToString(myReader[12]);
+                        txtEquip1.Text = Convert.ToString(myReader[13]);
+                        txtDestinationAddress1.Text = Convert.ToString(myReader[14]);
+                        txtDestinationCity1.Text = Convert.ToString(myReader[15]);
+                        txtDestinationState1.Text = Convert.ToString(myReader[16]);
+                        txtDestinationZip1.Text = Convert.ToString(myReader[17]);
+                        txtHeader.Text = Convert.ToString(myReader[18]);
+                        txtNote.Text = Convert.ToString(myReader[19]);
+                        txtServTicketID.Text = Convert.ToString(myReader[20]);
+
+
+                    }
+                    myReader.Close();
+                }
+                con.Close();
+            }
         }
 
 
