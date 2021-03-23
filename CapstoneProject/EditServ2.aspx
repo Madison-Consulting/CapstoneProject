@@ -297,11 +297,6 @@
                         <asp:TextBox ID="txtYourName" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
-                 <asp:TableRow>
-                            <asp:TableCell>
-                        <asp:TextBox ID="txtYourEmployeeID" runat="server" Visible="false"></asp:TextBox>
-                    </asp:TableCell>
-                </asp:TableRow>
                         <asp:TableRow>
                      <asp:TableCell>
                         <asp:TextBox ID="txtServTicketID" runat="server" Visible ="false"></asp:TextBox>

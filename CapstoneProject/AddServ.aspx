@@ -268,11 +268,6 @@
                 <asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
             </asp:TableCell>
              </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:TextBox ID="txtEmployeeID" runat="server" Visible="false"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
                  <asp:TableRow>
                      <asp:TableCell>
                         <asp:Label ID="lblEmpName" runat="server" Text="Your Name"></asp:Label>

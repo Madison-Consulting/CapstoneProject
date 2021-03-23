@@ -91,7 +91,6 @@ namespace Lab2
             txtServiceID1.Text = ServID.ToString();
             txtTicketID.Text = ServTicketID.ToString();
             txtStatus.Text = "Open";
-            txtEmployeeID.Text = "481947219";
             txtEmpName.Text = "Caitlyn Meyer";
 
         }
@@ -110,7 +109,7 @@ namespace Lab2
 
 
             String query = "INSERT INTO Service VALUES (@FirstName, @LastName, @CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @VehicleUsed, " +
-                "@ServiceID, @MoveTime, @FoodCost, @FuelCost, @LodgeCost, @Equipment, @DestAddress, @DestCity, @DestState, @DestZip, @Header, @Note, @EmpID)";
+                "@ServiceID, @MoveTime, @FoodCost, @FuelCost, @LodgeCost, @Equipment, @DestAddress, @DestCity, @DestState, @DestZip, @Header, @Note, @EmpName)";
             SqlCommand cmd = new SqlCommand(query, con);
 
             cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
@@ -133,7 +132,7 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
             cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
             cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
-            cmd.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(txtEmployeeID.Text));
+            cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -156,13 +155,12 @@ namespace Lab2
                 con.Open();
 
 
-                String query = "INSERT INTO ServiceTicket VALUES (@TicketID, @Status, @CustomerID, @ServiceID, @EmployeeID, @EmpName)";
+                String query = "INSERT INTO ServiceTicket VALUES (@TicketID, @Status, @CustomerID, @ServiceID, @EmpName)";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
                 cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
                 cmd.Parameters.AddWithValue("@TicketID", HttpUtility.HtmlEncode(txtTicketID.Text));
                 cmd.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode(txtStatus.Text));
-                cmd.Parameters.AddWithValue("@EmployeeID", HttpUtility.HtmlEncode(txtEmployeeID.Text));
                 cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
 
 

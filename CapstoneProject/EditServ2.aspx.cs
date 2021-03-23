@@ -18,7 +18,6 @@ namespace Lab2
             {
                 txtDateTime.Text = DateTime.Now.ToString();
                 txtYourName.Text = "Kevin Jonas";
-                txtYourEmployeeID.Text = "481947219";
             }
 
         }
@@ -158,12 +157,11 @@ namespace Lab2
             con.Open();
 
 
-            String query = "INSERT INTO TicketHistory VALUES ('" + HistoryTicketID + "',@DateTime, @ServTicketID, @YourEmpID, @EmpName)";
+            String query = "INSERT INTO TicketHistory VALUES ('" + HistoryTicketID + "',@DateTime, @ServTicketID, @EmpName)";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@DateTime", HttpUtility.HtmlEncode(txtDateTime.Text));
             cmd.Parameters.AddWithValue("@ServTicketID", HttpUtility.HtmlEncode(txtServTicketID.Text));
-            cmd.Parameters.AddWithValue("@YourEmpID", HttpUtility.HtmlEncode(txtYourEmployeeID.Text));
             cmd.Parameters.AddWithValue("@Empname", HttpUtility.HtmlEncode(txtYourName.Text));
             try
             {
@@ -215,7 +213,7 @@ namespace Lab2
             grdvwTicketDisplay1.DataSource = null;
             grdvwTicketDisplay1.DataBind();
 
-            SqlCommand cmd = new SqlCommand("SELECT TicketHistory.TicketChangeDate, TicketHistory.EmpName, ServiceTicket.InitiatingEmpName, Customer.CustLastName FROM TicketHistory INNER JOIN ServiceTicket ON TicketHistory.ServiceTicketID = ServiceTicket.ServiceTicketID INNER JOIN Customer ON Customer.CustomerID = ServiceTicket.CustomerID WHERE ServiceID = @ServiceID;", con);
+            SqlCommand cmd = new SqlCommand("SELECT TicketHistory.TicketChangeDate, TicketHistory.EmpNameTicket, ServiceTicket.InitiatingEmpName, Customer.CustLastName FROM TicketHistory INNER JOIN ServiceTicket ON TicketHistory.ServiceTicketID = ServiceTicket.ServiceTicketID INNER JOIN Customer ON Customer.CustomerID = ServiceTicket.CustomerID WHERE ServiceID = @ServiceID;", con);
 
             cmd.Parameters.AddWithValue("ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
 
@@ -234,7 +232,7 @@ namespace Lab2
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.Cells[0].Text = "Ticket Change Date";
-                e.Row.Cells[1].Text = "Your Name";
+                e.Row.Cells[1].Text = "Next Employee";
                 e.Row.Cells[2].Text = "Initiating Employee Name";
                 e.Row.Cells[3].Text = " Customer Last Name";
             }
