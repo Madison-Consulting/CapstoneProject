@@ -24,6 +24,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table tblInitialContact;
 
         /// <summary>
+        /// btnPopulateInitial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPopulateInitial;
+
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
+
+        /// <summary>
         /// txtCustomerID control.
         /// </summary>
         /// <remarks>
@@ -276,21 +294,30 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnSaveInitial;
 
         /// <summary>
-        /// btnPopulateInitial control.
+        /// btnAddService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPopulateInitial;
+        protected global::System.Web.UI.WebControls.Button btnAddService;
 
         /// <summary>
-        /// btnClear control.
+        /// txtFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
+        protected global::System.Web.UI.WebControls.TextBox txtFN;
+
+        /// <summary>
+        /// txtLN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLN;
     }
 }

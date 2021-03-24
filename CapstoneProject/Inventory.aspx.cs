@@ -57,8 +57,23 @@ namespace Lab2
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
 
+                string query1 = "SELECT ServiceID FROM Service WHERE CustomerLastName = @lastname;";
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                cmd1.Parameters.AddWithValue("@lastname", HttpUtility.HtmlEncode(txtCustName.Text));
+                SqlDataReader myReader3 = cmd1.ExecuteReader();
+                if (myReader3.HasRows)
+                {
+                    while (myReader3.Read())
+                    {
+                        txtServiceID1.Text = Convert.ToString(myReader3[0]);
+                        
+                    }
+                    myReader3.Close();
+                }
+                
 
-                String query = "INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES (@ItemName, @InventoryDate, @Cost, @ServiceID)";
+
+            String query = "INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES (@ItemName, @InventoryDate, @Cost, @ServiceID)";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@ItemName", HttpUtility.HtmlEncode(txtItemName1.Text));
@@ -78,8 +93,7 @@ namespace Lab2
             txtItemName1.Text = "Desk";
             txtInventoryDate1.Text = "03/22/2020";
             txtItemCost1.Text = "210";
-            txtServiceID1.Text = "837164";
-            txtCustName.Text = "John Crogh";
+            txtCustName.Text = "Crogh";
         }
 
 

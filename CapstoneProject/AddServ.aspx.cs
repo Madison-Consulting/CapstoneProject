@@ -16,7 +16,6 @@ namespace Lab2
         //button click methods, most buttons do not get used for this lab
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
             {
                 txtFirstName.Text = (string)Session["FName"];
                 txtLastName.Text = (string)Session["LName"];
@@ -68,10 +67,7 @@ namespace Lab2
             Random rnd2 = new Random();
             int ServTicketID = rnd2.Next(10000, 100000);
 
-            txtCustID1.Text = "111736162";
             txtServType1.Text = "Moving";
-            txtFirstName.Text = "James";
-            txtLastName.Text = "Crane";
             txtMoveTime1.Text = "2";
             txtFoodCost1.Text = "20";
             txtDate1.Text = "11/05/2020";

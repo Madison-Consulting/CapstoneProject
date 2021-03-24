@@ -3,6 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
               <asp:Table ID="tblInitialContact" runat="server">
+              <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Button ID="btnPopulateInitial" runat="server" Text="Populate" OnClick="btnPopulateInitial_Click" CausesValidation ="false"  />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                </asp:TableRow>
                  <asp:TableRow>
                      <asp:TableCell>
                          <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
@@ -115,20 +125,18 @@
 
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="4">
                         <asp:Button ID="btnSaveInitial" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Button ID="btnPopulateInitial" runat="server" Text="Populate" OnClick="btnPopulateInitial_Click" CausesValidation ="false"  />
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="4">
+                        <asp:Button ID="btnAddService" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
-                    </asp:TableCell>
-                </asp:TableRow>
+
             </asp:Table>
+    <asp:TextBox ID="txtFN" runat="server" Visible="true"></asp:TextBox>
+    <asp:TextBox ID="txtLN" runat="server" Visible="true"></asp:TextBox>
 </asp:Content>

@@ -105,9 +105,18 @@ namespace Lab3
 
             protected void btnInitialContact_Click(object sender, EventArgs e)
             {
+                Session["FName"] = txtFirstName.Text;
+                Session["LName"] = txtLastName.Text;
+                Session["ID"] = txtCustomerID.Text;
                 Response.Redirect("InitialContact.aspx");
             }
 
-
+        protected void btnAddService_Click(object sender, EventArgs e)
+        {
+            Session["FName"] = txtFirstName.Text;
+            Session["LName"] = txtLastName.Text;
+            Session["ID"] = txtCustomerID.Text;
+            Response.Redirect("AddServ.aspx");
         }
     }
+}

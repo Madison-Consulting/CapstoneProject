@@ -13,21 +13,12 @@
                          <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnCommitAddCust" runat="server" Text="Commit" OnClick="btnCommitAddCust_Click"/>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Button ID="btnInitialContact" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
-                    </asp:TableCell>
-                </asp:TableRow>
+
             </asp:Table>
 
 
 <%--            Form to Add Customer Data--%>
-            <asp:Table ID="Table3" runat="server" Width="1244px">
+            <asp:Table ID="Table3" runat="server" Width="1056px">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -135,6 +126,21 @@
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtZip" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnCommitAddCust" runat="server" Text="Add Customer" OnClick="btnCommitAddCust_Click"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnInitialContact" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnAddService" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

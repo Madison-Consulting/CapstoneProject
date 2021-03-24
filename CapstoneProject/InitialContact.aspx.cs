@@ -13,10 +13,11 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            txtCustomerID.Text = (string)Session["ID"];
-            string fn = (string)Session["Firstname"];
-            string ln = (string)Session["Lastname"];
+            {
+                txtCustomerID.Text = (string)Session["ID"];
+                txtFN.Text = (string)Session["FName"];
+                txtLN.Text = (string)Session["LName"];
+            }
 
             if (!IsPostBack)
             {
@@ -179,6 +180,14 @@ namespace Lab3
                 txtMovingState.Enabled = true;
                 txtMovingZip.Enabled = true;
             }
+        }
+
+        protected void btnAddService_Click(object sender, EventArgs e)
+        {
+            Session["FName"] = txtFN.Text;
+            Session["LName"] = txtLN.Text;
+            Session["ID"] = txtCustomerID.Text;
+            Response.Redirect("AddServ.aspx");
         }
     }
 }

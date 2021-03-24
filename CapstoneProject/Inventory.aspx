@@ -90,7 +90,7 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblCustName" runat="server" Text="Customer Name"></asp:Label>
+                        <asp:Label ID="lblCustName" runat="server" Text="Customer Last Name"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtCustName" runat="server"></asp:TextBox>

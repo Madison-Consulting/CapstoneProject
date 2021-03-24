@@ -2,20 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <asp:Table ID="Table2" runat="server" Width="300px" HorizontalAlign="Right">
-
-                <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="Center">
-                         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="Center">
-                        <asp:Button ID="btnUpdateCust" runat="server" Text="Update Customer" OnClick="btnUpdateCust_Click" />
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-
 
 <%--            Form to Add Customer Data--%>
 
@@ -34,6 +20,24 @@
                      </asp:dropDownList>
                     </asp:TableCell>
                 </asp:TableRow>
+                  <asp:TableRow>
+                      <asp:TableCell>
+                          <asp:Label ID="lblCustSearch" runat="server" Text="Or Search by Customer Name (First or Last)"></asp:Label>
+                      </asp:TableCell>
+                      <asp:TableCell>
+                          <asp:TextBox ID="txtCustSearch" runat="server"></asp:TextBox>
+                      </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow>
+                      <asp:TableCell>
+                          <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false"/>
+                      </asp:TableCell>
+                  </asp:TableRow>
+                  <asp:TableRow>
+                      <asp:TableCell>
+                          <asp:Label ID="lblSearchStatus" runat="server" Text=""></asp:Label>
+                      </asp:TableCell>
+                  </asp:TableRow>
                 </asp:Table>
 
                 <asp:Table ID="Table5" runat="server">
@@ -155,6 +159,16 @@
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtCustomerID" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center" >
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnUpdateCust" runat="server" Text="Update Customer" OnClick="btnUpdateCust_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="2">
+                         <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
