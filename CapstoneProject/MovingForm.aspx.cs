@@ -25,6 +25,8 @@ namespace CapstoneProject
             HttpUtility.HtmlEncode(txtDistance.Text);
             HttpUtility.HtmlEncode(ddlDriveway.Text);
 
+            Response.Redirect("MoveFormPt2.aspx");
+
 
             if (txtLoad.Text != "" && txtStories.Text != "" && txtDistance.Text != "" && ddlDriveway.Text != "") // fields must be filled
             {
@@ -92,10 +94,7 @@ namespace CapstoneProject
 
         }
 
-        protected void btnNext_Click(System.Object sender, System.EventArgs e)
-        {
-            Response.Redirect("MoveFormPt2.aspx");
-        }
+
 
         protected void ddlDriveway_SelectedIndexChanged(object sender, EventArgs e)
         {
