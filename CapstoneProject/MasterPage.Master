@@ -19,38 +19,39 @@
                             <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell ColumnSpan="7" HorizontalAlign="Right"> 
-                            <asp:Button ID="btnLogout" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                            <asp:ImageButton ID="UserIcon" runat="server" ImageUrl="/Image/UserIcon.jpg" Height="40" Width="40"/>
+                            <asp:Button ID="btnLogout" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                         </asp:TableCell>
                     </asp:TableRow>
 
 
                     <asp:TableRow>
                          <asp:TableCell>
-                            <asp:Button ID="btnViewInventory" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="View Inventory" OnClick="btnViewInventory_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnViewInventory" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BorderRadius="5" BackColor="#26754e" ForeColor="White" runat="server" Text="View Inventory" OnClick="btnViewInventory_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Customer" OnClick="btnAddCustomer_Click" CausesValidation="false" />
+                            <asp:Button ID="btnAddCustomer" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Customer" OnClick="btnAddCustomer_Click" CausesValidation="false" />
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnAddServiceEvent" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Service Event" OnClick="btnAddServiceEvent_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnAddServiceEvent" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Add a Service Event" OnClick="btnAddServiceEvent_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnEditViewCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Customer" OnClick="btnEditViewCustomer_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnEditViewCustomer" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Customer" OnClick="btnEditViewCustomer_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnEditViewServiceEvent" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
+                            <asp:Button ID="btnEditViewServiceEvent" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Edit/View Service Event" OnClick="btnEditViewServiceEvent_Click" CausesValidation="false" />
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnMovingForm" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Moving Form" OnClick="btnMovingForm_Click" CausesValidation="false" />
+                            <asp:Button ID="btnMovingForm" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Moving Form" OnClick="btnMovingForm_Click" CausesValidation="false" />
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnAuctionForm" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Auction Form" OnClick="btnAuctionForm_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnAuctionForm" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Auction Form" OnClick="btnAuctionForm_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnSearch" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnSearch" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Button ID="btnNotifications" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
+                            <asp:Button ID="btnNotifications" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Notifications" OnClick="btnNotifications_Click" CausesValidation="false"/>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
@@ -60,7 +61,7 @@
 
             <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1300px" >
+                <asp:Table ID="footer" runat="server" BackColor="#26754E" Width="1198px" BorderStyle="Outset" BorderWidth="3px" >
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
