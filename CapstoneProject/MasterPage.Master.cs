@@ -90,6 +90,11 @@ namespace Lab2
         {
             Response.Redirect("AuctionForm.aspx");
         }
+
+        protected void UserIcon_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 
 }
