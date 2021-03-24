@@ -10,7 +10,7 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblCustomer" runat="server" Text="Customer (consignor?)"></asp:Label>
+                <asp:Label ID="lblCustomer" runat="server" Text="Customer"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <%--Get Defult Value For DropDown--%>

@@ -36,15 +36,6 @@ namespace Lab3
 
                     sc.Open();
 
-                    System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
-                    createUser.Connection = sc;
-                    // INSERT USER RECORD
-                    createUser.CommandText = "INSERT INTO CustPerson (FirstName, LastName, Username) VALUES (@FName, @LName, @Username)";
-                    createUser.Parameters.Add(new SqlParameter("@FName", HttpUtility.HtmlEncode(txtFirstName.Text)));
-                    createUser.Parameters.Add(new SqlParameter("@LName", HttpUtility.HtmlEncode(txtLastName.Text)));
-                    createUser.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
-                    createUser.ExecuteNonQuery();
-
                     System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
                     setPass.Connection = sc;
                     // INSERT PASSWORD RECORD AND CONNECT TO USER
