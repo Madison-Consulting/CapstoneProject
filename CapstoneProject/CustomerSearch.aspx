@@ -11,11 +11,11 @@
                     <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="txtSearch" runat="server" Width="200"></asp:TextBox>
                     </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
                     </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblSearchStatus" runat="server" Text="" Width="200"></asp:Label>
                     </asp:TableCell>

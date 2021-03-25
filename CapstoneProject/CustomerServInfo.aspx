@@ -60,12 +60,12 @@
                 ControlToValidate="txtNeeds" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+                <asp:TableRow HorizontalAlign="Right">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+                <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                     </asp:TableCell>

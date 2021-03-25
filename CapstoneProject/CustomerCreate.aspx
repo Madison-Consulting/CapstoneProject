@@ -144,7 +144,7 @@
                 ControlToValidate="txtPhoneNo" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
-        <asp:TableRow HorizontalAlign="Center">
+        <asp:TableRow HorizontalAlign="Left">
             <asp:TableCell ColumnSpan="2">
                 <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </asp:TableCell>

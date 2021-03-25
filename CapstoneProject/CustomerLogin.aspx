@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+            <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="234px">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="3">
                         <asp:Label ID="lblWelcome" runat="server" Text="Welcome Back! Please Login to the Customer Portal." Font-Size="X-Large"></asp:Label>

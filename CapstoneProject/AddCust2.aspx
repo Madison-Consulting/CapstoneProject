@@ -128,17 +128,17 @@
                 ControlToValidate="txtZip" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="center">
+                <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnCommitAddCust" runat="server" Text="Add Customer" OnClick="btnCommitAddCust_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+                <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnInitialContact" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+                <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnAddService" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
