@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="MovingForm.aspx.cs" Inherits="CapstoneProject.MovingForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -9,7 +10,7 @@
                 <asp:Label ID="lblPlz" runat="server" Font-Bold="true" Text="Please, provide the following moving information!"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
-                <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblCustName" runat="server" Text="Customer Name: "></asp:Label>
             </asp:TableCell>
@@ -33,7 +34,7 @@
                 <asp:TextBox ID="txtDistance" runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
-         <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblLoad" runat="server" Text="Loading conditions: "></asp:Label>
             </asp:TableCell>
@@ -57,11 +58,10 @@
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
-                <asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
                 <asp:Button ID="btnCommit" runat="server" Text="Next" OnClick="btnCommit_Click" />
-                <asp:LinkButton ID="lnkAnother" runat="server" OnClick="lnkAnother_Click" Visible="False">Create Another</asp:LinkButton>
-               
-                <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"/>
+
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>

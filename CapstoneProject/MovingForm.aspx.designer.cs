@@ -123,24 +123,6 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.DropDownList ddlDriveway;
 
         /// <summary>
-        /// btnCommit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCommit;
-
-        /// <summary>
-        /// lnkAnother control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAnother;
-
-        /// <summary>
         /// btnBack control.
         /// </summary>
         /// <remarks>
@@ -148,6 +130,15 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBack;
+
+        /// <summary>
+        /// btnCommit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCommit;
 
         /// <summary>
         /// lblStatus control.

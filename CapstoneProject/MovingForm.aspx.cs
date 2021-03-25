@@ -19,14 +19,6 @@ namespace CapstoneProject
 
         protected void btnCommit_Click(object sender, EventArgs e)
         {
-            // Connection to the customer database
-            HttpUtility.HtmlEncode(txtLoad.Text);
-            HttpUtility.HtmlEncode(txtStories.Text);
-            HttpUtility.HtmlEncode(txtDistance.Text);
-            HttpUtility.HtmlEncode(ddlDriveway.Text);
-
-            Response.Redirect("MoveFormPt2.aspx");
-
 
             if (txtLoad.Text != "" && txtStories.Text != "" && txtDistance.Text != "" && ddlDriveway.Text != "") // fields must be filled
             {
@@ -37,37 +29,26 @@ namespace CapstoneProject
 
                     lblStatus.Text = "Database Connection Successful";
 
-
                     //sc.Open();
-
-
                     sc.Open();
 
-
-                    System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
-                    createUser.Connection = sc;
+                    System.Data.SqlClient.SqlCommand createMove = new System.Data.SqlClient.SqlCommand();
+                    createMove.Connection = sc;
                     // INSERT USER RECORD
-                    createUser.CommandText = "INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition) VALUES (@HouseStories, @TruckDistance, @Accessibility, @LoadingCondition)";
-                    createUser.Parameters.Add(new SqlParameter("@HouseStories", txtStories.Text));
-                    createUser.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
-                    createUser.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
-                    createUser.Parameters.Add(new SqlParameter("@Accessibility", ddlDriveway.Text));
-                    createUser.ExecuteNonQuery();
+                    createMove.CommandText = "INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition, ServiceID) VALUES (@HouseStories, @TruckDistance, @Accessibility, @LoadingCondition, @ServiceID)";
+                    createMove.Parameters.Add(new SqlParameter("@HouseStories", txtStories.Text));
+                    createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
+                    createMove.Parameters.Add(new SqlParameter("@Accessibility", ddlDriveway.Text));
+                    createMove.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
+                    createMove.Parameters.Add(new SqlParameter("@ServiceID", "837164"));
+                    createMove.ExecuteNonQuery();
 
-
-
-
+                    //find most recent move ID (from code executed directly above^) and set it as session variable
+                    SqlDataAdapter sqlDAMoveFormID = new SqlDataAdapter("select max(MoveFormID) from MoveForm", sc);
+                    DataTable dtMoveFormID = new DataTable();
+                    sqlDAMoveFormID.Fill(dtMoveFormID);
+                    Session["MoveFormID"] = dtMoveFormID.Rows[0][0].ToString();
                     sc.Close();
-
-                    lblStatus.Text = "Information committed!";
-                    txtStories.Enabled = false;
-                    txtLoad.Enabled = false;
-                    txtDistance.Enabled = false;
-                    ddlDriveway.Enabled = false;
-
-                    btnCommit.Enabled = false;
-                    lnkAnother.Visible = true;
-
                 }
                 catch
                 {
@@ -77,21 +58,8 @@ namespace CapstoneProject
             }
             else
                 lblStatus.Text = "Please fill all fields";
-        }
 
-        protected void lnkAnother_Click(object sender, EventArgs e)
-        {
-            txtStories.Enabled = true;
-            txtLoad.Enabled = true;
-            txtDistance.Enabled = true;
-            ddlDriveway.Enabled = true;
-            btnCommit.Enabled = true;
-            lnkAnother.Visible = false;
-            txtStories.Text = "";
-            txtLoad.Text = "";
-            txtDistance.Text = "";
-            ddlDriveway.Text = "";
-
+            Response.Redirect("MoveFormPt2.aspx");
         }
 
 
