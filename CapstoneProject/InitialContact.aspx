@@ -2,8 +2,27 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 10% ">
-              <asp:Table ID="tblInitialContact" runat="server">
+    <div style="width: 99%; margin: 0 10%;" >
+                        <asp:Table ID="tblTxtBox" runat="server" style="display:inline-block">
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell>
+                        <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtHeader" runat="server" Width="250px" ></asp:TextBox>
+
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows ="20" Width="250px"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+
+              <asp:Table ID="tblInitialContact" runat="server" style="display:inline-block" width="700px">
               <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnPopulateInitial" runat="server" Text="Populate" OnClick="btnPopulateInitial_Click" CausesValidation ="false"  />
@@ -21,15 +40,14 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblContact" runat="server" Text="How did the Customer Initally Contact Us?"></asp:Label>
+                        <asp:Label ID="lblContact" runat="server" Text="Wha Type of Contact does the Customer Prefer?"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:DropDownList ID="ddlContact" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlContact_SelectedIndexChanged">
-                            <asp:ListItem Value ="In Person">In Person</asp:ListItem>
                             <asp:ListItem Value ="By Phone">By Phone</asp:ListItem>
                             <asp:ListItem Value ="Email">Email</asp:ListItem>
                             <asp:ListItem Value ="Text">Text</asp:ListItem>
-                            <asp:ListItem Selected="true" Value ="Other">Other</asp:ListItem>
+                            <asp:ListItem Selected="true" Value ="Select">--Select--</asp:ListItem>
                         </asp:DropDownList>
                     </asp:TableCell>
                     <asp:TableCell ColumnSpan="2">
@@ -50,13 +68,24 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblServInterested" runat="server" Text="What Service Are you Interested in Today?"></asp:Label>
+                        <asp:Label ID="lblServInterested" runat="server" Text="What Service are they Interested in?"></asp:Label>
                     </asp:TableCell>
-                    <asp:TableCell>
+           <%--         <asp:TableCell>
                         <asp:RadioButtonList ID="rdobtnServ" runat="server"  OnSelectedIndexChanged="rdobtnServ_SelectedIndexChanged1">
                             <asp:ListItem Value="Auction">Auction</asp:ListItem>
                             <asp:ListItem Value="Moving" Selected="True">Moving</asp:ListItem>
                         </asp:RadioButtonList>
+                    </asp:TableCell>--%>
+                    <asp:TableCell>
+                        <asp:CheckBoxList ID="chkService" runat="server">
+                           <asp:ListItem ID="chkMoveAsses" runat="server" Value ="Move Assessment" Text="Move Assessment"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionLookAt" runat="server"  Value ="Auction Look At" Text ="Auction Look At"></asp:ListItem>
+                           <asp:ListItem ID="chkAppraisal" runat="server" Value ="Appraisal" Text="Appraisal"></asp:ListItem>
+                           <asp:ListItem ID="chkMove" runat="server" Value="Move" Text="Move"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionPickUp" runat="server" Value="Auction Pick Up" Text="Auction Pick Up"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionBringIn" runat="server" Value ="Auction Bring In" Text="Auction Bring In"></asp:ListItem>
+                           <asp:ListItem ID="chkConsignmentShop" runat="server" Value="Consignment Shop" Text="Consignment Shop"></asp:ListItem>
+                        </asp:CheckBoxList>
                     </asp:TableCell>
                 </asp:TableRow>
                  <asp:TableRow>
@@ -140,5 +169,7 @@
             </asp:Table>
     <asp:TextBox ID="txtFN" runat="server" Visible="false"></asp:TextBox>
     <asp:TextBox ID="txtLN" runat="server" Visible="false"></asp:TextBox>
+
+    
         </div>
 </asp:Content>

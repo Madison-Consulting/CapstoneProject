@@ -67,7 +67,7 @@ namespace Lab2
             Random rnd2 = new Random();
             int ServTicketID = rnd2.Next(10000, 100000);
 
-            txtServType1.Text = "Moving";
+            rdoServType.SelectedValue = "Move";
             txtMoveTime1.Text = "2";
             txtFoodCost1.Text = "20";
             txtDate1.Text = "11/05/2020";
@@ -103,36 +103,40 @@ namespace Lab2
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
+            try
+            {
+                String query = "INSERT INTO Service VALUES (@FirstName, @LastName, @CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @VehicleUsed, " +
+                    "@ServiceID, @MoveTime, @FoodCost, @FuelCost, @LodgeCost, @Equipment, @DestAddress, @DestCity, @DestState, @DestZip, @Header, @Note, @EmpName)";
+                SqlCommand cmd = new SqlCommand(query, con);
 
-            String query = "INSERT INTO Service VALUES (@FirstName, @LastName, @CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @VehicleUsed, " +
-                "@ServiceID, @MoveTime, @FoodCost, @FuelCost, @LodgeCost, @Equipment, @DestAddress, @DestCity, @DestState, @DestZip, @Header, @Note, @EmpName)";
-            SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
+                cmd.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
+                cmd.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
+                cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(rdoServType.SelectedValue));
+                cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
+                cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
+                cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
+                cmd.Parameters.AddWithValue("@VehicleUsed", HttpUtility.HtmlEncode(txtVehicleUsed1.Text));
+                cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
+                cmd.Parameters.AddWithValue("@MoveTime", HttpUtility.HtmlEncode(txtMoveTime1.Text));
+                cmd.Parameters.AddWithValue("@FoodCost", HttpUtility.HtmlEncode(txtFoodCost1.Text));
+                cmd.Parameters.AddWithValue("@FuelCost", HttpUtility.HtmlEncode(txtFuelCost1.Text));
+                cmd.Parameters.AddWithValue("@LodgeCost", HttpUtility.HtmlEncode(txtLodgeCost1.Text));
+                cmd.Parameters.AddWithValue("@Equipment", HttpUtility.HtmlEncode(txtEquip1.Text));
+                cmd.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestinationAddress1.Text));
+                cmd.Parameters.AddWithValue("@DestCity", HttpUtility.HtmlEncode(txtDestinationCity1.Text));
+                cmd.Parameters.AddWithValue("@DestState", HttpUtility.HtmlEncode(txtDestinationState1.Text));
+                cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
+                cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
+                cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
+                cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
-            cmd.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
-            cmd.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
-            cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(txtServType1.Text));
-            cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
-            cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
-            cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
-            cmd.Parameters.AddWithValue("@VehicleUsed", HttpUtility.HtmlEncode(txtVehicleUsed1.Text));
-            cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
-            cmd.Parameters.AddWithValue("@MoveTime", HttpUtility.HtmlEncode(txtMoveTime1.Text));
-            cmd.Parameters.AddWithValue("@FoodCost", HttpUtility.HtmlEncode(txtFoodCost1.Text));
-            cmd.Parameters.AddWithValue("@FuelCost", HttpUtility.HtmlEncode(txtFuelCost1.Text));
-            cmd.Parameters.AddWithValue("@LodgeCost", HttpUtility.HtmlEncode(txtLodgeCost1.Text));
-            cmd.Parameters.AddWithValue("@Equipment", HttpUtility.HtmlEncode(txtEquip1.Text));
-            cmd.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestinationAddress1.Text));
-            cmd.Parameters.AddWithValue("@DestCity", HttpUtility.HtmlEncode(txtDestinationCity1.Text));
-            cmd.Parameters.AddWithValue("@DestState", HttpUtility.HtmlEncode(txtDestinationState1.Text));
-            cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
-            cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
-            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
-            cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-
+            } catch
+            {
+                lblStatus1.Text = "This customer does not exist";
+            }
 
 
         }

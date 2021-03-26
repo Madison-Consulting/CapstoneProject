@@ -6,7 +6,7 @@
 <%--            Form to Add Customer Data--%>
             <div style="width: auto; margin: 0 10% ">
               <asp:Table ID="Table3" runat="server">
-                <asp:TableRow>
+<%--                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblDropDown" runat="server" Text="Choose a Customer to View"></asp:Label>
                     </asp:TableCell>
@@ -19,10 +19,10 @@
                          <asp:ListItem Value="">- Select -</asp:ListItem>
                      </asp:dropDownList>
                     </asp:TableCell>
-                </asp:TableRow>
+                </asp:TableRow>--%>
                   <asp:TableRow>
                       <asp:TableCell>
-                          <asp:Label ID="lblCustSearch" runat="server" Text="Or Search by Customer Name (First or Last)"></asp:Label>
+                          <asp:Label ID="lblCustSearch" runat="server" Text="Search by Customer Name (First or Last)"></asp:Label>
                       </asp:TableCell>
                       <asp:TableCell>
                           <asp:TextBox ID="txtCustSearch" runat="server"></asp:TextBox>
@@ -38,7 +38,7 @@
                   </asp:TableRow>
                 </asp:Table>
 
-                <asp:Table ID="Table5" runat="server">
+<%--                <asp:Table ID="Table5" runat="server">
                   <asp:TableRow>
                       <asp:TableCell>
                     <asp:GridView runat="server" ID="grdvwCustDisplay" AutoPostBack = "true" EmptyDataText = "No Customer Selected!" ></asp:GridView>
@@ -48,7 +48,7 @@
             
                       <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' + CustLastName as fullName, CustomerID from Customer"></asp:SqlDataSource>
 
-                      <asp:SqlDataSource ID="datasrcServID" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT ServiceID from Service"></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="datasrcServID" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT ServiceID from Service"></asp:SqlDataSource>--%>
 
             <asp:Table ID="tblEditCust" runat="server" HorizontalAlign="Center">
                 <asp:TableRow>

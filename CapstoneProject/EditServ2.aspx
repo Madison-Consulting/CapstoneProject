@@ -43,6 +43,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+               
 
               <asp:Table ID ="tblHistory" runat="server" style="display:inline-block">
                 <asp:TableRow>
@@ -85,7 +86,7 @@
                 </asp:TableRow>
                         <asp:TableRow HorizontalAlign="Center">
                      <asp:TableCell ColumnSpan="2">
-                         <asp:Button ID ="btnTicketHistorySubmit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit New Ticket History"  OnClick ="btnTicketHistorySubmit_Click"/>
+                         <asp:Button ID ="btnTicketHistorySubmit" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Submit New Ticket History"  OnClick ="btnTicketHistorySubmit_Click"/>
                     </asp:TableCell>
                             <asp:TableCell>
                                 <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
@@ -98,7 +99,7 @@
                 </asp:TableRow>
 
     </asp:Table>
-    <asp:Table ID="tblServiceTicket" runat="server" style="display:inline-block;" > 
+             <asp:Table ID="tblServiceTicket" runat="server" style="display:block;" > 
        <asp:TableRow>
            <asp:TableCell>
                <asp:GridView runat="server" ID="grdvwTicketDisplay1" EmptyDataText="No Service Selected!" OnRowDataBound ="grdvwTicketDisplay_RowDataBound" ></asp:GridView>
@@ -106,14 +107,23 @@
        </asp:TableRow>
      </asp:Table>
 
+
      <asp:Table ID="Table3" runat="server" Width="65%" HorizontalAlign ="Center" style="display:inline-block; margin-right: 0px;" Height="90px">
                   <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblServiceType" runat="server" Text="Service Type (Moving or Auction)"></asp:Label>
+                        <asp:Label ID="lblServiceType" runat="server" Text="Service Type"></asp:Label>
                      </asp:TableCell> 
                      <asp:TableCell>
-                         <asp:TextBox ID="txtServType1" runat="server"></asp:TextBox>
-                    </asp:TableCell>                    
+                         <asp:RadioButtonList ID="rdoServType" runat="server">
+                           <asp:ListItem ID="chkMoveAsses" runat="server" Value ="Move Assessment" Text="Move Assessment"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionLookAt" runat="server"  Value ="Auction Look At" Text ="Auction Look At"></asp:ListItem>
+                           <asp:ListItem ID="chkAppraisal" runat="server" Value ="Appraisal" Text="Appraisal"></asp:ListItem>
+                           <asp:ListItem ID="chkMove" runat="server" Value="Move" Text="Move"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionPickUp" runat="server" Value="Auction Pick Up" Text="Auction Pick Up"></asp:ListItem>
+                           <asp:ListItem ID="chkAuctionBringIn" runat="server" Value ="Auction Bring In" Text="Auction Bring In"></asp:ListItem>
+                           <asp:ListItem ID="chkConsignmentShop" runat="server" Value="Consignment Shop" Text="Consignment Shop"></asp:ListItem>
+                        </asp:RadioButtonList>
+                    </asp:TableCell>                      
                 </asp:TableRow>
                  <asp:TableRow>
                      <asp:TableCell>
@@ -300,9 +310,6 @@
                     </asp:TableRow>--%>
          </asp:Table>
 
-
-    
-  
 
         </div>
 </asp:Content>

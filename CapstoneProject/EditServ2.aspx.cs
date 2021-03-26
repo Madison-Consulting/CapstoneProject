@@ -64,7 +64,7 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
             cmd.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
             cmd.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
-            cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(txtServType1.Text));
+            cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(rdoServType.SelectedValue));
             cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
             cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
             cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
@@ -114,7 +114,7 @@ namespace Lab2
                         txtFirstName.Text = Convert.ToString(myReader[0]);
                         txtLastName.Text = Convert.ToString(myReader[1]);
                         txtCustID1.Text = Convert.ToString(myReader[2]);
-                        txtServType1.Text = Convert.ToString(myReader[3]);
+                        rdoServType.SelectedValue = Convert.ToString(myReader[3]);
                         txtDate1.Text = Convert.ToString(myReader[4]);
                         txtEstCost1.Text = Convert.ToString(myReader[5]);
                         txtCompDate1.Text = Convert.ToString(myReader[6]);
@@ -153,12 +153,12 @@ namespace Lab2
             con.Open();
 
 
-            String query = "INSERT INTO TicketHistory VALUES ('" + HistoryTicketID + "',@DateTime, @ServTicketID, @EmpName)";
+            String query = "INSERT INTO TicketHistory VALUES '" + HistoryTicketID + "', @DateTime, @ServTicketID, @EmpName;";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@DateTime", HttpUtility.HtmlEncode(txtDateTime.Text));
             cmd.Parameters.AddWithValue("@ServTicketID", HttpUtility.HtmlEncode(txtServTicketID.Text));
-            cmd.Parameters.AddWithValue("@Empname", HttpUtility.HtmlEncode(txtYourName.Text));
+            cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtYourName.Text));
             try
             {
                 cmd.ExecuteNonQuery();

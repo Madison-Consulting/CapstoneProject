@@ -90,56 +90,56 @@ namespace Lab2
             con.Close();
         }
         //drop down list of current customers
-        protected void CustDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DropDownList1.SelectedValue.Equals(""))
-            {
-                btnClear_Click(sender, e);
-            }
-            else
-            {
-                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Select CustFirstName,CustLastName,PhoneNumber,Email,CustAddress,CustCity,CustState,CustZip,CustomerID FROM Customer WHERE CustomerID = @ln", con);
+        //protected void CustDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (DropDownList1.SelectedValue.Equals(""))
+        //    {
+        //        btnClear_Click(sender, e);
+        //    }
+        //    else
+        //    {
+        //        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //        con.Open();
+        //        SqlCommand cmd = new SqlCommand("Select CustFirstName,CustLastName,PhoneNumber,Email,CustAddress,CustCity,CustState,CustZip,CustomerID FROM Customer WHERE CustomerID = @ln", con);
 
-                cmd.Parameters.AddWithValue("@ln", DropDownList1.SelectedValue);
+        //        cmd.Parameters.AddWithValue("@ln", DropDownList1.SelectedValue);
 
-                SqlDataReader myReader3 = cmd.ExecuteReader();
-                if (myReader3.HasRows)
-                {
-                    while (myReader3.Read())
-                    {
-                        txtFirstName.Text = Convert.ToString(myReader3[0]);
-                        txtLastName.Text = Convert.ToString(myReader3[1]);
-                        txtPhoneNo.Text = Convert.ToString(myReader3[2]);
-                        txtEmail.Text = Convert.ToString(myReader3[3]);
-                        txtAddress.Text = Convert.ToString(myReader3[4]);
-                        txtCity.Text = Convert.ToString(myReader3[5]);
-                        txtState.Text = Convert.ToString(myReader3[6]);
-                        txtZip.Text = Convert.ToString(myReader3[7]);
-                        txtCustomerID.Text = Convert.ToString(myReader3[8]);
-                    }
-                    myReader3.Close();
-                }
-                con.Close();
-            }
-        }
+        //        SqlDataReader myReader3 = cmd.ExecuteReader();
+        //        if (myReader3.HasRows)
+        //        {
+        //            while (myReader3.Read())
+        //            {
+        //                txtFirstName.Text = Convert.ToString(myReader3[0]);
+        //                txtLastName.Text = Convert.ToString(myReader3[1]);
+        //                txtPhoneNo.Text = Convert.ToString(myReader3[2]);
+        //                txtEmail.Text = Convert.ToString(myReader3[3]);
+        //                txtAddress.Text = Convert.ToString(myReader3[4]);
+        //                txtCity.Text = Convert.ToString(myReader3[5]);
+        //                txtState.Text = Convert.ToString(myReader3[6]);
+        //                txtZip.Text = Convert.ToString(myReader3[7]);
+        //                txtCustomerID.Text = Convert.ToString(myReader3[8]);
+        //            }
+        //            myReader3.Close();
+        //        }
+        //        con.Close();
+        //    }
+        //}
         //view all customers in a grid view
-        protected void btnViewAll_Click(object sender, EventArgs e)
-        {
-            grdvwCustDisplay.DataSource = null;
-            grdvwCustDisplay.DataBind();
+        //protected void btnViewAll_Click(object sender, EventArgs e)
+        //{
+        //    grdvwCustDisplay.DataSource = null;
+        //    grdvwCustDisplay.DataBind();
 
-            String sqlQuery = "SELECT CustFirstName, CustLastName, Customer.CustomerID, Service.ServiceID, Service.ServiceDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID ORDER BY CustLastName";
+        //    String sqlQuery = "SELECT CustFirstName, CustLastName, Customer.CustomerID, Service.ServiceID, Service.ServiceDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID ORDER BY CustLastName";
 
 
-            SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
-            DataTable dtCustomerGridView = new DataTable();
-            sqlAdapter.Fill(dtCustomerGridView);
-            grdvwCustDisplay.DataSource = dtCustomerGridView;
-            grdvwCustDisplay.DataBind();
-        }
+        //    SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //    SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+        //    DataTable dtCustomerGridView = new DataTable();
+        //    sqlAdapter.Fill(dtCustomerGridView);
+        //    grdvwCustDisplay.DataSource = dtCustomerGridView;
+        //    grdvwCustDisplay.DataBind();
+        //}
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {

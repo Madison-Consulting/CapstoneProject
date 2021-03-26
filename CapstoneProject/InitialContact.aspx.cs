@@ -51,8 +51,7 @@ namespace Lab3
         protected void btnPopulateInitial_Click(object sender, EventArgs e)
         {
 
-            ddlContact.SelectedValue = "Other";
-            txtOther.Text = "Employee is a Friend";
+            ddlContact.SelectedValue = "Select";
             txtHearAbout.Text = "A friend";
             txtMovingAddress.Text = "432 South Main St";
             txtMovingCity.Text = "Harrisonburg";
@@ -84,23 +83,23 @@ namespace Lab3
             }
         }
 
-        protected void rdobtnServ_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (rdobtnServ.SelectedValue == "Auction")
-            {
-                txtMovingAddress.Enabled = false;
-                txtMovingCity.Enabled = false;
-                txtMovingState.Enabled = false;
-                txtMovingZip.Enabled = false;
-            }
-            else if (rdobtnServ.SelectedValue == "Moving")
-            {
-                txtMovingAddress.Enabled = true;
-                txtMovingCity.Enabled = true;
-                txtMovingState.Enabled = true;
-                txtMovingZip.Enabled = true;
-            }
-        }
+        //protected void rdobtnServ_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (rdobtnServ.SelectedValue == "Auction")
+        //    {
+        //        txtMovingAddress.Enabled = false;
+        //        txtMovingCity.Enabled = false;
+        //        txtMovingState.Enabled = false;
+        //        txtMovingZip.Enabled = false;
+        //    }
+        //    else if (rdobtnServ.SelectedValue == "Moving")
+        //    {
+        //        txtMovingAddress.Enabled = true;
+        //        txtMovingCity.Enabled = true;
+        //        txtMovingState.Enabled = true;
+        //        txtMovingZip.Enabled = true;
+        //    }
+        //}
 
         protected void ClearAllText(Control p1)
         {
@@ -127,7 +126,8 @@ namespace Lab3
 
         protected void btnSaveInitial_Click(object sender, EventArgs e)
         {
-
+            string selectedItems = String.Join(",", chkService.Items.OfType<ListItem>().Where(r => r.Selected)
+          .Select(r => r.Text));
 
             String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, " +
                 "MoveCity =  @MoveCity, MoveState = @MoveState, MoveZip = @MoveZip, DateTimeInitial = @DateTimeInitial, Deadline = @Deadline, Time1 = @Time1, Deadline2 = @Deadline2, " +
@@ -142,7 +142,7 @@ namespace Lab3
 
             cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustomerID.Text));
             cmd.Parameters.AddWithValue("@InitialContact", ddlContact.SelectedItem.Text);
-            cmd.Parameters.AddWithValue("@InterestedService", rdobtnServ.SelectedValue);
+            cmd.Parameters.AddWithValue("@InterestedService", selectedItems);
             cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(txtHearAbout.Text));
             cmd.Parameters.AddWithValue("@MoveAddress", HttpUtility.HtmlEncode(txtMovingAddress.Text));
             cmd.Parameters.AddWithValue("@MoveCity", HttpUtility.HtmlEncode(txtMovingCity.Text));
@@ -164,23 +164,23 @@ namespace Lab3
 
 
         }
-        protected void rdobtnServ_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            if (rdobtnServ.SelectedValue == "Auction")
-            {
-                txtMovingAddress.Enabled = false;
-                txtMovingCity.Enabled = false;
-                txtMovingState.Enabled = false;
-                txtMovingZip.Enabled = false;
-            }
-            else if (rdobtnServ.SelectedValue == "Moving")
-            {
-                txtMovingAddress.Enabled = true;
-                txtMovingCity.Enabled = true;
-                txtMovingState.Enabled = true;
-                txtMovingZip.Enabled = true;
-            }
-        }
+        //protected void rdobtnServ_SelectedIndexChanged1(object sender, EventArgs e)
+        //{
+        //    if (rdobtnServ.SelectedValue == "Auction")
+        //    {
+        //        txtMovingAddress.Enabled = false;
+        //        txtMovingCity.Enabled = false;
+        //        txtMovingState.Enabled = false;
+        //        txtMovingZip.Enabled = false;
+        //    }
+        //    else if (rdobtnServ.SelectedValue == "Moving")
+        //    {
+        //        txtMovingAddress.Enabled = true;
+        //        txtMovingCity.Enabled = true;
+        //        txtMovingState.Enabled = true;
+        //        txtMovingZip.Enabled = true;
+        //    }
+        //}
 
         protected void btnAddService_Click(object sender, EventArgs e)
         {

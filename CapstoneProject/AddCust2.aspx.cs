@@ -69,7 +69,9 @@ namespace Lab3
                 cmd.ExecuteNonQuery();
                 con.Close();
 
+            btnAddService.Enabled = true;
             }
+        
 
             //clear all data fields
             protected void btnClear_Click(object sender, EventArgs e)

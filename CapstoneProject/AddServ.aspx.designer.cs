@@ -105,22 +105,76 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblServiceType;
 
         /// <summary>
-        /// txtServType1 control.
+        /// rdoServType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtServType1;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoServType;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// chkMoveAsses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.ListItem chkMoveAsses;
+
+        /// <summary>
+        /// chkAuctionLookAt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkAuctionLookAt;
+
+        /// <summary>
+        /// chkAppraisal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkAppraisal;
+
+        /// <summary>
+        /// chkMove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkMove;
+
+        /// <summary>
+        /// chkAuctionPickUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkAuctionPickUp;
+
+        /// <summary>
+        /// chkAuctionBringIn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkAuctionBringIn;
+
+        /// <summary>
+        /// chkConsignmentShop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListItem chkConsignmentShop;
 
         /// <summary>
         /// lblFirstName1 control.
@@ -535,6 +589,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCommitServ;
+
+        /// <summary>
+        /// lblStatus1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatus1;
 
         /// <summary>
         /// tblServiceTicket control.

@@ -9,7 +9,7 @@
 </head>
     <body>
         <form id="form1" runat="server">
-            <div style="width: auto; margin: 0 10%;">
+            <div style="width: auto; margin: 0 5%;">
                 <asp:Table ID="header" runat="server" Height="16px" Width="421px">
                     <asp:TableRow HorizontalAlign="Center">
                         <asp:TableCell  Width ="110px" ColumnSpan="2">
