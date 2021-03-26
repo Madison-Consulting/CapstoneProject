@@ -8,7 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+         <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
+                <div style="width: auto; margin: 0 20% ">
             <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="234px">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="3">
@@ -41,7 +42,7 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Login" OnClick="btnLogin_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>

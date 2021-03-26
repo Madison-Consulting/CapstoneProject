@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="width: auto; margin: 0 10% ">
               <asp:Table ID="tblInitialContact" runat="server">
               <asp:TableRow>
                     <asp:TableCell>
@@ -127,16 +128,17 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="4">
-                        <asp:Button ID="btnSaveInitial" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
+                        <asp:Button ID="btnSaveInitial" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="4">
-                        <asp:Button ID="btnAddService" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
+                        <asp:Button ID="btnAddService" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
 
             </asp:Table>
-    <asp:TextBox ID="txtFN" runat="server" Visible="true"></asp:TextBox>
-    <asp:TextBox ID="txtLN" runat="server" Visible="true"></asp:TextBox>
+    <asp:TextBox ID="txtFN" runat="server" Visible="false"></asp:TextBox>
+    <asp:TextBox ID="txtLN" runat="server" Visible="false"></asp:TextBox>
+        </div>
 </asp:Content>

@@ -8,7 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+         <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
+             <div style="width: auto; margin: 0 20% ">
             <asp:Label ID="lblLoggedIn" runat="server" Text=""></asp:Label>
 
             <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
@@ -62,12 +63,12 @@
                </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Right">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnSubmitRequest" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
+                        <asp:Button ID="btnSubmitRequest" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                        <asp:Button ID="btnLogout" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                     </asp:TableCell>
                 </asp:TableRow>
 

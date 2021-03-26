@@ -226,6 +226,14 @@ namespace Lab2
             }
             con1.Close();
         }
+
+        protected void btnAddService_Click(object sender, EventArgs e)
+        {
+            Session["FName"] = txtFirstName.Text;
+            Session["LName"] = txtLastName.Text;
+            Session["ID"] = txtCustomerID.Text;
+            Response.Redirect("AddServ.aspx");
+        }
     }
 }
 

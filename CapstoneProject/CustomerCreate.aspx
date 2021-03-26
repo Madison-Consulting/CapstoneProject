@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+               <div style="width: auto; margin: 0 20% ">
                 <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign ="Center" Width="719px">
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">

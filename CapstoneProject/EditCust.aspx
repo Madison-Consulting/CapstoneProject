@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <%--            Form to Add Customer Data--%>
-
+            <div style="width: auto; margin: 0 10% ">
               <asp:Table ID="Table3" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
@@ -27,12 +27,10 @@
                       <asp:TableCell>
                           <asp:TextBox ID="txtCustSearch" runat="server"></asp:TextBox>
                       </asp:TableCell>
-                  </asp:TableRow>
-                  <asp:TableRow>
                       <asp:TableCell>
-                          <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false"/>
+                          <asp:Button ID="btnSearch" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false"/>
                       </asp:TableCell>
-                  </asp:TableRow>
+                      </asp:TableRow>
                   <asp:TableRow>
                       <asp:TableCell>
                           <asp:Label ID="lblSearchStatus" runat="server" Text=""></asp:Label>
@@ -163,13 +161,19 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center" >
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnUpdateCust" runat="server" Text="Update Customer" OnClick="btnUpdateCust_Click" />
+                        <asp:Button ID="btnUpdateCust" runat="server" Font-Bold="true" ForeColor="White"  BackColor="#325f57" Text="Update Customer" OnClick="btnUpdateCust_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+                <asp:TableRow HorizontalAlign="center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnAddService" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                </asp:TableRow>
+<%--                <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
                          <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </asp:TableCell>
-                </asp:TableRow>
+                </asp:TableRow>--%>
             </asp:Table>
+        </div>
 </asp:Content>

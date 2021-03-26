@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+    <div style="width: 684px; margin: 0 10%">
+    <asp:Table ID="Table1" runat="server" Width="700px">
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
                 <asp:Label ID="lblNotifications" runat="server" Text="Notifications"></asp:Label>
@@ -10,13 +11,14 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
-                <asp:ListBox ID="lstNotifications" runat="server" Width="1200" OnLoad="lstNotifications_Load"></asp:ListBox>
+                <asp:ListBox ID="lstNotifications" runat="server" Width="800" OnLoad="lstNotifications_Load"></asp:ListBox>
             </asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
+        <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
-                <asp:Button ID="btnAddInitialContact" runat="server" Text="Add Initial Contact Info" OnClick="btnAddInitialContact_Click" />
+                <asp:Button ID="btnAddInitialContact"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnAddInitialContact_Click" />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
+        </div>
 </asp:Content>

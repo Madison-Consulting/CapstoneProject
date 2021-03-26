@@ -11,9 +11,9 @@
         <div>
             <asp:Table ID="tblLogin" runat="server" HorizontalAlign ="center">
                 <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell ColumnSpan="2">
-                        <asp:Label ID="lblWelcome" runat="server" Text="Welcome" Font-Size="XX-Large"></asp:Label>
-                    </asp:TableCell>
+                        <asp:TableCell  ColumnSpan="2">
+                            <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
+                        </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -41,12 +41,12 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                        <asp:Button ID="btnLogin" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnForgotUP" runat="server" Text="Forgot Username/Password?" OnClick="btnForgotUP_Click" CausesValidation="false"/>
+                        <asp:Button ID="btnForgotUP" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Forgot Username/Password?" OnClick="btnForgotUP_Click" CausesValidation="false"/>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="tblMoving" runat="server">
         <asp:TableRow>
             <asp:TableCell>
@@ -59,12 +59,12 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click" />
-                <asp:Button ID="btnCommit" runat="server" Text="Next" OnClick="btnCommit_Click" />
+                <asp:Button ID="btnBack" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Back" OnClick="btnBack_Click" />
+                <asp:Button ID="btnCommit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Next" OnClick="btnCommit_Click" />
 
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-
+        </div>
 </asp:Content>

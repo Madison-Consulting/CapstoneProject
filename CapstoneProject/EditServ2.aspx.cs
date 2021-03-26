@@ -14,11 +14,8 @@ namespace Lab2
         //button click methods, most buttons do not get used for this lab
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+          
                 txtDateTime.Text = DateTime.Now.ToString();
-                txtYourName.Text = "Kevin Jonas";
-            }
 
         }
 
@@ -150,7 +147,6 @@ namespace Lab2
 
             Random rand = new Random();
             int HistoryTicketID = rand.Next(1000000, 10000000);
-
 
 
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

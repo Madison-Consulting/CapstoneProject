@@ -17,7 +17,7 @@
         
         
     </asp:Table>
-
+    <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="Table5" runat="server">
        <asp:TableRow>
            <asp:TableCell>
@@ -107,18 +107,16 @@
                 </asp:TableRow>    
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnAddInv" runat="server" Text="Add" OnClick="btnAddInv_Click"/>
+                <asp:Button ID="btnAddInv"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add" OnClick="btnAddInv_Click"/>
             </asp:TableCell>
             </asp:TableRow>
-   </asp:Table>
-
-    <asp:Table ID="viewInv" runat="server" horizontalalign="Center">
-                <asp:TableRow  HorizontalAlign ="center">
+                    <asp:TableRow  HorizontalAlign ="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnViewAllInv" runat="server" Text="View All Items in Inventory" OnClick="btnViewAllInv_Click" CausesValidation="false" />
+                        <asp:Button ID="btnViewAllInv"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="View All Items in Inventory" OnClick="btnViewAllInv_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow> 
-            </asp:Table>
+   </asp:Table>
+
 
             <asp:Table ID="Table2" runat="server">
                   <asp:TableRow>
@@ -127,6 +125,6 @@
                          </asp:TableCell>
                     </asp:TableRow>
                  </asp:Table>
-            
+            </div>
             
 </asp:Content>

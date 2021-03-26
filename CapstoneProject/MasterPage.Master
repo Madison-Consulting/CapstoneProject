@@ -4,12 +4,12 @@
 <html>
 <head runat="server">
     <title>Madison Consulting 01</title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
 </head>
     <body>
         <form id="form1" runat="server">
-            <div >
+            <div style="width: auto; margin: 0 10%;">
                 <asp:Table ID="header" runat="server" Height="16px" Width="421px">
                     <asp:TableRow HorizontalAlign="Center">
                         <asp:TableCell  Width ="110px" ColumnSpan="2">
@@ -19,7 +19,7 @@
                             <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell ColumnSpan="7" HorizontalAlign="Right"> 
-                            <asp:ImageButton ID="UserIcon" runat="server" ImageUrl="/Image/UserIcon.jpg" Height="40" Width="40" OnClick="UserIcon_Click"/>
+                            <asp:ImageButton ID="UserIcon" runat="server" ImageUrl="/Image/UserIcon.jpg" Height="40" Width="40" OnClick="UserIcon_Click" CausesValidation="false"/>
 <%--                        
                             <asp:Button ID="btnLogout" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>--%>
                         

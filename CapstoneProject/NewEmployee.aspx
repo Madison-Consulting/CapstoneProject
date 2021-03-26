@@ -8,11 +8,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-                            <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign ="Center" Width="719px">
+        <div style="width: auto; margin: 0 20% ">
+           <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>    
+            
+    <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign ="Center" Width="719px">
         <asp:TableRow HorizontalAlign="Center">
+           
             <asp:TableCell ColumnSpan="2">
-                <asp:Label ID="lblWelcomeEmp" runat="server" Text="Welcome New Employee! Please Enter your Information Below to Create an Account." Font-Bold="true" Font-Size="X-Large"></asp:Label>
+                <asp:Label ID="lblWelcomeEmp" runat="server" Text="Welcome New Employee! Please Enter your Information Below to Create an Account." Font-Bold="true" Font-Size="Large"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -81,20 +84,22 @@
                         ErrorMessage="Passwords must match!"
                         SetFocusOnError = "true"
                         ForeColor ="red"/>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow HorizontalAlign="Center">
+            </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnCreateNewEmp" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
+                <asp:Button ID="btnCreateNewEmp" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
+            </asp:TableCell></asp:TableRow><asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
             </asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
+
+           </asp:TableRow>
+
+            </asp:Table>
+
         </div>
+
     </form>
+
 </body>
+
 </html>

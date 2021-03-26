@@ -24,15 +24,8 @@ namespace Lab3
             SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con1.Open();
 
-            //create new customer
-            String query2 = "INSERT INTO Credentials (Username, Password) VALUES (@Username, @Password)";
-
-            SqlCommand cmd1 = new SqlCommand(query2, con1);
-            cmd1.Parameters.AddWithValue("@Username", HttpUtility.HtmlEncode(txtUsername.Text));
-            cmd1.Parameters.AddWithValue("@Password", HttpUtility.HtmlEncode(txtPassword.Text));
-
-            cmd1.ExecuteNonQuery();
-            con1.Close();
+            //create new employee
+   
 
             if (HttpUtility.HtmlEncode(txtFirstName.Text) != "" && HttpUtility.HtmlEncode(txtLastName.Text) != "" && HttpUtility.HtmlEncode(txtPassword.Text) != "" && HttpUtility.HtmlEncode(txtUsername.Text) != "") // all fields must be filled out
             {

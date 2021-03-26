@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="tblAuction" runat="server">
         <asp:TableRow>
             <asp:TableCell ColumnSpan="4">
@@ -92,8 +93,8 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddTruck" runat="server" Text="<-Add" Width="75" OnClick="btnAddTruck_Click"  />
-                                            <asp:Button ID="btnRemoveTruck" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveTruck_Click"  />
+                                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="75" OnClick="btnAddTruck_Click"  />
+                                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveTruck_Click"  />
                                             <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
@@ -138,8 +139,8 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddEquipment" runat="server" Text="<-Add" Width="75" OnClick="btnAddEquipment_Click"  />
-                                            <asp:Button ID="btnRemoveEquipment" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveEquipment_Click"  />
+                                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="75" OnClick="btnAddEquipment_Click"  />
+                                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveEquipment_Click"  />
                                             <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
@@ -159,7 +160,7 @@
                     </asp:Table>
                 </div>
                 <%-- end of hideable "pickup" div --%>
-                <asp:Button ID="btnCommit" runat="server" Text="Commit" OnClick="btnCommit_Click"/>
+                <asp:Button ID="btnCommit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Save" OnClick="btnCommit_Click"/>
             </asp:TableCell>
         </asp:TableRow>
         
@@ -184,5 +185,5 @@
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
         SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
     </asp:SqlDataSource>
-
+        </div>
 </asp:Content>

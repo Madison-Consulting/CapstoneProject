@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.Drawing;
 namespace Lab2
 {
     public partial class MasterPage : System.Web.UI.MasterPage
@@ -27,13 +28,15 @@ namespace Lab2
         //Button Click Events
         protected void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            btnAddCustomer.BackColor = System.Drawing.Color.Green;
             Response.Redirect("AddCust2.aspx");
         }
 
-        protected void btnAddServiceEvent_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AddServ.aspx");
-        }
+        //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("AddServ.aspx");
+            
+        //}
 
         protected void btnEditViewCustomer_Click(object sender, EventArgs e)
         {

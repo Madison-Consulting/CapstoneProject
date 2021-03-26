@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddServ.aspx.cs" Inherits="Lab2.AddServ" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
 
+               
+     
 
             <asp:Table ID="tblAddServ" runat="server">
                     <asp:TableRow>
@@ -14,19 +16,14 @@
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Button ID="btnCommitServ" runat="server" Text="Commit" OnClick="btnCommitServ_Click" />
-                    </asp:TableCell>
-                </asp:TableRow>
-                    <asp:TableRow>
                         <asp:TableCell>
                             <asp:Button ID="btnClearServ" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false"/>
                         </asp:TableCell>
                     </asp:TableRow>
                 </asp:Table>
-
-
-                <asp:Table ID="tblTxtBox" runat="server" style ="float:left" Width="277px">
+  
+           <div style="width: 99%; margin: 0 10%;" >
+            <asp:Table ID="tblTxtBox" runat="server" style="display:inline-block">
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell>
                         <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -34,21 +31,20 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:TextBox ID="txtHeader" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="txtHeader" runat="server" Width="250px" ></asp:TextBox>
 
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows ="15"></asp:TextBox>
+                        <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows ="20" Width="250px"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-           
-     
 
 
-     <asp:Table ID="Table3" runat="server" Width="737px" horizontalalign ="center" >
+
+     <asp:Table ID="Table3" runat="server" style="display:inline-block" Width="700px">
                   <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblServiceType" runat="server" Text="Service Type:"></asp:Label>
@@ -246,6 +242,11 @@
                     </asp:TableCell>
 
                 </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnCommitServ" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Service" OnClick="btnCommitServ_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
 
          </asp:Table>
 
@@ -280,9 +281,9 @@
                 ControlToValidate="txtEmpName" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
              </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="btnCreateServTicket" runat="server" Text="Create a New Service Ticket" OnClick="btnCreateServTicket_Click"/>
+        <asp:TableRow HorizontalAlign="Center">
+            <asp:TableCell ColumnSpan="2">
+                <asp:Button ID="btnCreateServTicket" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Create a New Service Ticket" OnClick="btnCreateServTicket_Click"/>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -292,6 +293,6 @@
         </asp:TableRow>
     </asp:Table>
 
-
+    </div>
 
             </asp:Content>

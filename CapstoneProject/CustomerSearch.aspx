@@ -3,6 +3,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="width: auto; margin: 0 20% ">
                     <asp:Table ID="Table1" runat="server">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
@@ -28,6 +29,6 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-
+        </div>
 
 </asp:Content>

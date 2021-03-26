@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddCust2.aspx.cs" Inherits="Lab3.AddCust2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
+
                     <asp:Table ID="Table2" runat="server" Width="300px">
                 <asp:TableRow>
                     <asp:TableCell>
@@ -16,9 +17,9 @@
 
             </asp:Table>
 
-
+        <div style="width: auto; margin: 0 20% ">
 <%--            Form to Add Customer Data--%>
-            <asp:Table ID="Table3" runat="server" Width="1056px">
+            <asp:Table ID="Table3" runat="server" Width="670px">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -128,19 +129,19 @@
                 ControlToValidate="txtZip" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Left">
+                <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnCommitAddCust" runat="server" Text="Add Customer" OnClick="btnCommitAddCust_Click"/>
+                        <asp:Button ID="btnCommitAddCust" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Customer" OnClick="btnCommitAddCust_Click"/>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Left">
+                <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnInitialContact" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
+                        <asp:Button ID="btnInitialContact" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Left">
+                <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnAddService" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
+                        <asp:Button ID="btnAddService" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -150,6 +151,6 @@
                 </asp:TableRow>
                 </asp:Table>
                 <br />
-
+    </div>
 
 </asp:Content>

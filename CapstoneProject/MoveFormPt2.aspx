@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="MoveTwo" runat="server">
         <asp:TableRow>
             <asp:TableCell ColumnSpan="5">
@@ -487,10 +488,10 @@
     <asp:Table ID="tblBottomButtons" runat="server">
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnAddAnotherItem" runat="server" Text="Add Another Item" OnClick="btnAddAnotherItem_Click" />
+                <asp:Button ID="btnAddAnotherItem" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Another Item" OnClick="btnAddAnotherItem_Click" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnRemoveLastItem" runat="server" Text="Remove Last Item" OnClick="btnRemoveLastItem_Click" />
+                <asp:Button ID="btnRemoveLastItem" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove Last Item" OnClick="btnRemoveLastItem_Click" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
@@ -501,14 +502,14 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnCommit" runat="server" Text="Commit Room" OnClick="btnCommit_Click" />
+                <asp:Button ID="btnCommit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Save Room" OnClick="btnCommit_Click" />
             </asp:TableCell>
             <asp:TableCell Width="30"></asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnDone" runat="server" Text="Done" OnClick="btnDone_Click"/>
+                <asp:Button ID="btnDone" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Done" OnClick="btnDone_Click"/>
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
     
-   
+   </div>
 </asp:Content>
