@@ -56,7 +56,7 @@ namespace Lab2
                         {
                             lblStatus.Text = "Success!";
                             Session["Username"] = txtUserName.Text;
-                            Response.Redirect("AddCust2.aspx");
+                            Response.Redirect("EmpLandingPage.aspx");
                         }
                         else
                             lblStatus.Text = "Password is incorrect.";
@@ -74,7 +74,7 @@ namespace Lab2
 
         }
 
-        protected void btnForgotUP_Click(object sender, EventArgs e)
+        protected void lnkbtnForgot_Click(object sender, EventArgs e)
         {
             Response.Redirect("ForgotUP.aspx");
         }

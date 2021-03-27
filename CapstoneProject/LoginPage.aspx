@@ -46,7 +46,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnForgotUP" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Forgot Username/Password?" OnClick="btnForgotUP_Click" CausesValidation="false"/>
+                        <asp:LinkButton ID="lnkbtnForgot" runat="server" OnClick="lnkbtnForgot_Click" CausesValidation="false">Forgot Username/Password?</asp:LinkButton>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
