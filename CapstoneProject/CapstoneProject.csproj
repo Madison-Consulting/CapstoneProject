@@ -87,6 +87,7 @@
     <Content Include="CustomerServInfo.aspx" />
     <Content Include="EditCust.aspx" />
     <Content Include="EditServ2.aspx" />
+    <Content Include="EmpLandingPage.aspx" />
     <Content Include="ForgotUP.aspx" />
     <Content Include="InitialContact.aspx" />
     <Content Include="Inventory.aspx" />
@@ -271,6 +272,13 @@
     <Compile Include="EditServ2.aspx.designer.cs">
       <DependentUpon>EditServ2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmpLandingPage.aspx.cs">
+      <DependentUpon>EmpLandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpLandingPage.aspx.designer.cs">
+      <DependentUpon>EmpLandingPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgotUP.aspx.cs">
       <DependentUpon>ForgotUP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -308,12 +316,14 @@
     </Compile>
     <Compile Include="MoveFormPt2.aspx.cs">
       <DependentUpon>MoveFormPt2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MoveFormPt2.aspx.designer.cs">
       <DependentUpon>MoveFormPt2.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovingForm.aspx.cs">
       <DependentUpon>MovingForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MovingForm.aspx.designer.cs">
       <DependentUpon>MovingForm.aspx</DependentUpon>
