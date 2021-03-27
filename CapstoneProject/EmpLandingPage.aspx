@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div style="width: auto; margin: 0 20% ">
-        <asp:Table ID="tblLanding" runat="server" Height="329px" Width="499px">
+    <div style="width: auto; margin: 0 20% ">
+        <asp:Table ID="tblLanding" runat="server" Height="329px" Width="499px" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="4" HorizontalAlign="Center">
                     <asp:Image ID="LogoFadded" runat="server" ImageUrl="/Image/GVALogoFadded.jpg" /></asp:Image>
