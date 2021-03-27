@@ -40,7 +40,7 @@
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblContact" runat="server" Text="Wha Type of Contact does the Customer Prefer?"></asp:Label>
+                        <asp:Label ID="lblContact" runat="server" Text="What Type of Contact does the Customer Prefer?"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:DropDownList ID="ddlContact" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlContact_SelectedIndexChanged">
