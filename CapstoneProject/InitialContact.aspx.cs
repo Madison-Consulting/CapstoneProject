@@ -73,12 +73,12 @@ namespace Lab3
             {
                 if (ddlContact.SelectedValue == "Other")
                 {
-                    txtOther.Enabled = true;
-
+                    txtOther.Text = "";
+                    txtOther.Visible = true;
                 }
                 else
                 {
-                    txtOther.Enabled = false;
+                    txtOther.Visible = false;
                 }
             }
         }

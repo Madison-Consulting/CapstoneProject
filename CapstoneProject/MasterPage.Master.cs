@@ -14,6 +14,7 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //check if user is logged in
             if (Session["UserName"] != null)
             {
                 lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully logged in";
@@ -23,6 +24,33 @@ namespace Lab2
                 Session["InvalidUse"] = "You must first login to access this page!";
                 Response.Redirect("LoginPage.aspx");
             }
+
+            //check buttons to color
+            switch (Page.Title)
+            {
+                case "Add Customer": case "Initial Contact":
+                    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Inventory":
+                    btnViewInventory.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Edit/View Service":
+                    btnEditViewServiceEvent.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Edit/View Customer":
+                    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Move Form": case "Room Form":
+                    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Auction Form":
+                    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+                case "Notifications":
+                    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
+                    break;
+            }
+
         }
 
         //Button Click Events
