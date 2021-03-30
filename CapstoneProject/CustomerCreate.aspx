@@ -125,11 +125,14 @@
                         <asp:Label ID="lblZip" runat="server" Text="Zip Code"></asp:Label>
                     </asp:TableCell>
                      <asp:TableCell>
-                         <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtZip" MaxLength="5" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtZip" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                    <asp:TableCell>
+
                     </asp:TableCell>
                 </asp:TableRow>
                  <asp:TableRow>
@@ -146,7 +149,7 @@
                 </asp:TableRow>
         <asp:TableRow HorizontalAlign="Left">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
+                <asp:Button ID="btnCreateAccount" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center">

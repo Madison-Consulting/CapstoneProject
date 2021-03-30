@@ -59,7 +59,7 @@ namespace Lab3
                 myReader3.Close();
             }
             con.Close();
-
+            lblStatus.Text = "Service Request Created";
         }
 
 

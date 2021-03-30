@@ -70,6 +70,8 @@ namespace Lab3
                 con.Close();
 
             btnAddService.Enabled = true;
+            btnInitialContact.Enabled = true;
+            lblStatus.Text = "Customer Added!";
             }
         
 

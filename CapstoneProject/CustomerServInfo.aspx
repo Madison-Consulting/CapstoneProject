@@ -65,6 +65,9 @@
                     <asp:TableCell ColumnSpan="2">
                         <asp:Button ID="btnSubmitRequest" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">

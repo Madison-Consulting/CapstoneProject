@@ -33,15 +33,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button btnPopulateServ;
 
         /// <summary>
-        /// lblAddServEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddServEvent;
-
-        /// <summary>
         /// btnClearServ control.
         /// </summary>
         /// <remarks>
@@ -51,40 +42,94 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button btnClearServ;
 
         /// <summary>
-        /// tblTxtBox control.
+        /// tblServiceTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblTxtBox;
+        protected global::System.Web.UI.WebControls.Table tblServiceTicket;
 
         /// <summary>
-        /// lblNotes control.
+        /// lblStartTicket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNotes;
+        protected global::System.Web.UI.WebControls.Label lblStartTicket;
 
         /// <summary>
-        /// txtHeader control.
+        /// txtTicketID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHeader;
+        protected global::System.Web.UI.WebControls.TextBox txtTicketID;
 
         /// <summary>
-        /// txtNote control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNote;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
+
+        /// <summary>
+        /// txtStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStatus;
+
+        /// <summary>
+        /// lblEmpName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpName;
+
+        /// <summary>
+        /// txtEmpName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
+
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+        /// <summary>
+        /// btnCreateServTicket control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateServTicket;
+
+        /// <summary>
+        /// lblSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccess;
 
         /// <summary>
         /// Table3 control.
@@ -94,6 +139,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Table3;
+
+        /// <summary>
+        /// lblAddServEvent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAddServEvent;
 
         /// <summary>
         /// lblServiceType control.
@@ -600,93 +654,39 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblStatus1;
 
         /// <summary>
-        /// tblServiceTicket control.
+        /// tblTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblServiceTicket;
+        protected global::System.Web.UI.WebControls.Table tblTxtBox;
 
         /// <summary>
-        /// lblStartTicket control.
+        /// lblNotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStartTicket;
+        protected global::System.Web.UI.WebControls.Label lblNotes;
 
         /// <summary>
-        /// txtTicketID control.
+        /// txtHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTicketID;
+        protected global::System.Web.UI.WebControls.TextBox txtHeader;
 
         /// <summary>
-        /// lblStatus control.
+        /// txtNote control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
-
-        /// <summary>
-        /// txtStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStatus;
-
-        /// <summary>
-        /// lblEmpName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpName;
-
-        /// <summary>
-        /// txtEmpName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
-
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
-        /// btnCreateServTicket control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateServTicket;
-
-        /// <summary>
-        /// lblSuccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccess;
+        protected global::System.Web.UI.WebControls.TextBox txtNote;
     }
 }

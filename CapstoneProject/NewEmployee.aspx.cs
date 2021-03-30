@@ -20,12 +20,7 @@ namespace Lab3
 
         protected void btnCreateNewEmp_Click(object sender, EventArgs e)
         {
-            //add to credentials table
-            SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con1.Open();
-
-            //create new employee
-   
+     
 
             if (HttpUtility.HtmlEncode(txtFirstName.Text) != "" && HttpUtility.HtmlEncode(txtLastName.Text) != "" && HttpUtility.HtmlEncode(txtPassword.Text) != "" && HttpUtility.HtmlEncode(txtUsername.Text) != "") // all fields must be filled out
             {
@@ -56,7 +51,7 @@ namespace Lab3
 
                     sc.Close();
 
-                    lblStatus.Text = "User committed!";
+                    lblStatus.Text = "Employee Created!";
 
                 }
                 catch

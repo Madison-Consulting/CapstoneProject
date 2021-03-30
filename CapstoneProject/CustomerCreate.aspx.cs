@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -35,6 +34,15 @@ namespace Lab3
                     lblStatus.Text = "Database Connection Successful";
 
                     sc.Open();
+
+                    System.Data.SqlClient.SqlCommand createUser = new System.Data.SqlClient.SqlCommand();
+                    createUser.Connection = sc;
+                    // INSERT USER RECORD
+                    createUser.CommandText = "INSERT INTO CustPerson (FirstName, LastName, Username) VALUES (@FName, @LName, @Username)";
+                    createUser.Parameters.Add(new SqlParameter("@FName", HttpUtility.HtmlEncode(txtFirstName.Text)));
+                    createUser.Parameters.Add(new SqlParameter("@LName", HttpUtility.HtmlEncode(txtLastName.Text)));
+                    createUser.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
+                    createUser.ExecuteNonQuery();
 
                     System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
                     setPass.Connection = sc;
@@ -80,7 +88,7 @@ namespace Lab3
             cmd.ExecuteNonQuery();
             con.Close();
 
-
+            lblStatus.Text = "Account Created";
 
             //redirect and save email as a session variable
             Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
