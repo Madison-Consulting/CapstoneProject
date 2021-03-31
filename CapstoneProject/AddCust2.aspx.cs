@@ -12,10 +12,20 @@ namespace Lab3
 {
     public partial class AddCust2 : System.Web.UI.Page
     {
+        private bool btnCommitAddCustWasClicked = false;
 
             protected void Page_Load(object sender, EventArgs e)
             {
-
+                if (Page.IsPostBack)
+                {
+                    btnInitialContact.Visible = true;
+                    btnAddService.Visible = true;
+                }
+                else
+                {
+                    btnInitialContact.Visible = false;
+                    btnAddService.Visible = false;
+                }
             }
 
             //Button Click Events

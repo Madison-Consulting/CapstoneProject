@@ -136,12 +136,12 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnInitialContact" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
+                        <asp:Button ID="btnInitialContact" Visible="false" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnAddService" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
+                        <asp:Button ID="btnAddService" Visible="false" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
