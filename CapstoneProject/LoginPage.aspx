@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
@@ -62,5 +63,8 @@
         </div>
 
     </form>
+          <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

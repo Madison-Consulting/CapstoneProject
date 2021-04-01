@@ -3,11 +3,13 @@
 
 <html>
 <head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <title>Madison Consulting 01</title>
     <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
 </head>
     <body>
+       
         <form id="form1" runat="server">
             <div style="width: auto; margin: 0 5%;">
                 <asp:Table ID="header" runat="server" Height="16px" Width="421px" HorizontalAlign="Center">
@@ -93,7 +95,11 @@
             </div>
             </div>
         </form>
+        <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
     </body>
+
 
 </html>
 
