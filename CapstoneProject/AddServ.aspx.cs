@@ -76,9 +76,6 @@ namespace Lab2
             txtCompDate1.Text = "11/06/2020";
             txtHeader.Text = "Move Date Change";
             txtNote.Text = "The Move Date may change to 11/06/2020, customer will contact"; 
-            txtTicketID.Text = ServTicketID.ToString();
-            txtStatus.Text = "Open";
-            txtEmpName.Text = "Caitlyn Meyer";
 
         }
 
@@ -87,11 +84,11 @@ namespace Lab2
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
-
-            try
+            
+            try //insert service statement
             {
-                String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, NoteHeader, Note, EmpName)" + 
-                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @Header, @Note, @EmpName)";
+                String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, NoteHeader, Note)" + 
+                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @Header, @Note)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomers.SelectedValue));
@@ -101,57 +98,63 @@ namespace Lab2
                 cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
                 cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
                 cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
-                cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
                 
                 cmd.ExecuteNonQuery();
+
+                string insertTicketStatement = "INSERT INTO ServiceTicket(TicketStatus, CustomerID, ServiceID, EmpID) " +
+                    "VALUES(@Status, @CustomerID, (SELECT MAX(ServiceID) FROM Service), @EmpID)";
+                SqlCommand cmdInsertTicket = new SqlCommand(insertTicketStatement, con);
+                cmdInsertTicket.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode("Opened"));
+                cmdInsertTicket.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomers.SelectedValue));
+                cmdInsertTicket.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(Session["Username"]));
+
+                cmdInsertTicket.ExecuteNonQuery();
+
                 con.Close();
-                lblStatus1.Text = "Service information successfully added";
-
-            } catch (Exception exc)
+                lblStatus1.Text = "Service information and initial ticket info successfully added";
+            } 
+            catch (Exception exc)
             {
-                lblStatus1.Text = "Error saving: " + exc.ToString();
-            }
-
-
-        }
-
-
-
-        protected void btnCreateServTicket_Click(object sender, EventArgs e)
-        {
-            Random rnd2 = new Random();
-            int ServTicketID = rnd2.Next(10000, 100000);
-
-            txtTicketID.Text = ServTicketID.ToString();
-
-            {
-                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                con.Open();
-
-
-                String query = "INSERT INTO ServiceTicket VALUES (@TicketID, @Status, @CustomerID, @ServiceID, @EmpName)";
-                SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomers.SelectedValue));
-                cmd.Parameters.AddWithValue("@TicketID", HttpUtility.HtmlEncode(txtTicketID.Text));
-                cmd.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode(txtStatus.Text));
-                cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtEmpName.Text));
-
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                    lblSuccess.Text = "Service Event Added Successfully";
-                }
-                catch (Exception)
-                {
-                    lblSuccess.Text = "Unable to insert data. You must add the service event to the database first. ";
-                }
-                finally
-                {
-                    con.Close();
-                }
+                lblStatus1.Text = "Error saving service and/or ticket info: " + exc.ToString();
             }
         }
+
+
+
+        //        protected void btnCreateServTicket_Click(object sender, EventArgs e)
+        //        {
+        //            Random rnd2 = new Random();
+        //            int ServTicketID = rnd2.Next(10000, 100000);
+
+        //            txtTicketID.Text = ServTicketID.ToString();
+
+        //            {
+        //                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //                con.Open();
+
+
+        //                String query = "INSERT INTO ServiceTicket(TicketStatus, CustomerID, ServiceID, EmpID) VALUES(@Status, @CustomerID, @ServiceID, @EmpID)";
+        //                SqlCommand cmd = new SqlCommand(query, con);
+        //                cmd.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode("Opened"));
+        //                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomers.SelectedValue));
+        //                cmd.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(Session["Username"]));
+
+
+        //                try
+        //                {
+        //                    cmd.ExecuteNonQuery();
+        //                    lblSuccess.Text = "Service Event Added Successfully";
+        //                }
+        //                catch (Exception)
+        //                {
+        //                    lblSuccess.Text = "Unable to insert data. You must add the service event to the database first. ";
+        //                }
+        //                finally
+        //                {
+        //                    con.Close();
+        //                }
+        //            }
+        //        }
     }
 }
 

@@ -20,52 +20,6 @@
 
 
     <div style="width: 99%; margin: 0 10%;">
-        <asp:Table ID="tblServiceTicket" runat="server" Style="display: inline-block" BorderColor="Green" BackColor="LightYellow" BorderStyle="Double" Width="600px">
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell>
-                    <asp:Label ID="lblStartTicket" runat="server" Text="Start A Service Ticket" Font-Size="X-Large"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtTicketID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblStatus" runat="server" Text="Service Ticket Status"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtStatus" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblEmpName" runat="server" Text="Your Name"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtEmpName" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtEmpName" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnCreateServTicket" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Create a New Service Ticket" OnClick="btnCreateServTicket_Click" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-
-
-
-
         <asp:Table ID="Table3" runat="server" Width="54%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell>
