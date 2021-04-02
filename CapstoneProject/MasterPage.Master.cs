@@ -38,18 +38,18 @@ namespace Lab2
                 case "Edit/View Service":
                     btnEditViewServiceEvent.BackColor = ColorTranslator.FromHtml("#325f57");
                     break;
-                case "Edit/View Customer":
-                    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
-                case "Move Form": case "Room Form":
-                    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
-                case "Auction Form":
-                    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
-                case "Notifications":
-                    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
+                //case "Edit/View Customer":
+                //    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+                //    break;
+                //case "Move Form": case "Room Form":
+                //    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
+                //    break;
+                //case "Auction Form":
+                //    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
+                //    break;
+                //case "Notifications":
+                //    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
+                //    break;
             }
 
         }

@@ -60,15 +60,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblUserLoggedIn;
 
         /// <summary>
-        /// UserIcon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton UserIcon;
-
-        /// <summary>
         /// btnViewInventory control.
         /// </summary>
         /// <remarks>
@@ -78,15 +69,6 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Button btnViewInventory;
 
         /// <summary>
-        /// btnEditViewCustomer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditViewCustomer;
-
-        /// <summary>
         /// btnEditViewServiceEvent control.
         /// </summary>
         /// <remarks>
@@ -94,33 +76,6 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditViewServiceEvent;
-
-        /// <summary>
-        /// btnMovingForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMovingForm;
-
-        /// <summary>
-        /// btnAuctionForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAuctionForm;
-
-        /// <summary>
-        /// btnNotifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNotifications;
 
         /// <summary>
         /// ContentPlaceHolder1 control.
