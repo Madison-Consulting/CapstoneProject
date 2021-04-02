@@ -29,9 +29,9 @@ namespace Lab2
             //check buttons to color
             switch (Page.Title)
             {
-                case "Add Customer": case "Initial Contact":
-                    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
+                //case "Add Customer": case "Initial Contact":
+                //    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+                //    break;
                 case "Inventory":
                     btnViewInventory.BackColor = ColorTranslator.FromHtml("#325f57");
                     break;
@@ -55,16 +55,16 @@ namespace Lab2
         }
 
         //Button Click Events
-        protected void btnAddCustomer_Click(object sender, EventArgs e)
-        {
-            btnAddCustomer.BackColor = System.Drawing.Color.Green;
-            Response.Redirect("AddCust2.aspx");
-        }
+        //protected void btnAddCustomer_Click(object sender, EventArgs e)
+        //{
+        //    btnAddCustomer.BackColor = System.Drawing.Color.Green;
+         
+        //}
 
         //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
         //{
         //    Response.Redirect("AddServ.aspx");
-            
+
         //}
 
         protected void btnEditViewCustomer_Click(object sender, EventArgs e)
