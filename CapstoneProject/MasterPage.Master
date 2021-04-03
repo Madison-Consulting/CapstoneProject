@@ -11,7 +11,7 @@
     <body>
        
         <form id="form1" runat="server" >
-            <div style="width: auto; margin: 0 5%;" >
+            <div style="width: auto; margin: 0;" >
                 <asp:Table ID="header" runat="server" Height="16px" Width="421px" HorizontalAlign="Center">
                     <asp:TableRow HorizontalAlign="Center">
                         <asp:TableCell  Width ="110px" ColumnSpan="2">
@@ -22,11 +22,13 @@
                         </asp:TableCell>
                         <asp:TableCell ColumnSpan="7" HorizontalAlign="Right"> 
                              <div class="dropdown">
-                                  <button class="btn-outline-dark dropdown-toggle" data-toggle="dropdown" type="button" ID="btnNotifs" aria-haspopup="true" aria-expanded="false">
-                                    <img src="/Image/UserIcon.jpg" Height="40" Width="40" /> Profile
+                                  <button class="btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown" type="button" ID="btnNotifs" aria-haspopup="true" aria-expanded="false">
+                                    <img src="/Image/UserIcon.jpg" Height="40" Width="40" />
                                   </button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/Notifications.aspx">Notifications</a>
+                                <%--      need to figure this logout out--%>
+                                    <a class="dropdown-item" href="#" onserverclick ="btnLogout_Click">Logout</a>
                                   </div>
                                 </div>
 <%--                            <asp:ImageButton ID="UserIcon" runat="server" ImageUrl="/Image/UserIcon.jpg" Height="40" Width="40" OnClick="UserIcon_Click" CausesValidation="false"/>--%>
@@ -100,9 +102,9 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
 
-            <div id="ftr">
+            <div id="ftr" >
 
-                <asp:Table ID="footer" runat="server" BackColor="#325f57" Width="868px"  BorderWidth="3px" HorizontalAlign="Center" >
+                <asp:Table ID="footer" runat="server" BackColor="#325f57" Width="1200px" BorderWidth="3px" HorizontalAlign="Center">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>

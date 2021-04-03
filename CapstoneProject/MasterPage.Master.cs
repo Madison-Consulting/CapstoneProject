@@ -87,15 +87,6 @@ namespace Lab2
             Response.Redirect("Inventory.aspx");
         }
 
-        protected void btnMyAccount_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
