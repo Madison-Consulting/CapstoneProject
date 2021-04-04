@@ -90,6 +90,7 @@
     <Content Include="EmpLandingPage.aspx" />
     <Content Include="ForgotUP.aspx" />
     <Content Include="InitialContact.aspx" />
+    <Content Include="IntialAuctionService.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MoveFormPt2.aspx" />
@@ -292,6 +293,13 @@
     </Compile>
     <Compile Include="InitialContact.aspx.designer.cs">
       <DependentUpon>InitialContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IntialAuctionService.aspx.cs">
+      <DependentUpon>IntialAuctionService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntialAuctionService.aspx.designer.cs">
+      <DependentUpon>IntialAuctionService.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
