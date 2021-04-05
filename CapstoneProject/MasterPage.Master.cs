@@ -118,6 +118,11 @@ namespace Lab2
         {
             Response.Redirect("LoginPage.aspx");
         }
+
+        protected void btnAppraisal_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AppraisalServiceOrder.aspx");
+        }
     }
 
 }

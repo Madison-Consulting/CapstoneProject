@@ -88,7 +88,9 @@
                                 </div>
 <%--                            <asp:Button ID="btnAuctionForm" class="btn-GreenValley" runat="server" Text="Auction Form" OnClick="btnAuctionForm_Click" CausesValidation="false"/>--%>
                         </asp:TableCell>
-
+                         <asp:TableCell>
+                            <asp:Button ID="btnAppraisal" class="btn-GreenValley" runat="server" Text="Appraisal Service Order" OnClick="btnAppraisal_Click" CausesValidation="false"/>
+                        </asp:TableCell>
 <%--                    <asp:TableCell>
                             <asp:Button ID="btnSearch" BorderWidth="3" BorderStyle="Outset" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="Search For a Customer" OnClick="btnSearch_Click" CausesValidation="false"/>
                         </asp:TableCell>--%>
