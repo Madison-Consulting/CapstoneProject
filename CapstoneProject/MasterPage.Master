@@ -27,8 +27,7 @@
                                   </button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/Notifications.aspx">Notifications</a>
-                                <%--      need to figure this logout out--%>
-                                    <a class="dropdown-item" href="#" onserverclick ="btnLogout_Click">Logout</a>
+                                    <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>
                                   </div>
                                 </div>
 <%--                            <asp:ImageButton ID="UserIcon" runat="server" ImageUrl="/Image/UserIcon.jpg" Height="40" Width="40" OnClick="UserIcon_Click" CausesValidation="false"/>--%>

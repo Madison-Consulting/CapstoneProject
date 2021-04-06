@@ -96,7 +96,7 @@ namespace Lab2
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("StartPage.aspx?loggedout=true");
+            Response.Redirect("LoginPage.aspx?loggedout=true");
         }
 
         protected void btnNotifications_Click(object sender, EventArgs e)
