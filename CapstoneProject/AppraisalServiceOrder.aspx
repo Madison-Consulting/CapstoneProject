@@ -111,7 +111,7 @@
     <asp:Table ID="tblAppraisalAssessment" runat="server" Width="860px" Style="display:inline-block">
           <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblPurpose1" runat="server" Text="Purpose of Appraisal: Estate Appraisal"></asp:Label>
+                        <asp:Label ID="lblPurpose1" runat="server" Text="Purpose of Appraisal"></asp:Label>
                     </asp:TableCell>
                       <asp:TableCell>
                           <asp:TextBox ID="txtPurpose1" runat="server"></asp:TextBox>
@@ -119,18 +119,6 @@
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtPurpose1" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-        <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="lblPurpose2" runat="server" Text="Purpose of Appraisal: Family Division Appraisal"></asp:Label>
-                    </asp:TableCell>
-                      <asp:TableCell>
-                          <asp:TextBox ID="txtPurpose2" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator" 
-                ControlToValidate="txtPurpose2" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
         <asp:TableRow>
@@ -169,6 +157,17 @@
             <asp:TableCell>
                 <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
             </asp:TableCell>
+            <asp:TableCell>
+                <asp:FileUpload ID="upldPhoto" runat="server" />
+            </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+            <asp:TableCell ColumnSpan="2">
+                <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
@@ -187,6 +186,9 @@
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Button ID="btnAuctionAssess" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click"/>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         
