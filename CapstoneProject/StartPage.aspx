@@ -17,19 +17,21 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Button ID="btnNewEmp"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="New Employee" OnClick="btnNewEmp_Click" />
+                    <asp:TableCell HorizontalAlign="Right">
+                        <asp:Button ID="btnNewEmp" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="New Employee" OnClick="btnNewEmp_Click" />
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Left">
+                         <asp:Button ID="btnCustomer"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="New Customer" OnClick="btnCustomer_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Right">
                         <asp:Button ID="btnEmployee" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text=" Existing Employee" OnClick="btnEmployee_Click" />
                     </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnCustomer"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="New Customer" OnClick="btnCustomer_Click" />
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Left">
                         <asp:Button ID="btnExistingCustomer"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Existing Customer" OnClick="btnExistingCustomer_Click" />
                     </asp:TableCell>
-                    </asp:TableRow>
+                </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
@@ -37,10 +39,10 @@
                 </asp:TableRow>
             </asp:Table>
         </div>
-    </form>
           <script src="Scripts/jquery-3.5.1.min.js"></script>
         <script src="Scripts/popper.min.js"></script>
         <script src="Scripts/bootstrap.bundle.min.js"></script>
-</body>
+    </form>
+          </body>
 </html>
  

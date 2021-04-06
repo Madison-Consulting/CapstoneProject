@@ -51,15 +51,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnNewEmp;
 
         /// <summary>
-        /// btnEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmployee;
-
-        /// <summary>
         /// btnCustomer control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCustomer;
+
+        /// <summary>
+        /// btnEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEmployee;
 
         /// <summary>
         /// btnExistingCustomer control.
