@@ -3,14 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20% ">
-        <asp:Table runat="server">
+        <asp:Table runat="server"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
-                <asp:TableCell>
+                <asp:TableCell> 
                     <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label> 
-
-                </asp:TableCell>
+            </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
                 <asp:TableCell>
-<%--                    Notes--%>
+                    <asp:TextBox ID="txtItemsSell" runat="server" Width="250px"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtDisplayItemsSell" runat="server" TextMode="MultiLine" Height="400" Width="250px"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -58,9 +64,6 @@
 
                 </asp:TableCell>
             </asp:TableRow>
-
-        </asp:Table>
-
-
+</asp:Table>
     </div>
 </asp:Content>

@@ -1,8 +1,9 @@
-﻿f <%@ Page Title="Auction Form" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AuctionForm.aspx.cs" Inherits="CapstoneProject.AuctionForm" %>
+﻿<%@ Page Title="Auction Form" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AuctionForm.aspx.cs" Inherits="CapstoneProject.AuctionForm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20% ">
+
     <asp:Table ID="tblAuction" runat="server">
         
         <asp:TableRow>

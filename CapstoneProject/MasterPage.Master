@@ -81,8 +81,8 @@
                                     Auction Forms
                                   </button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Auction Service Order Form</a>
-                                    <a class="dropdown-item" href="#">Auction Assessment Form</a>
+                                    <a class="dropdown-item" href="/AuctionForm.aspx">Auction Service Order Form</a>
+                                    <a class="dropdown-item" href="/IntialAuctionService.aspx">Auction Assessment Form</a>
                                   </div>
                                 </div>
 <%--                            <asp:Button ID="btnAuctionForm" class="btn-GreenValley" runat="server" Text="Auction Form" OnClick="btnAuctionForm_Click" CausesValidation="false"/>--%>
