@@ -78,7 +78,7 @@
 
         </asp:Table>
 
-        <asp:Table ID="tblTxtBox" runat="server" Style="display: inline-block" Width="300px">
+        <asp:Table ID="tblTxtBox" runat="server" Style="display: inline-block; position:fixed;" Width="300px" >
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>

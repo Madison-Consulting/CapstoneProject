@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:Table ID="tblViewServices" runat="server">
+<%--    <asp:Table ID="tblViewServices" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnPopulateInv" runat="server" Text="Populate"  OnClick="btnPopulateInv_Click" CausesValidation ="false"/>
@@ -14,9 +14,9 @@
                 <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
             </asp:TableCell>
         </asp:TableRow>
-        
-        
-    </asp:Table>
+             
+    </asp:Table>--%>
+
     <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="Table5" runat="server">
        <asp:TableRow>
