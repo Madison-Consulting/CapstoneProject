@@ -14,7 +14,7 @@
          <a href="/EmpLandingPage.aspx">Home</a>
 
 
-         <button class="dropdown-btn">
+         <button type="button" class="dropdown-btn">
              Customer
                   <i class="fa fa-caret-down"></i>
          </button>
@@ -25,7 +25,7 @@
          </div>
 
 
-         <button class="dropdown-btn">
+         <button type="button" class="dropdown-btn">
              Services
                     <i class="fa fa-caret-down"></i>
          </button>
@@ -39,16 +39,16 @@
 
          <a href="/AppraisalServiceOrder.aspx">Appraisal Service Order Form</a>
 
-            <button class="dropdown-btn">Auction Services
+            <button type="button" class="dropdown-btn">Auction Services
                 <i class="fa fa-caret-down"></i>
                 </button>
               <div class="dropdown-container">
                 <a href="/AuctionForm.aspx">Auction Form</a>
-                <a href="/IntiialAuctionService.aspx">Initial Auction Service Form</a>
+                <a href="/InitialAuctionService.aspx">Initial Auction Service Form</a>
               </div>
 
 
-             <button class="dropdown-btn">Moving Services
+             <button type="button" class="dropdown-btn">Moving Services
                  <i class="fa fa-caret-down"></i>
                 </button>
               <div class="dropdown-container">

@@ -170,6 +170,19 @@
 
     </asp:Table>
 
+            <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 100px; right: 130px;">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="230px" Height="200"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
     <asp:SqlDataSource runat="server"
         ID="dtasrcTruckInventory"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
@@ -187,5 +200,8 @@
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
         SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
     </asp:SqlDataSource>
+
+        
+
         </div>
-</asp:Content>
+            </asp:Content>
