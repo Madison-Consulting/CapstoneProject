@@ -4,6 +4,7 @@
 <html>
 <head runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
     <title>Madison Consulting 01</title>
     <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
@@ -65,11 +66,15 @@
                         <asp:TableCell>
                             <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
                         </asp:TableCell>
-                        <asp:TableCell ColumnSpan="7" HorizontalAlign="Right"> 
-                             <div class="dropdown">
-                                  <button class=" btn-sm dropdown-toggle" data-toggle="dropdown" type="button" id="btnNotifs" aria-haspopup="true" aria-expanded="false">
+                        <asp:TableCell ColumnSpan="6" HorizontalAlign="Right"> 
+                        
+                             <div class="dropdown image_with_badge_container">
+                                 <input type="image" name="UserIcon" id="btnNotifs" src="/Image/UserIcon.jpg" height="30" width="30" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown"/>
+                                   <span class="badge badge-on-image">7</span>
+<%--                                  <button class=" btn-sm dropdown-toggle" data-toggle="dropdown" type="button" id="btnNotifs" aria-haspopup="true" aria-expanded="false">
                                     <img src="/Image/UserIcon.jpg" height="30" width="30"/>
-                                  </button>
+                                    
+                                  </button>--%>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/Notifications.aspx">Notifications</a>
                                     <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>

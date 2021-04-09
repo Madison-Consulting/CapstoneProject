@@ -5,6 +5,46 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+
+.image_with_badge_container {
+    display: inline-block; /* keeps the img with the badge if the img is forced to a new line */
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.badge-on-image {
+    position: absolute;
+    bottom: 2px; /* position where you want it */
+    left: 2px;
+    padding: 3px 6px;
+    background-color:red;
+    border-radius:50px;
+}
+
+.notification {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+    .notification:hover {
+        background: red;
+    }
+
+    .notification .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+    }
+
 .sidenav {
     height: 100%;
     width: 200px;

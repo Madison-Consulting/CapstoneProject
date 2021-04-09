@@ -198,7 +198,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="StartPage.aspx" />
-    <Content Include="TestMP.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -367,13 +366,6 @@
     </Compile>
     <Compile Include="StartPage.aspx.designer.cs">
       <DependentUpon>StartPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TestMP.aspx.cs">
-      <DependentUpon>TestMP.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TestMP.aspx.designer.cs">
-      <DependentUpon>TestMP.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
