@@ -2821,7 +2821,13 @@ fieldset:disabled a.btn {
     
 }
 
-.btn-warning {
+.btn-GreenValleyGreen {
+    color: white;
+    background-color: #325f57;
+    border-radius: 6px;
+    font-weight: bold;
+}
+    .btn-warning {
   color: #212529;
   background-color: #ffc107;
   border-color: #ffc107;

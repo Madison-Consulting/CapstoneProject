@@ -13,7 +13,7 @@
                         <asp:TextBox ID="txtSearch" runat="server" Width="200"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                        <asp:Button ID="btnSearch" class= "btn-GreenValleyGreen" runat="server" Text="Search" OnClick="btnSearch_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

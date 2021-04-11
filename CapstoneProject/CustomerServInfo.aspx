@@ -82,7 +82,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Right">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnSubmitRequest" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
+                        <asp:Button ID="btnSubmitRequest" class= "btn-GreenValleyGreen" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
@@ -90,7 +90,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogout" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                        <asp:Button ID="btnLogout" class= "btn-GreenValleyGreen" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>

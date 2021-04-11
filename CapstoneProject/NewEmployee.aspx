@@ -88,7 +88,7 @@
                         ForeColor ="red"/>
             </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnCreateNewEmp" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
+                <asp:Button ID="btnCreateNewEmp" class= "btn-GreenValleyGreen" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
             </asp:TableCell></asp:TableRow><asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>

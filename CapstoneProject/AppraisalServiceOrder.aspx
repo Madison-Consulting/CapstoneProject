@@ -158,12 +158,12 @@
                 <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:FileUpload ID="upldPhoto" runat="server" />
+                <asp:FileUpload ID="upldPhoto" runat="server"  />
             </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
+                <asp:Button ID="btnUpload" class= "btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
@@ -182,10 +182,10 @@
                 <asp:Label ID="lblAddlServ" runat="server" Text="Additional Services?"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnMoveAssess" runat="server" Text="Move Assessment" OnClick="btnMoveAssess_Click" />
+                <asp:Button ID="btnMoveAssess" class= "btn-GreenValleyGreen" runat="server" Text="Move Assessment" OnClick="btnMoveAssess_Click" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnAuctionAssess" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click"/>
+                <asp:Button ID="btnAuctionAssess" class= "btn-GreenValleyGreen" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click"/>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>

@@ -59,8 +59,8 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnBack" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Back" OnClick="btnBack_Click" />
-                <asp:Button ID="btnCommit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Next" OnClick="btnCommit_Click" />
+                <asp:Button ID="btnBack" class= "btn-GreenValleyGreen" runat="server" Text="Back" OnClick="btnBack_Click" />
+                <asp:Button ID="btnCommit" class= "btn-GreenValleyGreen" runat="server" Text="Next" OnClick="btnCommit_Click" />
 
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
             </asp:TableCell>

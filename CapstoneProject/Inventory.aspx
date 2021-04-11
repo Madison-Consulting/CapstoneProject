@@ -107,12 +107,12 @@
                 </asp:TableRow>    
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnAddInv"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add" OnClick="btnAddInv_Click"/>
+                <asp:Button ID="btnAddInv"  class= "btn-GreenValleyGreen" runat="server" Text="Add" OnClick="btnAddInv_Click"/>
             </asp:TableCell>
             </asp:TableRow>
                     <asp:TableRow  HorizontalAlign ="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnViewAllInv"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="View All Items in Inventory" OnClick="btnViewAllInv_Click" CausesValidation="false" />
+                        <asp:Button ID="btnViewAllInv" class= "btn-GreenValleyGreen" runat="server" Text="View All Items in Inventory" OnClick="btnViewAllInv_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow> 
    </asp:Table>
