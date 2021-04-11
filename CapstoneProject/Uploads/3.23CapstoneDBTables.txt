@@ -1,0 +1,246 @@
+CREATE TABLE Customer 
+(CustFirstName varchar(15)not null,
+CustLastName varchar(15) not null,
+PhoneType varchar (10),
+PhoneNumber varchar(15) not null,
+Email varchar(50)not null,
+CustAddress varchar(50) not null,
+CustCity varchar(15) not null,
+CustState varchar(12)not null,
+CustZip char(5) not null,
+CustomerID char(9) not null,
+InitialContact varchar(20),
+HearAbout varchar(50),
+InterestedService varchar(100),
+
+--move to service or service ticket
+MoveAddress varchar(50),
+MoveCity varchar(20),
+MoveState varchar(12),
+MoveZip char(5),
+--
+
+DateTimeInitial varchar(50),
+Deadline varchar (20),
+Time1 varchar (20),
+Deadline2 varchar (20),
+Time2 varchar (20),
+
+PRIMARY KEY (CustomerID));
+
+CREATE TABLE Employee(
+EmpName varchar(30) not null,
+EmpPosition varchar(30),
+EmpCellNumber varchar(20),
+EmpEmail varchar(30),
+
+PRIMARY KEY (EmpName));
+
+CREATE TABLE Service(
+CustomerFirstName varchar(50) not null,
+CustomerLastName varchar(50) not null,
+CustomerID char(9) not null,
+ServiceType varchar(10) not null,
+ServiceDate varchar(20) not null,
+EstimatedCost varchar(10) not null,
+CompletionDate varchar(20),
+VehicleUsed varchar(50),
+ServiceID int not null,
+MoveTime int,
+FoodCost varchar(10),
+FuelCost varchar(10),
+LodgingCost varchar(10),
+EquipmentNeeded varchar(50),
+DestinationAddress varchar(50) not null,
+DestinationCity varchar(20) not null,
+DestinationState char(2) not null,
+DestinationZip char(5) not null,
+
+-- move to notes table
+NoteHeader varchar(50),
+Note varchar(1000),
+--
+EmpName varchar(30),
+PRIMARY KEY (ServiceID),
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+FOREIGN KEY (EmpName) REFERENCES Employee(EmpName));
+
+
+CREATE TABLE ServiceTicket(
+ServiceTicketID  char(5) not null,
+TicketStatus varchar(25),
+CustomerID char(9) not null,
+ServiceID int not null,
+InitiatingEmpName varchar(30),
+
+PRIMARY KEY (ServiceTicketID),
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID),
+FOREIGN KEY (InitiatingEmpName) REFERENCES Employee(EmpName));
+
+CREATE TABLE ServiceRequest (
+RequestID int IDENTITY (1,1) NOT NULL,
+CustomerID char(9) not null,
+UserEmail varchar(50) not null,
+ServiceType varchar(25) not null,
+ServiceDate varchar(25) not null,
+Needs varchar(500) not null,
+TicketStatus varchar(20) not null,
+
+PRIMARY KEY (RequestID),
+FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID));
+
+CREATE TABLE TicketHistory(
+TicketHistoryID char(7) not null,
+TicketChangeDate varchar(20) not null,
+ServiceTicketID char(5) not null,
+EmpNameTicket varchar(30),
+
+PRIMARY KEY (TicketHistoryID),
+FOREIGN KEY (ServiceTicketID) REFERENCES ServiceTicket(ServiceTicketID),
+FOREIGN KEY (EmpNameTicket)REFERENCES Employee (EmpName));
+
+
+CREATE TABLE MoveForm(
+MoveFormID int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+HouseStories int,
+TruckDistance varchar(255),
+Accessibility varchar(255),
+LoadingCondition varchar(255),
+ServiceID int not null,
+FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID));
+
+
+CREATE TABLE Room(
+RoomType varchar(255) PRIMARY KEY,
+BoxType varchar(255),
+BoxQuantity int,
+MovingEquipment varchar(255),
+RoomItem varchar(255),
+ItemValue varchar(255),
+ItemQuantity varchar(255),
+ItemNotes varchar(255),
+MoveFormID int FOREIGN KEY REFERENCES MoveForm(MoveFormID)
+);
+
+CREATE TABLE Inventory(
+ItemID INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+ItemInInventory varchar(50),
+InventoryDate varchar(20),
+ItemCost varchar(10),
+ServiceID char(6) not null);
+
+CREATE TABLE [dbo].[Equipment](
+[EquipmentID] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+[EquipmentName] NCHAR(10) NULL,
+[EquipmentDescription] NVARCHAR(50) NULL);
+
+CREATE TABLE [dbo].[Completion](
+[CompletionID] int IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [FinalCost] NCHAR(10) NULL, 
+    [PaymentReceived] NCHAR(10) NULL, 
+    [PorNExp] NCHAR(10) NULL, 
+    [PorNWhy] NCHAR(100) NULL, 
+    [AdditionalExpenses] NCHAR(100) NULL, 
+    --[MoveAddressStreet] NCHAR(10) NULL, 
+    --[MoveAddressCity] NCHAR(10) NULL, 
+    --[MoveAddressState] NCHAR(10) NULL, 
+    --[MoveAddressZip] NCHAR(10) NULL, 
+    [Milage] NCHAR(10) NULL, 
+    [EquipmentID] int NULL, 
+    [AdditionalNotes] varchar(250) NULL, 
+    [CustComplainCompliment] varchar(250) NULL, 
+    [CustomerID] CHAR(9) NULL, 
+    --CONSTRAINT [FK_Completion_EquipmentID] FOREIGN KEY ([EquipmentID]) REFERENCES [Equipment]([EquipmentID]), 
+    CONSTRAINT [FK_Completion_CustomerID] FOREIGN KEY ([CustomerID]) REFERENCES [Customer]([CustomerID]));
+
+
+CREATE TABLE [dbo].[AuctionPickUp](
+[AuctionPickID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+    [BringDate] NCHAR(10) NULL, 
+    [PickUpDate] NCHAR(10) NULL, 
+    [LookAtDate] NCHAR(10) NULL, 
+    [AppraisalDate] NCHAR(10) NULL, 
+    [SaleDate] NCHAR(10) NULL, 
+    [StorageLocation] NCHAR(20) NULL, 
+    [ItemID] int NULL, 
+    [CustomerID] CHAR(9) NULL, 
+    CONSTRAINT [FK_AuctionPickUp_InventoryID] FOREIGN KEY ([ItemID]) REFERENCES [Inventory]([ItemID]), 
+    CONSTRAINT [FK_AuctionPickUp_CustomerID] FOREIGN KEY ([CustomerID]) REFERENCES [Customer]([CustomerID]));
+
+
+CREATE TABLE [dbo].[AuctionSchedule](
+[AuctionID] INT IDENTITY (1,1) NOT NULL PRIMARY KEY, 
+    [ItemID] int NULL, 
+    [PhotoSpot] varchar(30) NULL, 
+    [TruckAcc] varchar(30) NULL, 
+    [Crew] varchar(30) NULL, 
+    [NumTrucks] NCHAR(10) NULL, 
+    [EquipmentID] int NULL, 
+    [Need] varchar(250) NULL, 
+    [CustomerID] CHAR(9) NULL, 
+    [AuctionDate] NCHAR(10) NULL, 
+    CONSTRAINT [FK_InventoryIDSC] FOREIGN KEY ([ItemID]) REFERENCES [Inventory]([ItemID]),
+    CONSTRAINT [FK_CustomerIDSC] FOREIGN KEY ([CustomerID]) REFERENCES [Customer]([CustomerID])); 
+    --CONSTRAINT [FK_Table_ToTable_2] FOREIGN KEY ([EquipmentID]) REFERENCES [ToTable]([ToTableColumn])
+
+INSERT INTO Customer VALUES ('James','Crane','cell','(716)261-5371','ncrane@dukes.jmu.edu','123 Jersey Ln','Harrisonburg', 'VA','22801','111736162','By Phone','Friend','Moving','432 S Main St','Harrisonburg','VA','22801','10/10/2020, 2pm','11/01/2020','2pm',null,null);
+INSERT INTO Customer VALUES ('John','Crogh','home','(654)231-5375','crow@dukes.jmu.edu','1235 Harol Ln','Harrisonburg', 'VA','22801','011927384','Other','Newspaper','Moving','12 S High St','Harrisonburg','VA','22801','07/10/2020, 1pm','08/20/2020','3pm',null,null);
+INSERT INTO Customer VALUES ('Alice','Brown','cell','(678)123-5334','brownie@dukes.jmu.edu','828 Hunters Cove','Buffalo', 'NY','14221','888372645','By Phone','Other','Auction','626 Gold St','Harrisonburg','VA','22801','02/17/2020, 5pm','02/28/2020','12pm','03/02/2020','12pm');
+INSERT INTO Customer VALUES ('Kathryn','Vogl','cell','(717)266-5861','kvog@dukes.jmu.edu','88 South Main St','Harrisonburg', 'VA','22801','273847263','By Email','TV','Moving','490 S Main St','Harrisonburg','VA','22801','02/11/2021, 2pm','03/01/2021','10 am', null, null);
+
+INSERT INTO Service VALUES('James','Crane','111736162','Moving','11/05/2020','1200','11/06/2020','truck 4','762713','2','20','120','0','forklift','123 Westbury Lane','Dayton','OH','23132','Pickup Time','James will pick up the truck at 11:30am', null);
+INSERT INTO Service VALUES('John','Crogh','011927384','Moving','12/25/2020','300','12/30/2020','truck 2','837164','3','30','120','160','truck','833 Home Ln','Cleveland','OH','23332','Order Details','The customer wishes for a no-contact experience', null);
+INSERT INTO Service VALUES('Alice','Brown','888372645','Auction','01/15/2021','120','01/17/2021','truck 5','284726','2','200','200','0','forklift, truck','123 James Way','Harrisonburg','VA','22801',null,null, null);
+INSERT INTO Service VALUES('Kathryn','Vogl','273847263','Moving','11/25/2020','1500','11/27/2020','truck 1','273615','5','50','120','20','forklift','918 Main Rd','Buffalo','NY','14221','Details','Move date is subject to change', null);
+
+INSERT INTO Employee VALUES('Caitlyn Meyer','Systems Analyst','7165603210','cmmeyer5@gmail.com');
+INSERT INTO Employee VALUES('Joe Jonas','Designer','7121116251','jjonas@rr.com');
+INSERT INTO Employee VALUES('Sue Bacon','Business Analyst','1115550125','baconnn@rr.com');
+INSERT INTO Employee VALUES('Kevin Jonas','Designer','8882471421','kjonas@rr.com');
+
+INSERT INTO ServiceRequest (CustomerID, UserEmail, ServiceType, ServiceDate, Needs, TicketStatus) VALUES ('111736162','cmmeyer510@gmail.com','Moving','12/10/2020','Move from Harrisonburg to Roanoke','Unassigned');
+INSERT INTO ServiceRequest (CustomerID, UserEmail, ServiceType, ServiceDate, Needs, TicketStatus) VALUES ('011927384','ncrane@dukes.jmu.edu','Auction','03/01/2021','Full House Auction','Unassigned');
+INSERT INTO ServiceRequest (CustomerID, UserEmail, ServiceType, ServiceDate, Needs, TicketStatus) VALUES ('888372645','brownie@dukes.jmu.edu','Moving','07/23/2021','Move from Harrisonburg to Roanoke','Unassigned');
+INSERT INTO ServiceRequest (CustomerID, UserEmail, ServiceType, ServiceDate, Needs, TicketStatus) VALUES ('273847263','kvog@dukes.jmu.edu','Moving', '02/20/2021','Move from Harrisonburg to NJ','Unassigned');
+
+
+INSERT INTO ServiceTicket VALUES ('81082','Open','111736162','762713', 'Caitlyn Meyer');
+INSERT INTO ServiceTicket VALUES ('89032','Open','011927384','837164', 'Joe Jonas');
+INSERT INTO ServiceTicket VALUES ('82104','Closed','273847263','273615', 'Sue Bacon');
+INSERT INTO ServiceTicket VALUES ('10332','Closed','888372645','284726','Sue Bacon');
+
+
+INSERT INTO TicketHistory VALUES ('8193729','11/07/2020','81082','Joe Jonas');
+INSERT INTO TicketHistory VALUES ('8104362','12/30/2020','89032','Sue Bacon');
+INSERT INTO TicketHistory VALUES ('8361942','01/20/2021','82104','Joe Jonas');
+INSERT INTO TicketHistory VALUES ('8271643','01/29/2021','89032','Caitlyn Meyer');
+
+--INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition)VALUES('2','200 miles','steep hill for driveway','steep');
+--INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition)VALUES('1','20 miles','no issues','easy');
+--INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition)VALUES('2','500 miles','no issues','easy');
+--INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition)VALUES('3','50 miles','small driveway','tight spaces');
+
+INSERT INTO Room VALUES('Basement','large','4','truck','mirror','200','1','very fragile', null);
+INSERT INTO Room VALUES('Bedroom 1','medium','2','truck','misc dresser items','150','2',null, null);
+INSERT INTO Room VALUES('Bedroom 2','large','4','truck','mirror, dresser','500','2','fragile', null);
+
+INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES ('Chair','11/05/2020','400','762713');
+INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES ('Couch','12/25/2020','800','837164');
+INSERT INTO Inventory (ItemInInventory,InventoryDate,ItemCost,ServiceID) VALUES ('Table','01/27/2021','200','273615');
+
+INSERT INTO Equipment (EquipmentName,EquipmentDescription) VALUES('truck','2015 GMC');
+INSERT INTO Equipment (EquipmentName,EquipmentDescription) VALUES('trailer','2011 trailer');
+INSERT INTO Equipment (EquipmentName,EquipmentDescription) VALUES('truck','2011 Cube');
+
+INSERT INTO Completion (FinalCost,PaymentReceived,PorNExp, PorNWhy, AdditionalExpenses, Milage, EquipmentID, AdditionalNotes,CustComplainCompliment,CustomerID) VALUES('2300','yes','positive','did the move quickly','1 extra day - $x dollars','230 miles',null,null,'Customer left review on Yelp','111736162');
+INSERT INTO Completion (FinalCost,PaymentReceived,PorNExp, PorNWhy, AdditionalExpenses, Milage, EquipmentID, AdditionalNotes,CustComplainCompliment,CustomerID) VALUES('2700','yes','positive','good customer service','none','230 miles',null,null,'Customer left review on Yelp','011927384');
+INSERT INTO Completion (FinalCost,PaymentReceived,PorNExp, PorNWhy, AdditionalExpenses, Milage, EquipmentID, AdditionalNotes,CustComplainCompliment,CustomerID) VALUES('1300','no','negative','the truck promised wasnt available','2 extra days with truck - $x dollars','230 miles',null,'should send a voucher for bad service complaint','Customer left bad review on Yelp','273847263');
+
+INSERT INTO AuctionPickUp (BringDate,PickUpDate, LookAtDate, AppraisalDate,SaleDate, StorageLocation, ItemID, CustomerID) VALUES('11/07/2020','11/09/2020','11/05/2020','11/05/2020','11/10/2020','shelf 4c',null,'111736162');
+INSERT INTO AuctionPickUp (BringDate,PickUpDate, LookAtDate, AppraisalDate,SaleDate, StorageLocation, ItemID, CustomerID) VALUES('11/20/2020','11/22/2020','11/20/2020','11/20/2020','11/25/2020','shelf 6c',null,'011927384');
+INSERT INTO AuctionPickUp (BringDate,PickUpDate, LookAtDate, AppraisalDate,SaleDate, StorageLocation, ItemID, CustomerID) VALUES('08/07/2020','08/09/2020','08/05/2020','08/05/2020','08/10/2020','shelf 8a',null,'273847263');
+
+INSERT INTO AuctionSchedule (ItemID,PhotoSpot,TruckAcc,Crew, NumTrucks,EquipmentID,Need,CustomerID,AuctionDate) VALUES (null, null, null, 'Brad, Zach','2',null, null,'111736162','02/21/2021');
+INSERT INTO AuctionSchedule (ItemID,PhotoSpot,TruckAcc,Crew, NumTrucks,EquipmentID,Need,CustomerID,AuctionDate) VALUES (null, null, null, 'Sam','3',null, null,'011927384','05/30/2020');
+INSERT INTO AuctionSchedule (ItemID,PhotoSpot,TruckAcc,Crew, NumTrucks,EquipmentID,Need,CustomerID,AuctionDate) VALUES (null, null, null, 'Scotty','1',null, null,'273847263','06/24/2020');

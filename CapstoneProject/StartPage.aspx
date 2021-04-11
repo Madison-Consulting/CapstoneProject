@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
      <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
     <title>Green Valley Auctions</title>
 </head>
 <body>

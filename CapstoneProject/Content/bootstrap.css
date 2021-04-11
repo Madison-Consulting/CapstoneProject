@@ -1,10 +1,62 @@
 /*!
- * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.btn-GreenValley {
+    color: white;
+    background-color: #dbaa00;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn-GreenValleyGreen {
+    color: white;
+    background-color: #266141;
+    border-color: #266141;
+    border-radius: 6px;
+}
+
+    .btn-GreenValleyGreen:hover,
+    .btn-GreenValleyGreen:focus,
+    .btn-GreenValleyGreen:active,
+    .btn-GreenValleyGreen.active,
+    .open .dropdown-toggle.btn-GreenValleyGreen {
+        color: #FFFFFF;
+        background-color: #A09d74;
+        border-color: #266141;
+    }
+
+    .btn-GreenValleyGreen:active,
+    .btn-GreenValleyGreen.active,
+    .open .dropdown-toggle.btn-GreenValleyGreen {
+        background-image: none;
+    }
+
+    .btn-GreenValleyGreen.disabled,
+    .btn-GreenValleyGreen[disabled],
+    fieldset[disabled] .btn-GreenValleyGreen,
+    .btn-GreenValleyGreen.disabled:hover,
+    .btn-GreenValleyGreen[disabled]:hover,
+    fieldset[disabled] .btn-GreenValleyGreen:hover,
+    .btn-GreenValleyGreen.disabled:focus,
+    .btn-GreenValleyGreen[disabled]:focus,
+    fieldset[disabled] .btn-GreenValleyGreen:focus,
+    .btn-GreenValleyGreen.disabled:active,
+    .btn-GreenValleyGreen[disabled]:active,
+    fieldset[disabled] .btn-GreenValleyGreen:active,
+    .btn-GreenValleyGreen.disabled.active,
+    .btn-GreenValleyGreen[disabled].active,
+    fieldset[disabled] .btn-GreenValleyGreen.active {
+        background-color: #266141;
+        border-color: #266141;
+    }
+
+    .btn-GreenValleyGreen .badge {
+        color: #266141;
+        background-color: #FFFFFF;
+    }
 
 .image_with_badge_container {
     display: inline-block; /* keeps the img with the badge if the img is forced to a new line */
@@ -76,7 +128,7 @@
 
         /* On mouse-over */
         .sidenav a:hover, .dropdown-btn:hover {
-            background-color: #325f57;
+            background-color: #266141;
             color: white;
         }
 
@@ -90,7 +142,7 @@
 
 /* Add an active class to the active dropdown button */
 .active {
-    background-color: #325f57;
+    background-color: #266141;
     color: white;
 }
 
@@ -167,14 +219,14 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2813,24 +2865,13 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(58, 176, 195, 0.5);
 }
 
-.btn-GreenValley {
-    color: white;
-    background-color: #a09d74;
-    border-radius: 6px;
-    font-weight:bold;
-    
-}
 
-.btn-GreenValleyGreen {
+
+    .btn-warning {
     color: white;
     background-color: #325f57;
     border-radius: 6px;
     font-weight: bold;
-}
-    .btn-warning {
-  color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
 }
 
 .btn-warning:hover {

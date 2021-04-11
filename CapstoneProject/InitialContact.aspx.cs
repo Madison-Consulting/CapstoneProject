@@ -13,16 +13,20 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            {
-                txtCustomerID.Text = (string)Session["ID"];
-                txtFN.Text = (string)Session["FName"];
-                txtLN.Text = (string)Session["LName"];
-            }
-
             if (!IsPostBack)
             {
                 txtDateTime.Text = DateTime.Now.ToString();
+
+                if (Session["ID"] != null)
+                {
+                    txtCustomerID.Text = (string)Session["ID"];
+                    txtFN.Text = (string)Session["FName"];
+                    txtLN.Text = (string)Session["LName"];
+                }
             }
+         
+                
+            
 
             //if (!Session["Firstname"].Equals(null))
             //{

@@ -74,7 +74,7 @@
                         <asp:FileUpload ID="FileUpload1" runat="server" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" causesvalidation="false"/>
+                        <asp:Button ID="btnUpload" class="btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" causesvalidation="false"/>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>
@@ -82,7 +82,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Right">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnSubmitRequest" class= "btn-GreenValleyGreen" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
+                        <asp:Button ID="btnSubmitRequest" class="btn-GreenValleyGreen" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
@@ -90,7 +90,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogout" class= "btn-GreenValleyGreen" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
+                        <asp:Button ID="btnLogout" class="btn-GreenValleyGreen" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
