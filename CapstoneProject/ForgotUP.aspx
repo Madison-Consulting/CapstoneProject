@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head runat="server">'    
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
     <title></title>
 </head>
 <body>
@@ -25,7 +27,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnSend" runat="server" Text="Send a Reset Link" />
+                        <asp:Button ID="btnSend" class= "btn-GreenValleyGreen" runat="server" Text="Send a Reset Link" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
@@ -36,5 +38,8 @@
             </asp:Table>
         </div>
     </form>
+              <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
-                <asp:Button ID="btnAddInitialContact"  Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnAddInitialContact_Click" />
+                <asp:Button ID="btnAddInitialContact"  class= "btn-GreenValleyGreen" runat="server" Text="Add Initial Contact Info" OnClick="btnAddInitialContact_Click" />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>

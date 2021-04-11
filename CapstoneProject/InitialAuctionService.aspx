@@ -71,8 +71,10 @@
         <asp:Table runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button ID="btnCommitIntialAuction" runat="server" Text="Save" OnClick="btnCommitIntialAuction_Click" Height="25px" Width="75px" Font-Bold="true" ForeColor="White"  BackColor="#325f57" />
+                    <asp:Button ID="btnCommitIntialAuction" class= "btn-GreenValleyGreen" runat="server" Text="Save" OnClick="btnCommitIntialAuction_Click" Height="25px" Width="75px" Font-Bold="true" ForeColor="White"  BackColor="#325f57" />
                 </asp:TableCell>
             </asp:TableRow>
+            
         </asp:Table>
+        </div>
 </asp:Content>

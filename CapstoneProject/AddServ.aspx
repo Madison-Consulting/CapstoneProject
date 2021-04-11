@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <asp:Table ID="tblAddServ" runat="server">
+<%--    <asp:Table ID="tblAddServ" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnPopulateServ" runat="server" Text="Populate" OnClick="btnPopulateServ_Click" CausesValidation="false" />
@@ -16,7 +16,7 @@
                 <asp:Button ID="btnClearServ" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false" />
             </asp:TableCell>
         </asp:TableRow>
-    </asp:Table>
+    </asp:Table>--%>
 
 
     <div style="width: 99%; margin: 0 10%;">
@@ -45,6 +45,22 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
+                    <asp:Label ID="lblFN" runat="server" Text="Customer First Name:"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtFN" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblLN" runat="server" Text="Customer Last Name:"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtLN" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+<%--            <asp:TableRow>
+                <asp:TableCell>
                     <asp:Label ID="lblCustomer" runat="server" Text="Customer: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
@@ -59,7 +75,7 @@
                         <asp:ListItem Value="">we need a search box here</asp:ListItem>
                     </asp:DropDownList>
                 </asp:TableCell>
-            </asp:TableRow>
+            </asp:TableRow>--%>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDate" runat="server" Text="Service Date: "></asp:Label>
@@ -115,6 +131,11 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

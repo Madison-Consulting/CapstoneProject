@@ -151,7 +151,7 @@
                 </asp:TableRow>
         <asp:TableRow HorizontalAlign="Left">
             <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnCreateAccount" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
+                <asp:Button ID="btnCreateAccount" class= "btn-GreenValleyGreen" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center">

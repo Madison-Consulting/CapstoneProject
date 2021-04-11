@@ -7,17 +7,23 @@
         <asp:Table ID="tblInitialContact" runat="server" Style="display: inline-block" Width="700px">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button ID="btnPopulateInitial" runat="server" Text="Populate" OnClick="btnPopulateInitial_Click" CausesValidation="false" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
                     <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+                        <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblFN" runat="server" Text="Customer First Name:"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblLN" runat="server" Text="Customer Last Name:"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -138,12 +144,12 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
-                    <asp:Button ID="btnSaveInitial" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
+                    <asp:Button ID="btnSaveInitial" class= "btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
-                    <asp:Button ID="btnAddService" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
+                    <asp:Button ID="btnAddService" class= "btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

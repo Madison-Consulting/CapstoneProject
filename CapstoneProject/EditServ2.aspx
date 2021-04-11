@@ -64,7 +64,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnTicketHistorySubmit" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Submit New Ticket History" OnClick="btnTicketHistorySubmit_Click" />
+                    <asp:Button ID="btnTicketHistorySubmit" class= "btn-GreenValleyGreen" runat="server" Text="Submit New Ticket History" OnClick="btnTicketHistorySubmit_Click" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
@@ -72,7 +72,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnHistory" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="View Full Service History" OnClick="btnHistory_Click" CausesValidation="false" />
+                    <asp:Button ID="btnHistory" class= "btn-GreenValleyGreen" runat="server" Text="View Full Service History" OnClick="btnHistory_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>
 

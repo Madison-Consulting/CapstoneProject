@@ -28,7 +28,7 @@
                           <asp:TextBox ID="txtCustSearch" runat="server"></asp:TextBox>
                       </asp:TableCell>
                       <asp:TableCell>
-                          <asp:Button ID="btnSearch" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false"/>
+                          <asp:Button ID="btnSearch" class= "btn-GreenValleyGreen" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false"/>
                       </asp:TableCell>
                       </asp:TableRow>
                   <asp:TableRow>
@@ -161,12 +161,12 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center" >
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnUpdateCust" runat="server" Font-Bold="true" ForeColor="White"  BackColor="#325f57" Text="Update Customer" OnClick="btnUpdateCust_Click" />
+                        <asp:Button ID="btnUpdateCust" runat="server" class= "btn-GreenValleyGreen" Text="Update Customer" OnClick="btnUpdateCust_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnAddService" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
+                        <asp:Button ID="btnAddService" class= "btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                     </asp:TableCell>
                 </asp:TableRow>
 <%--                <asp:TableRow HorizontalAlign="Center">

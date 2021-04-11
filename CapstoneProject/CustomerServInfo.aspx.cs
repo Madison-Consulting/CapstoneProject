@@ -57,7 +57,7 @@ namespace Lab3
 
                     cmd.ExecuteNonQuery();
                     con1.Close();
-
+                 
                 }
                 myReader3.Close();
             }

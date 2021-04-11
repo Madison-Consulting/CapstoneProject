@@ -162,7 +162,7 @@
                     </asp:Table>
                 </div>
                 <%-- end of hideable "pickup" div --%>
-                <asp:Button ID="btnCommit" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Save" OnClick="btnCommit_Click"/>
+                <asp:Button ID="btnCommit" class= "btn-GreenValleyGreen" runat="server" Text="Save" OnClick="btnCommit_Click"/>
             </asp:TableCell>
         </asp:TableRow>
         
