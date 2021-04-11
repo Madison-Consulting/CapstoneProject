@@ -6,7 +6,7 @@
         <asp:Table runat="server"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
-                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label> 
+                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
             </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
