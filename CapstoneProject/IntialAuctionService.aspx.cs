@@ -36,5 +36,10 @@ namespace CapstoneProject
             txtDisplayItemsSell.Text +=  txtItemsSell.Text + "\n";
             txtItemsSell.Text = "";
         }
+
+        protected void btnCommitIntialAuction_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
