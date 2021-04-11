@@ -79,7 +79,6 @@ namespace Lab2
             cmd.Parameters.AddWithValue("@DestCity", HttpUtility.HtmlEncode(txtDestinationCity1.Text));
             cmd.Parameters.AddWithValue("@DestState", HttpUtility.HtmlEncode(txtDestinationState1.Text));
             cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
-            cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
             cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
 
 
@@ -101,7 +100,7 @@ namespace Lab2
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, Service.CustomerID, ServiceType, ServiceDate," +
                     "EstimatedCost, CompletionDate, VehicleUsed, Service.ServiceID, MoveTime, FoodCost, FuelCost, LodgingCost," +
-                    "EquipmentNeeded, DestinationAddress, DestinationCity, DestinationState, DestinationZip, NoteHeader, Note, ServiceTicket.ServiceTicketID FROM Service RIGHT OUTER JOIN ServiceTicket ON Service.ServiceID = ServiceTicket.ServiceID WHERE Service.CustomerID  = @CustomerID", con);
+                    "EquipmentNeeded, DestinationAddress, DestinationCity, DestinationState, DestinationZip, Note, ServiceTicket.ServiceTicketID FROM Service RIGHT OUTER JOIN ServiceTicket ON Service.ServiceID = ServiceTicket.ServiceID WHERE Service.CustomerID  = @CustomerID", con);
 
 
                 cmd.Parameters.AddWithValue("@CustomerID", ddlService.SelectedValue);
@@ -129,9 +128,8 @@ namespace Lab2
                         txtDestinationCity1.Text = Convert.ToString(myReader[15]);
                         txtDestinationState1.Text = Convert.ToString(myReader[16]);
                         txtDestinationZip1.Text = Convert.ToString(myReader[17]);
-                        txtHeader.Text = Convert.ToString(myReader[18]);
-                        txtNote.Text = Convert.ToString(myReader[19]);
-                        txtServTicketID.Text = Convert.ToString(myReader[20]);
+                        txtNote.Text = Convert.ToString(myReader[18]);
+                        txtServTicketID.Text = Convert.ToString(myReader[19]);
 
 
                     }

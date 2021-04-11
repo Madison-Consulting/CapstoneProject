@@ -16,6 +16,7 @@ namespace Lab3
 
         private static Random rnd = new Random();
         int CustID = rnd.Next(100000000, 1000000000);
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,10 +25,8 @@ namespace Lab3
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
 
+            if (txtFirstName.Text != "" && txtLastName.Text != "" && txtPassword.Text != "" && txtEmail.Text != "") { // all fields must be filled out
 
-            if (HttpUtility.HtmlEncode(txtFirstName.Text) != "" && HttpUtility.HtmlEncode(txtLastName.Text) != "" && HttpUtility.HtmlEncode(txtPassword.Text) != "" && HttpUtility.HtmlEncode(txtEmail.Text) != "") // all fields must be filled out
-            {
-                // COMMIT VALUES
                 try
                 {
                     System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
@@ -39,23 +38,26 @@ namespace Lab3
                     createUser.Connection = sc;
                     // INSERT USER RECORD
                     createUser.CommandText = "INSERT INTO CustPerson (FirstName, LastName, Username) VALUES (@FName, @LName, @Username)";
-                    createUser.Parameters.Add(new SqlParameter("@FName", HttpUtility.HtmlEncode(txtFirstName.Text)));
-                    createUser.Parameters.Add(new SqlParameter("@LName", HttpUtility.HtmlEncode(txtLastName.Text)));
-                    createUser.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
+                    createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
+                    createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
+                    createUser.Parameters.Add(new SqlParameter("@Username", txtEmail.Text));
                     createUser.ExecuteNonQuery();
 
                     System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
                     setPass.Connection = sc;
                     // INSERT PASSWORD RECORD AND CONNECT TO USER
-                    setPass.CommandText = "INSERT INTO CustPass (UserID, Username, PasswordHash) VALUES ((select max(userid) from CustPerson), @Username, @Password)";
-                    setPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
-                    setPass.Parameters.Add(new SqlParameter("@Password", HttpUtility.HtmlEncode(PasswordHash.HashPassword(txtPassword.Text)))); // hash entered password
+                    setPass.CommandText = "INSERT INTO CustPass  (Username, PasswordHash) VALUES (@Username, @Password)";
+                    setPass.Parameters.Add(new SqlParameter("@Username", txtEmail.Text));
+                    setPass.Parameters.Add(new SqlParameter("@Password", PasswordHash.HashPassword(txtPassword.Text))); // hash entered password
                     setPass.ExecuteNonQuery();
 
                     sc.Close();
 
-                    lblStatus.Text = "User committed!";
-
+                    lblStatus.Text = "User Added!";
+                    txtFirstName.Enabled = false;
+                    txtLastName.Enabled = false;
+                    txtEmail.Enabled = false;
+                    txtPassword.Enabled = false;
                 }
                 catch
                 {
@@ -64,8 +66,10 @@ namespace Lab3
             }
             else
                 lblStatus.Text = "Fill all fields.";
+        
 
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+    
+    SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
             //create new customer
@@ -92,6 +96,7 @@ namespace Lab3
 
             //redirect and save email as a session variable
             Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
+            Session["ID"] = CustID;
             Response.Redirect("CustomerServInfo.aspx");
         }
 

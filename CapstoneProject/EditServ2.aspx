@@ -77,8 +77,7 @@
             </asp:TableRow>
 
         </asp:Table>
-
-        <asp:Table ID="tblTxtBox" runat="server" Style="display: inline-block" Width="300px">
+         <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -86,12 +85,7 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtHeader" runat="server" Width="250px"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="8" Width="250px"></asp:TextBox>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="200px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

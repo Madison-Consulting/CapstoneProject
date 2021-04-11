@@ -44,7 +44,7 @@ namespace Lab3
                     System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
                     setPass.Connection = sc;
                     // INSERT PASSWORD RECORD AND CONNECT TO USER
-                    setPass.CommandText = "INSERT INTO EmpPass (UserID, Username, PasswordHash) VALUES ((select max(userid) from EmpPerson), @Username, @Password)";
+                    setPass.CommandText = "INSERT INTO EmpPass (Username, PasswordHash) VALUES (@Username, @Password)";
                     setPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtUsername.Text)));
                     setPass.Parameters.Add(new SqlParameter("@Password", HttpUtility.HtmlEncode(PasswordHash.HashPassword(txtPassword.Text)))); // hash entered password
                     setPass.ExecuteNonQuery();

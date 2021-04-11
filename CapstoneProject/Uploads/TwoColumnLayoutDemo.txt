@@ -1,0 +1,102 @@
+Here is a a list of the top ten tallest roller coaster as of last fall.
+Bootstrap is based on a 12 column layout - Every row has 12 columns. Any div can have a class of row and the columns go inside. col-lg-6 is saying at the large resolution breakpoint, we want everything to take up six of those columns. Up until that point, the content will take up all of the columns, so the picture is the entire width of the browser and the text is below. View my site here to make better sense of what's going on.
+https://hobbsna.github.io/roller-coaster-mania/tallest.html
+Try playing around with the size of the browser to see what's going on here
+
+When you see "mb-2" that's margin bottom 2.
+See these links in the Bootstrap documentation for a better explanation of what I'm trying to say.
+https://getbootstrap.com/docs/5.0/layout/grid/
+
+This could also help (possibly) : https://getbootstrap.com/docs/5.0/utilities/spacing/
+
+<!--Begin two column layout for larger devices - left column for picture, right for description. Small devices  (i.e. phones) use a single column layout with image on top of picture.-->
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/Hyperion.jpg" alt="Hyperion roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>10. Hyperion</strong> - 269 foot drop at 84 degrees. From the polish park Energylandia.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/Intimidator305.jpg" alt="Intimidator 305 roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>9. Intimidator 305 </strong>- 300 foot drop. Kings Dominion, Virginia. What this ride lacks in inversions it makes up for in intense g-forces and ridiculous speed.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/MilleniumForce.jpg" alt="Millenium Force roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>8. Millenium Force </strong> - 300 foot drop; 310 feet tall. Accelerates to 93 mph and lets riders experience a "grayout," but doesn't have much airtime.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/leviathan.jpg" alt="Leviathan roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>7. Leviathan </strong>- 306 foot drop. The tallest coaster in Canada, and incredibly smooth as well.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/SteelDragon.jpg" alt="Steel Dragon roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>6. Steel Dragon 2000</strong> - 307 foot drop. A Japanese behemoth located in Nagashima Spa Land, this breathtaking four minute ride will be sure to impress all who visit it.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/Fury325.jpg" alt="Fury 325 roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>5. Fury 325</strong> - 320 foot drop. Widely acknowledged as one of the best coasters in the world, this ride in Carowinds, North Carolina, boasts an 81 degree drop and a top speed of 95 mph!</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/SupermanEscapeFromKrypton.jpg" alt="Superman: Escape from Krypton roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>4. Superman: Escape from Krypton</strong> - 328 foot drop. The first to drop more than 300 feet with a tower over 400 feet. Theoretical top speed of 100 mph.</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/RedForce.jpg" alt="Red Force roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>3. Red Force</strong> - 345 foot drop. Top-hat tower from Spain that goes straight up and comes straight back down. Uses magnetic motors for propulsion and is built on a Ferrari theme. Reaches 112 mph in 5 seconds!</p>
+        </div>
+    </div>
+    
+    <div class="row mb-2">
+        <div class="col-lg-6">
+            <img src="images/TopThrillDragster.jpg" alt="Top Thrill Dragster roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>2. Top Thrill Dragster</strong> - 400 Foot Drop. Cedar Point, Ohio. Only 17 seconds long, but what a ride! This is the one that started the coaster war. </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="images/KingdaKa.jpg" alt="Kingda Ka roller coaster">
+        </div>
+        <div class="col-lg-6">
+            <p class="text-justify m-3"><strong>1. Kingda Ka</strong> - A stupid 456 feet up in the air. 50.6 seconds of pure adrenaline, with speeds up to 128 mph. For now, Six Flags, New Jersey, is king of the tallest roller coasters.</p>
+        </div>
+    </div>
+    <!-- End multiple column layout-->

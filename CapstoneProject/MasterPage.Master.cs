@@ -14,7 +14,7 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             //check if user is logged in
             if (Session["UserName"] != null)
             {
@@ -27,102 +27,104 @@ namespace Lab2
             }
 
             //check buttons to color
-            switch (Page.Title)
-            {
-                //case "Add Customer": case "Initial Contact":
-                //    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-                //    break;
-                case "Inventory":
-                    btnViewInventory.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
-                case "Edit/View Service":
-                    btnEditViewServiceEvent.BackColor = ColorTranslator.FromHtml("#325f57");
-                    break;
-                //case "Edit/View Customer":
-                //    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-                //    break;
-                //case "Move Form": case "Room Form":
-                //    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
-                //    break;
-                //case "Auction Form":
-                //    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
-                //    break;
-                //case "Notifications":
-                //    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
-                //    break;
-            }
+            //switch (Page.Title)
+            //{
+            //case "Add Customer": case "Initial Contact":
+            //    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+            ////    break;
+            //case "Inventory":
+            //    btnViewInventory.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //case "Edit/View Service":
+            //    btnEditViewServiceEvent.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //case "Edit/View Customer":
+            //    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //case "Move Form": case "Room Form":
+            //    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //case "Auction Form":
+            //    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //case "Notifications":
+            //    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
+            //    break;
+            //    }
 
-        }
+            //}
 
-        //Button Click Events
-        //protected void btnAddCustomer_Click(object sender, EventArgs e)
-        //{
-        //    btnAddCustomer.BackColor = System.Drawing.Color.Green;
-         
-        //}
+            //Button Click Events
+            //protected void btnAddCustomer_Click(object sender, EventArgs e)
+            //{
+            //    btnAddCustomer.BackColor = System.Drawing.Color.Green;
 
-        //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("AddServ.aspx");
+            //}
 
-        //}
+            //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
+            //{
+            //    Response.Redirect("AddServ.aspx");
 
-        protected void btnEditViewCustomer_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("EditCust.aspx");
-        }
+            //}
 
-        protected void btnEditViewServiceEvent_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("EditServ2.aspx");
-        }
+            //    protected void btnEditViewCustomer_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("EditCust.aspx");
+            //    }
 
-        protected void btnViewEngagements_Click(object sender, EventArgs e)
-        {
+            //    protected void btnEditViewServiceEvent_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("EditServ2.aspx");
+            //    }
 
-        }
+            //    protected void btnViewEngagements_Click(object sender, EventArgs e)
+            //    {
 
-        protected void btnViewInventory_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Inventory.aspx");
-        }
+            //    }
+
+            //    protected void btnViewInventory_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("Inventory.aspx");
+            //    }
 
 
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CustomerSearch.aspx");
-        }
+            //    protected void btnSearch_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("CustomerSearch.aspx");
+            //    }
 
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("LoginPage.aspx?loggedout=true");
-        }
+            //    protected void btnLogout_Click(object sender, EventArgs e)
+            //    {
+            //        Session.Abandon();
+            //        Response.Redirect("LoginPage.aspx?loggedout=true");
+            //    }
 
-        protected void btnNotifications_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Notifications.aspx");
-        }
+            //    protected void btnNotifications_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("Notifications.aspx");
+            //    }
 
-        protected void btnMovingForm_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("MovingForm.aspx");
-        }
+            //    protected void btnMovingForm_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("MovingForm.aspx");
+            //    }
 
-        protected void btnAuctionForm_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AuctionForm.aspx");
-        }
+            //    protected void btnAuctionForm_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("AuctionForm.aspx");
+            //    }
 
-        protected void UserIcon_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("LoginPage.aspx");
-        }
+            //    protected void UserIcon_Click(object sender, ImageClickEventArgs e)
+            //    {
+            //        Response.Redirect("LoginPage.aspx");
+            //    }
 
-        protected void btnAppraisal_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("AppraisalServiceOrder.aspx");
+            //    protected void btnAppraisal_Click(object sender, EventArgs e)
+            //    {
+            //        Response.Redirect("AppraisalServiceOrder.aspx");
+            //    }
+            //}
+
         }
     }
-
 }

@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <title></title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
+    <title>Create New Employee</title>
 </head>
 <body>
     <form id="form1" runat="server">

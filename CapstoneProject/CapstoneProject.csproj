@@ -91,7 +91,7 @@
     <Content Include="EmpLandingPage.aspx" />
     <Content Include="ForgotUP.aspx" />
     <Content Include="InitialContact.aspx" />
-    <Content Include="IntialAuctionService.aspx" />
+    <Content Include="InitialAuctionService.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MoveFormPt2.aspx" />
@@ -302,12 +302,12 @@
     <Compile Include="InitialContact.aspx.designer.cs">
       <DependentUpon>InitialContact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IntialAuctionService.aspx.cs">
-      <DependentUpon>IntialAuctionService.aspx</DependentUpon>
+    <Compile Include="InitialAuctionService.aspx.cs">
+      <DependentUpon>InitialAuctionService.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="IntialAuctionService.aspx.designer.cs">
-      <DependentUpon>IntialAuctionService.aspx</DependentUpon>
+    <Compile Include="InitialAuctionService.aspx.designer.cs">
+      <DependentUpon>InitialAuctionService.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
@@ -388,6 +388,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

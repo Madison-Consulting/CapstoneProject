@@ -4,7 +4,121 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+
+
+.image_with_badge_container {
+    display: inline-block; /* keeps the img with the badge if the img is forced to a new line */
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.badge-on-image {
+    position: absolute;
+    bottom: 2px; /* position where you want it */
+    left: 2px;
+    padding: 3px 6px;
+    background-color:red;
+    border-radius:50px;
+}
+
+.notification {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+    .notification:hover {
+        background: red;
+    }
+
+    .notification .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+    }
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #dcf2ee;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+    /* Style the sidenav links and the dropdown button */
+    .sidenav a, .dropdown-btn {
+        border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+        font-size: 15px;
+        color: black;
+        display: block;
+        background: none;
+        width: 86%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+    }
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover {
+            background-color: #325f57;
+            color: white;
+        }
+
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 15px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: #325f57;
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #cccccc;
+    color: white;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+    :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -55,7 +169,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   color: #212529;

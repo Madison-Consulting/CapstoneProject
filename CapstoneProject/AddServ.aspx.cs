@@ -74,7 +74,6 @@ namespace Lab2
             txtDate1.Text = "11/05/2020";
             txtEstCost1.Text = "1000";
             txtCompDate1.Text = "11/06/2020";
-            txtHeader.Text = "Move Date Change";
             txtNote.Text = "The Move Date may change to 11/06/2020, customer will contact"; 
 
         }
@@ -88,7 +87,7 @@ namespace Lab2
             try //insert service statement
             {
                 String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, NoteHeader, Note)" + 
-                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @Header, @Note)";
+                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @Note)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomers.SelectedValue));
@@ -96,7 +95,6 @@ namespace Lab2
                 cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
                 cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
                 cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
-                cmd.Parameters.AddWithValue("@Header", HttpUtility.HtmlEncode(txtHeader.Text));
                 cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
                 
                 cmd.ExecuteNonQuery();
