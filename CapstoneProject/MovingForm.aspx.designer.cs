@@ -33,40 +33,76 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblPlz;
 
         /// <summary>
-        /// lblCustName control.
+        /// lblCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustName;
+        protected global::System.Web.UI.WebControls.Label lblCustomer;
 
         /// <summary>
-        /// txtCustName control.
+        /// ddlCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
 
         /// <summary>
-        /// lblStories control.
+        /// lblAddCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStories;
+        protected global::System.Web.UI.WebControls.Label lblAddCustomer;
 
         /// <summary>
-        /// txtStories control.
+        /// btnAddCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStories;
+        protected global::System.Web.UI.WebControls.Button btnAddCustomer;
+
+        /// <summary>
+        /// lblHomeType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHomeType;
+
+        /// <summary>
+        /// ddlHomeType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHomeType;
+
+        /// <summary>
+        /// lblDriveway control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDriveway;
+
+        /// <summary>
+        /// txtDriveway control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDriveway;
 
         /// <summary>
         /// lblDistance control.
@@ -87,6 +123,24 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtDistance;
 
         /// <summary>
+        /// lblMoveSteps control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMoveSteps;
+
+        /// <summary>
+        /// txtMoveSteps control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMoveSteps;
+
+        /// <summary>
         /// lblLoad control.
         /// </summary>
         /// <remarks>
@@ -105,22 +159,40 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtLoad;
 
         /// <summary>
-        /// lblDriveway control.
+        /// lblSpecEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDriveway;
+        protected global::System.Web.UI.WebControls.Label lblSpecEquip;
 
         /// <summary>
-        /// ddlDriveway control.
+        /// rdoSpecEquip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDriveway;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoSpecEquip;
+
+        /// <summary>
+        /// lblMoveTrucks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMoveTrucks;
+
+        /// <summary>
+        /// rdoMovetrucks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdoMovetrucks;
 
         /// <summary>
         /// btnBack control.
@@ -175,5 +247,14 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNote;
+
+        /// <summary>
+        /// dtasrcCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomer;
     }
 }
