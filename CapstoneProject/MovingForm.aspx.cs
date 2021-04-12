@@ -20,7 +20,7 @@ namespace CapstoneProject
         protected void btnCommit_Click(object sender, EventArgs e)
         {
 
-            if (txtLoad.Text != "" && txtStories.Text != "" && txtDistance.Text != "" && ddlDriveway.Text != "") // fields must be filled
+            if (txtDriveway.Text != "" && txtDistance.Text != "" && txtMoveSteps.Text != "") // fields must be filled
             {
                 // COMMIT VALUES
                 try
@@ -35,11 +35,14 @@ namespace CapstoneProject
                     System.Data.SqlClient.SqlCommand createMove = new System.Data.SqlClient.SqlCommand();
                     createMove.Connection = sc;
                     // INSERT USER RECORD
-                    createMove.CommandText = "INSERT INTO MoveForm (HouseStories, TruckDistance, Accessibility, LoadingCondition, ServiceID) VALUES (@HouseStories, @TruckDistance, @Accessibility, @LoadingCondition, @ServiceID)";
-                    createMove.Parameters.Add(new SqlParameter("@HouseStories", txtStories.Text));
+                    createMove.CommandText = "INSERT INTO MoveForm (HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, SpecialEquipment, MoveTrucks, ServiceID) VALUES (@HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @SpecialEquipment, @MoveTrucks, @ServiceID)";
+                    createMove.Parameters.Add(new SqlParameter("@HomeType", ddlHomeType.Text));
+                    createMove.Parameters.Add(new SqlParameter("@Accessibility", txtDriveway.Text));
                     createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
-                    createMove.Parameters.Add(new SqlParameter("@Accessibility", ddlDriveway.Text));
+                    createMove.Parameters.Add(new SqlParameter("@MoveSteps", txtMoveSteps.Text));
                     createMove.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
+                    createMove.Parameters.Add(new SqlParameter("@SpecialEquipment", rdoSpecEquip.Text));
+                    createMove.Parameters.Add(new SqlParameter("@MoveTrucks", rdoMovetrucks.Text));
                     createMove.Parameters.Add(new SqlParameter("@ServiceID", "837164"));
                     createMove.ExecuteNonQuery();
 
