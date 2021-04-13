@@ -83,6 +83,8 @@ namespace Lab2
 
                 if (rbtnlistServiceType.SelectedValue.Equals("auction"))
                 {
+                    tblMoveInfo.Visible = false;
+
                     con.Open();
                     string viewAuctionCommandString = "SELECT Inventory.ItemID, Inventory.InventoryDate, Inventory.ItemInInventory, Inventory.ItemCost, [Service].ServiceID ";
                     viewAuctionCommandString += "FROM Inventory inner join [Service] on Inventory.ServiceID = [Service].ServiceID ";
@@ -100,6 +102,8 @@ namespace Lab2
                 }
                 if (rbtnlistServiceType.SelectedValue.Equals("move"))
                 {
+                    tblAuctionInfo.Visible = false;
+
                     con.Open();
                     string viewMoveCommandString = "SELECT MoveForm.MoveDateTime AS [Move Date], MoveForm.OriginCity AS [Origin City], MoveForm.OriginState AS [Origin State], MoveForm.DestinationCity AS [Destination City], MoveForm.DestinationState AS [Destination State], MoveForm.MoveFormID, Service.ServiceID ";
                     viewMoveCommandString += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";

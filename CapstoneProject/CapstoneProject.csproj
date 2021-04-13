@@ -90,6 +90,11 @@
     <Content Include="EditServ2.aspx" />
     <Content Include="EmpLandingPage.aspx" />
     <Content Include="ForgotUP.aspx" />
+    <Content Include="Image\favicon.ico" />
+    <Content Include="Image\footer.png" />
+    <Content Include="Image\GVALogo.JPG" />
+    <Content Include="Image\GVALogoFadded.jpg" />
+    <Content Include="Image\UserIcon.jpg" />
     <Content Include="InitialContact.aspx" />
     <Content Include="InitialAuctionService.aspx" />
     <Content Include="Inventory.aspx" />
@@ -395,7 +400,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Image\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>

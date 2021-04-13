@@ -261,6 +261,22 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
+
+        <asp:Table ID="tblAuctionInfo" runat="server">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblAuctCustomer" runat="server" Text="Customer: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtAuctCustomer" runat="server" Enabled="false"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
         
         <asp:Table ID="Table4" runat="server" Width="65%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow HorizontalAlign="Center" Height="40">

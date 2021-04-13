@@ -23,6 +23,8 @@ namespace Lab2
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblDrop;
 
+        protected global::System.Web.UI.WebControls.Table tblAuctionInfo;
+
         /// <summary>
         /// lblDropDownList control.
         /// </summary>
