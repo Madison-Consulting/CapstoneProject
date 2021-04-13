@@ -61,25 +61,7 @@ namespace Lab2
                 "FoodCost = @FoodCost, FuelCost = @FuelCost, LodgingCost = @LodgeCost, EquipmentNeeded = @Equipment, DestinationAddress = @DestAddress," +
                 "DestinationCity = @DestCity, DestinationState = @DestState, DestinationZip = @DestZip, NoteHeader = @Header, Note = @Note WHERE ServiceID = @ServiceID";
             SqlCommand cmd = new SqlCommand(query2, con);
-            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID1.Text));
-            cmd.Parameters.AddWithValue("@FirstName", HttpUtility.HtmlEncode(txtFirstName.Text));
-            cmd.Parameters.AddWithValue("@LastName", HttpUtility.HtmlEncode(txtLastName.Text));
-            cmd.Parameters.AddWithValue("@ServiceType", HttpUtility.HtmlEncode(rdoServType.SelectedValue));
-            cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
-            cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
-            cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
-            cmd.Parameters.AddWithValue("@VehicleUsed", HttpUtility.HtmlEncode(txtVehicleUsed1.Text));
-            cmd.Parameters.AddWithValue("@ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
-            cmd.Parameters.AddWithValue("@MoveTime", HttpUtility.HtmlEncode(txtMoveTime1.Text));
-            cmd.Parameters.AddWithValue("@FoodCost", HttpUtility.HtmlEncode(txtFoodCost1.Text));
-            cmd.Parameters.AddWithValue("@FuelCost", HttpUtility.HtmlEncode(txtFuelCost1.Text));
-            cmd.Parameters.AddWithValue("@LodgeCost", HttpUtility.HtmlEncode(txtLodgeCost1.Text));
-            cmd.Parameters.AddWithValue("@Equipment", HttpUtility.HtmlEncode(txtEquip1.Text));
-            cmd.Parameters.AddWithValue("@DestAddress", HttpUtility.HtmlEncode(txtDestinationAddress1.Text));
-            cmd.Parameters.AddWithValue("@DestCity", HttpUtility.HtmlEncode(txtDestinationCity1.Text));
-            cmd.Parameters.AddWithValue("@DestState", HttpUtility.HtmlEncode(txtDestinationState1.Text));
-            cmd.Parameters.AddWithValue("@DestZip", HttpUtility.HtmlEncode(txtDestinationZip1.Text));
-            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
+             
 
 
             cmd.ExecuteNonQuery();
@@ -87,9 +69,9 @@ namespace Lab2
         }
 
 
-        protected void ddlService_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlService.SelectedValue.Equals(""))
+            if (ddlCustomer.SelectedValue.Equals(""))
             {
                 btnClearServ_Click(sender, e);
             }
@@ -97,45 +79,46 @@ namespace Lab2
             else
             {
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CustomerFirstName, CustomerLastName, Service.CustomerID, ServiceType, ServiceDate," +
-                    "EstimatedCost, CompletionDate, VehicleUsed, Service.ServiceID, MoveTime, FoodCost, FuelCost, LodgingCost," +
-                    "EquipmentNeeded, DestinationAddress, DestinationCity, DestinationState, DestinationZip, Note, ServiceTicket.ServiceTicketID FROM Service RIGHT OUTER JOIN ServiceTicket ON Service.ServiceID = ServiceTicket.ServiceID WHERE Service.CustomerID  = @CustomerID", con);
 
 
-                cmd.Parameters.AddWithValue("@CustomerID", ddlService.SelectedValue);
-
-                SqlDataReader myReader = cmd.ExecuteReader();
-                if (myReader.HasRows)
+                if (rbtnlistServiceType.SelectedValue.Equals("auction"))
                 {
-                    while (myReader.Read())
-                    {
-                        txtFirstName.Text = Convert.ToString(myReader[0]);
-                        txtLastName.Text = Convert.ToString(myReader[1]);
-                        txtCustID1.Text = Convert.ToString(myReader[2]);
-                        rdoServType.SelectedValue = Convert.ToString(myReader[3]);
-                        txtDate1.Text = Convert.ToString(myReader[4]);
-                        txtEstCost1.Text = Convert.ToString(myReader[5]);
-                        txtCompDate1.Text = Convert.ToString(myReader[6]);
-                        txtVehicleUsed1.Text = Convert.ToString(myReader[7]);
-                        txtServiceID1.Text = Convert.ToString(myReader[8]);
-                        txtMoveTime1.Text = Convert.ToString(myReader[9]);
-                        txtFoodCost1.Text = Convert.ToString(myReader[10]);
-                        txtFuelCost1.Text = Convert.ToString(myReader[11]);
-                        txtLodgeCost1.Text = Convert.ToString(myReader[12]);
-                        txtEquip1.Text = Convert.ToString(myReader[13]);
-                        txtDestinationAddress1.Text = Convert.ToString(myReader[14]);
-                        txtDestinationCity1.Text = Convert.ToString(myReader[15]);
-                        txtDestinationState1.Text = Convert.ToString(myReader[16]);
-                        txtDestinationZip1.Text = Convert.ToString(myReader[17]);
-                        txtNote.Text = Convert.ToString(myReader[18]);
-                        txtServTicketID.Text = Convert.ToString(myReader[19]);
+                    con.Open();
+                    string viewAuctionCommandString = "SELECT Inventory.ItemID, Inventory.InventoryDate, Inventory.ItemInInventory, Inventory.ItemCost, [Service].ServiceID ";
+                    viewAuctionCommandString += "FROM Inventory inner join [Service] on Inventory.ServiceID = [Service].ServiceID ";
+                    viewAuctionCommandString += "inner join Customer on [Service].CustomerID = Customer.CustomerID ";
+                    viewAuctionCommandString += "WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
 
+                    SqlDataAdapter daViewAuctions = new SqlDataAdapter(viewAuctionCommandString, con);
+                    DataTable dtForGridView = new DataTable();
+                    daViewAuctions.Fill(dtForGridView);
+                    grdvwAuctions.DataSource = dtForGridView;
+                    grdvwAuctions.DataBind();
 
-                    }
-                    myReader.Close();
+                    grdvwMoves.Visible = false;
+                    grdvwAuctions.Visible = true;
                 }
-                con.Close();
+                if (rbtnlistServiceType.SelectedValue.Equals("move"))
+                {
+                    con.Open();
+                    string viewMoveCommandString = "SELECT MoveForm.MoveDateTime AS [Move Date], MoveForm.OriginCity AS [Origin City], MoveForm.OriginState AS [Origin State], MoveForm.DestinationCity AS [Destination City], MoveForm.DestinationState AS [Destination State], MoveForm.MoveFormID, Service.ServiceID ";
+                    viewMoveCommandString += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
+                    viewMoveCommandString += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
+
+                    SqlDataAdapter daViewMoves = new SqlDataAdapter(viewMoveCommandString, con);
+                    DataTable dtForGridView = new DataTable();
+                    daViewMoves.Fill(dtForGridView);
+                    grdvwMoves.DataSource = dtForGridView;
+                    grdvwMoves.DataBind();
+
+                    grdvwAuctions.Visible = false;
+                    grdvwMoves.Visible = true;
+                }
+                if (rbtnlistServiceType.SelectedValue.Equals("other"))
+                {
+
+                }
+
             }
         }
 
@@ -209,7 +192,6 @@ namespace Lab2
 
             SqlCommand cmd = new SqlCommand("SELECT TicketHistory.TicketChangeDate, TicketHistory.EmpNameTicket, ServiceTicket.InitiatingEmpName, Customer.CustLastName FROM TicketHistory INNER JOIN ServiceTicket ON TicketHistory.ServiceTicketID = ServiceTicket.ServiceTicketID INNER JOIN Customer ON Customer.CustomerID = ServiceTicket.CustomerID WHERE ServiceID = @ServiceID;", con);
 
-            cmd.Parameters.AddWithValue("ServiceID", HttpUtility.HtmlEncode(txtServiceID1.Text));
 
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
@@ -230,6 +212,65 @@ namespace Lab2
                 e.Row.Cells[2].Text = "Initiating Employee Name";
                 e.Row.Cells[3].Text = " Customer Last Name";
             }
+        }
+
+        protected void grdvwAuctions_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            string keyValue = grdvwAuctions.DataKeys[e.NewEditIndex].Value.ToString();
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT ServiceType FROM Service WHERE ServiceID = @ServiceID", con);
+            cmd.Parameters.AddWithValue("ServiceID", keyValue);
+
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            DataTable dtServInfo = new DataTable();
+            sqlAdapter.Fill(dtServInfo);
+
+
+        }
+
+        protected void grdvwMoves_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            string keyValue = grdvwMoves.DataKeys[e.NewEditIndex].Value.ToString();
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, ";
+            viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationCity, ";
+            viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
+            viewMoveInfo += "MoveForm.HomeType, MoveForm.LoadingCondition, MoveForm.TruckDistance, MoveForm.Accessibility ";
+            viewMoveInfo += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
+            viewMoveInfo += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE MoveForm.ServiceID = @ServiceID";
+
+            SqlCommand cmd = new SqlCommand(viewMoveInfo, con);
+            cmd.Parameters.AddWithValue("ServiceID", keyValue);
+
+            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+            DataTable dtMoveInfo = new DataTable();
+            sqlAdapter.Fill(dtMoveInfo);
+
+            txtCustomer.Text = dtMoveInfo.Rows[0][0].ToString();
+            txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString();
+            txtOriginAddress.Text = dtMoveInfo.Rows[0][2].ToString();
+            txtOriginCity.Text = dtMoveInfo.Rows[0][3].ToString();
+            txtOriginState.Text = dtMoveInfo.Rows[0][4].ToString();
+            txtOriginZip.Text = dtMoveInfo.Rows[0][5].ToString();
+            txtDestinationAddress.Text = dtMoveInfo.Rows[0][6].ToString();
+            txtDestinationCity.Text = dtMoveInfo.Rows[0][7].ToString();
+            txtDestinationState.Text = dtMoveInfo.Rows[0][8].ToString();
+            txtDestinationZip.Text = dtMoveInfo.Rows[0][9].ToString();
+            txtFoodCost.Text = dtMoveInfo.Rows[0][10].ToString();
+            txtFuelCost.Text = dtMoveInfo.Rows[0][11].ToString();
+            txtLodgingCost.Text = dtMoveInfo.Rows[0][12].ToString();
+            txtHomeType.Text = dtMoveInfo.Rows[0][13].ToString();
+            txtLoadingCondition.Text = dtMoveInfo.Rows[0][14].ToString();
+            txtTruckDistance.Text = dtMoveInfo.Rows[0][15].ToString();
+            rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][16].ToString();
+
+            tblMoveInfo.Visible = true;
         }
     }
 }
