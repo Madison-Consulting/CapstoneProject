@@ -39,7 +39,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlService;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
 
         /// <summary>
         /// datasrcCustomerList control.
@@ -354,7 +354,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestinationAddress1;
+        protected global::System.Web.UI.WebControls.TextBox txtDestinationAddress;
 
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -372,7 +372,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDestinationCity1;
+        protected global::System.Web.UI.WebControls.Label lblDestinationCity;
 
         /// <summary>
         /// txtDestinationCity1 control.
@@ -381,7 +381,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestinationCity1;
+        protected global::System.Web.UI.WebControls.TextBox txtDestinationCity;
 
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -408,7 +408,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestinationState1;
+        protected global::System.Web.UI.WebControls.TextBox txtDestinationState;
 
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -435,7 +435,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestinationZip1;
+        protected global::System.Web.UI.WebControls.TextBox txtDestinationZip;
 
         /// <summary>
         /// CompareValidator control.
@@ -462,7 +462,13 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLodgeCost1;
+        protected global::System.Web.UI.WebControls.TextBox txtLodgingCost;
+
+        protected global::System.Web.UI.WebControls.TextBox txtHomeType;
+
+        protected global::System.Web.UI.WebControls.TextBox txtLoadingCondition;
+
+        protected global::System.Web.UI.WebControls.TextBox txtTruckDistance;
 
         /// <summary>
         /// CompareValidator9 control.
@@ -489,7 +495,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFuelCost1;
+        protected global::System.Web.UI.WebControls.TextBox txtFuelCost;
 
         /// <summary>
         /// CompareValidator10 control.
@@ -516,7 +522,7 @@ namespace Lab2
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFoodCost1;
+        protected global::System.Web.UI.WebControls.TextBox txtFoodCost;
 
         /// <summary>
         /// CompareValidator11 control.
@@ -554,6 +560,8 @@ namespace Lab2
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tblServiceTicket;
 
+        protected global::System.Web.UI.WebControls.Table tblMoveInfo;
+
         /// <summary>
         /// grdvwTicketDisplay1 control.
         /// </summary>
@@ -562,6 +570,16 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdvwTicketDisplay1;
+
+        protected global::System.Web.UI.WebControls.GridView grdvwAuctions;
+
+        protected global::System.Web.UI.WebControls.GridView grdvwMoves;
+
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistServiceType;
+
+        protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistDrivewayAccess;
+
+
 
         /// <summary>
         /// tblHistory control.
@@ -598,6 +616,18 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHistID;
+
+        protected global::System.Web.UI.WebControls.TextBox txtCustomer;
+
+        protected global::System.Web.UI.WebControls.TextBox txtMoveDate;
+
+        protected global::System.Web.UI.WebControls.TextBox txtOriginAddress;
+
+        protected global::System.Web.UI.WebControls.TextBox txtOriginCity;
+
+        protected global::System.Web.UI.WebControls.TextBox txtOriginState;
+
+        protected global::System.Web.UI.WebControls.TextBox txtOriginZip;
 
         /// <summary>
         /// lblDateTime control.
