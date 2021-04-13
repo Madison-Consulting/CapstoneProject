@@ -152,6 +152,11 @@
                     <asp:Button ID="btnAddService" class= "btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lbl" runat="server" Text="!"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
         </asp:Table>
 
         <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 200px;">

@@ -8,10 +8,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.IO;
+using System.Drawing;
+
 namespace Lab3
 {
     public partial class CustomerServInfo : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Email"] != null)
@@ -75,32 +78,36 @@ namespace Lab3
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
+            if (FileUpload1.HasFile == true)
             {
-                string str = FileUpload1.FileName;
-                FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + str));
-                string Image = "~/Uploads/" + str.ToString();
-                string name = FileUpload1.FileName.ToString();
+                foreach (HttpPostedFile postedFile in FileUpload1.PostedFiles)
+                {
+                    string filename = Path.GetFileName(postedFile.FileName);
+                    postedFile.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                    string str = FileUpload1.FileName;
+                    FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + str));
+                    string Image = "~/Uploads/" + str.ToString();
+                    string name = FileUpload1.FileName.ToString();
 
-                SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-                con1.Open();
+                    SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    con1.Open();
 
-                String query = "Insert into CustPhotos (Name, Image, CustomerID) VALUES (@Name, @Image, @CustID)";
-                SqlCommand cmd = new SqlCommand(query, con1);
+                    String query = "Insert into CustPhotos (Name, Image, CustomerID) VALUES (@Name, @Image, @CustID)";
+                    SqlCommand cmd = new SqlCommand(query, con1);
 
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Image", Image);
-                cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustomerID.Text));
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Image", Image);
+                    cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustomerID.Text));
 
 
-                cmd.ExecuteNonQuery();
-                con1.Close();
+                    cmd.ExecuteNonQuery();
+                    con1.Close();
 
-                lblUploadStatus.Text = "Image Uploaded";
-                lblUploadStatus.ForeColor = System.Drawing.Color.ForestGreen;
+                    lblUploadStatus.Text = "Image Uploaded";
+                    lblUploadStatus.ForeColor = System.Drawing.Color.ForestGreen;
 
+                }
             }
-
             else
             {
                 lblUploadStatus.Text = "Please Upload your Image";

@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -19,6 +21,9 @@
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtEmail" runat="server" Visible="false"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell ColumnSpan="3">
+                        <asp:Button ID="btnLogout" class="btn-GreenValleyGreen" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -71,7 +76,7 @@
                         <asp:Label ID="lblPhotos" runat="server" Text="Upload Photos"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" allowmultiple="true"/>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Button ID="btnUpload" class="btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" causesvalidation="false"/>
@@ -80,8 +85,8 @@
                         <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Right">
-                    <asp:TableCell ColumnSpan="2">
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="3">
                         <asp:Button ID="btnSubmitRequest" class="btn-GreenValleyGreen" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
                     </asp:TableCell>
                     <asp:TableCell>
@@ -89,9 +94,7 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Left">
-                    <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogout" class="btn-GreenValleyGreen" runat="server" Text="Logout" OnClick ="btnLogout_Click" CausesValidation="false"/>
-                    </asp:TableCell>
+
                     <asp:TableCell>
                         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
                     </asp:TableCell>
@@ -100,5 +103,8 @@
             </asp:Table>
         </div>
     </form>
+              <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>
