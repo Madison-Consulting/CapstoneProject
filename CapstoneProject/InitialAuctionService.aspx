@@ -6,7 +6,7 @@
         <asp:Table runat="server"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
-                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label> 
+                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
             </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -42,17 +42,22 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblExtraServiceNeeded" runat="server" Text="Extra Service Needed: "></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
                     <asp:TableCell>
                     <asp:CheckBoxList ID="chkNeedSch" runat="server" AutoPostBack="true">
-                        <asp:ListItem ID="chkBringIn" runat="server" Value="Bring In" Text="Move Assessment"></asp:ListItem>
-                        <asp:ListItem ID="chkPickUp" runat="server" Value="Appraisal" Text="Pick Up"></asp:ListItem>
-                        <asp:ListItem ID="chkTrashRemoval" runat="server" Value="Move" Text="Trash Removal"></asp:ListItem>
+                        <asp:ListItem ID="chkBringIn" runat="server" Value="BringIn" Text="Bring In"></asp:ListItem>
+                        <asp:ListItem ID="chkPickUp" runat="server" Value="PickUp" Text="Pick Up"></asp:ListItem>
+                        <asp:ListItem ID="chkTrashRemoval" runat="server" Value="Trash" Text="Trash Removal & Donation Hauling"></asp:ListItem>
                     </asp:CheckBoxList>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                  <asp:TableCell>
-                     <asp:CheckBox ID="chkAuctionWalkthrough" runat="server" Text="Auction Look At" AutoPostBack="true" OnCheckedChanged="chkAuctionWalkthrough_CheckedChanged"/>
+                     <asp:CheckBox ID="chkAuctionWalkthrough" runat="server" Text="Auction Walk Through" AutoPostBack="true" OnCheckedChanged="chkAuctionWalkthrough_CheckedChanged"/>
                 </asp:TableCell>
             </asp:TableRow>
     </asp:Table>
@@ -67,7 +72,7 @@
             </asp:TableRow>
 </asp:Table>
     </div>
-    <div class="divNaviagtion" id="divNav" runat="server" style="width: auto; margin: 0 20% " visible="false">
+    <div class="divNaviagtion" id="divNav" runat="server" style="width: auto; margin: 0 20% " visible="true">
         <asp:Table runat="server">
             <asp:TableRow>
                 <asp:TableCell>
