@@ -159,40 +159,130 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtLoad;
 
         /// <summary>
-        /// lblSpecEquip control.
+        /// tblSelectTrucks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSpecEquip;
+        protected global::System.Web.UI.WebControls.Table tblSelectTrucks;
 
         /// <summary>
-        /// rdoSpecEquip control.
+        /// lblTrucksNeeded control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdoSpecEquip;
+        protected global::System.Web.UI.WebControls.Label lblTrucksNeeded;
 
         /// <summary>
-        /// lblMoveTrucks control.
+        /// lblTrucksAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMoveTrucks;
+        protected global::System.Web.UI.WebControls.Label lblTrucksAvailable;
 
         /// <summary>
-        /// rdoMovetrucks control.
+        /// lstboxTruckUsed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdoMovetrucks;
+        protected global::System.Web.UI.WebControls.ListBox lstboxTruckUsed;
+
+        /// <summary>
+        /// btnAddTruck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddTruck;
+
+        /// <summary>
+        /// btnRemoveTruck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveTruck;
+
+        /// <summary>
+        /// lstboxTruckInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstboxTruckInventory;
+
+        /// <summary>
+        /// tblSelectEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblSelectEquipment;
+
+        /// <summary>
+        /// lblEquipmentNeeded control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEquipmentNeeded;
+
+        /// <summary>
+        /// lblEquipmentAvailable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEquipmentAvailable;
+
+        /// <summary>
+        /// lstboxEquipmentUsed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentUsed;
+
+        /// <summary>
+        /// btnAddEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddEquipment;
+
+        /// <summary>
+        /// btnRemoveEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRemoveEquipment;
+
+        /// <summary>
+        /// lstboxEquipmentInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentInventory;
 
         /// <summary>
         /// btnBack control.
@@ -256,5 +346,23 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomer;
+
+        /// <summary>
+        /// dtasrcTruckInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcTruckInventory;
+
+        /// <summary>
+        /// dtasrcEquipment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEquipment;
     }
 }

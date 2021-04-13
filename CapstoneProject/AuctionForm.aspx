@@ -24,9 +24,9 @@
                     AppendDataBoundItems="true">
                     <asp:ListItem Value="">- Select -</asp:ListItem>
                 </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
+                &nbsp
                 <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
+                &nbsp
                 <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust2.aspx" />
             </asp:TableCell>
         </asp:TableRow>
@@ -54,7 +54,7 @@
                 <asp:Label ID="lblProcurementMethod" runat="server" Text="Procurement: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell ColumnSpan="5">
-                <asp:RadioButtonList ID="radioBtnProcurement" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" OnSelectedIndexChanged="radioBtnProcurement_SelectedIndexChanged">
+                <asp:RadioButtonList ID="radioBtnProcurement" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" CellPadding="10" OnSelectedIndexChanged="radioBtnProcurement_SelectedIndexChanged">
                     <asp:ListItem Value="bringin">Consignor Bring-In</asp:ListItem>
                     <asp:ListItem Value="pickup">GVA&M Pick-Up</asp:ListItem>
                 </asp:RadioButtonList>
@@ -94,10 +94,9 @@
                                                 Width="180"
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
-                                        <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="75" OnClick="btnAddTruck_Click"  />
-                                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveTruck_Click"  />
-                                            <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
+                                        <asp:TableCell Width="90">
+                                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click"  />
+                                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click"  />
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
                                             <asp:ListBox ID="lstboxTruckInventory" runat="server"
@@ -107,7 +106,6 @@
                                                 DataTextField="EquipmentDescription"
                                                 DataValueField="EquipmentID"
                                                 AutoPostBack="false"></asp:ListBox>
-                                            <%-- need to add DataSourceID, DataTextField, and DataValueField with truck query to allow selection of available trucks--%>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
@@ -140,10 +138,9 @@
                                                 Width="180"
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
-                                        <asp:TableCell Width="60">
-                                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="75" OnClick="btnAddEquipment_Click"  />
-                                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="75" OnClick="btnRemoveEquipment_Click"  />
-                                            <%-- need to make onclick methods for these buttons; i have good example from my last project --%>
+                                        <asp:TableCell Width="90">
+                                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click"  />
+                                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click"  />
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
                                             <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
@@ -153,7 +150,6 @@
                                                 DataTextField="EquipmentDescription"
                                                 DataValueField="EquipmentID"
                                                 AutoPostBack="false"></asp:ListBox>
-                                            <%-- need to add DataSourceID, DataTextField, and DataValueField with Equipment query to allow selection of available Equipment--%>
                                         </asp:TableCell>
                                     </asp:TableRow>
                                 </asp:Table>
@@ -189,7 +185,7 @@
         SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName = 'truck';" >
     </asp:SqlDataSource>
 
-        <asp:SqlDataSource runat="server"
+    <asp:SqlDataSource runat="server"
         ID="dtasrcEquipment"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
         SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';" >
