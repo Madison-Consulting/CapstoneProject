@@ -70,7 +70,7 @@
                         
                              <div class="dropdown image_with_badge_container">
                                  <input type="image" name="UserIcon" id="btnNotifs" src="/Image/UserIcon.jpg" height="30" width="30" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown"/>
-                                   <span class="badge badge-on-image">1</span>
+                                   <span class="badge badge-on-image"> </span>
 <%--                                  <button class=" btn-sm dropdown-toggle" data-toggle="dropdown" type="button" id="btnNotifs" aria-haspopup="true" aria-expanded="false">
                                     <img src="/Image/UserIcon.jpg" height="30" width="30"/>
                                     

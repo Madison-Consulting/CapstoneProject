@@ -158,7 +158,7 @@
                 <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:FileUpload ID="upldPhoto" runat="server"  />
+                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" />
             </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
