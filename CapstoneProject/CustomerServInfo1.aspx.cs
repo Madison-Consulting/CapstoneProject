@@ -16,10 +16,13 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Email"] != null)
+            {
 
-            txtEmail.Text = Session["Email"].ToString();
+                txtEmail.Text = Session["Email"].ToString();
 
-            txtCustomerID.Text = Session["ID"].ToString();
+                txtCustomerID.Text = Session["ID"].ToString();
+            }
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace CapstoneProject
                     cmd.ExecuteNonQuery();
                     con1.Close();
 
-                    lblUploadStatus.Text = "Image Uploaded";
+                    lblUploadStatus.Text = "Images Uploaded";
                     lblUploadStatus.ForeColor = System.Drawing.Color.ForestGreen;
 
                 }

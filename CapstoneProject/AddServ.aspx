@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-<%--    <asp:Table ID="tblAddServ" runat="server">
+    <%--    <asp:Table ID="tblAddServ" runat="server">
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnPopulateServ" runat="server" Text="Populate" OnClick="btnPopulateServ_Click" CausesValidation="false" />
@@ -19,8 +19,8 @@
     </asp:Table>--%>
 
 
-    <div style="width: 99%; margin: 0 10%;">
-        <asp:Table ID="Table3" runat="server" Width="54%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
+    <div style="position: absolute; left: 250px; top: 100px;">
+        <asp:Table ID="Table3" runat="server" Width="99%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblAddServEvent" runat="server" Text="Add a New Service Event" Font-Size="X-Large"></asp:Label>

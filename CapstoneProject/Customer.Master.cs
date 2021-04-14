@@ -11,7 +11,15 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblUserLoggedIn.Text = Session["Email"].ToString() + " successfully logged in";
+            if (Session["Email"] != null)
+            {
+                lblUserLoggedIn.Text = Session["Email"].ToString() + " successfully logged in";
+            }
+            else
+            {
+                Session["InvalidUse"] = "You must first login to access this page!";
+                Response.Redirect("CustomerLogin.aspx");
+            }
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

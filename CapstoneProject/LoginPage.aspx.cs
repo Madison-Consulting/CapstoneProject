@@ -56,7 +56,7 @@ namespace Lab2
                         {
                             lblStatus.Text = "Success!";
                             Session["Username"] = txtUserName.Text;
-                            Response.Redirect("EmpLandingPage.aspx");
+                            Response.Redirect("ChooseCustomer.aspx");
                         }
                         else
                             lblStatus.Text = "Password is incorrect.";

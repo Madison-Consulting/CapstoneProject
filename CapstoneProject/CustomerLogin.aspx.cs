@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using Lab3.App_Code;
+using System.Drawing;
 
 namespace Lab3
 {
@@ -15,11 +16,25 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
+         
+
+            if (Request.QueryString.Get("loggedout") == "true")
+            {
+                lblStatus.ForeColor = Color.Green;
+                lblStatus.Text = "User has successfully logged out";
+            }
+
+            if (Session["InvalidUse"] != null)
+            {
+                lblStatus.ForeColor = Color.Red;
+                lblStatus.Text = Session["InvalidUse"].ToString();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
+
             try
             {
                 System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
