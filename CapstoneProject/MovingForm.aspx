@@ -6,7 +6,7 @@
     <div style="width: auto; margin: 0 20% ">
     <asp:Table ID="tblMoving" runat="server">
         <asp:TableRow>
-            <asp:TableCell>
+            <asp:TableCell ColumnSpan="3">
                 <asp:Label ID="lblPlz" runat="server" Font-Bold="true" Text="Please, provide the following moving information!"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
@@ -23,9 +23,9 @@
                     AppendDataBoundItems="true">
                     <asp:ListItem Value="">- Select -</asp:ListItem>
                 </asp:DropDownList>
-            </asp:TableCell>
-            <asp:TableCell>
+                &nbsp
                 <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
+                &nbsp
                 <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust2.aspx" />
             </asp:TableCell>
         </asp:TableRow>
@@ -85,52 +85,80 @@
         </asp:TableRow>
 
         <asp:TableRow>
-            <asp:TableCell>
-                 <br />
-        <br />
-                <asp:Label ID="lblSpecEquip" runat="server" Text="Special Equipment: "></asp:Label>
-            </asp:TableCell>
-
-            <asp:TableCell>
-                 <br />
-        <br />
-                <asp:RadioButtonList ID="rdoSpecEquip" runat="server" AutoPostBack="true">
-                    <asp:ListItem>Appliance Cart</asp:ListItem>
-                    <asp:ListItem>Piano Dolly</asp:ListItem>
-                    <asp:ListItem>Piano Board</asp:ListItem>
-                    <asp:ListItem>Gun Safe Cart</asp:ListItem>
-                    <asp:ListItem>Extra Blankets</asp:ListItem>
-                </asp:RadioButtonList>
-
+            <asp:TableCell ColumnSpan="5">
+                <asp:Table ID="tblSelectTrucks" runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblTrucksNeeded" runat="server" Text="Trucks Needed: "></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell></asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblTrucksAvailable" runat="server" Text="Available: "></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow Height="150">
+                        <asp:TableCell Width="160">
+                            <asp:ListBox ID="lstboxTruckUsed" runat="server"
+                                Height="150"
+                                Width="180"
+                                AutoPostBack="false"></asp:ListBox>
+                        </asp:TableCell>
+                        <asp:TableCell Width="90">
+                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click" />
+                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click" />
+                        </asp:TableCell>
+                        <asp:TableCell Width="180">
+                            <asp:ListBox ID="lstboxTruckInventory" runat="server"
+                                Height="150"
+                                Width="180"
+                                DataSourceID="dtasrcTruckInventory"
+                                DataTextField="EquipmentDescription"
+                                DataValueField="EquipmentID"
+                                AutoPostBack="false"></asp:ListBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
             </asp:TableCell>
         </asp:TableRow>
-
-
-
         <asp:TableRow>
-            <asp:TableCell>
-                 <br />
-                  <br />
-
-                <asp:Label ID="lblMoveTrucks" runat="server" Text="Special Equipment: "></asp:Label>
-            </asp:TableCell>
-
-            <asp:TableCell>
-        <br />
-        <br />
-                <asp:RadioButtonList ID="rdoMovetrucks" runat="server" AutoPostBack="true">
-                    <asp:ListItem>2015</asp:ListItem>
-                    <asp:ListItem>2011</asp:ListItem>
-                    <asp:ListItem>Cube</asp:ListItem>
-                    <asp:ListItem>Enclosed Trailer</asp:ListItem>
-                    <asp:ListItem>Open Trailer</asp:ListItem>
-                    <asp:ListItem>Van</asp:ListItem>
-                </asp:RadioButtonList>
-
+            <asp:TableCell ColumnSpan="5">
+                <%-- another table inside of a tablecell, this is for selecting equipment that should be used in move --%>
+                <asp:Table ID="tblSelectEquipment" runat="server">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="lblEquipmentNeeded" runat="server" Text="Equipment Needed: "></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell></asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblEquipmentAvailable" runat="server" Text="Available: "></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow Height="150">
+                        <asp:TableCell Width="160">
+                            <asp:ListBox ID="lstboxEquipmentUsed" runat="server"
+                                Height="150"
+                                Width="180"
+                                AutoPostBack="false"></asp:ListBox>
+                        </asp:TableCell>
+                        <asp:TableCell Width="90">
+                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click" />
+                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click" />
+                        </asp:TableCell>
+                        <asp:TableCell Width="180">
+                            <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
+                                Height="150"
+                                Width="180"
+                                DataSourceID="dtasrcEquipment"
+                                DataTextField="EquipmentDescription"
+                                DataValueField="EquipmentID"
+                                AutoPostBack="false"></asp:ListBox>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
             </asp:TableCell>
         </asp:TableRow>
 
-        
+
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Button ID="btnBack" class= "btn-GreenValleyGreen" runat="server" Text="Back" OnClick="btnBack_Click" />
@@ -154,10 +182,22 @@
         </asp:Table>
 
         <asp:SqlDataSource runat="server"
-        ID="dtasrcCustomer"
-        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
-    </asp:SqlDataSource>
+            ID="dtasrcCustomer"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="dtasrcTruckInventory"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName = 'truck';" >
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="dtasrcEquipment"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';" >
+        </asp:SqlDataSource>
 
         </div>
 </asp:Content>

@@ -260,6 +260,11 @@
                     </asp:RadioButtonList>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+
+                </asp:TableCell>
+            </asp:TableRow>
         </asp:Table>
 
         <asp:Table ID="tblAuctionInfo" runat="server">

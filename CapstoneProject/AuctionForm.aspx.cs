@@ -39,7 +39,7 @@ namespace CapstoneProject
         protected void btnAddEquipment_Click(object sender, EventArgs e)
         {
             bool equipmentUsed = false;
-            if (lstboxTruckInventory.SelectedIndex != -1)
+            if (lstboxEquipmentInventory.SelectedIndex != -1)
             {
 
                 foreach (ListItem li in lstboxEquipmentUsed.Items)

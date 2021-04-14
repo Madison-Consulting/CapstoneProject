@@ -35,14 +35,12 @@ namespace CapstoneProject
                     System.Data.SqlClient.SqlCommand createMove = new System.Data.SqlClient.SqlCommand();
                     createMove.Connection = sc;
                     // INSERT USER RECORD
-                    createMove.CommandText = "INSERT INTO MoveForm (HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, SpecialEquipment, MoveTrucks, ServiceID) VALUES (@HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @SpecialEquipment, @MoveTrucks, @ServiceID)";
+                    createMove.CommandText = "INSERT INTO MoveForm (HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, ServiceID) VALUES (@HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @SpecialEquipment, @MoveTrucks, @ServiceID)";
                     createMove.Parameters.Add(new SqlParameter("@HomeType", ddlHomeType.Text));
                     createMove.Parameters.Add(new SqlParameter("@Accessibility", txtDriveway.Text));
                     createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
                     createMove.Parameters.Add(new SqlParameter("@MoveSteps", txtMoveSteps.Text));
                     createMove.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
-                    createMove.Parameters.Add(new SqlParameter("@SpecialEquipment", rdoSpecEquip.Text));
-                    createMove.Parameters.Add(new SqlParameter("@MoveTrucks", rdoMovetrucks.Text));
                     createMove.Parameters.Add(new SqlParameter("@ServiceID", "837164"));
                     createMove.ExecuteNonQuery();
 
@@ -52,6 +50,21 @@ namespace CapstoneProject
                     sqlDAMoveFormID.Fill(dtMoveFormID);
                     Session["MoveFormID"] = dtMoveFormID.Rows[0][0].ToString();
                     sc.Close();
+
+                    //use above recent ID for equipmentUsed insert (includes both truckUsed and equipmentUsed)
+                    SqlCommand insertEquipmentUsed = new SqlCommand();
+                    insertEquipmentUsed.Connection = sc;
+                    insertEquipmentUsed.CommandText = "INSERT INTO EquipmentUsed (EquipmentID, MoveFormID) VALUES (@EquipmentID, " + Session["MoveFormID"].ToString() + ")";
+                    foreach (ListItem li in lstboxTruckUsed.Items) //first loop through all trucks and execute query for each
+                    {
+                        insertEquipmentUsed.Parameters.Add(new SqlParameter("@EquipmentID", li.Value));
+                        insertEquipmentUsed.ExecuteNonQuery();
+                    }
+                    foreach (ListItem li in lstboxEquipmentUsed.Items) //next loop through all equipment
+                    {
+                        insertEquipmentUsed.Parameters.Add(new SqlParameter("@EquipmentID", li.Value));
+                        insertEquipmentUsed.ExecuteNonQuery();
+                    }
                 }
                 catch
                 {
@@ -65,6 +78,67 @@ namespace CapstoneProject
             Response.Redirect("MoveFormPt2.aspx");
         }
 
+        protected void btnAddTruck_Click(object sender, EventArgs e)
+        {
+            bool truckUsed = false;
+            if (lstboxTruckInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxTruckUsed.Items)
+                {
+                    if (lstboxTruckInventory.SelectedValue.Equals(li.Value))
+                    {
+                        truckUsed = true;
+                    }
+                }
+                if (!truckUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxTruckInventory.SelectedValue;
+                    newItem.Text = lstboxTruckInventory.SelectedItem.Text;
+                    lstboxTruckUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveTruck_Click(object sender, EventArgs e)
+        {
+            if (lstboxTruckUsed.SelectedIndex != -1)
+            {
+                lstboxTruckUsed.Items.Remove(lstboxTruckUsed.SelectedItem);
+            }
+        }
+
+        protected void btnAddEquipment_Click(object sender, EventArgs e)
+        {
+            bool equipmentUsed = false;
+            if (lstboxEquipmentInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxEquipmentUsed.Items)
+                {
+                    if (lstboxEquipmentInventory.SelectedValue.Equals(li.Value))
+                    {
+                        equipmentUsed = true;
+                    }
+                }
+                if (!equipmentUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxEquipmentInventory.SelectedValue;
+                    newItem.Text = lstboxEquipmentInventory.SelectedItem.Text;
+                    lstboxEquipmentUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveEquipment_Click(object sender, EventArgs e)
+        {
+            if (lstboxEquipmentUsed.SelectedIndex != -1)
+            {
+                lstboxEquipmentUsed.Items.Remove(lstboxEquipmentUsed.SelectedItem);
+            }
+        }
 
 
         protected void ddlDriveway_SelectedIndexChanged(object sender, EventArgs e)
