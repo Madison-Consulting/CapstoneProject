@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <%--            Form to Add Customer Data--%>
-            <div style="width: auto; margin: 0 10% ">
+            <div style="width: auto; margin: 0 20%;">
               <asp:Table ID="Table3" runat="server">
 <%--                <asp:TableRow>
                     <asp:TableCell>

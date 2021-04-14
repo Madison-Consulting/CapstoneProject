@@ -19,7 +19,7 @@
     </asp:Table>--%>
 
 
-    <div style="position: absolute; left: 250px; top: 100px;">
+    <div style="width: auto; margin: 0 20%;">
         <asp:Table ID="Table3" runat="server" Width="99%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell>

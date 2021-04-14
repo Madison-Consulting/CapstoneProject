@@ -94,7 +94,7 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
 
-            <div id="ftr" Style ="position: absolute; width: 100%; left:200px; bottom:0px;">
+            <div id="ftr" Style ="position: relative; width: 100%; left:200px; bottom:0px;">
 
                 <asp:Table ID="footer" runat="server" BackColor="#266141" BorderWidth="3px" HorizontalAlign="Center" width="100%">
                     <asp:TableRow>

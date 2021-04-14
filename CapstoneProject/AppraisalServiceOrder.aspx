@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 5%;;">
-                <asp:Table ID="Table3" runat="server" Style="position:absolute; left:250px; top: 100px; height: 257px; width: 723px;">
+    <div style="width: auto; margin: 0 20%;"">
+            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; height: 257px; width: 723px;">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -108,7 +108,7 @@
             </asp:TableRow>
         </asp:Table>
 
-    <asp:Table ID="tblAppraisalAssessment" runat="server" Width="860px"  Style="position:absolute; top:360px; left: 250px;">
+    <asp:Table ID="tblAppraisalAssessment" runat="server" Width="860px"  Style="top:360px; left: 250px;">
           <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblPurpose1" runat="server" Text="Purpose of Appraisal"></asp:Label>

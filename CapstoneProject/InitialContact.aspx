@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 99%; margin: 0 10%;">
+    <div style="width: auto; margin: 0 20%;">
         <asp:Table ID="tblInitialContact" runat="server" Style="display: inline-block" Width="700px">
             <asp:TableRow>
                 <asp:TableCell>

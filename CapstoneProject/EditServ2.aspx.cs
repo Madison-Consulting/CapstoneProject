@@ -86,9 +86,9 @@ namespace Lab2
                     tblMoveInfo.Visible = false;
 
                     con.Open();
-                    string viewAuctionCommandString = "SELECT Inventory.ItemID, Inventory.InventoryDate, Inventory.ItemInInventory, Inventory.ItemCost, [Service].ServiceID ";
-                    viewAuctionCommandString += "FROM Inventory inner join [Service] on Inventory.ServiceID = [Service].ServiceID ";
-                    viewAuctionCommandString += "inner join Customer on [Service].CustomerID = Customer.CustomerID ";
+                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
+                    viewAuctionCommandString += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
+                    viewAuctionCommandString += "Customer ON Service.CustomerID = Customer.CustomerID ";
                     viewAuctionCommandString += "WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
 
                     SqlDataAdapter daViewAuctions = new SqlDataAdapter(viewAuctionCommandString, con);
@@ -214,7 +214,7 @@ namespace Lab2
                 e.Row.Cells[0].Text = "Ticket Change Date";
                 e.Row.Cells[1].Text = "Next Employee";
                 e.Row.Cells[2].Text = "Initiating Employee Name";
-                e.Row.Cells[3].Text = " Customer Last Name";
+                e.Row.Cells[3].Text = "Customer Last Name";
             }
         }
 
@@ -225,13 +225,20 @@ namespace Lab2
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("SELECT ServiceType FROM Service WHERE ServiceID = @ServiceID", con);
-            cmd.Parameters.AddWithValue("ServiceID", keyValue);
+            string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
+            viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
+            viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
+            viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
+
+            SqlCommand cmd = new SqlCommand(viewAuctionItems, con);
 
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-            DataTable dtServInfo = new DataTable();
-            sqlAdapter.Fill(dtServInfo);
+            DataTable dtAuctInfo = new DataTable();
+            sqlAdapter.Fill(dtAuctInfo);
 
+            txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
+            txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
+            txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
 
         }
 
@@ -242,6 +249,7 @@ namespace Lab2
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
+            //load data from MoveForm table
             string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, ";
             viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationCity, ";
             viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
@@ -274,8 +282,97 @@ namespace Lab2
             txtTruckDistance.Text = dtMoveInfo.Rows[0][15].ToString();
             rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][16].ToString();
 
+            //load data from EquipmentUsed table
+            string viewMoveEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription ";
+            viewMoveEquipmentUsed += "FROM  Equipment INNER JOIN EquipmentUsed ON Equipment.EquipmentID = EquipmentUsed.EquipmentID ";
+            viewMoveEquipmentUsed += "INNER JOIN MoveForm ON EquipmentUsed.MoveFormID = MoveForm.MoveFormID ";
+            viewMoveEquipmentUsed += "WHERE MoveForm.ServiceID = " + keyValue;
+
+            SqlCommand cmdForMoveEquipmentUsed = new SqlCommand(viewMoveEquipmentUsed, con);
+            SqlDataAdapter sqlAdapterForMoveEquipmentUsed = new SqlDataAdapter(cmdForMoveEquipmentUsed);
+            DataTable dtMoveEquipment = new DataTable();
+            sqlAdapterForMoveEquipmentUsed.Fill(dtMoveEquipment);
+
+            int dataRowCounter = 0;
+            foreach (DataRow dr in dtMoveEquipment.Rows)
+            {
+                if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Equals("truck"))
+                {
+                    lstboxTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                }
+                else
+                {
+                    lstboxEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                }
+                dataRowCounter++;
+            }
+
+
             tblMoveInfo.Visible = true;
         }
+
+        protected void btnAddTruck_Click(object sender, EventArgs e)
+        {
+            bool truckUsed = false;
+            if (lstboxTruckInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxTruckUsed.Items)
+                {
+                    if (lstboxTruckInventory.SelectedValue.Equals(li.Value))
+                    {
+                        truckUsed = true;
+                    }
+                }
+                if (!truckUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxTruckInventory.SelectedValue;
+                    newItem.Text = lstboxTruckInventory.SelectedItem.Text;
+                    lstboxTruckUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveTruck_Click(object sender, EventArgs e)
+        {
+            if (lstboxTruckUsed.SelectedIndex != -1)
+            {
+                lstboxTruckUsed.Items.Remove(lstboxTruckUsed.SelectedItem);
+            }
+        }
+
+        protected void btnAddEquipment_Click(object sender, EventArgs e)
+        {
+            bool equipmentUsed = false;
+            if (lstboxEquipmentInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxEquipmentUsed.Items)
+                {
+                    if (lstboxEquipmentInventory.SelectedValue.Equals(li.Value))
+                    {
+                        equipmentUsed = true;
+                    }
+                }
+                if (!equipmentUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxEquipmentInventory.SelectedValue;
+                    newItem.Text = lstboxEquipmentInventory.SelectedItem.Text;
+                    lstboxEquipmentUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveEquipment_Click(object sender, EventArgs e)
+        {
+            if (lstboxEquipmentUsed.SelectedIndex != -1)
+            {
+                lstboxEquipmentUsed.Items.Remove(lstboxEquipmentUsed.SelectedItem);
+            }
+        }
+
     }
 }
 
