@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
+           <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
+     <link href="Content/bootstrap.css" rel="stylesheet" />
     <title>Customer Login</title>
 </head>
 <body>
@@ -43,9 +44,14 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Button ID="btnLogin" class= "btn-GreenValleyGreen" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                <asp:Button ID="btnLogin" class="btn-GreenValleyGreen" runat="server" Text="Login" OnClick="btnLogin_Click" />
             </asp:TableCell>
         </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:LinkButton ID="lnkNoAccount" runat="server" OnClick="lnkNoAccount_Click" CausesValidation="false">Don't Have an Account?</asp:LinkButton>
+                    </asp:TableCell>
+                </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
@@ -54,5 +60,8 @@
             </asp:Table>
         </div>
     </form>
+              <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

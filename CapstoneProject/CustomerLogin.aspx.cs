@@ -43,7 +43,7 @@ namespace Lab3
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
                             lblStatus.Text = "Success!";
-                            Response.Redirect("CustomerServInfo.aspx");
+                            Response.Redirect("CustomerServInfo1.aspx");
                         }
                         else
                             lblStatus.Text = "Password is incorrect.";
@@ -60,6 +60,11 @@ namespace Lab3
             }
 
 
+        }
+
+        protected void lnkNoAccount_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerCreate.aspx");
         }
     }
 }
