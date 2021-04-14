@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="CapstoneProject.Customer" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
+    <title>Green Valley Auctions</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+          <div class="sidenav">
+
+             <a href="/CustomerServInfo1.aspx">Request a Service</a>
+
+             <a href="#">Sign Documents</a>
+
+<%--             <a href="/AppraisalServiceOrder.aspx"></a>--%>
+
+        </div>
+
+        <div class="main">
+         <asp:Table ID="header" runat="server" Width="1044px">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
+                        </asp:TableCell>
+                        <asp:TableCell>
+                            <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
+                        </asp:TableCell>
+                        <asp:TableCell ColumnSpan="4">
+                        <asp:Button ID="btnLogout" class="btn-GreenValleyGreen" runat="server" Text="Logout" OnClick="btnLogout_Click" CausesValidation="false"/>
+                    </asp:TableCell>
+                        </asp:TableRow>
+             </asp:Table>
+     
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+
+            <div id="ftr" >
+
+                <asp:Table ID="footer" runat="server" BackColor="#266141" BorderWidth="3px" HorizontalAlign="Center" Width="1000px">
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="address1" ForeColor="White" Font-Bold="true" runat="server" Text="2559 Green Valley Lane"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="address2" ForeColor="White" Font-Bold="true" runat="server" Text="Mount Crawford, Virginia 22841"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                    <asp:TableRow>
+                        <asp:TableCell>
+                            <asp:Label ID="phone" ForeColor="White" Font-Bold="true" runat="server" Text="(540) 434-4260"></asp:Label>
+                        </asp:TableCell>
+                    </asp:TableRow>
+                </asp:Table>
+
+       </div>
+
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+            <script src="Scripts/jquery-3.5.1.min.js"></script>
+        <script src="Scripts/popper.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
+</html>

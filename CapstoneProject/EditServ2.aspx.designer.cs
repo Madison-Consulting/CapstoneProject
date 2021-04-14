@@ -25,6 +25,14 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.Table tblAuctionInfo;
 
+        protected global::System.Web.UI.WebControls.ListBox lstboxTruckUsed;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxTruckInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentUsed;
+
         /// <summary>
         /// lblDropDownList control.
         /// </summary>
@@ -78,6 +86,12 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtHeader;
+
+        protected global::System.Web.UI.WebControls.TextBox txtAuctCustomer;
+
+        protected global::System.Web.UI.WebControls.TextBox txtItemDesc;
+
+        protected global::System.Web.UI.WebControls.TextBox txtItemQuant;
 
         /// <summary>
         /// txtNote control.

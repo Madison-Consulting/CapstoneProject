@@ -19,7 +19,7 @@ namespace Lab3
         {
             if (Session["Email"] != null)
             {
-                lblLoggedIn.Text = Session["Email"].ToString() + " successfully logged in";
+                
                 txtEmail.Text = Session["Email"].ToString();
 
                 txtCustomerID.Text = Session["ID"].ToString();
@@ -114,6 +114,8 @@ namespace Lab3
                 lblUploadStatus.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+
 
         //void SaveFile(HttpPostedFile file)
         //{

@@ -42,13 +42,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblFN;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtFN;
 
         /// <summary>
         /// lblLN control.
@@ -60,13 +60,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblLN;
 
         /// <summary>
-        /// TextBox2 control.
+        /// txtLN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtLN;
 
         /// <summary>
         /// lblContact control.
@@ -375,22 +375,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnSaveInitial;
 
         /// <summary>
-        /// btnAddService control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddService;
-
-        /// <summary>
-        /// lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
 
         /// <summary>
         /// tblTxtBox control.
@@ -418,23 +409,5 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNote;
-
-        /// <summary>
-        /// txtFN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFN;
-
-        /// <summary>
-        /// txtLN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLN;
     }
 }

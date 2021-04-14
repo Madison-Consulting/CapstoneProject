@@ -5,7 +5,7 @@
 <head runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
-    <title>Madison Consulting 01</title>
+    <title>Green Valley Auctions</title>
     <asp:ContentPlaceHolder ID="head" runat="server" >
     </asp:ContentPlaceHolder>
 </head>
@@ -21,7 +21,6 @@
          </button>
          <div class="dropdown-container">
              <a href="InitialContact.aspx">Initial Contact Form</a>
-             <a href="/AddCust2.aspx">Add a New Customer</a>
              <a href="/EditCust.aspx">Edit or View an Existing Customer</a>
          </div>
 
@@ -57,7 +56,7 @@
                 <a href="#">...</a>
               </div>
        </div>
-        <div class="main">
+        <div class="main" >
          <asp:Table ID="header" runat="server" Width="900px">
                     <asp:TableRow>
                         <asp:TableCell>
@@ -66,6 +65,12 @@
                         <asp:TableCell>
                             <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
                         </asp:TableCell>
+                        <asp:TableCell>
+                                    <asp:Label ID="lblCustomer" runat="server" Text="You are currently filling out files for: "></asp:Label>
+                                    <asp:Label ID="lblCustomerName" runat="server" Text="" Font-Bold="true"></asp:Label>
+
+                        </asp:TableCell>
+                       
                         <asp:TableCell ColumnSpan="6" HorizontalAlign="Right"> 
                         
                              <div class="dropdown image_with_badge_container">
@@ -84,13 +89,13 @@
                         </asp:TableRow>
              </asp:Table>
      
-
+            </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
 
-            <div id="ftr" >
+            <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#266141" BorderWidth="3px" HorizontalAlign="Center" Width="1000px">
+                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1200px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
@@ -114,7 +119,6 @@
                 </asp:Table>
 
        </div>
-       </div>
            </form>
         <script src="Scripts/jquery-3.5.1.min.js"></script>
         <script src="Scripts/popper.min.js"></script>
@@ -134,9 +138,11 @@
                             }
                         });
                     }
-                    
+                       </script>
+              
 
-                </script>
+          
+        
     </body>
 
 

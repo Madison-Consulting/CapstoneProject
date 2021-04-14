@@ -3,19 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 99%; margin: 0 10%;">
-        <asp:Table ID="tblInitialContact" runat="server" Style="display: inline-block" Width="700px">
+    <div style="width: 99%; margin: 20px 10%;">
+        <asp:Table ID="tblInitialContact" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-                        <asp:TableRow>
+            <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblFN" runat="server" Text="Customer First Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -23,7 +23,7 @@
                     <asp:Label ID="lblLN" runat="server" Text="Customer Last Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -38,7 +38,6 @@
                         <asp:ListItem Value="Text">Text</asp:ListItem>
                         <asp:ListItem Value="Other">Other</asp:ListItem>
                     </asp:DropDownList>
-                    &nbsp&nbsp
                     <asp:TextBox ID="txtOther" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
@@ -128,11 +127,13 @@
                     <asp:TextBox ID="txtDeadline" runat="server" Text="Date"></asp:TextBox>
                     <asp:TextBox ID="txtTime" runat="server" Text="Time"></asp:TextBox>
                 </asp:TableCell>
+
                 <asp:TableCell>
                     <asp:TextBox ID="txtDeadline2" runat="server" Text="Date"></asp:TextBox>
                     <asp:TextBox ID="txtTime2" runat="server" Text="Time"></asp:TextBox>
                 </asp:TableCell>
-
+            </asp:TableRow>
+            <asp:TableRow>
                 <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDeadline" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
@@ -144,22 +145,22 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
-                    <asp:Button ID="btnSaveInitial" class= "btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
+                    <asp:Button ID="btnSaveInitial" class="btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
+<%--            <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
-                    <asp:Button ID="btnAddService" class= "btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
+                    <asp:Button ID="btnAddService" class="btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
-            </asp:TableRow>
+            </asp:TableRow>--%>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lbl" runat="server" Text="!"></asp:Label>
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
 
-        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 200px;">
+        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -172,8 +173,6 @@
             </asp:TableRow>
         </asp:Table>
 
-        <asp:TextBox ID="txtFN" runat="server" Visible="false"></asp:TextBox>
-        <asp:TextBox ID="txtLN" runat="server" Visible="false"></asp:TextBox>
 
 
     </div>

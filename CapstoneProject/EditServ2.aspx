@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 149%; margin: 0 10%; height: auto;">
+    <div style="width: auto; margin: 0 20%;">
         <asp:Table ID="tblDrop" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -261,13 +261,81 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
-
+                <asp:TableCell ColumnSpan="5">
+                    <asp:Table ID="tblSelectTrucks" runat="server">
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label ID="lblTrucksNeeded" runat="server" Text="Trucks Needed: "></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label ID="lblTrucksAvailable" runat="server" Text="Available: "></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow Height="150">
+                            <asp:TableCell Width="160">
+                                <asp:ListBox ID="lstboxTruckUsed" runat="server"
+                                    Height="150"
+                                    Width="180"
+                                    AutoPostBack="false"></asp:ListBox>
+                            </asp:TableCell>
+                            <asp:TableCell Width="90">
+                                <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click" />
+                                <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click" />
+                            </asp:TableCell>
+                            <asp:TableCell Width="180">
+                                <asp:ListBox ID="lstboxTruckInventory" runat="server"
+                                    Height="150"
+                                    Width="180"
+                                    DataSourceID="dtasrcTruckInventory"
+                                    DataTextField="EquipmentDescription"
+                                    DataValueField="EquipmentID"
+                                    AutoPostBack="false"></asp:ListBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell ColumnSpan="5">
+                    <%-- another table inside of a tablecell, this is for selecting equipment that should be used in move --%>
+                    <asp:Table ID="tblSelectEquipment" runat="server">
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label ID="lblEquipmentNeeded" runat="server" Text="Equipment Needed: "></asp:Label>
+                            </asp:TableCell>
+                            <asp:TableCell></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:Label ID="lblEquipmentAvailable" runat="server" Text="Available: "></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow Height="150">
+                            <asp:TableCell Width="160">
+                                <asp:ListBox ID="lstboxEquipmentUsed" runat="server"
+                                    Height="150"
+                                    Width="180"
+                                    AutoPostBack="false"></asp:ListBox>
+                            </asp:TableCell>
+                            <asp:TableCell Width="90">
+                                <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click" />
+                                <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click" />
+                            </asp:TableCell>
+                            <asp:TableCell Width="180">
+                                <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
+                                    Height="150"
+                                    Width="180"
+                                    DataSourceID="dtasrcEquipment"
+                                    DataTextField="EquipmentDescription"
+                                    DataValueField="EquipmentID"
+                                    AutoPostBack="false"></asp:ListBox>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
 
-        <asp:Table ID="tblAuctionInfo" runat="server">
+        <asp:Table ID="tblAuctionInfo" runat="server" Visible="false">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblAuctCustomer" runat="server" Text="Customer: "></asp:Label>
@@ -278,7 +346,18 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-
+                    <asp:Label ID="lblItemDesc" runat="server" Text="Item: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtItemDesc" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblItemQuant" runat="server" Text="Quantity: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtItemQuant" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
@@ -296,6 +375,18 @@
                     </asp:TableRow>--%>
         </asp:Table>
 
+        <asp:SqlDataSource runat="server"
+            ID="dtasrcTruckInventory"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName = 'truck';" >
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="dtasrcEquipment"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';" >
+        </asp:SqlDataSource>
 
     </div>
+
 </asp:Content>

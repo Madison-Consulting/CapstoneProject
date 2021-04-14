@@ -97,7 +97,7 @@ namespace Lab3
             //redirect and save email as a session variable
             Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
             Session["ID"] = CustID;
-            Response.Redirect("CustomerServInfo.aspx");
+            Response.Redirect("CustomerServInfo1.aspx");
         }
 
     }

@@ -72,10 +72,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCust.aspx" />
     <Content Include="AddCust2.aspx" />
     <Content Include="AddServ.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
     <Content Include="AuctionForm.aspx" />
+    <Content Include="ChooseCustomer.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -86,6 +88,7 @@
     <Content Include="CustomerLogin.aspx" />
     <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerServInfo.aspx" />
+    <Content Include="CustomerServInfo1.aspx" />
     <Content Include="EditCust.aspx" />
     <Content Include="EditServ2.aspx" />
     <Content Include="EmpLandingPage.aspx" />
@@ -127,6 +130,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Customer.Master" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -218,6 +222,13 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCust.aspx.cs">
+      <DependentUpon>AddCust.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCust.aspx.designer.cs">
+      <DependentUpon>AddCust.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddCust2.aspx.cs">
       <DependentUpon>AddCust2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,6 +257,20 @@
     <Compile Include="AuctionForm.aspx.designer.cs">
       <DependentUpon>AuctionForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ChooseCustomer.aspx.cs">
+      <DependentUpon>ChooseCustomer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChooseCustomer.aspx.designer.cs">
+      <DependentUpon>ChooseCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.Master.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer.Master.designer.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+    </Compile>
     <Compile Include="CustomerCreate.aspx.cs">
       <DependentUpon>CustomerCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +298,13 @@
     </Compile>
     <Compile Include="CustomerServInfo.aspx.designer.cs">
       <DependentUpon>CustomerServInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerServInfo1.aspx.cs">
+      <DependentUpon>CustomerServInfo1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerServInfo1.aspx.designer.cs">
+      <DependentUpon>CustomerServInfo1.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditCust.aspx.cs">
       <DependentUpon>EditCust.aspx</DependentUpon>
@@ -408,6 +440,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Themes\Theme1\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <PropertyGroup>

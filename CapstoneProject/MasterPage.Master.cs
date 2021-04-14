@@ -14,7 +14,8 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
+            lblCustomerName.Text = fullName;
             //check if user is logged in
             if (Session["UserName"] != null)
             {

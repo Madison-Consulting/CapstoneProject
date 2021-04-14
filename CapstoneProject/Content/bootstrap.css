@@ -212,6 +212,9 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height:100%;
+  margin:0px;
+  padding: 0px;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -227,6 +230,9 @@ body {
     color: #212529;
     text-align: left;
     background-color: #fff;
+    height:100%;
+    margin: 0px;
+    padding:0px;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -370,6 +376,7 @@ svg {
 
 table {
   border-collapse: collapse;
+    margin-left: 0px;
 }
 
 caption {

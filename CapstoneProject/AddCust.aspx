@@ -1,9 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AppraisalServiceOrder.aspx.cs" Inherits="CapstoneProject.AppraisalServiceOrder" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 20%;"">
-            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; height: 257px; width: 723px;">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddCust.aspx.cs" Inherits="CapstoneProject.AddCust" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="width: auto; margin: 0 20% ">
+                        <asp:Table ID="Table3" runat="server" Width="670px">
+                            <asp:TableRow HorizontalAlign="Center">
+                                <asp:TableCell ColumnSpan="2">
+                                    <asp:Label ID="lblDesc" runat="server" Text="Add a New Customer" Font-Bold="true" Font-Size="Large"></asp:Label>
+                                </asp:TableCell>
+                            </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -15,6 +26,8 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtFirstName" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
                     </asp:TableCell>
@@ -24,6 +37,18 @@
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtLastName" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblPhoneType" runat="server" Text="PhoneType"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButtonList ID="rdoPhoneType" runat="server">
+                            <asp:ListItem Value ="Home">Home</asp:ListItem>
+                            <asp:ListItem Value="Work">Work</asp:ListItem>
+                            <asp:ListItem Value="Cell" Selected="True">Cell</asp:ListItem>
+                        </asp:RadioButtonList>
                     </asp:TableCell>
                 </asp:TableRow>
                  <asp:TableRow>
@@ -37,6 +62,8 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtPhoneNo" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
                     </asp:TableCell>
@@ -92,10 +119,39 @@
                      <asp:TableCell>
                          <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
                     </asp:TableCell>
-                    </asp:TableRow>
-                    </asp:Table>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" 
+                ControlToValidate="txtZip" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnCommitAddCust" class= "btn-GreenValleyGreen" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Customer" OnClick="btnCommitAddCust_Click"/>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="center">
+<%--                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnInitialContact" class= "btn-GreenValleyGreen" Visible="false" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add Initial Contact Info" OnClick="btnInitialContact_Click" CausesValidation="false" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="center">
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnAddService" class= "btn-GreenValleyGreen" Visible="false" enabled="false" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Add a Service for this Customer" OnClick ="btnAddService_Click" CausesValidation="false" />
+                    </asp:TableCell>--%>
+                    <asp:TableCell>
+                        <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                     <asp:TableCell>
+                         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                </asp:Table>
+                <br />
 
-                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 250px;" Width="120px">
+            
+        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 100px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -103,98 +159,11 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="8" Width="250px"></asp:TextBox>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-
-    <asp:Table ID="tblAppraisalAssessment" runat="server" Width="860px"  Style="top:360px; left: 250px;">
-          <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="lblPurpose1" runat="server" Text="Purpose of Appraisal"></asp:Label>
-                    </asp:TableCell>
-                      <asp:TableCell>
-                          <asp:TextBox ID="txtPurpose1" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator" 
-                ControlToValidate="txtPurpose1" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-        <asp:TableRow>
-                    <asp:TableCell>
-                        <asp:Label ID="lblDeadline" runat="server" Text="Is there a deadline?"></asp:Label>
-                    </asp:TableCell>
-                      <asp:TableCell>
-                          <asp:RadioButtonList ID="rdobtnDeadline" runat="server" >
-                            <asp:ListItem Value="Yes">Yes</asp:ListItem>
-                            <asp:ListItem Value="no">No</asp:ListItem>
-                        </asp:RadioButtonList>
-                      </asp:TableCell>
-            </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblDeadline1" runat="server" Text="What is the deadline?"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="txtDeadline1" runat="server" TextMode="Date"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-              <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblSize" runat="server" Text="Size of Appraisal"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="txtSize" runat="server" TextMode="Date"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" />
-            </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Button ID="btnUpload" class= "btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblInventory" runat="server" Text="Inventory"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="txtInventory" runat="server" TextMode="MultiLine" Rows="1"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Label ID="lblAddlServ" runat="server" Text="Additional Services?"></asp:Label>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnMoveAssess" class= "btn-GreenValleyGreen" runat="server" Text="Move Assessment" OnClick="btnMoveAssess_Click" />
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:Button ID="btnAuctionAssess" class= "btn-GreenValleyGreen" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click"/>
-            </asp:TableCell>
-            <asp:TableCell>
-                <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
-            </asp:TableCell>
-        </asp:TableRow>
-        
-           
-    </asp:Table>
-
-    
-               </div>
-</asp:Content>
+        </div>
+    </form>
+</body>
+</html>

@@ -43,7 +43,7 @@
                 </asp:TableRow>  
           </asp:Table>
 
-                <asp:SqlDataSource ID="datasrcInvList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustLastName + ' ' + Service.ServiceDate as fullDate, Customer.CustomerID FROM Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="datasrcInvList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustLastName + ' ' + Service.ServiceDate as fullDate, Customer.CustomerID FROM Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID WHERE Service.ServiceType = 'Move'"></asp:SqlDataSource>
 
 
     <asp:Table ID="Table1" runat="server" Width="654px">
