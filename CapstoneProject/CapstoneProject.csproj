@@ -97,6 +97,7 @@
     <Content Include="Image\UserIcon.jpg" />
     <Content Include="InitialContact.aspx" />
     <Content Include="InitialAuctionService.aspx" />
+    <Content Include="InitialMove.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MoveFormPt2.aspx" />
@@ -314,6 +315,13 @@
     </Compile>
     <Compile Include="InitialAuctionService.aspx.designer.cs">
       <DependentUpon>InitialAuctionService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitialMove.aspx.cs">
+      <DependentUpon>InitialMove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialMove.aspx.designer.cs">
+      <DependentUpon>InitialMove.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
