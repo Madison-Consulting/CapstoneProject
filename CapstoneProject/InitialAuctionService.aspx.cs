@@ -38,6 +38,17 @@ namespace CapstoneProject
         {
             txtDisplayItemsSell.Text +=  txtItemsSell.Text + "\n";
             txtItemsSell.Text = "";
+            string auctionItem = "";
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            String query = "INSERT INTO AuctionInventory (ItemDescription)" +
+    "VALUES (@ItemDescription)";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@ItemDescription", HttpUtility.HtmlEncode(txtItemsSell.Text));
+            cmd.ExecuteNonQuery();
+            con.Close();
+
         }
 
         protected void btnCommitIntialAuction_Click(object sender, EventArgs e)
@@ -49,6 +60,10 @@ namespace CapstoneProject
             string customerRequestedWalk = "NULL";
             string greenValleyRequested = "NULL";
             string deadline = "";
+            string pickUpAddress = "";
+            string pickUpCity = "";
+            string pickUpState = "";
+            string pickUpZip = "";
             if (chkCustReq.Checked)
             {
                 customerRequestedWalk = "YES";
@@ -61,9 +76,13 @@ namespace CapstoneProject
             {
                 bringIn = "YES";
             }
-            if (chkPickUp.Value.Equals("PickUp"))
+            if (chkbxPickUp.Checked)
             {
                 pickUp = "YES";
+                pickUpAddress = txtAuctionPickUpAddress.Text;
+                pickUpCity = txtCity.Text;
+                pickUpState = txtState.Text;
+                pickUpZip = txtZip.Text;
             }
             if (chkTrashRemoval.Value.Equals("Trash"))
             {
@@ -85,8 +104,8 @@ namespace CapstoneProject
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
-            String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, Note)" +
-    "VALUES (@ItemsBeingSold, @ReasonForAuction, @Deadline, @BringIn, @PickUp, @TrashRemoval, @AuctionLookAt, )";
+            String query = "INSERT INTO IntialAuction (ReasonForAuction, Deadline, BringIn, PickUp, TrashRemoval, AuctionLookAt, CustomerRequested, GreenValleyRequested, PickUpAddress, PickUpCity, PickUpState, PickUpZip)" +
+    "VALUES (@ReasonForAuction, @Deadline, @BringIn, @PickUp, @TrashRemoval, @AuctionLookAt, @CustomerRequested, @GreenValleyRequested, @PickUpAddress, @PickUpCity, @PickUpState, @PickUpZip)";
             SqlCommand cmd = new SqlCommand(query, con);
 
             cmd.Parameters.AddWithValue("@ReasonForAuction", HttpUtility.HtmlEncode(txtReasonfor.Text));
@@ -95,13 +114,33 @@ namespace CapstoneProject
             cmd.Parameters.AddWithValue("@PickUp", HttpUtility.HtmlEncode(pickUp));
             cmd.Parameters.AddWithValue("@TrashRemoval", HttpUtility.HtmlEncode(trashRemoval));
             cmd.Parameters.AddWithValue("@AuctionLookAt", HttpUtility.HtmlEncode(auctionWalkthrough));
-            cmd.Parameters.AddWithValue("@ItemsBeingSold", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
             cmd.Parameters.AddWithValue("@CustomerRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
             cmd.Parameters.AddWithValue("@GreenValleyRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
-            cmd.Parameters.AddWithValue("@ItemsBeingSold", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
-            cmd.Parameters.AddWithValue("@ItemsBeingSold", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
-            cmd.ExecuteNonQuery();
+            //cmd.Parameters.AddWithValue("@ItemsBeingSold", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
+            //cmd.Parameters.AddWithValue("@ItemsBeingSold", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
+            cmd.Parameters.AddWithValue("@PickUpAddress", HttpUtility.HtmlEncode(pickUpAddress));
+            cmd.Parameters.AddWithValue("@PickUpCity", HttpUtility.HtmlEncode(pickUpCity));
+            cmd.Parameters.AddWithValue("@PickUpState", HttpUtility.HtmlEncode(pickUpState));
+            cmd.Parameters.AddWithValue("@PickUpZip", HttpUtility.HtmlEncode(pickUpZip));
 
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+        protected void chkbxPickUp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkbxPickUp.Checked)
+            {
+                txtAuctionPickUpAddress.Visible = true;
+                txtCity.Visible = true;
+                txtState.Visible = true;
+                txtZip.Visible = true;
+                lblCity.Visible = true;
+                lblState.Visible = true;
+                lblZip.Visible = true;
+                lblPickUp.Visible = true;
+            }
         }
     }
 }
