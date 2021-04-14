@@ -15,7 +15,12 @@ namespace CapstoneProject
         private string customerID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Username"] == null)
+            {
+                Session["InvalidUse"] = "You must first login to access this page!";
+                Response.Redirect("LoginPage.aspx");
 
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -116,8 +121,15 @@ namespace CapstoneProject
             Session["City"] = lblCity.Text;
             Session["State"] = lblState.Text;
             Session["Zip"] = lblZip.Text;
+            Session["ID"] = lblCustomerID.Text;
+            Session["Notes"] = txtNote.Text;
             Response.Redirect("EmpLandingPage.aspx");
 
+        }
+
+        protected void lnkAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddCust.aspx");
         }
     }
 }
