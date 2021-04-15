@@ -21,7 +21,6 @@
          </button>
          <div class="dropdown-container">
              <a href="InitialContact.aspx">Initial Contact Form</a>
-             <a href="/AddCust2.aspx">Add a New Customer</a>
              <a href="/EditCust.aspx">Edit or View an Existing Customer</a>
          </div>
 
@@ -94,9 +93,9 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
 
-            <div id="ftr" Style ="position: relative; width: 100%; left:200px; bottom:0px;">
+            <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#266141" BorderWidth="3px" HorizontalAlign="Center" width="100%">
+                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1200px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>

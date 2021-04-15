@@ -31,24 +31,6 @@ namespace Lab3
             //Button Click Events
 
             //populate customer fields
-            protected void btnPopulateCust_Click(object sender, EventArgs e)
-            {
-                txtFirstName.Text = "Jack";
-                txtLastName.Text = "Black";
-                txtPhoneNo.Text = "7165621253";
-                txtEmail.Text = "johnsonj@gmail.com";
-                txtAddress.Text = "123 Harlem Rd";
-                txtCity.Text = "Buffalo";
-                txtState.Text = "NY";
-                txtZip.Text = "14222";
-
-                Random rnd = new Random();
-                int ServID = rnd.Next(100000000, 1000000000);
-
-                txtCustomerID.Text = ServID.ToString();
-                Session["ID"] = txtCustomerID.Text;
-
-            }
 
 
             //save customer to DB

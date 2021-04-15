@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCust.aspx" />
     <Content Include="AddCust2.aspx" />
     <Content Include="AddServ.aspx" />
     <Content Include="AppraisalServiceOrder.aspx" />
@@ -99,6 +100,7 @@
     <Content Include="Image\UserIcon.jpg" />
     <Content Include="InitialContact.aspx" />
     <Content Include="InitialAuctionService.aspx" />
+    <Content Include="InitialMove.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MoveFormPt2.aspx" />
@@ -220,6 +222,13 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCust.aspx.cs">
+      <DependentUpon>AddCust.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCust.aspx.designer.cs">
+      <DependentUpon>AddCust.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddCust2.aspx.cs">
       <DependentUpon>AddCust2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +347,13 @@
     </Compile>
     <Compile Include="InitialAuctionService.aspx.designer.cs">
       <DependentUpon>InitialAuctionService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitialMove.aspx.cs">
+      <DependentUpon>InitialMove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialMove.aspx.designer.cs">
+      <DependentUpon>InitialMove.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>

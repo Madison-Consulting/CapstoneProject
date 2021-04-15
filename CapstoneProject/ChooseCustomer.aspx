@@ -105,6 +105,24 @@
                     <asp:Button ID="btnSelect" runat="server" Text="Select this Customer" class="btn-GreenValleyGreen" onclick="btnSelect_Click" />
                     </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer</asp:LinkButton>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
+        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 300px;">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
         </asp:Table>
         </div>
     </form>

@@ -13,16 +13,14 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+     
+
             if (!IsPostBack)
             {
-                txtDateTime.Text = DateTime.Now.ToString();
-
-                if (Session["ID"] != null)
-                {
-                    txtCustomerID.Text = (string)Session["ID"];
-                    txtFN.Text = (string)Session["FName"];
-                    txtLN.Text = (string)Session["LName"];
-                }
+                txtFN.Text = (string)Session["FName"];
+                txtLN.Text = (string)Session["LName"];
+                txtCustomerID.Text = (string)Session["ID"];
+                txtDateTime.Text = DateTime.Now.ToString();                        
             }
          
                 
@@ -52,25 +50,6 @@ namespace Lab3
             //}
         }
 
-        protected void btnPopulateInitial_Click(object sender, EventArgs e)
-        {
-
-            ddlContact.SelectedValue = "Select";
-            txtHearAbout.Text = "A friend";
-            txtMovingAddress.Text = "432 South Main St";
-            txtMovingCity.Text = "Harrisonburg";
-            txtMovingState.Text = "VA";
-            txtMovingZip.Text = "22801";
-            txtDeadline.Text = "12/10/2020";
-            txtTime.Text = "4:00 pm";
-            txtDeadline2.Text = "12/15/2020";
-            txtTime2.Text = "4:00 pm";
-        }
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            ClearAllText(Page);
-        }
 
         protected void ddlContact_SelectedIndexChanged(object sender, EventArgs e)
         {
