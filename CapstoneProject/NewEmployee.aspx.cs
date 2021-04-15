@@ -20,10 +20,29 @@ namespace Lab3
 
         protected void btnCreateNewEmp_Click(object sender, EventArgs e)
         {
-     
+            String sqlquery = "Insert Into Employee (EmpID, EmpName, EmpPosition, EmpCellNumber,EmpEmail) Values (@ID, @Name, @Position, @Cell, @Email);";
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+            string fullname = txtFirstName.Text + ' ' + txtLastName.Text;
+
+            cmd.Parameters.AddWithValue("@ID", HttpUtility.HtmlEncode(txtUsername.Text));
+            cmd.Parameters.AddWithValue("@name", fullname);
+            cmd.Parameters.AddWithValue("@Position", HttpUtility.HtmlEncode(txtPosition.Text));
+            cmd.Parameters.AddWithValue("@Cell", HttpUtility.HtmlEncode(txtCell.Text));
+            cmd.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
+
+
+            con.Open();
+
+            cmd.ExecuteNonQuery();
+
+           con.Close();
 
             if (HttpUtility.HtmlEncode(txtFirstName.Text) != "" && HttpUtility.HtmlEncode(txtLastName.Text) != "" && HttpUtility.HtmlEncode(txtPassword.Text) != "" && HttpUtility.HtmlEncode(txtUsername.Text) != "") // all fields must be filled out
             {
+
                 // COMMIT VALUES
                 try
                 {
@@ -52,6 +71,10 @@ namespace Lab3
                     sc.Close();
 
                     lblStatus.Text = "Employee Created!";
+
+
+
+           
 
                 }
                 catch

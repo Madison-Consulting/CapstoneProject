@@ -55,6 +55,7 @@
                 <a href="/MovingForm.aspx">Moving Form</a>
                 <a href="#">...</a>
               </div>
+         <a href="/ChooseCustomer.aspx">Choose a Different Customer</a>
        </div>
         <div class="main" >
          <asp:Table ID="header" runat="server" Width="900px">
@@ -82,6 +83,7 @@
                                   </button>--%>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/testNotifications.aspx">Notifications</a>
+                                      <a class="dropdown-item" href="/NewEmployee.aspx">Add a New Employee</a>
                                     <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>
                                   </div>
                                 </div>

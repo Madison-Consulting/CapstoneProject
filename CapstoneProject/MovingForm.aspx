@@ -10,11 +10,11 @@
          <asp:TableRow>
 
             <asp:TableCell>
-                <asp:Label ID="lblDateOut" runat="server" Text="What is the date you have to be out of your current address?: "></asp:Label>
+                <asp:Label ID="lblDateTime" runat="server" Text="What is the date you have to be out of your current address?: "></asp:Label>
             </asp:TableCell>
 
             <asp:TableCell>
-                <asp:TextBox ID="txtDateOut" runat="server" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtDateTime" runat="server" TextMode="Date"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
 
@@ -146,12 +146,6 @@
             </asp:TableCell>
 
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell>
-                <asp:Button ID="Button1" class= "btn-GreenValleyGreen" runat="server" Text="Save" OnClick="btnCommit_Click"/>
-            </asp:TableCell>
-        </asp:TableRow>
-       
 
     </asp:Table>
     <asp:Table ID="tblMoving" runat="server">

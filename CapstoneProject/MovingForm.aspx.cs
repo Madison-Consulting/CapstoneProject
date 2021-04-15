@@ -20,7 +20,7 @@ namespace CapstoneProject
         protected void btnCommit_Click(object sender, EventArgs e)
         {
 
-            if (txtDriveway.Text != "" && txtDistance.Text != "" && txtMoveSteps.Text != "") // fields must be filled
+            if (txtDateTime.Text != "" && txtDateWindow.Text != "" && txtOriginAddress.Text != "" && txtOriginCity.Text != "" && txtOriginState.Text != "" && txtDestinationAddress.Text != "" && txtDestinationCity.Text != "" && txtDestinationState.Text != "" && txtDriveway.Text != "" && txtDistance.Text != "" && txtMoveSteps.Text != "") // fields must be filled
             {
                 // COMMIT VALUES
                 try
@@ -35,8 +35,17 @@ namespace CapstoneProject
                     System.Data.SqlClient.SqlCommand createMove = new System.Data.SqlClient.SqlCommand();
                     createMove.Connection = sc;
                     // INSERT USER RECORD
-                    createMove.CommandText = "INSERT INTO MoveForm (HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, ServiceID) VALUES (@HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @SpecialEquipment, @MoveTrucks, @ServiceID)";
-                    createMove.Parameters.Add(new SqlParameter("@HomeType", ddlHomeType.Text));
+                    createMove.CommandText = "INSERT INTO MoveForm (MoveDateTime, OriginAddress, OriginCity, OriginState, DestinationAddress, DestinationCity, DestinationState, MlsListing, SendPhoto, HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, ServiceID) VALUES (@MoveDateTime, @OriginAddress, @OriginCity, @OriginState, @DestinationAddress, @DestinationCity, @DestinationState, @MlsListing, @SendPhoto @HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @ServiceID)";
+                    createMove.Parameters.Add(new SqlParameter("@MoveDateTime", txtDateTime.Text));
+                    createMove.Parameters.Add(new SqlParameter("@OriginAddress", txtOriginAddress.Text));
+                    createMove.Parameters.Add(new SqlParameter("@OriginCity", txtOriginCity.Text));
+                    createMove.Parameters.Add(new SqlParameter("@OriginState", txtOriginState.Text));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationAddress", txtDestinationAddress.Text));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationCity", txtDestinationCity.Text));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationState", txtDestinationState.Text));
+                    createMove.Parameters.Add(new SqlParameter("@MlsListing", ddlMlsList.SelectedValue));
+                    createMove.Parameters.Add(new SqlParameter("@SendPhoto", ddlPhotoNeed.SelectedValue));
+                    createMove.Parameters.Add(new SqlParameter("@HomeType", ddlHomeType.SelectedValue));
                     createMove.Parameters.Add(new SqlParameter("@Accessibility", txtDriveway.Text));
                     createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
                     createMove.Parameters.Add(new SqlParameter("@MoveSteps", txtMoveSteps.Text));
@@ -147,6 +156,11 @@ namespace CapstoneProject
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAuctionAssess_Click(object sender, EventArgs e)
         {
 
         }

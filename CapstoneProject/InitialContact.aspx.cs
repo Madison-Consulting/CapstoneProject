@@ -143,7 +143,7 @@ namespace Lab3
 
             con.Close();
 
-
+            lblStatus.Text = "Initial Contact Information Added Successfully";
 
 
         }

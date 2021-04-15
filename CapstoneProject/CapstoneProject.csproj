@@ -100,13 +100,11 @@
     <Content Include="Image\UserIcon.jpg" />
     <Content Include="InitialContact.aspx" />
     <Content Include="InitialAuctionService.aspx" />
-    <Content Include="InitialMove.aspx" />
     <Content Include="Inventory.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="MoveFormPt2.aspx" />
     <Content Include="MovingForm.aspx" />
     <Content Include="NewEmployee.aspx" />
-    <Content Include="Notifications.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -348,13 +346,6 @@
     <Compile Include="InitialAuctionService.aspx.designer.cs">
       <DependentUpon>InitialAuctionService.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InitialMove.aspx.cs">
-      <DependentUpon>InitialMove.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InitialMove.aspx.designer.cs">
-      <DependentUpon>InitialMove.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,13 +387,6 @@
     </Compile>
     <Compile Include="NewEmployee.aspx.designer.cs">
       <DependentUpon>NewEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Notifications.aspx.cs">
-      <DependentUpon>Notifications.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Notifications.aspx.designer.cs">
-      <DependentUpon>Notifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

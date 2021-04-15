@@ -16,6 +16,9 @@ namespace CapstoneProject
             if (!IsPostBack)
             {
                 divPickup.Visible = false;
+                lblFirstName.Text = (string)Session["FName"] + ' ';
+                lblLastName.Text = (string)Session["LName"];
+                txtCustomerID.Text = (string)Session["ID"];
             }
         }
 
@@ -101,7 +104,7 @@ namespace CapstoneProject
 
         protected void btnCommit_Click(object sender, EventArgs e)
         {
-            if (!ddlCustomer.SelectedValue.Equals(""))
+            //if (!ddlCustomer.SelectedValue.Equals(""))
             {
                 string truckAcc;
 
@@ -118,7 +121,7 @@ namespace CapstoneProject
                     cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
+                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -139,7 +142,7 @@ namespace CapstoneProject
                     cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
                     //Allow for multiple equipment to be used at once
                     cmd.Parameters.AddWithValue("@EquipmentID", HttpUtility.HtmlEncode(lstboxEquipmentUsed.SelectedValue));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(ddlCustomer.SelectedValue));
+                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
 

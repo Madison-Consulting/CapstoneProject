@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%--            Form to Add Customer Data--%>
-    <div style="width: auto; margin: 0 10%">
+     <div style="width: auto; margin: 20px 20%; left:450px;">
 <%--        <asp:Table ID="Table3" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -181,7 +181,7 @@
                     </asp:TableCell>
                 </asp:TableRow>--%>
         </asp:Table>
-        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 100px;">
+        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>

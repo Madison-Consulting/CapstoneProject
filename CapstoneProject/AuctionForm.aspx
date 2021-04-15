@@ -13,10 +13,14 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblCustomer" runat="server" Text="Customer"></asp:Label>
+                <asp:Label ID="lblFN" runat="server" Text="Customer Name:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
-                <%--Get Defult Value For DropDown--%>
+              <asp:TableCell>
+                <asp:Label ID="lblFirstName" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblLastName" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+<%--            <asp:TableCell>
+                Get Defult Value For DropDown
                 <asp:DropDownList ID="ddlCustomer" runat="server"
                     DataSourceID="dtasrcCustomer"
                     DataTextField="CustomerName"
@@ -27,15 +31,15 @@
                 &nbsp
                 <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
                 &nbsp
-                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust2.aspx" />
-            </asp:TableCell>
+                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust.aspx" />
+            </asp:TableCell>--%>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblAuctionDate" runat="server" Text="Auction Date: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtAuctionDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
             </asp:TableCell>
 <%--            <asp:TableCell>
                 <asp:Label ID="lblTempHolder2" runat="server" Text="should we have this as text box?"></asp:Label>
@@ -95,8 +99,8 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="90">
-                                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click"  />
-                                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click"  />
+                                            <asp:Button ID="btnAddTruck" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click"  />
+                                            <asp:Button ID="btnRemoveTruck" class="btn-GreenValleyGreen"  runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click"  />
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
                                             <asp:ListBox ID="lstboxTruckInventory" runat="server"
@@ -139,8 +143,8 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                         <asp:TableCell Width="90">
-                                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click"  />
-                                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click"  />
+                                            <asp:Button ID="btnAddEquipment" class="btn-GreenValleyGreen"  runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click"  />
+                                            <asp:Button ID="btnRemoveEquipment" class="btn-GreenValleyGreen"  runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click"  />
                                         </asp:TableCell>
                                         <asp:TableCell Width="180">
                                             <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
@@ -197,7 +201,7 @@
         SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
     </asp:SqlDataSource>
 
-        
+        <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
 
         </div>
             </asp:Content>

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.IO;
 using System.Configuration;
 
 namespace CapstoneProject
@@ -15,22 +16,30 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
+            if (!IsPostBack)
+            {
+                txtFirstName.Text = (string)Session["FName"];
+                txtLastName.Text = (string)Session["LName"];
+                txtPhoneNo.Text = (string)Session["PhoneNo"];
+                txtEmail.Text = (string)Session["Email"];
+                txtAddress.Text = (string)Session["Address"];
+                txtCity.Text = (string)Session["City"];
+                txtState.Text = (string)Session["State"];
+                txtZip.Text = (string)Session["Zip"];
+                txtCustomerID.Text = (string)Session["ID"];
+                txtNote.Text = (string)Session["Notes"];
+            }
 
         }
 
         protected void btnMoveAssess_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("MovingForm.aspx");
         }
 
         protected void btnAuctionAssess_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AuctionForm.aspx");
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -63,6 +72,31 @@ namespace CapstoneProject
             }
 
             lblMessage.Text = "File uploaded successfully.";
+        }
+
+        protected void Save_Click(object sender, EventArgs e)
+        {
+            String sqlquery = "Insert Into AppraisalServiceOrder (Purpose, DeadlineYN, DeadlineDate, Size, Inventory, CustomerID) Values (@Purpose, @Deadline, @Date, @Size, @Inv, @ID);";
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+
+            cmd.Parameters.AddWithValue("@Purpose", HttpUtility.HtmlEncode(rdoPurpose.SelectedValue));
+            cmd.Parameters.AddWithValue("@Deadline", rdobtnDeadline.SelectedValue);
+            cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDeadline1.Text));
+            cmd.Parameters.AddWithValue("@Size", HttpUtility.HtmlEncode(txtSize.Text));
+            cmd.Parameters.AddWithValue("@Inv", HttpUtility.HtmlEncode(txtInventory.Text));
+            cmd.Parameters.AddWithValue("@ID", HttpUtility.HtmlEncode(txtCustomerID.Text));
+
+
+            con.Open();
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            lblSaveStatus.Text = "Information Saved Successfully";
         }
     }
 }
