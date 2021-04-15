@@ -43,7 +43,7 @@ namespace CapstoneProject
 
             if (checkForValuesFullName.Equals(false))
             {
-
+                queryResultsFullName.Close();
                 //Customer Firstname
                 String queryFirstName = "SELECT Customer.CustomerID, Customer.CustFirstName, Customer.CustLastName FROM Customer WHERE CustFirstName = @CustFirstName;";
                 SqlCommand cmdFirstName = new SqlCommand(queryFirstName, con);
@@ -81,6 +81,7 @@ namespace CapstoneProject
                         customerID = searchedCustID;
                         queryResultsLastName.Close();
                         queryResultsFirstName.Close();
+                        queryResultsFullName.Close();
                         con.Close();
                     }
                 }
@@ -102,6 +103,8 @@ namespace CapstoneProject
                 searchedCustID = conversionVariable;
                 customerID = searchedCustID;
                 queryResultsFullName.Close();
+                con.Close();
+                
 
             }
 
