@@ -282,11 +282,11 @@ namespace Lab2
             {
                 if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Equals("truck"))
                 {
-                    lstboxTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                    lstboxMoveTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
                 }
                 else
                 {
-                    lstboxEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                    lstboxMoveEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
                 }
                 dataRowCounter++;
             }
@@ -295,15 +295,15 @@ namespace Lab2
             tblMoveInfo.Visible = true;
         }
 
-        protected void btnAddTruck_Click(object sender, EventArgs e)
+        protected void btnAddMoveTruck_Click(object sender, EventArgs e)
         {
             bool truckUsed = false;
-            if (lstboxTruckInventory.SelectedIndex != -1)
+            if (lstboxMoveTruckInventory.SelectedIndex != -1)
             {
 
-                foreach (ListItem li in lstboxTruckUsed.Items)
+                foreach (ListItem li in lstboxMoveTruckUsed.Items)
                 {
-                    if (lstboxTruckInventory.SelectedValue.Equals(li.Value))
+                    if (lstboxMoveTruckInventory.SelectedValue.Equals(li.Value))
                     {
                         truckUsed = true;
                     }
@@ -311,30 +311,30 @@ namespace Lab2
                 if (!truckUsed)
                 {
                     var newItem = new ListItem();
-                    newItem.Value = lstboxTruckInventory.SelectedValue;
-                    newItem.Text = lstboxTruckInventory.SelectedItem.Text;
-                    lstboxTruckUsed.Items.Add(newItem);
+                    newItem.Value = lstboxMoveTruckInventory.SelectedValue;
+                    newItem.Text = lstboxMoveTruckInventory.SelectedItem.Text;
+                    lstboxMoveTruckUsed.Items.Add(newItem);
                 }
             }
         }
 
-        protected void btnRemoveTruck_Click(object sender, EventArgs e)
+        protected void btnRemoveMoveTruck_Click(object sender, EventArgs e)
         {
-            if (lstboxTruckUsed.SelectedIndex != -1)
+            if (lstboxMoveTruckUsed.SelectedIndex != -1)
             {
-                lstboxTruckUsed.Items.Remove(lstboxTruckUsed.SelectedItem);
+                lstboxMoveTruckUsed.Items.Remove(lstboxMoveTruckUsed.SelectedItem);
             }
         }
 
-        protected void btnAddEquipment_Click(object sender, EventArgs e)
+        protected void btnAddMoveEquipment_Click(object sender, EventArgs e)
         {
             bool equipmentUsed = false;
-            if (lstboxEquipmentInventory.SelectedIndex != -1)
+            if (lstboxMoveEquipmentInventory.SelectedIndex != -1)
             {
 
-                foreach (ListItem li in lstboxEquipmentUsed.Items)
+                foreach (ListItem li in lstboxMoveEquipmentUsed.Items)
                 {
-                    if (lstboxEquipmentInventory.SelectedValue.Equals(li.Value))
+                    if (lstboxMoveEquipmentInventory.SelectedValue.Equals(li.Value))
                     {
                         equipmentUsed = true;
                     }
@@ -342,18 +342,18 @@ namespace Lab2
                 if (!equipmentUsed)
                 {
                     var newItem = new ListItem();
-                    newItem.Value = lstboxEquipmentInventory.SelectedValue;
-                    newItem.Text = lstboxEquipmentInventory.SelectedItem.Text;
-                    lstboxEquipmentUsed.Items.Add(newItem);
+                    newItem.Value = lstboxMoveEquipmentInventory.SelectedValue;
+                    newItem.Text = lstboxMoveEquipmentInventory.SelectedItem.Text;
+                    lstboxMoveEquipmentUsed.Items.Add(newItem);
                 }
             }
         }
 
-        protected void btnRemoveEquipment_Click(object sender, EventArgs e)
+        protected void btnRemoveMoveEquipment_Click(object sender, EventArgs e)
         {
-            if (lstboxEquipmentUsed.SelectedIndex != -1)
+            if (lstboxMoveEquipmentUsed.SelectedIndex != -1)
             {
-                lstboxEquipmentUsed.Items.Remove(lstboxEquipmentUsed.SelectedItem);
+                lstboxMoveEquipmentUsed.Items.Remove(lstboxMoveEquipmentUsed.SelectedItem);
             }
         }
 
@@ -395,6 +395,35 @@ namespace Lab2
             cmdUpdateMove.Parameters.AddWithValue("@Accessible", rbtnlistDrivewayAccess.SelectedValue.Trim());
 
             cmdUpdateMove.ExecuteNonQuery();
+
+            //updating EquipmentUsed table
+            //first, delete all EquipmentUsed records for specific ServiceID
+            string deleteMoveEquipment = "DELETE EquipmentUsed FROM Equipment INNER JOIN EquipmentUsed ON ";
+            deleteMoveEquipment += "Equipment.EquipmentID = EquipmentUsed.EquipmentID INNER JOIN MoveForm ON ";
+            deleteMoveEquipment += "EquipmentUsed.MoveFormID = MoveForm.MoveFormID INNER JOIN Service ON ";
+            deleteMoveEquipment += "MoveForm.ServiceID = Service.ServiceID WHERE MoveForm.ServiceID = " + txtHiddenMoveServiceID.Text;
+
+            SqlCommand cmdDeleteEquipment = new SqlCommand(deleteMoveEquipment, con);
+            cmdDeleteEquipment.ExecuteNonQuery();
+
+            //second, re-add records for specific ServiceID
+            string addMoveEquipment = "INSERT INTO EquipmentUsed(EquipmentID, MoveFormID) VALUES (@EquipmentID, @MoveFormID)";
+            SqlCommand cmdAddMoveEquipment = new SqlCommand(addMoveEquipment, con);
+            foreach (ListItem li in lstboxMoveTruckUsed.Items)
+            {
+                cmdAddMoveEquipment.Parameters.Clear();
+                cmdAddMoveEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                cmdAddMoveEquipment.Parameters.AddWithValue("@MoveFormID", txtHiddenMoveFormID.Text);
+                cmdAddMoveEquipment.ExecuteNonQuery();
+            }
+            foreach (ListItem li in lstboxMoveEquipmentUsed.Items)
+            {
+                cmdAddMoveEquipment.Parameters.Clear();
+                cmdAddMoveEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                cmdAddMoveEquipment.Parameters.AddWithValue("@MoveFormID", txtHiddenMoveFormID.Text);
+                cmdAddMoveEquipment.ExecuteNonQuery();
+            }
+            
         }
 
         protected void grdvwMoves_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -405,6 +434,9 @@ namespace Lab2
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
                 string keyValue = grdvwMoves.DataKeys[rowIndex]["ServiceID"].ToString();
                 txtHiddenMoveServiceID.Text = keyValue;
+                //getting MoveFormID value 
+                string keyMoveFormIDValue = grdvwMoves.DataKeys[rowIndex]["MoveFormID"].ToString();
+                txtHiddenMoveFormID.Text = keyMoveFormIDValue;
 
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
@@ -456,13 +488,13 @@ namespace Lab2
                 int dataRowCounter = 0;
                 foreach (DataRow dr in dtMoveEquipment.Rows)
                 {
-                    if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Equals("truck"))
+                    if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Trim().Equals("truck"))
                     {
-                        lstboxTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                        lstboxMoveTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
                     }
                     else
                     {
-                        lstboxEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                        lstboxMoveEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
                     }
                     dataRowCounter++;
                 }
@@ -475,7 +507,38 @@ namespace Lab2
 
         protected void grdvwAuctions_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName.Equals("editRow"))
+            {
+                //getting serviceID value
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                string keyValue = grdvwMoves.DataKeys[rowIndex]["ServiceID"].ToString();
+                txtHiddenAuctionServiceID.Text = keyValue;
+                //getting MoveFormID value 
+                string keyAuctionItemIDValue = grdvwMoves.DataKeys[rowIndex]["AuctionItemID"].ToString();
+                txtHiddenAuctionFormID.Text = keyAuctionItemIDValue;
 
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+
+                //load data from AuctionInventory table
+                string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
+                viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
+                viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
+                viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
+
+                SqlCommand cmd = new SqlCommand(viewAuctionItems, con);
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+                DataTable dtAuctInfo = new DataTable();
+                sqlAdapter.Fill(dtAuctInfo);
+
+                txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
+                txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
+                txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
+
+                //load data from auction
+                string viewAuctionScheduleInfo = "SELECT ";
+            }
         }
     }
 }
