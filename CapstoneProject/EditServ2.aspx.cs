@@ -48,25 +48,7 @@ namespace Lab2
                 }
             }
         }
-        //update service in db
-        protected void btnUpdateServ_Click(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-
-
-            con.Open();
-
-            String query2 = "UPDATE Service SET CustomerFirstName = @FirstName, CustomerLastName = @LastName, CustomerID = @CustomerID, ServiceType= @ServiceType, " +
-                "ServiceDate = @Date, EstimatedCost = @EstCost, CompletionDate = @CompletionDate, VehicleUsed = @VehicleUsed, ServiceID = @ServiceID, MoveTime = @MoveTime, " +
-                "FoodCost = @FoodCost, FuelCost = @FuelCost, LodgingCost = @LodgeCost, EquipmentNeeded = @Equipment, DestinationAddress = @DestAddress," +
-                "DestinationCity = @DestCity, DestinationState = @DestState, DestinationZip = @DestZip, NoteHeader = @Header, Note = @Note WHERE ServiceID = @ServiceID";
-            SqlCommand cmd = new SqlCommand(query2, con);
-             
-
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-        }
+        
 
 
         protected void ddlCustomer_SelectedIndexChanged(object sender, EventArgs e)
@@ -242,9 +224,11 @@ namespace Lab2
 
         }
 
+
         protected void grdvwMoves_RowEditing(object sender, GridViewEditEventArgs e)
         {
             string keyValue = grdvwMoves.DataKeys[e.NewEditIndex].Value.ToString();
+            txtHiddenMoveServiceID.Text = keyValue;
 
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
@@ -373,6 +357,126 @@ namespace Lab2
             }
         }
 
+
+        protected void btnUpdateAuction_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnUpdateMove_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            string updateMove = "UPDATE MoveForm SET MoveDateTime = @MoveDate, OriginAddress = @OAddress, OriginCity = @OCity, ";
+            updateMove += "OriginState = @OState, OriginZip = @OZip, DestinationAddress = @DAddress, ";
+            updateMove += "DestinationCity = @DCity, DestinationState = @DState, DestinationZip = @DZip, FoodCost = @FoodCost, ";
+            updateMove += "FuelCost = @FuelCost, LodgingCost = @LodgingCost, HomeType = @HomeType, ";
+            updateMove += "LoadingCondition = @LoadCondition, TruckDistance = @TruckDistance, Accessibility = @Accessible ";
+            updateMove += "WHERE ServiceID = " + txtHiddenMoveServiceID.Text;
+
+            SqlCommand cmdUpdateMove = new SqlCommand(updateMove, con);
+
+            cmdUpdateMove.Parameters.AddWithValue("@MoveDate", txtMoveDate.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OAddress", txtOriginAddress.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OCity", txtOriginCity.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OState", txtOriginState.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OZip", txtOriginZip.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DAddress", txtDestinationAddress.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DCity", txtDestinationCity.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DState", txtDestinationState.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DZip", txtDestinationZip.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@FoodCost", txtFoodCost.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@FuelCost", txtFuelCost.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@LodgingCost", txtLodgingCost.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@HomeType", txtHomeType.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@LoadCondition", txtLoadingCondition.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@TruckDistance", txtTruckDistance.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@Accessible", rbtnlistDrivewayAccess.SelectedValue.Trim());
+
+            cmdUpdateMove.ExecuteNonQuery();
+        }
+
+        protected void grdvwMoves_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("editRow"))
+            {
+                //getting serviceID value
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                string keyValue = grdvwMoves.DataKeys[rowIndex]["ServiceID"].ToString();
+                txtHiddenMoveServiceID.Text = keyValue;
+
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+
+                //load data from MoveForm table
+                string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, ";
+                viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationCity, ";
+                viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
+                viewMoveInfo += "MoveForm.HomeType, MoveForm.LoadingCondition, MoveForm.TruckDistance, MoveForm.Accessibility ";
+                viewMoveInfo += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
+                viewMoveInfo += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE MoveForm.ServiceID = @ServiceID";
+
+                SqlCommand cmd = new SqlCommand(viewMoveInfo, con);
+                cmd.Parameters.AddWithValue("ServiceID", keyValue);
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
+                DataTable dtMoveInfo = new DataTable();
+                sqlAdapter.Fill(dtMoveInfo);
+
+                txtCustomer.Text = dtMoveInfo.Rows[0][0].ToString();
+                txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString();
+                txtOriginAddress.Text = dtMoveInfo.Rows[0][2].ToString();
+                txtOriginCity.Text = dtMoveInfo.Rows[0][3].ToString();
+                txtOriginState.Text = dtMoveInfo.Rows[0][4].ToString();
+                txtOriginZip.Text = dtMoveInfo.Rows[0][5].ToString();
+                txtDestinationAddress.Text = dtMoveInfo.Rows[0][6].ToString();
+                txtDestinationCity.Text = dtMoveInfo.Rows[0][7].ToString();
+                txtDestinationState.Text = dtMoveInfo.Rows[0][8].ToString();
+                txtDestinationZip.Text = dtMoveInfo.Rows[0][9].ToString();
+                txtFoodCost.Text = dtMoveInfo.Rows[0][10].ToString();
+                txtFuelCost.Text = dtMoveInfo.Rows[0][11].ToString();
+                txtLodgingCost.Text = dtMoveInfo.Rows[0][12].ToString();
+                txtHomeType.Text = dtMoveInfo.Rows[0][13].ToString();
+                txtLoadingCondition.Text = dtMoveInfo.Rows[0][14].ToString();
+                txtTruckDistance.Text = dtMoveInfo.Rows[0][15].ToString();
+                rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][16].ToString();
+
+                //load data from EquipmentUsed table
+                string viewMoveEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription ";
+                viewMoveEquipmentUsed += "FROM  Equipment INNER JOIN EquipmentUsed ON Equipment.EquipmentID = EquipmentUsed.EquipmentID ";
+                viewMoveEquipmentUsed += "INNER JOIN MoveForm ON EquipmentUsed.MoveFormID = MoveForm.MoveFormID ";
+                viewMoveEquipmentUsed += "WHERE MoveForm.ServiceID = " + keyValue;
+
+                SqlCommand cmdForMoveEquipmentUsed = new SqlCommand(viewMoveEquipmentUsed, con);
+                SqlDataAdapter sqlAdapterForMoveEquipmentUsed = new SqlDataAdapter(cmdForMoveEquipmentUsed);
+                DataTable dtMoveEquipment = new DataTable();
+                sqlAdapterForMoveEquipmentUsed.Fill(dtMoveEquipment);
+
+                int dataRowCounter = 0;
+                foreach (DataRow dr in dtMoveEquipment.Rows)
+                {
+                    if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Equals("truck"))
+                    {
+                        lstboxTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                    }
+                    else
+                    {
+                        lstboxEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
+                    }
+                    dataRowCounter++;
+                }
+
+
+                tblMoveInfo.Visible = true;
+            }
+        }
+
+
+        protected void grdvwAuctions_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
     }
 }
 

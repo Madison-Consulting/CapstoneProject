@@ -115,18 +115,30 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:GridView runat="server" ID="grdvwAuctions"
-                        AutoGenerateEditButton="true"
+                        AutoGenerateColumns="false"
+                        EnableViewState="false"
                         DataKeyNames="ServiceID"
-                        OnRowEditing="grdvwAuctions_RowEditing" 
+                        OnRowCommand="grdvwAuctions_RowCommand"
                         EmptyDataText="This customer has no auctions to choose from"
                         Visible="false">
                     </asp:GridView>
                     <asp:GridView runat="server" ID="grdvwMoves"
-                        AutoGenerateEditButton="true"
+                        AutoGenerateColumns="false"
+                        EnableViewState="false"
                         DataKeyNames="ServiceID"
-                        OnRowEditing="grdvwMoves_RowEditing" 
+                        OnRowCommand="grdvwMoves_RowCommand"
                         EmptyDataText="This customer has no moves to choose from"
                         Visible="false">
+                        <Columns>
+                            <asp:ButtonField ButtonType="Button" Text="Edit" HeaderText="" CommandName="editRow" />
+                            <asp:BoundField DataField="Move Date" HeaderText="Move Date" />
+                            <asp:BoundField DataField="Origin City" HeaderText="Origin City" />
+                            <asp:BoundField DataField="Origin State" HeaderText="Origin State" />
+                            <asp:BoundField DataField="Destination City" HeaderText="Destination City" />
+                            <asp:BoundField DataField="Destination State" HeaderText="Destination State" />
+                            <asp:BoundField DataField="MoveFormID" HeaderText="MoveFormID" Visible="false" />
+                            <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" Visible="false" />
+                        </Columns>
                     </asp:GridView>
                 </asp:TableCell>
             </asp:TableRow>
@@ -142,13 +154,22 @@
                 <asp:TableCell>
                     <asp:TextBox ID="txtCustomer" runat="server" Enabled="false"></asp:TextBox>
                 </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtHiddenMoveServiceID" runat="server" Visible="false"></asp:TextBox>
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblMoveDate" runat="server" Text="Move Date/Time: "></asp:Label>
+                    <asp:Label ID="lblMoveDate" runat="server" Text="Move Date: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtMoveDate" runat="server"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblMoveTime" runat="server" Text="Move Time: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtMoveTime" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -333,6 +354,16 @@
                     </asp:Table>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow HorizontalAlign="Center" Height="40">
+                <asp:TableCell ColumnSpan="6">
+                    <asp:Button ID="btnUpdateMove" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <%-- <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell ColumnSpan="3">
+                    <asp:Button ID="btnClearServ" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false"/>
+                </asp:TableCell>
+            </asp:TableRow>--%>
         </asp:Table>
 
         <asp:Table ID="tblAuctionInfo" runat="server" Visible="false">
@@ -360,19 +391,16 @@
                     <asp:TextBox ID="txtItemQuant" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
-        
-        <asp:Table ID="Table4" runat="server" Width="65%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateServ" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateServ_Click" />
+                    <asp:Button ID="btnUpdateAuction" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateAuction_Click" />
                 </asp:TableCell>
             </asp:TableRow>
-            <%--                    <asp:TableRow HorizontalAlign="Center">
-                        <asp:TableCell ColumnSpan="3">
-                            <asp:Button ID="btnClearServ" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false"/>
-                        </asp:TableCell>
-                    </asp:TableRow>--%>
+            <%-- <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell ColumnSpan="3">
+                    <asp:Button ID="btnClearServ" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false"/>
+                </asp:TableCell>
+            </asp:TableRow>--%>
         </asp:Table>
 
         <asp:SqlDataSource runat="server"

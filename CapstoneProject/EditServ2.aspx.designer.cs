@@ -174,6 +174,8 @@ namespace Lab2
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
 
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveServiceID;
+
         /// <summary>
         /// RequiredFieldValidator10 control.
         /// </summary>
