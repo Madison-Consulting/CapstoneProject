@@ -87,6 +87,24 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblLN;
 
         /// <summary>
+        /// lbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl;
+
+        /// <summary>
+        /// lblPhoneNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPhoneNo;
+
+        /// <summary>
         /// lbl3 control.
         /// </summary>
         /// <remarks>
@@ -177,22 +195,13 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblDetails;
 
         /// <summary>
-        /// btnAddInitial control.
+        /// btnChoose control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddInitial;
-
-        /// <summary>
-        /// btnAddService control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddService;
+        protected global::System.Web.UI.WebControls.Button btnChoose;
 
         /// <summary>
         /// txtCustID control.

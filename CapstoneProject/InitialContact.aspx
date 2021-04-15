@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 20px 20%; left:250px;">
+    <div style="width: auto; margin: 20px 20%; position:relative; ">
         <asp:Table ID="tblInitialContact" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell>
@@ -124,13 +124,13 @@
                     <asp:Label ID="lblDeadline" runat="server" Text="Deadline for your Service (One Date and Time or a Range)?"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtDeadline" runat="server" Text="Date"></asp:TextBox>
-                    <asp:TextBox ID="txtTime" runat="server" Text="Time"></asp:TextBox>
+                    <asp:TextBox ID="txtDeadline" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="txtTime" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
                 </asp:TableCell>
 
                 <asp:TableCell>
-                    <asp:TextBox ID="txtDeadline2" runat="server" Text="Date"></asp:TextBox>
-                    <asp:TextBox ID="txtTime2" runat="server" Text="Time"></asp:TextBox>
+                    <asp:TextBox ID="txtDeadline2" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
+                    <asp:TextBox ID="txtTime2" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -169,13 +169,11 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
-                </asp:TableCell>
+                </asp:TableCell>             
             </asp:TableRow>
         </asp:Table>
 
 
 
-    </div>
-</div>
     </div>
 </asp:Content>

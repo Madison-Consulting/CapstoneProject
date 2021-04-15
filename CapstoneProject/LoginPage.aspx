@@ -10,8 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Table ID="tblLogin" runat="server" HorizontalAlign ="center">
+           <div style="width: auto; margin: 0 20% ">
+            <asp:Table ID="tblLogin" runat="server">
                 <asp:TableRow HorizontalAlign="Center">
                         <asp:TableCell  ColumnSpan="2">
                             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>

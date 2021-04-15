@@ -39,7 +39,7 @@
                 <asp:Label ID="lblAuctionDate" runat="server" Text="Auction Date: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtAuctionDate" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
             </asp:TableCell>
 <%--            <asp:TableCell>
                 <asp:Label ID="lblTempHolder2" runat="server" Text="should we have this as text box?"></asp:Label>

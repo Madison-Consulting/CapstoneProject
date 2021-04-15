@@ -18,16 +18,13 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="Right">
-                        <asp:Button ID="btnNewEmp" class= "btn-GreenValleyGreen" runat="server" Text="New Employee" OnClick="btnNewEmp_Click" Height="40px" Width="250px" />
-                    </asp:TableCell>
                     <asp:TableCell HorizontalAlign="Left">
                          <asp:Button ID="btnCustomer"  class= "btn-GreenValleyGreen" runat="server" Text="New Customer" OnClick="btnCustomer_Click" Height="40px" Width="250px" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell HorizontalAlign="Right">
-                        <asp:Button ID="btnEmployee" class= "btn-GreenValleyGreen" runat="server" Text=" Existing Employee" OnClick="btnEmployee_Click" Height="40px" Width="250px" />
+                        <asp:Button ID="btnEmployee" class= "btn-GreenValleyGreen" runat="server" Text="Employee Login" OnClick="btnEmployee_Click" Height="40px" Width="250px" />
                     </asp:TableCell>
                     <asp:TableCell HorizontalAlign="Left">
                         <asp:Button ID="btnExistingCustomer"  class= "btn-GreenValleyGreen" runat="server" Text="Existing Customer" OnClick="btnExistingCustomer_Click" Height="40px" Width="250px" />

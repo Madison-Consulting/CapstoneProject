@@ -10,11 +10,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
+           <div style="width: auto; margin: 0 20% ">
+            <asp:Table ID="Table1" runat="server">
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>

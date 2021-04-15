@@ -182,10 +182,10 @@
                 <asp:Label ID="lblAddlServ" runat="server" Text="Additional Services?"></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnMoveAssess" class= "btn-GreenValleyGreen" runat="server" Text="Move Assessment" OnClick="btnMoveAssess_Click" />
+                <asp:Button ID="btnMoveAssess" class= "btn-GreenValleyGreen" runat="server" Text="Move Assessment" OnClick="btnMoveAssess_Click" CausesValidation="false" />
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnAuctionAssess" class= "btn-GreenValleyGreen" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click"/>
+                <asp:Button ID="btnAuctionAssess" class= "btn-GreenValleyGreen" runat="server" Text="Auction Assessment" OnClick="btnAuctionAssess_Click" CausesValidation="false"/>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
