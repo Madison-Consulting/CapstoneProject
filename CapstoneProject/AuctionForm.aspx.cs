@@ -115,40 +115,62 @@ namespace CapstoneProject
                 if (radioBtnProcurement.SelectedValue.Equals("bringin"))
                 {
                     //truckAcc = "NULL";
-                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate) VALUES (@PhotoSpot, @CustomerID, @AuctionDate)";
+                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate, ProcurementMethod) VALUES (@PhotoSpot, @CustomerID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
                     cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
+                    cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
+
                     cmd.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    //Check for Truck Acc
-                    truckAcc = radioBtnTruckAccess.SelectedValue.ToString();
-
                     //Later add inventoryID
 
-                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, EquipmentID, CustomerID, AuctionDate) VALUES (@PhotoSpot, @TruckAcc, @Crew, @EquipmentID, " +
-                  "@CustomerID, @AuctionDate)";
+                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, CustomerID, AuctionDate, ProcurementMethod) VALUES (@PhotoSpot, @TruckAcc, @Crew, " +
+                    "@CustomerID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
-                    cmd.Parameters.AddWithValue("@TruckAcc", HttpUtility.HtmlEncode(truckAcc));
+                    cmd.Parameters.AddWithValue("@TruckAcc", radioBtnTruckAccess.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
                     //Later maybe change crew Crew Table
                     cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
-                    //Allow for multiple equipment to be used at once
-                    cmd.Parameters.AddWithValue("@EquipmentID", HttpUtility.HtmlEncode(lstboxEquipmentUsed.SelectedValue));
                     cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
 
-
-
                     cmd.ExecuteNonQuery();
+
+                    //find AuctionID from ^ most recent insert
+                    SqlDataAdapter daForAuctionID = new SqlDataAdapter("select max(AuctionID) from AuctionSchedule", con);
+                    DataTable dtForAuctionID = new DataTable();
+                    daForAuctionID.Fill(dtForAuctionID);
+                    Session["AuctionID"] = dtForAuctionID.Rows[0][0].ToString();
+
+
+                    string insertEquipmentQuery = "INSERT INTO EquipmentUsed(EquipmentID, AuctionID) VALUES (@EquipmentID, @AuctionID)";
+                    SqlCommand cmdInsertEquipment = new SqlCommand(insertEquipmentQuery, con);
+                    //insert trucks first
+                    foreach (ListItem li in lstboxTruckUsed.Items)
+                    {
+                        cmdInsertEquipment.Parameters.Clear();
+                        cmdInsertEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                        cmdInsertEquipment.Parameters.AddWithValue("@AuctionID", Session["AuctionID"].ToString());
+                        cmdInsertEquipment.ExecuteNonQuery();
+                    }
+                    foreach (ListItem li in lstboxEquipmentUsed.Items)
+                    {
+                        cmdInsertEquipment.Parameters.Clear();
+                        cmdInsertEquipment.Parameters.AddWithValue("EquipmentID", li.Value);
+                        cmdInsertEquipment.Parameters.AddWithValue("@AuctionID", Session["AuctionID"].ToString());
+                        cmdInsertEquipment.ExecuteNonQuery();
+                    }
+
                 }
                 con.Close();
             }

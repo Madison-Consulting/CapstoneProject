@@ -357,6 +357,69 @@ namespace Lab2
             }
         }
 
+        protected void btnAddAuctionTruck_Click(object sender, EventArgs e)
+        {
+            bool truckUsed = false;
+            if (lstboxAuctionTruckInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxAuctionTruckUsed.Items)
+                {
+                    if (lstboxAuctionTruckInventory.SelectedValue.Equals(li.Value))
+                    {
+                        truckUsed = true;
+                    }
+                }
+                if (!truckUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxAuctionTruckInventory.SelectedValue;
+                    newItem.Text = lstboxAuctionTruckInventory.SelectedItem.Text;
+                    lstboxAuctionTruckUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveAuctionTruck_Click(object sender, EventArgs e)
+        {
+            if (lstboxAuctionTruckUsed.SelectedIndex != -1)
+            {
+                lstboxAuctionTruckUsed.Items.Remove(lstboxAuctionTruckUsed.SelectedItem);
+            }
+        }
+
+        protected void btnAddAuctionEquipment_Click(object sender, EventArgs e)
+        {
+            bool equipmentUsed = false;
+            if (lstboxAuctionEquipmentInventory.SelectedIndex != -1)
+            {
+
+                foreach (ListItem li in lstboxAuctionEquipmentUsed.Items)
+                {
+                    if (lstboxAuctionEquipmentInventory.SelectedValue.Equals(li.Value))
+                    {
+                        equipmentUsed = true;
+                    }
+                }
+                if (!equipmentUsed)
+                {
+                    var newItem = new ListItem();
+                    newItem.Value = lstboxAuctionEquipmentInventory.SelectedValue;
+                    newItem.Text = lstboxAuctionEquipmentInventory.SelectedItem.Text;
+                    lstboxAuctionEquipmentUsed.Items.Add(newItem);
+                }
+            }
+        }
+
+        protected void btnRemoveAuctionEquipment_Click(object sender, EventArgs e)
+        {
+            if (lstboxAuctionEquipmentUsed.SelectedIndex != -1)
+            {
+                lstboxAuctionEquipmentUsed.Items.Remove(lstboxAuctionEquipmentUsed.SelectedItem);
+            }
+        }
+
+
 
         protected void btnUpdateAuction_Click(object sender, EventArgs e)
         {
@@ -515,7 +578,7 @@ namespace Lab2
                 txtHiddenAuctionServiceID.Text = keyValue;
                 //getting MoveFormID value 
                 string keyAuctionItemIDValue = grdvwMoves.DataKeys[rowIndex]["AuctionItemID"].ToString();
-                txtHiddenAuctionFormID.Text = keyAuctionItemIDValue;
+                txtHiddenAuctionItemID.Text = keyAuctionItemIDValue;
 
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
@@ -537,8 +600,27 @@ namespace Lab2
                 txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
 
                 //load data from auction
-                string viewAuctionScheduleInfo = "SELECT ";
+                string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew";
             }
+        }
+
+        protected void radioBtnProcurement_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (radioBtnProcurement.SelectedValue == "bringin")
+            {
+                divPickup.Visible = false;
+            }
+            if (radioBtnProcurement.SelectedValue == "pickup")
+            {
+                divPickup.Visible = true;
+            }
+        }
+
+        protected void rbtnlistServiceType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClearAllText(Page);
+            tblMoveInfo.Visible = false;
+            tblAuctionInfo.Visible = false;
         }
     }
 }

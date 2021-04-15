@@ -33,6 +33,14 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.ListBox lstboxMoveEquipmentUsed;
 
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionTruckUsed;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionTruckInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionEquipmentInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionEquipmentUsed;
+
         /// <summary>
         /// lblDropDownList control.
         /// </summary>
@@ -180,7 +188,7 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionServiceID;
 
-        protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionFormID;
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionItemID;
 
         /// <summary>
         /// RequiredFieldValidator10 control.
@@ -603,6 +611,9 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistDrivewayAccess;
 
+        protected global::System.Web.UI.WebControls.RadioButtonList radioBtnProcurement;
+
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPickup;
 
 
         /// <summary>

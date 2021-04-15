@@ -10,7 +10,7 @@
                     <asp:Label ID="lblServiceTypes" runat="server" Text="Select a service type: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RadioButtonList ID="rbtnlistServiceType" runat="server" AutoPostBack="false" RepeatDirection="Horizontal" CellPadding="5">
+                    <asp:RadioButtonList ID="rbtnlistServiceType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" CellPadding="5" OnSelectedIndexChanged="rbtnlistServiceType_SelectedIndexChanged">
                         <asp:ListItem Value="auction">Auction</asp:ListItem>
                         <asp:ListItem Value="move">Move</asp:ListItem>
                         <asp:ListItem Value="other">Other</asp:ListItem>
@@ -376,6 +376,8 @@
             </asp:TableRow>--%>
         </asp:Table>
 
+
+
         <asp:Table ID="tblAuctionInfo" runat="server" Visible="false">
             <asp:TableRow>
                 <asp:TableCell>
@@ -453,7 +455,7 @@
                             <asp:TableRow>
                                 <asp:TableCell ColumnSpan="5">
                                     <%-- going to hide this table at pageload unless "yes" is selected from radioBtnTruckAccess--%>
-                                    <asp:Table ID="tblSelectAuctionTrucks" runat="server" OnLoad="tblSelectTrucks_Load">
+                                    <asp:Table ID="tblSelectAuctionTrucks" runat="server">
                                     <asp:TableRow>
                                         <asp:TableCell>
                                             <asp:Label ID="lblAuctionTrucksNeeded" runat="server" Text="Trucks Needed: "></asp:Label>
