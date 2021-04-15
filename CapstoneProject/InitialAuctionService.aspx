@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20% ">
-        <asp:Table runat="server" Width="708px"> 
+        <asp:Table runat="server" Width="836px"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
                     <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
@@ -13,6 +13,16 @@
                 <asp:TableCell>
                     <asp:TextBox ID="txtItemsSell" runat="server" Width="250px" Height="20px"></asp:TextBox> 
                     <asp:Button ID="btnAddItemtoList" runat="server" Text="Add Item" OnClick="btnAddItemtoList_Click" Height="25px" Font-Bold="true" ForeColor="White"  BackColor="#325f57" />
+                </asp:TableCell>
+                 <asp:TableCell>
+                    <asp:DropDownList ID="ddlStorageLocations" runat="server" AutoPostBack="true"
+                        DataSourceID="datasrcStroageLocation"
+                        DataTextField="StorageName"
+                        DataValueField="LocationID"
+                        OnSelectedIndexChanged="ddlStorageLocations_SelectedIndexChanged"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="">- Select Storage Location -</asp:ListItem>
+                    </asp:DropDownList>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:CheckBox ID="chkbxBringIn" runat="server" Text="Bring In" AutoPostBack="true" /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:CheckBox ID="chkbxPickUp" runat="server" Text="Pick Up" AutoPostBack="true" OnCheckedChanged="chkbxPickUp_CheckedChanged" />
@@ -95,5 +105,11 @@
             </asp:TableRow>
             
         </asp:Table>
+
+         <asp:SqlDataSource runat="server"
+            ID="datasrcStroageLocation"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT LocationID, StorageName FROM StorageLocation;" >
+        </asp:SqlDataSource>
         </div>
 </asp:Content>
