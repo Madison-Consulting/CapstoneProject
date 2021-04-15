@@ -87,15 +87,6 @@ namespace Lab2
             }
         }
 
-        protected void btnPopulateInv_Click(object sender, EventArgs e)
-        {
-
-            txtItemName1.Text = "Desk";
-            txtInventoryDate1.Text = "03/22/2020";
-            txtItemCost1.Text = "210";
-            txtCustName.Text = "Crogh";
-        }
-
 
         protected void ddlInv_SelectedIndexChanged1(object sender, EventArgs e)
         {
