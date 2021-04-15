@@ -9,7 +9,7 @@
 
         <asp:Table ID="tblLanding" runat="server" Height="329px" Width="499px" HorizontalAlign="Center">
             <asp:TableRow>
-                <asp:TableCell ColumnSpan="4" HorizontalAlign="Center">
+                <asp:TableCell ColumnSpan="4" HorizontalAlign="Right">
                     <asp:Image ID="LogoFadded" runat="server" ImageUrl="/Image/GVALogoFadded.jpg" />
                 </asp:TableCell>
             </asp:TableRow>
