@@ -7,6 +7,29 @@
 
         <asp:Table ID="InitialMove" runat="server">
 
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" 
+                ControlToValidate="txtFirstName" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
+                    </asp:TableCell>
+                     <asp:TableCell>
+                         <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" 
+                ControlToValidate="txtLastName" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+
          <asp:TableRow>
 
             <asp:TableCell>
