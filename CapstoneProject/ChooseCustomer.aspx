@@ -10,14 +10,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-           <div style="width: auto; margin: 0 20% ">
+        <div style="width: auto; margin: 0 20%">
             <asp:Table ID="Table1" runat="server">
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
                         <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
                     </asp:TableCell>
-                    <asp:TableCell>
-                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
+                    </asp:TableCell>
+                    <asp:TableCell ColumnSpan="2">
+                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn-GreenValleyGreen" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
@@ -113,19 +116,10 @@
                         <asp:Button ID="btnSelect" runat="server" Text="Select this Customer" class="btn-GreenValleyGreen" OnClick="btnSelect_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
-              
+
             </asp:Table>
 
-                <br />
-            <asp:Table ID="Table2" runat="server" HorizontalAlign="Center">
-                <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell ColumnSpan="2">
-                        <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Or Add a New Customer</asp:LinkButton>
-                    </asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
 
-          
             <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 140px; right: 78px; left: 923px;">
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell>
