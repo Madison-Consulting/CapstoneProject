@@ -15,13 +15,13 @@ namespace CapstoneProject
     {
 
         /// <summary>
-        /// InitialMove control.
+        /// InitialMove1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table InitialMove;
+        protected global::System.Web.UI.WebControls.Table InitialMove1;
 
         /// <summary>
         /// lblDateOut control.

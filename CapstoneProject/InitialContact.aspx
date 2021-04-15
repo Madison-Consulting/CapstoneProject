@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: 99%; margin: 20px 10%;">
+    <div style="width: auto; margin: 20px 20%; left:250px;">
         <asp:Table ID="tblInitialContact" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell>
@@ -175,5 +175,7 @@
 
 
 
+    </div>
+</div>
     </div>
 </asp:Content>

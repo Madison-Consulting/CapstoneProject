@@ -15,6 +15,19 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                txtFirstName.Text = (string)Session["FName"];
+                txtLastName.Text = (string)Session["LName"];
+                txtPhoneNo.Text = (string)Session["PhoneNo"];
+                txtEmail.Text = (string)Session["Email"];
+                txtAddress.Text = (string)Session["Address"];
+                txtCity.Text = (string)Session["City"];
+                txtState.Text = (string)Session["State"];
+                txtZip.Text = (string)Session["Zip"];
+                txtCustomerID.Text = (string)Session["ID"];
+                txtNote.Text = (string)Session["Notes"];
+            }
 
         }
 

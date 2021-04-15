@@ -14,6 +14,7 @@ namespace Lab3
     public partial class InitialContact
     {
 
+
         /// <summary>
         /// tblInitialContact control.
         /// </summary>

@@ -6,7 +6,7 @@
 <head runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
-    <title>Employee Login</title>
+    <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -43,7 +43,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogin" class= "btn-GreenValleyGreen" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                        <asp:Button ID="btnLogin" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">

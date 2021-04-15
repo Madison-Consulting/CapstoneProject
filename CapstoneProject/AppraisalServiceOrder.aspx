@@ -95,7 +95,7 @@
                     </asp:TableRow>
                     </asp:Table>
 
-                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 250px;" Width="120px">
+                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 166px; right: 80px;" Width="120px">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>

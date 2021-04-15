@@ -8,7 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+          <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
         <div style="width: auto; margin: 0 20% ">
+           
                         <asp:Table ID="Table3" runat="server" Width="670px">
                             <asp:TableRow HorizontalAlign="Center">
                                 <asp:TableCell ColumnSpan="2">
@@ -151,7 +153,7 @@
                 <br />
 
             
-        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 100px;">
+        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 81px; right: 45px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>

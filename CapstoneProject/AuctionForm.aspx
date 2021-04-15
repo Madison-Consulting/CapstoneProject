@@ -13,10 +13,14 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblCustomer" runat="server" Text="Customer"></asp:Label>
+                <asp:Label ID="lblFN" runat="server" Text="Customer Name:"></asp:Label>
             </asp:TableCell>
-            <asp:TableCell>
-                <%--Get Defult Value For DropDown--%>
+              <asp:TableCell>
+                <asp:Label ID="lblFirstName" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblLastName" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+<%--            <asp:TableCell>
+                Get Defult Value For DropDown
                 <asp:DropDownList ID="ddlCustomer" runat="server"
                     DataSourceID="dtasrcCustomer"
                     DataTextField="CustomerName"
@@ -27,8 +31,8 @@
                 &nbsp
                 <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
                 &nbsp
-                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust2.aspx" />
-            </asp:TableCell>
+                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust.aspx" />
+            </asp:TableCell>--%>
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>

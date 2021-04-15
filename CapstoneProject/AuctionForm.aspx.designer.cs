@@ -33,40 +33,31 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblPlz;
 
         /// <summary>
-        /// lblCustomer control.
+        /// lblFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomer;
+        protected global::System.Web.UI.WebControls.Label lblFN;
 
         /// <summary>
-        /// ddlCustomer control.
+        /// lblFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
+        protected global::System.Web.UI.WebControls.Label lblFirstName;
 
         /// <summary>
-        /// lblAddCustomer control.
+        /// lblLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddCustomer;
-
-        /// <summary>
-        /// btnAddCustomer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCustomer;
+        protected global::System.Web.UI.WebControls.Label lblLastName;
 
         /// <summary>
         /// lblAuctionDate control.

@@ -16,6 +16,8 @@ namespace CapstoneProject
             if (!IsPostBack)
             {
                 divPickup.Visible = false;
+                lblFirstName.Text = (string)Session["FName"];
+                lblLastName.Text = (string)Session["LName"];
             }
         }
 
