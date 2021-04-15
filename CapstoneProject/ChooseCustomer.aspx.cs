@@ -34,58 +34,76 @@ namespace CapstoneProject
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
-            //Customer Firstname
-            String queryFirstName = "SELECT Customer.CustomerID, Customer.CustFirstName, Customer.CustLastName FROM Customer WHERE CustFirstName = @CustFirstName;";
-            SqlCommand cmdFirstName = new SqlCommand(queryFirstName, con);
-            cmdFirstName.Parameters.AddWithValue("@CustFirstName", txtCustSearch.Text);
-            cmdFirstName.ExecuteNonQuery();
-            SqlDataReader queryResultsFirstName = cmdFirstName.ExecuteReader();
-            bool checkForValuesFirstName = queryResultsFirstName.Read();
+            String queryFullName = "SELECT Customer.CustomerID, Customer.CustFullName FROM Customer WHERE CustFullName = @CustFullName;";
+            SqlCommand cmdFullName = new SqlCommand(queryFullName, con);
+            cmdFullName.Parameters.AddWithValue("@CustFullName", txtCustSearch.Text);
+            cmdFullName.ExecuteNonQuery();
+            SqlDataReader queryResultsFullName = cmdFullName.ExecuteReader();
+            bool checkForValuesFullName = queryResultsFullName.Read();
 
-
-
-            if (checkForValuesFirstName.Equals(false))
+            if (checkForValuesFullName.Equals(false))
             {
-                //Check for last name if firstname is not found.
-                queryResultsFirstName.Close();
-                String queryLastName = "SELECT CustomerID, CustLastName, Customer.CustFirstName FROM Customer WHERE CustLastName = @CustLastName;";
-                SqlCommand cmdLastName = new SqlCommand(queryLastName, con);
-                cmdLastName.Parameters.AddWithValue("@CustLastName", txtCustSearch.Text);
-                cmdLastName.ExecuteNonQuery();
-                SqlDataReader queryResultsLastName = cmdLastName.ExecuteReader();
-                bool checkForValuesLastName = queryResultsLastName.Read();
-                //queryResultsLastName.Close();
 
-                if (checkForValuesLastName.Equals(false))
+                //Customer Firstname
+                String queryFirstName = "SELECT Customer.CustomerID, Customer.CustFirstName, Customer.CustLastName FROM Customer WHERE CustFirstName = @CustFirstName;";
+                SqlCommand cmdFirstName = new SqlCommand(queryFirstName, con);
+                cmdFirstName.Parameters.AddWithValue("@CustFirstName", txtCustSearch.Text);
+                cmdFirstName.ExecuteNonQuery();
+                SqlDataReader queryResultsFirstName = cmdFirstName.ExecuteReader();
+                bool checkForValuesFirstName = queryResultsFirstName.Read();
+
+
+
+                if (checkForValuesFirstName.Equals(false))
                 {
-                    //lblSearchStatus.Text = "No Results Found";
-                    queryResultsLastName.Close();
-                    //queryResultsFirstName.Close();
-                    con.Close();
+                    //Check for last name if firstname is not found.
+                    queryResultsFirstName.Close();
+                    String queryLastName = "SELECT CustomerID, CustLastName, Customer.CustFirstName FROM Customer WHERE CustLastName = @CustLastName;";
+                    SqlCommand cmdLastName = new SqlCommand(queryLastName, con);
+                    cmdLastName.Parameters.AddWithValue("@CustLastName", txtCustSearch.Text);
+                    cmdLastName.ExecuteNonQuery();
+                    SqlDataReader queryResultsLastName = cmdLastName.ExecuteReader();
+                    bool checkForValuesLastName = queryResultsLastName.Read();
+                    //queryResultsLastName.Close();
+
+                    if (checkForValuesLastName.Equals(false))
+                    {
+                        //lblSearchStatus.Text = "No Results Found";
+                        queryResultsLastName.Close();
+                        //queryResultsFirstName.Close();
+                        con.Close();
+                    }
+                    else
+                    {
+                        conversionVariable = Convert.ToString(queryResultsLastName["CustomerID"]);
+                        //searchedCustID = int.Parse(conversionVariable);
+                        searchedCustID = conversionVariable;
+                        customerID = searchedCustID;
+                        queryResultsLastName.Close();
+                        queryResultsFirstName.Close();
+                        con.Close();
+                    }
                 }
                 else
                 {
-                    conversionVariable = Convert.ToString(queryResultsLastName["CustomerID"]);
-                    //searchedCustID = int.Parse(conversionVariable);
+
+                    conversionVariable = Convert.ToString(queryResultsFirstName["CustomerID"]);
                     searchedCustID = conversionVariable;
                     customerID = searchedCustID;
-                    queryResultsLastName.Close();
                     queryResultsFirstName.Close();
+
                     con.Close();
                 }
+
             }
             else
             {
-
-                conversionVariable = Convert.ToString(queryResultsFirstName["CustomerID"]);
+                conversionVariable = Convert.ToString(queryResultsFullName["CustomerID"]);
                 searchedCustID = conversionVariable;
                 customerID = searchedCustID;
-                queryResultsFirstName.Close();
+                queryResultsFullName.Close();
 
-                con.Close();
             }
-
-
 
             SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con1.Open();
