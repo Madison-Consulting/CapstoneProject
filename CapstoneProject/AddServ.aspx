@@ -48,7 +48,7 @@
                     <asp:Label ID="lblFN" runat="server" Text="Customer First Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtFN" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -56,7 +56,7 @@
                     <asp:Label ID="lblLN" runat="server" Text="Customer Last Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtLN" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
 <%--            <asp:TableRow>
@@ -81,7 +81,7 @@
                     <asp:Label ID="lblDate" runat="server" Text="Service Date: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtDate1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDate1" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator"
@@ -93,7 +93,7 @@
                     <asp:Label ID="lblEstCost" runat="server" Text="Estimated Cost"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtEstCost1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEstCost1" runat="server" ></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="CompareValidator"
@@ -105,7 +105,7 @@
                     <asp:Label ID="lblCompDate" runat="server" Text="Completion Date"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtCompDate1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtCompDate1" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="CompareValidator"

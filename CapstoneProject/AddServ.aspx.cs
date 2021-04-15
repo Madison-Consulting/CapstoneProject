@@ -62,7 +62,7 @@ namespace Lab2
                 SqlCommand cmdInsertTicket = new SqlCommand(insertTicketStatement, con);
                 cmdInsertTicket.Parameters.AddWithValue("@Status", HttpUtility.HtmlEncode("Opened"));
                 cmdInsertTicket.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
-                cmdInsertTicket.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(Session["Username"]));
+                cmdInsertTicket.Parameters.AddWithValue("@EmpID", HttpUtility.HtmlEncode(Session["Username"].ToString()));
 
                 cmdInsertTicket.ExecuteNonQuery();
 
@@ -76,9 +76,9 @@ namespace Lab2
                 con.Close();
                 lblStatus1.Text = "Service information and initial ticket info successfully added";
             }
-            catch (Exception exc)
+            catch (Exception)
             {
-                lblStatus1.Text = "Error saving service and/or ticket info: " + exc.ToString();
+                lblStatus1.Text = "Error saving service and/or ticket info";
             }
 
 
