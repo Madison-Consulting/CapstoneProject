@@ -10,13 +10,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Image ID="logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
         <div style="width: auto; margin: 0 20%">
 
             <asp:Table ID="Table2" runat="server">
-                <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell ColumnSpan="2">
-                        <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
-                    </asp:TableCell>
+                <asp:TableRow HorizontalAlign="Left">
                     <asp:TableCell ColumnSpan="2">
                         <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
                     </asp:TableCell>

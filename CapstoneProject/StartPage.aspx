@@ -10,7 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width: auto; margin: 0 20% ">
+        <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
+        <div style="width: auto; margin: 5% 30% ">
             <asp:Table ID="tblStartPage" runat="server" HorizontalAlign="Center" Height="192px" BackColor="White">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="3" HorizontalAlign="Center">
@@ -18,16 +19,18 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="Left">
+                    <asp:TableCell HorizontalAlign="Center">
                          <asp:Button ID="btnCustomer"  class= "btn-GreenValleyGreen" runat="server" Text="New Customer" OnClick="btnCustomer_Click" Height="40px" Width="250px" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell HorizontalAlign="Right">
-                        <asp:Button ID="btnEmployee" class= "btn-GreenValleyGreen" runat="server" Text="Employee Login" OnClick="btnEmployee_Click" Height="40px" Width="250px" />
-                    </asp:TableCell>
-                    <asp:TableCell HorizontalAlign="Left">
+                    <asp:TableCell HorizontalAlign="Center">
                         <asp:Button ID="btnExistingCustomer"  class= "btn-GreenValleyGreen" runat="server" Text="Existing Customer" OnClick="btnExistingCustomer_Click" Height="40px" Width="250px" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center">
+                        <asp:Button ID="btnEmployee" class= "btn-GreenValleyGreen" runat="server" Text="Employee Login" OnClick="btnEmployee_Click" Height="40px" Width="250px" />
                     </asp:TableCell>
                 </asp:TableRow>
 

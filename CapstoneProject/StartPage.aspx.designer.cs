@@ -24,6 +24,15 @@ namespace Lab3
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Logo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Logo;
+
+        /// <summary>
         /// tblStartPage control.
         /// </summary>
         /// <remarks>
@@ -51,15 +60,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnCustomer;
 
         /// <summary>
-        /// btnEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmployee;
-
-        /// <summary>
         /// btnExistingCustomer control.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExistingCustomer;
+
+        /// <summary>
+        /// btnEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEmployee;
 
         /// <summary>
         /// lblStatus control.
