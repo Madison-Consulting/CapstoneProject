@@ -109,13 +109,18 @@ namespace CapstoneProject
             Session["Zip"] = GridView2.SelectedRow.Cells[8].Text;
             Session["ID"] = GridView2.SelectedRow.Cells[9].Text;
 
-          
-            Session["Notes"] = GridView2.SelectedRow.Cells[10].Text;
-
-            if (GridView2.SelectedRow.Cells[10].Text == null)
+          if (GridView2.SelectedRow.Cells[10].Text == null)
             {
-                Session["Notes"] = ' ';
+                Session["Notes"] = Server.HtmlDecode(GridView2.SelectedRow.Cells[10].Text);
             }
+            else
+            {
+                Session["Notes"] = GridView2.SelectedRow.Cells[10].Text;
+                
+            }
+          
+
+         
             Response.Redirect("EmpLandingPage.aspx");
         }
 

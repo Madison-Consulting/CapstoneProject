@@ -150,8 +150,20 @@
                 ControlToValidate="txtPhoneNo" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                     </asp:TableCell>
                 </asp:TableRow>
-        <asp:TableRow HorizontalAlign="Left">
-            <asp:TableCell ColumnSpan="2">
+                 <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblHearAbout" runat="server" Text="How did you hear about us?"></asp:Label>
+                    </asp:TableCell>
+                      <asp:TableCell>
+                          <asp:TextBox ID="txtHearAbout" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator" 
+                ControlToValidate="txtPhoneNo" SetFocusOnError ="true" ForeColor="Red" Text ="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+        <asp:TableRow HorizontalAlign="center">
+            <asp:TableCell ColumnSpan="3">
                 <asp:Button ID="btnCreateAccount" class= "btn-GreenValleyGreen" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </asp:TableCell>
         </asp:TableRow>

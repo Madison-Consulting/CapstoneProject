@@ -82,7 +82,20 @@ namespace CapstoneProject
             Session["ID"] = txtCustID.Text;
             Session["Notes"] = lblDetails.Text;
             Session["Date"] = lblDate.Text;
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+            String query = "Update ServiceRequest SET TicketStatus = 'Assigned' WHERE CustomerID = @CustomerID;";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID.Text));
+  
+
+            cmd.ExecuteNonQuery();
+            con.Close();
             Response.Redirect("EmpLandingPage.aspx");
+
+
         }
 
         protected void btnViewPhotos_Click(object sender, EventArgs e)

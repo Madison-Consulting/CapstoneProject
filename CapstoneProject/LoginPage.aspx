@@ -12,6 +12,7 @@
     <form id="form1" runat="server">
            <div style="width: auto; margin: 5% 35%">
 
+              
             <asp:Table ID="tblLogin" runat="server" Width="378px" HorizontalAlign="Center">
                 <asp:TableRow HorizontalAlign="Right">
                         <asp:TableCell  ColumnSpan="2">

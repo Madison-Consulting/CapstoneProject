@@ -125,6 +125,6 @@
             </asp:Table>
         </div>
     </div>
-    <asp:SqlDataSource ID="datasrcNotifsList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustFirstName + ' ' + Customer.CustLastName + ': ' + ServiceRequest.ServiceType + ' ' +  ServiceRequest.ServiceDate as fullName, Customer.CustomerID from Customer INNER JOIN ServiceRequest ON Customer.CustomerID = ServiceRequest.CustomerID WHERE TicketStatus = 'Unassigned';"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="datasrcNotifsList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustFirstName + ' ' + Customer.CustLastName + ': ' + ServiceRequest.ServiceType + ' ' +  ServiceRequest.ServiceDate as fullName, Customer.CustomerID from Customer INNER JOIN ServiceRequest ON Customer.CustomerID = ServiceRequest.CustomerID WHERE ServiceRequest.TicketStatus = 'Unassigned';"></asp:SqlDataSource>
 
 </asp:Content>

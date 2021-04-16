@@ -14,8 +14,48 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            //check buttons to color
+            switch (Page.Title)
             {
+                case "Home":
+                    HyperLink1.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Initial Contact Form":
+                    HyperLink2.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Edit or View an Existing Customer":
+                    HyperLink3.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Add a Service Event":
+                    HyperLink4.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Edit or View Existing Service":
+                    HyperLink5.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Move Inventory":
+                    HyperLink6.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Appraisal Service Order Form":
+                    HyperLink7.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Auction Form":
+                    HyperLink8.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Initial Auction Service Form":
+                    HyperLink9.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Moving Form":
+                    HyperLink10.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+                case "Choose a Different Customer":
+                    HyperLink11.ForeColor = ColorTranslator.FromHtml("#266141");
+                    break;
+            }
+
+            txtNote.Text = txtNote.Text.Replace("&nbsp;", "");
+            if (!IsPostBack)
+            {                
                 txtNote.Text = (string)Session["Notes"];
 
             }
@@ -33,106 +73,35 @@ namespace Lab2
                 Response.Redirect("LoginPage.aspx");
             }
 
-            //check buttons to color
-            //switch (Page.Title)
-            //{
-            //case "Add Customer": case "Initial Contact":
-            //    btnAddCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-            ////    break;
-            //case "Inventory":
-            //    btnViewInventory.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //case "Edit/View Service":
-            //    btnEditViewServiceEvent.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //case "Edit/View Customer":
-            //    btnEditViewCustomer.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //case "Move Form": case "Room Form":
-            //    btnMovingForm.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //case "Auction Form":
-            //    btnAuctionForm.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //case "Notifications":
-            //    btnNotifications.BackColor = ColorTranslator.FromHtml("#325f57");
-            //    break;
-            //    }
 
-            //}
-
-            //Button Click Events
-            //protected void btnAddCustomer_Click(object sender, EventArgs e)
-            //{
-            //    btnAddCustomer.BackColor = System.Drawing.Color.Green;
-
-            //}
-
-            //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
-            //{
-            //    Response.Redirect("AddServ.aspx");
-
-            //}
-
-            //    protected void btnEditViewCustomer_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("EditCust.aspx");
-            //    }
-
-            //    protected void btnEditViewServiceEvent_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("EditServ2.aspx");
-            //    }
-
-            //    protected void btnViewEngagements_Click(object sender, EventArgs e)
-            //    {
-
-            //    }
-
-            //    protected void btnViewInventory_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("Inventory.aspx");
-            //    }
-
-
-            //    protected void btnSearch_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("CustomerSearch.aspx");
-            //    }
-
-            //    protected void btnLogout_Click(object sender, EventArgs e)
-            //    {
-            //        Session.Abandon();
-            //        Response.Redirect("LoginPage.aspx?loggedout=true");
-            //    }
-
-            //    protected void btnNotifications_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("Notifications.aspx");
-            //    }
-
-            //    protected void btnMovingForm_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("MovingForm.aspx");
-            //    }
-
-            //    protected void btnAuctionForm_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("AuctionForm.aspx");
-            //    }
-
-            //    protected void UserIcon_Click(object sender, ImageClickEventArgs e)
-            //    {
-            //        Response.Redirect("LoginPage.aspx");
-            //    }
-
-            //    protected void btnAppraisal_Click(object sender, EventArgs e)
-            //    {
-            //        Response.Redirect("AppraisalServiceOrder.aspx");
-            //    }
-            //}
 
         }
+
+        //Button Click Events
+        //protected void btnAddCustomer_Click(object sender, EventArgs e)
+        //{
+        //    btnAddCustomer.BackColor = System.Drawing.Color.Green;
+
+        //}
+
+        //protected void btnAddServiceEvent_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("AddServ.aspx");
+
+        //}
+
+        //    protected void btnEditViewCustomer_Click(object sender, EventArgs e)
+        //    {
+        //        Response.Redirect("EditCust.aspx");
+        //    }
+
+        //    protected void btnEditViewServiceEvent_Click(object sender, EventArgs e)
+        //    {
+        //        Response.Redirect("EditServ2.aspx");
+        //    }
+
+
+    
 
         protected void btnSaveNotes_Click(object sender, EventArgs e)
         {
