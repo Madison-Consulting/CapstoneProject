@@ -36,60 +36,7 @@
         </asp:Table>
         <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' +  CustLastName AS fullName, Customer.CustomerID FROM Customer"></asp:SqlDataSource>
 
-        <asp:Table ID="tblHistory" runat="server" Style="display: inline-block" BorderColor="Green" BackColor="LightYellow" BorderStyle="Double">
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblEditServTicket" runat="server" Text="Edit Service Ticket History" Font-Size="X-Large"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblHistID" runat="server" Text="Ticket History ID"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtHistID" runat="server" Text="Auto-Filled"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblDateTime" runat="server" Text="Date and Time of History Change"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtDateTime" runat="server" AutoPostBack="true" TextMode="DateTime"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtDateTime" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblYourName" runat="server" Text="Your Name"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtYourName" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtServTicketID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnTicketHistorySubmit" class= "btn-GreenValleyGreen" runat="server" Text="Submit New Ticket History" OnClick="btnTicketHistorySubmit_Click" />
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:Label ID="lblSuccess" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="center">
-                <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnHistory" class= "btn-GreenValleyGreen" runat="server" Text="View Full Service History" OnClick="btnHistory_Click" CausesValidation="false" />
-                </asp:TableCell>
-            </asp:TableRow>
 
-        </asp:Table>
          <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
@@ -367,13 +314,72 @@
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
                     <asp:Button ID="btnUpdateMove" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
+                    <asp:Button ID="btnViewMoveItems" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="View Move Items" OnClick="btnViewMoveItems_Click" />
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow Height="40"></asp:TableRow>
             <%-- <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="3">
                     <asp:Button ID="btnClearServ" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Clear" OnClick="btnClearServ_Click" CausesValidation="false"/>
                 </asp:TableCell>
             </asp:TableRow>--%>
+        </asp:Table>
+
+        <asp:Table ID="tblMoveItems" runat="server" Visible="false" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Left">
+                    <asp:Button ID="btnBack" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Back" OnClick="btnBackToMoveInfo_Click" />
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <div class="divEditMoveItemTextboxes" id="divEditMoveItemTextboxes" runat="server" visible="false">
+                        <asp:Label ID="lblMoveItemDesc" runat="server" Text="Item Name: "></asp:Label>
+                        <asp:TextBox ID="txtMoveItemDesc" runat="server"></asp:TextBox>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp
+                        <asp:Label ID="lblMoveItemQuant" runat="server" Text="Quantity: "></asp:Label>
+                        <asp:DropDownList ID="ddlMoveItemQuant" runat="server">
+                            <asp:ListItem Value="1">1</asp:ListItem>
+                            <asp:ListItem Value="2">2</asp:ListItem>
+                            <asp:ListItem Value="3">3</asp:ListItem>
+                            <asp:ListItem Value="4">4</asp:ListItem>
+                            <asp:ListItem Value="5">5</asp:ListItem>
+                            <asp:ListItem Value="6">6</asp:ListItem>
+                            <asp:ListItem Value="7">7</asp:ListItem>
+                            <asp:ListItem Value="8">8</asp:ListItem>
+                            <asp:ListItem Value="9">9</asp:ListItem>
+                            <asp:ListItem Value="10">10</asp:ListItem>
+                        </asp:DropDownList>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp
+                        <asp:Label ID="lblMoveItemNote" runat="server" Text="Note: "></asp:Label>
+                        <asp:TextBox ID="txtMoveItemNote" runat="server"></asp:TextBox>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp
+                        <asp:TextBox ID="txtHiddenMoveItemID" runat="server" Visible="false"></asp:TextBox>
+                        <asp:Button ID="btnUpdateMoveItem" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
+                    </div>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:GridView runat="server" ID="grdvwMoveItems"
+                        AutoGenerateColumns="false"
+                        EnableViewState="false"
+                        DataKeyNames="ItemID"
+                        OnRowCommand="grdvwMoveItems_RowCommand"
+                        EmptyDataText="This customer has no auctions to choose from">
+                        <Columns>
+                            <asp:ButtonField ButtonType="Button" Text="Edit" HeaderText="" CommandName="editRow" />
+                            <asp:BoundField DataField="RoomType" HeaderText="Room" />
+                            <asp:BoundField DataField="ItemDescription" HeaderText="Item" />
+                            <asp:BoundField DataField="ItemQuant" HeaderText="Quantity" />
+                            <asp:BoundField DataField="ItemNote" HeaderText="Note" />
+                            <asp:BoundField DataField="ItemID" HeaderText="ItemID" Visible="false" />
+                        </Columns>
+                    </asp:GridView>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow Height="40">
+            </asp:TableRow>
         </asp:Table>
 
 

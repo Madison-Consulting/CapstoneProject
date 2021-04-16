@@ -15,8 +15,6 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
           
-                txtDateTime.Text = DateTime.Now.ToString();
-
         }
 
 
@@ -39,13 +37,13 @@ namespace Lab2
                         t.Text = String.Empty;
                     }
                 }
-                else
-                {
-                    if (ClearText.Controls.Count > 0)
-                    {
-                        ClearAllText(ClearText);
-                    }
-                }
+                //else
+                //{
+                //    if (ClearText.Controls.Count > 0)
+                //    {
+                //        ClearAllText(ClearText);
+                //    }
+                //}
             }
         }
         
@@ -66,6 +64,7 @@ namespace Lab2
                 if (rbtnlistServiceType.SelectedValue.Equals("auction"))
                 {
                     tblMoveInfo.Visible = false;
+                    tblMoveItems.Visible = false;
 
                     con.Open();
                     string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
@@ -109,37 +108,37 @@ namespace Lab2
         }
 
 
-        protected void btnTicketHistorySubmit_Click(object sender, EventArgs e)
-        {
+        //protected void btnTicketHistorySubmit_Click(object sender, EventArgs e)
+        //{
 
-            Random rand = new Random();
-            int HistoryTicketID = rand.Next(1000000, 10000000);
-
-
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
+        //    Random rand = new Random();
+        //    int HistoryTicketID = rand.Next(1000000, 10000000);
 
 
-            String query = "INSERT INTO TicketHistory VALUES '" + HistoryTicketID + "', @DateTime, @ServTicketID, @EmpName;";
+        //    SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        //    con.Open();
 
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@DateTime", HttpUtility.HtmlEncode(txtDateTime.Text));
-            cmd.Parameters.AddWithValue("@ServTicketID", HttpUtility.HtmlEncode(txtServTicketID.Text));
-            cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtYourName.Text));
-            try
-            {
-                cmd.ExecuteNonQuery();
-                lblSuccess.Text = "Ticket History Added Successfully";
-            }
-            catch (Exception)
-            {
-                lblSuccess.Text = "Unable to insert Ticket History. ";
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
+
+        //    String query = "INSERT INTO TicketHistory VALUES '" + HistoryTicketID + "', @DateTime, @ServTicketID, @EmpName;";
+
+        //    SqlCommand cmd = new SqlCommand(query, con);
+        //    cmd.Parameters.AddWithValue("@DateTime", HttpUtility.HtmlEncode(txtDateTime.Text));
+        //    cmd.Parameters.AddWithValue("@ServTicketID", HttpUtility.HtmlEncode(txtServTicketID.Text));
+        //    cmd.Parameters.AddWithValue("@EmpName", HttpUtility.HtmlEncode(txtYourName.Text));
+        //    try
+        //    {
+        //        cmd.ExecuteNonQuery();
+        //        lblSuccess.Text = "Ticket History Added Successfully";
+        //    }
+        //    catch (Exception)
+        //    {
+        //        lblSuccess.Text = "Unable to insert Ticket History. ";
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
 
         //protected void btnFullHistory_Click(object sender, EventArgs e)
         //{
@@ -164,7 +163,6 @@ namespace Lab2
         //        grdvwTicketDisplay.DataSource = dtCustomerGridView;
         //        grdvwTicketDisplay.DataBind();
         //    }
-
 
 
         protected void btnHistory_Click(object sender, EventArgs e)
@@ -600,7 +598,8 @@ namespace Lab2
                 txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
 
                 //load data from auction
-                string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew";
+                string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew FROM AuctionSchedule " +
+                    "WHERE AuctionID = ";
             }
         }
 
@@ -620,7 +619,90 @@ namespace Lab2
         {
             ClearAllText(Page);
             tblMoveInfo.Visible = false;
+            tblMoveItems.Visible = false;
             tblAuctionInfo.Visible = false;
+        }
+
+        protected void btnViewMoveItems_Click(object sender, EventArgs e)
+        {
+            tblMoveInfo.Visible = false;
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            string viewMoveItems = "SELECT Room.RoomType, MoveInventory.ItemDescription, MoveInventory.ItemQuant, " +
+                "MoveInventory.ItemNote, MoveInventory.ItemID FROM  MoveForm INNER JOIN Room ON MoveForm.MoveFormID " +
+                "= Room.MoveFormID INNER JOIN MoveInventory ON Room.RoomID = MoveInventory.RoomID " +
+                "WHERE MoveForm.MoveFormID = " + txtHiddenMoveFormID.Text;
+
+            SqlDataAdapter daViewMoveItems = new SqlDataAdapter(viewMoveItems, con);
+            DataTable dtForGridView = new DataTable();
+            daViewMoveItems.Fill(dtForGridView);
+            grdvwMoveItems.DataSource = dtForGridView;
+            grdvwMoveItems.DataBind();
+
+            con.Close();
+            tblMoveItems.Visible = true;
+        }
+
+        protected void btnBackToMoveInfo_Click(object sender, EventArgs e)
+        {
+            tblMoveItems.Visible = false;
+            tblMoveInfo.Visible = true;
+        }
+
+
+        protected void grdvwMoveItems_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("editRow"))
+            {
+                //getting Move ItemID value
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                string keyValue = grdvwMoveItems.DataKeys[rowIndex]["ItemID"].ToString();
+
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
+
+                //load data from MoveItems table
+                string editMoveItem = "SELECT ItemDescription, ItemQuant, ItemNote, ItemID FROM MoveInventory WHERE ItemID = " + keyValue;
+
+                SqlCommand cmdEditMoveItem = new SqlCommand(editMoveItem, con);
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmdEditMoveItem);
+                DataTable dtMoveItem = new DataTable();
+                sqlAdapter.Fill(dtMoveItem);
+
+                txtMoveItemDesc.Text = dtMoveItem.Rows[0][0].ToString();
+                ddlMoveItemQuant.SelectedValue = dtMoveItem.Rows[0][1].ToString();
+                txtMoveItemNote.Text = dtMoveItem.Rows[0][2].ToString();
+                txtHiddenMoveItemID.Text = dtMoveItem.Rows[0][3].ToString();
+
+                divEditMoveItemTextboxes.Visible = true;
+
+                con.Close();
+            }
+        }
+
+        protected void btnUpdateMoveItem_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
+
+            string updateMoveItem = "UPDATE MoveInventory SET ItemDescription = @ItemDesc, ItemQuant = @ItemQuant, ItemNote = @ItemNote " +
+                "WHERE ItemID = @ItemID";
+            SqlCommand cmdUpdateMoveItem = new SqlCommand(updateMoveItem, con);
+
+            cmdUpdateMoveItem.Parameters.AddWithValue("@ItemDesc", txtMoveItemDesc.Text.Trim());
+            cmdUpdateMoveItem.Parameters.AddWithValue("@ItemQuant", ddlMoveItemQuant.SelectedValue);
+            cmdUpdateMoveItem.Parameters.AddWithValue("@ItemNote", txtMoveItemNote.Text.Trim());
+            cmdUpdateMoveItem.Parameters.AddWithValue("@ItemID", txtHiddenMoveItemID.Text);
+
+            cmdUpdateMoveItem.ExecuteNonQuery();
+            
+
+            con.Close();
+
+            divEditMoveItemTextboxes.Visible = false;
+            btnViewMoveItems_Click(sender, e);
         }
     }
 }

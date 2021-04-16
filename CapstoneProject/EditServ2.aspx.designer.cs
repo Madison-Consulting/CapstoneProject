@@ -25,6 +25,8 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.Table tblAuctionInfo;
 
+        protected global::System.Web.UI.WebControls.Table tblMoveItems;
+
         protected global::System.Web.UI.WebControls.ListBox lstboxMoveTruckUsed;
 
         protected global::System.Web.UI.WebControls.ListBox lstboxMoveTruckInventory;
@@ -58,6 +60,8 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
+
+        protected global::System.Web.UI.WebControls.DropDownList ddlMoveItemQuant;
 
         /// <summary>
         /// datasrcCustomerList control.
@@ -102,6 +106,10 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtItemQuant;
 
         protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveFormID;
+
+        protected global::System.Web.UI.WebControls.TextBox txtMoveItemNote;
+
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveItemID;
 
         /// <summary>
         /// txtNote control.
@@ -607,6 +615,8 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.GridView grdvwMoves;
 
+        protected global::System.Web.UI.WebControls.GridView grdvwMoveItems;
+
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistServiceType;
 
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistDrivewayAccess;
@@ -615,6 +625,7 @@ namespace Lab2
 
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPickup;
 
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divEditMoveItemTextboxes;
 
         /// <summary>
         /// tblHistory control.
@@ -663,6 +674,8 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtOriginState;
 
         protected global::System.Web.UI.WebControls.TextBox txtOriginZip;
+
+        protected global::System.Web.UI.WebControls.TextBox txtMoveItemDesc;
 
         /// <summary>
         /// lblDateTime control.
