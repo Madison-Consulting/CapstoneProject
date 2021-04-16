@@ -11,17 +11,16 @@
 </head>
     <body>
  <form id="form1" runat="server" >
+     
      <div class="sidenav">
-         <a href="/EmpLandingPage.aspx">Home</a>
-
-
+         <asp:HyperLink ID="HyperLink1" href="/EmpLandingPage.aspx" runat="server">Home</asp:HyperLink>
          <button type="button" class="dropdown-btn">
              Customer
                   <i class="fa fa-caret-down"></i>
          </button>
          <div class="dropdown-container">
-             <a href="InitialContact.aspx">Initial Contact Form</a>
-             <a href="/EditCust.aspx">Edit or View an Existing Customer</a>
+             <asp:HyperLink ID="HyperLink2"  href="InitialContact.aspx" runat="server">Initial Contact Form</asp:HyperLink>
+             <asp:HyperLink ID="HyperLink3" href="/EditCust.aspx" runat="server">Edit or View an Existing Customer</asp:HyperLink>
          </div>
 
 
@@ -30,21 +29,20 @@
                     <i class="fa fa-caret-down"></i>
          </button>
          <div class="dropdown-container">
-             <a href="/AddServ.aspx">Add a Service Event</a>
-             <a href="/EditServ2.aspx">Edit or View an Existing Service</a>
+             <asp:HyperLink ID="HyperLink4" href="/AddServ.aspx" runat="server">Add a Service Event</asp:HyperLink>
+             <asp:HyperLink ID="HyperLink5" href="/EditServ2.aspx" runat="server">Edit or View Existing Service</asp:HyperLink>
+             <asp:HyperLink ID="HyperLink12" href="/Completion.aspx" runat="server">Complete Service Form</asp:HyperLink>
          </div>
 
-
-         <a href="/Inventory.aspx">Move Inventory</a>
-
-         <a href="/AppraisalServiceOrder.aspx">Appraisal Service Order Form</a>
+         <asp:HyperLink ID="HyperLink6" href="/Inventory.aspx" runat="server">Move Inventory</asp:HyperLink>
+         <asp:HyperLink ID="HyperLink7" href="/AppraisalServiceOrder.aspx" runat="server">Appraisal Service Order Form</asp:HyperLink>
 
             <button type="button" class="dropdown-btn">Auction Services
                 <i class="fa fa-caret-down"></i>
                 </button>
               <div class="dropdown-container">
-                <a href="/AuctionForm.aspx">Auction Form</a>
-                <a href="/InitialAuctionService.aspx">Initial Auction Service Form</a>
+                  <asp:HyperLink ID="HyperLink8" href="/AuctionForm.aspx" runat="server">Auction Form</asp:HyperLink>
+                  <asp:HyperLink ID="HyperLink9" href="/InitialAuctionService.aspx" runat="server">Initial Auction Service Form</asp:HyperLink>
               </div>
 
 
@@ -52,10 +50,10 @@
                  <i class="fa fa-caret-down"></i>
                 </button>
               <div class="dropdown-container">
-                <a href="/MovingForm.aspx">Moving Form</a>
-                <a href="#">...</a>
+
+                  <asp:HyperLink ID="HyperLink10" href="/MovingForm.aspx" runat="server">Moving Form</asp:HyperLink>
               </div>
-         <a href="/ChooseCustomer.aspx">Choose a Different Customer</a>
+         <asp:HyperLink ID="HyperLink11" href="/ChooseCustomer.aspx" runat="server">Choose a Different Customer</asp:HyperLink>
        </div>
         <div class="main" >
          <asp:Table ID="header" runat="server" Width="900px">
@@ -82,14 +80,40 @@
                                     
                                   </button>--%>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/testNotifications.aspx">Notifications</a>
+                                    <a class="dropdown-item" href="/testNotifications.aspx">New Service Requests</a>
                                       <a class="dropdown-item" href="/NewEmployee.aspx">Add a New Employee</a>
+                             <%--         <a class="dropdown-item" href="/SchedulingForm.aspx">Scheduling Form</a>--%>
                                     <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>
+                                      <a class="dropdown-item" onclick="window.open('outlookcal:')">Open Outlook Calendar</a>
+                                      
                                   </div>
                                 </div>
                             </asp:TableCell>
                         </asp:TableRow>
              </asp:Table>
+
+                    <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 80px;">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="150px" Height="100"></asp:TextBox>
+                </asp:TableCell>             
+            </asp:TableRow>
+                        <asp:TableRow HorizontalAlign="Center">
+                            <asp:TableCell>
+                                <asp:Button ID="btnSaveNotes" runat="server" Text="Save Notes" OnClick="btnSaveNotes_Click" class="btn-GreenValleyGreen" CausesValidation="false"/>
+                            </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow HorizontalAlign="Center">
+                            <asp:TableCell>
+                                <asp:Label ID="lblNotesSaved" runat="server" Text=""></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+        </asp:Table>
      
             </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -97,7 +121,7 @@
 
             <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1200px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
+                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1000px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>
@@ -141,6 +165,20 @@
                         });
                     }
                        </script>
+        <script>
+            var str = location.href.toLowerCase();
+            $("#sidenav a").each(function () {
+                if (str.indexOf($(this).attr("href").toLowerCase()) > -1) {
+                    $("li.current-menu-item").removeClass("active");
+                    $(this).parent().addClass("active");
+                }
+            });
+            $("sidenav.active").parents().each(function () {
+                if ($(this).is("sidenav")) {
+                    $(this).addClass("active");
+                }
+            });
+        </script>
               
 
           

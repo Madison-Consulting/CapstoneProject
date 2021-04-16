@@ -204,6 +204,15 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Button btnChoose;
 
         /// <summary>
+        /// btnViewPhotos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnViewPhotos;
+
+        /// <summary>
         /// txtCustID control.
         /// </summary>
         /// <remarks>
@@ -211,6 +220,24 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustID;
+
+        /// <summary>
+        /// Table2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table2;
+
+        /// <summary>
+        /// gvImages control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvImages;
 
         /// <summary>
         /// datasrcNotifsList control.

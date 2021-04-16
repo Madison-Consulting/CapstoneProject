@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 20px 20%; position:relative; ">
+    <div style="width: auto; margin: 20px 20%; position: relative;">
         <asp:Table ID="tblInitialContact" runat="server" HorizontalAlign="Center">
             <asp:TableRow>
                 <asp:TableCell>
@@ -46,12 +46,19 @@
                     <asp:Label ID="lblHearAbout" runat="server" Text="How did the Customer Hear About Us?"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtHearAbout" runat="server"></asp:TextBox>
+                    <asp:DropDownList ID="ddlHearAbout" runat="server">
+                        <asp:ListItem Selected="true" Value="Select">--Select--</asp:ListItem>
+                        <asp:ListItem Value="Realtor">Realtor</asp:ListItem>
+                        <asp:ListItem Value="Facebook">Facebook</asp:ListItem>
+                        <asp:ListItem Value="Google">Google</asp:ListItem>
+                        <asp:ListItem Value="Website">Website</asp:ListItem>
+                        <asp:ListItem Value="Newspaper">Newspaper</asp:ListItem>
+                        <asp:ListItem Value="Word of Mouth">Word of Mouth</asp:ListItem>
+                        <asp:ListItem Value="Mailings">Mailings</asp:ListItem>
+                        <asp:ListItem Value="Other">other</asp:ListItem>
+                    </asp:DropDownList>
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtHearAbout" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
+
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -83,95 +90,95 @@
                     <asp:TextBox ID="txtMovingAddress" runat="server"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblMovingCity" runat="server" Text="City"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtMovingCity" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblMovingState" runat="server" Text="State"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtMovingState" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblMovingZip" runat="server" Text="Zip Code"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtMovingZip" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblDateTime" runat="server" Text="Date and Time of Initial Contact"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtDateTime" runat="server" AutoPostBack="true" TextMode="DateTime"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtDateTime" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblDeadline" runat="server" Text="Deadline for your Service (One Date and Time or a Range)?"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtDeadline" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
-                    <asp:TextBox ID="txtTime" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
-                </asp:TableCell>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblMovingAddress2" runat="server" Text=" Moving Address Line 2"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtMovingAddress2" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblMovingCity" runat="server" Text="City"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtMovingCity" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblMovingState" runat="server" Text="State"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtMovingState" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblMovingZip" runat="server" Text="Zip Code"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtMovingZip" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblDateTime" runat="server" Text="Date and Time of Initial Contact"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtDateTime" runat="server" AutoPostBack="true" TextMode="DateTime"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtDateTime" SetFocusOnError="true" ForeColor="Red" Text="*">
+                        </asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblDeadline" runat="server" Text="Deadline for your Service (One Date and Time or a Range)?"></asp:Label>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtDeadline" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtTime" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
+                    </asp:TableCell>
 
-                <asp:TableCell>
-                    <asp:TextBox ID="txtDeadline2" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
-                    <asp:TextBox ID="txtTime2" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtDeadline" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtTime" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell ColumnSpan="4">
-                    <asp:Button ID="btnSaveInitial" class="btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
-                </asp:TableCell>
-            </asp:TableRow>
-<%--            <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtDeadline2" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
+                        <asp:TextBox ID="txtTime2" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtDeadline" SetFocusOnError="true" ForeColor="Red" Text="*">
+                        </asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtTime" SetFocusOnError="true" ForeColor="Red" Text="*">
+                        </asp:RequiredFieldValidator>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow HorizontalAlign="Center">
+                    <asp:TableCell ColumnSpan="4">
+                        <asp:Button ID="btnSaveInitial" class="btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <%--            <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
                     <asp:Button ID="btnAddService" class="btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>--%>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
         </asp:Table>
 
-        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell>
-                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
-                </asp:TableCell>             
-            </asp:TableRow>
-        </asp:Table>
+
 
 
 

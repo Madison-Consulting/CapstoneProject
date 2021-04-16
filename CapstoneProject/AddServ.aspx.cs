@@ -24,6 +24,7 @@ namespace Lab2
                     txtFN.Text = (string)Session["FName"];
                     txtLN.Text = (string)Session["LName"];
                     txtDate1.Text = (string)Session["Date"];
+                  
                     rdoServType.SelectedValue = (string)Session["ServiceType"];
                 }
             }
@@ -35,6 +36,7 @@ namespace Lab2
         {
             Random rnd = new Random();
             int ServID = rnd.Next(100000, 1000000);
+            Session["ServID"] = ServID.ToString();
 
             Random rnd2 = new Random();
             int ServTicketID = rnd2.Next(10000, 100000);
@@ -45,7 +47,7 @@ namespace Lab2
             try //insert service statement
             {
                 String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, Note)" +
-                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate, @Note)";
+                    "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
@@ -53,7 +55,7 @@ namespace Lab2
                 cmd.Parameters.AddWithValue("@Date", HttpUtility.HtmlEncode(txtDate1.Text));
                 cmd.Parameters.AddWithValue("@EstCost", HttpUtility.HtmlEncode(txtEstCost1.Text));
                 cmd.Parameters.AddWithValue("@CompletionDate", HttpUtility.HtmlEncode(txtCompDate1.Text));
-                cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
+           
 
                 cmd.ExecuteNonQuery();
 

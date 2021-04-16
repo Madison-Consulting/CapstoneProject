@@ -20,11 +20,12 @@ namespace Lab2
                 txtPhoneNo.Text = (string)Session["PhoneNo"];
                 txtEmail.Text = (string)Session["Email"];
                 txtAddress.Text = (string)Session["Address"];
+                txtAddress2.Text = (string)Session["Address2"];
                 txtCity.Text = (string)Session["City"];
                 txtState.Text = (string)Session["State"];
                 txtZip.Text = (string)Session["Zip"];
                 txtCustomerID.Text = (string)Session["ID"];
-                txtNote.Text = (string)Session["Notes"];
+            
             }
         }
 
@@ -48,7 +49,7 @@ namespace Lab2
                 con.Open();
 
                 String query2 = "UPDATE Customer SET CustFirstName = @FirstName, CustLastName = @LastName, PhoneNumber = @CustomerPhone, Email= @CustomerEmail, " +
-                    "CustAddress= @Address, CustCity = @City, CustState = @State ,CustZip = @ZipCode, CustomerID = @CustomerID WHERE CustomerID = @CustomerID";
+                    "CustAddress= @Address, CustAddress2 = @Address2, CustCity = @City, CustState = @State ,CustZip = @ZipCode, CustomerID = @CustomerID WHERE CustomerID = @CustomerID";
                 SqlCommand cmd = new SqlCommand(query2, con);
 
                 cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
@@ -57,9 +58,11 @@ namespace Lab2
                 cmd.Parameters.AddWithValue("@CustomerPhone", HttpUtility.HtmlEncode(txtPhoneNo.Text));
                 cmd.Parameters.AddWithValue("@CustomerEmail", HttpUtility.HtmlEncode(txtEmail.Text));
                 cmd.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
+                cmd.Parameters.AddWithValue("@Address2", HttpUtility.HtmlEncode(txtAddress2.Text));
                 cmd.Parameters.AddWithValue("@City", HttpUtility.HtmlEncode(txtCity.Text));
                 cmd.Parameters.AddWithValue("@State", HttpUtility.HtmlEncode(txtState.Text));
                 cmd.Parameters.AddWithValue("@ZipCode", HttpUtility.HtmlEncode(txtZip.Text));
+                
                 cmd.ExecuteNonQuery();
                 con.Close();
 

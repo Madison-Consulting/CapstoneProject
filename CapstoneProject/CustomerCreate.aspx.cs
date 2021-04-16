@@ -73,9 +73,9 @@ namespace Lab3
             con.Open();
 
             //create new customer
-            String query = "INSERT INTO Customer (CustFirstName,CustLastName, PhoneNumber,Email,CustAddress," +
-                "CustCity,CustState,CustZip,CustomerID) " +
-                "VALUES (@FirstName, @LastName, @CustomerPhone, @CustomerEmail, @Address, @City, @State, @ZipCode, @CustomerID)";
+            String query = "INSERT INTO Customer (CustFirstName,CustLastName, PhoneNumber,Email,CustAddress, CustAddress2," +
+                "CustCity,CustState,CustZip,CustomerID,HearAbout) " +
+                "VALUES (@FirstName, @LastName, @CustomerPhone, @CustomerEmail, @Address, @Address2, @City, @State, @ZipCode, @CustomerID, @HearAbout)";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@CustomerID", CustID);
@@ -84,9 +84,11 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@CustomerPhone", HttpUtility.HtmlEncode(txtPhoneNo.Text));
             cmd.Parameters.AddWithValue("@CustomerEmail", HttpUtility.HtmlEncode(txtEmail.Text));
             cmd.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
+            cmd.Parameters.AddWithValue("@Address2", HttpUtility.HtmlEncode(txtAddress2.Text));
             cmd.Parameters.AddWithValue("@City", HttpUtility.HtmlEncode(txtCity.Text));
             cmd.Parameters.AddWithValue("@State", HttpUtility.HtmlEncode(txtState.Text));
             cmd.Parameters.AddWithValue("@ZipCode", HttpUtility.HtmlEncode(txtZip.Text));
+            cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(txtHearAbout.Text));
 
 
             cmd.ExecuteNonQuery();

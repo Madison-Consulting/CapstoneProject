@@ -13,9 +13,21 @@ namespace CapstoneProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                txtFirstName.Text = (string)Session["FName"];
+                txtLastName.Text = (string)Session["LName"];
+                txtOriginAddress.Text = (string)Session["Address"];
+                txtOriginAddress2.Text = (string)Session["Address2"];
+                txtOriginCity.Text = (string)Session["City"];
+                txtOriginState.Text = (string)Session["State"];
+              
+               
 
+            }
         }
 
+       
 
         protected void btnCommit_Click(object sender, EventArgs e)
         {
@@ -35,7 +47,7 @@ namespace CapstoneProject
                     System.Data.SqlClient.SqlCommand createMove = new System.Data.SqlClient.SqlCommand();
                     createMove.Connection = sc;
                     // INSERT USER RECORD
-                    createMove.CommandText = "INSERT INTO MoveForm (MoveDateTime, OriginAddress, OriginCity, OriginState, DestinationAddress, DestinationCity, DestinationState, MlsListing, SendPhoto, HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, ServiceID) VALUES (@MoveDateTime, @OriginAddress, @OriginCity, @OriginState, @DestinationAddress, @DestinationCity, @DestinationState, @MlsListing, @SendPhoto @HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @ServiceID)";
+                    createMove.CommandText = "INSERT INTO MoveForm (MoveDateTime, OriginAddress, OriginCity, OriginState, DestinationAddress, DestinationCity, DestinationState, MlsListing, SendPhoto, HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, CustomerID) VALUES (@MoveDateTime, @OriginAddress, @OriginCity, @OriginState, @DestinationAddress, @DestinationCity, @DestinationState, @MlsListing, @SendPhoto @HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @CustomerID)";
                     createMove.Parameters.Add(new SqlParameter("@MoveDateTime", txtDateTime.Text));
                     createMove.Parameters.Add(new SqlParameter("@OriginAddress", txtOriginAddress.Text));
                     createMove.Parameters.Add(new SqlParameter("@OriginCity", txtOriginCity.Text));
@@ -50,7 +62,7 @@ namespace CapstoneProject
                     createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
                     createMove.Parameters.Add(new SqlParameter("@MoveSteps", txtMoveSteps.Text));
                     createMove.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
-                    createMove.Parameters.Add(new SqlParameter("@ServiceID", "837164"));
+                    //createMove.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     createMove.ExecuteNonQuery();
 
                     //find most recent move ID (from code executed directly above^) and set it as session variable
@@ -85,6 +97,13 @@ namespace CapstoneProject
                 lblStatus.Text = "Please fill all fields";
 
             Response.Redirect("MoveFormPt2.aspx");
+
+            Session["DestAddress"] = txtDestinationAddress.Text;
+            Session["DestAddress2"] = txtDestinationAddress2.Text;
+            Session["DestCity"] = txtDestinationCity.Text;
+            Session["DestState"] = txtDestinationState.Text;
+            Session["DestZip"] = txtDestinationZip.Text;
+
         }
 
         protected void btnAddTruck_Click(object sender, EventArgs e)

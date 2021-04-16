@@ -13,13 +13,13 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-     
+            
 
             if (!IsPostBack)
             {
                 txtFN.Text = (string)Session["FName"];
                 txtLN.Text = (string)Session["LName"];
-                txtCustomerID.Text = (string)Session["ID"];
+                txtCustomerID.Text = (string)Session["ID"];          
                 txtDateTime.Text = DateTime.Now.ToString();                        
             }
          
@@ -84,35 +84,14 @@ namespace Lab3
         //    }
         //}
 
-        protected void ClearAllText(Control p1)
-        {
-            foreach (Control ClearText in p1.Controls)
-            {
-                if (ClearText is TextBox)
-                {
-                    TextBox t = ClearText as TextBox;
 
-                    if (t != null)
-                    {
-                        t.Text = String.Empty;
-                    }
-                }
-                else
-                {
-                    if (ClearText.Controls.Count > 0)
-                    {
-                        ClearAllText(ClearText);
-                    }
-                }
-            }
-        }
 
         protected void btnSaveInitial_Click(object sender, EventArgs e)
         {
             string selectedItems = String.Join(",", chkService.Items.OfType<ListItem>().Where(r => r.Selected)
           .Select(r => r.Text));
 
-            String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, " +
+            String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, MoveAddress2 = @MoveAddress2, " +
                 "MoveCity =  @MoveCity, MoveState = @MoveState, MoveZip = @MoveZip, DateTimeInitial = @DateTimeInitial, Deadline = @Deadline, Time1 = @Time1, Deadline2 = @Deadline2, " +
                 "Time2 = @Time2 WHERE Customer.CustomerID = @CustID;";
 
@@ -126,8 +105,9 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustomerID.Text));
             cmd.Parameters.AddWithValue("@InitialContact", ddlContact.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@InterestedService", selectedItems);
-            cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(txtHearAbout.Text));
+            cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(ddlHearAbout.SelectedValue));
             cmd.Parameters.AddWithValue("@MoveAddress", HttpUtility.HtmlEncode(txtMovingAddress.Text));
+            cmd.Parameters.AddWithValue("@MoveAddress2", HttpUtility.HtmlEncode(txtMovingAddress2.Text));
             cmd.Parameters.AddWithValue("@MoveCity", HttpUtility.HtmlEncode(txtMovingCity.Text));
             cmd.Parameters.AddWithValue("@MoveState", HttpUtility.HtmlEncode(txtMovingState.Text));
             cmd.Parameters.AddWithValue("@MoveZip", HttpUtility.HtmlEncode(txtMovingZip.Text));
@@ -137,6 +117,7 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@Deadline2", HttpUtility.HtmlEncode(txtDeadline2.Text));
             cmd.Parameters.AddWithValue("@Time2", HttpUtility.HtmlEncode(txtTime2.Text));
 
+
             con.Open();
 
             cmd.ExecuteNonQuery();
@@ -145,6 +126,7 @@ namespace Lab3
 
             lblStatus.Text = "Initial Contact Information Added Successfully";
 
+          
 
         }
         //protected void rdobtnServ_SelectedIndexChanged1(object sender, EventArgs e)

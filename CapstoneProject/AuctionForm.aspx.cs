@@ -19,6 +19,7 @@ namespace CapstoneProject
                 lblFirstName.Text = (string)Session["FName"] + ' ';
                 lblLastName.Text = (string)Session["LName"];
                 txtCustomerID.Text = (string)Session["ID"];
+                
             }
         }
 

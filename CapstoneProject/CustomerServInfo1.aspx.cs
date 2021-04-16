@@ -18,10 +18,13 @@ namespace CapstoneProject
         {
             if (Session["Email"] != null)
             {
-
                 txtEmail.Text = Session["Email"].ToString();
 
-                txtCustomerID.Text = Session["ID"].ToString();
+                if (Session["ID"] != null)
+                {
+                    txtCustomerID.Text = Session["ID"].ToString();
+                }
+                
             }
         }
 

@@ -37,9 +37,9 @@ namespace CapstoneProject
             con.Open();
 
 
-            String query = "INSERT INTO Customer (CustFirstName,CustLastName,PhoneType, PhoneNumber,Email,CustAddress," +
-                "CustCity,CustState,CustZip,CustomerID) " +
-                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @City, @State, @ZipCode, @CustomerID)";
+            String query = "INSERT INTO Customer (CustFirstName,CustLastName,PhoneType, PhoneNumber,Email,CustAddress, CustAddress2" +
+                "CustCity,CustState,CustZip,CustomerID, Note) " +
+                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @Address2@City, @State, @ZipCode, @CustomerID, @Note)";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
@@ -48,10 +48,12 @@ namespace CapstoneProject
             cmd.Parameters.AddWithValue("@CustomerPhone", HttpUtility.HtmlEncode(txtPhoneNo.Text));
             cmd.Parameters.AddWithValue("@CustomerEmail", HttpUtility.HtmlEncode(txtEmail.Text));
             cmd.Parameters.AddWithValue("@Address", HttpUtility.HtmlEncode(txtAddress.Text));
+            cmd.Parameters.AddWithValue("@Address2", HttpUtility.HtmlEncode(txtAddress2.Text));
             cmd.Parameters.AddWithValue("@City", HttpUtility.HtmlEncode(txtCity.Text));
             cmd.Parameters.AddWithValue("@State", HttpUtility.HtmlEncode(txtState.Text));
             cmd.Parameters.AddWithValue("@ZipCode", HttpUtility.HtmlEncode(txtZip.Text));
             cmd.Parameters.AddWithValue("@PhoneType", rdoPhoneType.SelectedValue);
+            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
 
 
             cmd.ExecuteNonQuery();

@@ -127,7 +127,7 @@
     }
 
         /* On mouse-over */
-        .sidenav a:hover, .dropdown-btn:hover {
+        .sidenav a:hover, .dropdown-btn:hover, .dropdown-btn:active {
             background-color: #266141;
             color: white;
         }
@@ -141,7 +141,7 @@
 }
 
 /* Add an active class to the active dropdown button */
-.active {
+.navbar-nav > .active > a {
     background-color: #266141;
     color: white;
 }
