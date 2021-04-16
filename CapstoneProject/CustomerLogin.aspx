@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
          <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
-                <div style="width: auto; margin: 0 20% ">
+                <div style="width: auto; margin: 5% 30% ">
             <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Height="234px">
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="3">

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <div style="width: auto; margin: 0 20% ">
+       <div style="width: auto; margin: 20px 30% ">
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Center">
         <asp:TableRow>
             <asp:TableCell>
@@ -89,7 +89,7 @@
         </asp:TableRow>
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
-                <asp:Button ID="btnChoose" runat="server" Text="Choose this Customer" OnClick="btnChoose_Click" />
+                <asp:Button ID="btnChoose" runat="server" Text="Choose this Customer" OnClick="btnChoose_Click" class="btn-GreenValleyGreen" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtCustID" runat="server" Visible="false"></asp:TextBox>

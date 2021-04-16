@@ -12,7 +12,7 @@ namespace CapstoneProject
 {
     public partial class ChooseCustomer : System.Web.UI.Page
     {
-        private string customerID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null)
@@ -25,128 +25,65 @@ namespace CapstoneProject
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            //Searching the Database for a Customer. 
-            string conversionVariable;
-            string searchedCustID = "";
 
 
-
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
-
-            String queryFullName = "SELECT Customer.CustomerID, Customer.CustFullName FROM Customer WHERE CustFullName = @CustFullName;";
-            SqlCommand cmdFullName = new SqlCommand(queryFullName, con);
-            cmdFullName.Parameters.AddWithValue("@CustFullName", txtCustSearch.Text);
-            cmdFullName.ExecuteNonQuery();
-            SqlDataReader queryResultsFullName = cmdFullName.ExecuteReader();
-            bool checkForValuesFullName = queryResultsFullName.Read();
-
-            if (checkForValuesFullName.Equals(false))
+            string hex = "#266141";
+            GridView2.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml(hex);
+            GridView2.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            try
             {
-                queryResultsFullName.Close();
-                //Customer Firstname
-                String queryFirstName = "SELECT Customer.CustomerID, Customer.CustFirstName, Customer.CustLastName FROM Customer WHERE CustFirstName = @CustFirstName;";
-                SqlCommand cmdFirstName = new SqlCommand(queryFirstName, con);
-                cmdFirstName.Parameters.AddWithValue("@CustFirstName", txtCustSearch.Text);
-                cmdFirstName.ExecuteNonQuery();
-                SqlDataReader queryResultsFirstName = cmdFirstName.ExecuteReader();
-                bool checkForValuesFirstName = queryResultsFirstName.Read();
-
-
-
-                if (checkForValuesFirstName.Equals(false))
-                {
-                    //Check for last name if firstname is not found.
-                    queryResultsFirstName.Close();
-                    String queryLastName = "SELECT CustomerID, CustLastName, Customer.CustFirstName FROM Customer WHERE CustLastName = @CustLastName;";
-                    SqlCommand cmdLastName = new SqlCommand(queryLastName, con);
-                    cmdLastName.Parameters.AddWithValue("@CustLastName", txtCustSearch.Text);
-                    cmdLastName.ExecuteNonQuery();
-                    SqlDataReader queryResultsLastName = cmdLastName.ExecuteReader();
-                    bool checkForValuesLastName = queryResultsLastName.Read();
-                    //queryResultsLastName.Close();
-
-                    if (checkForValuesLastName.Equals(false))
-                    {
-                        //lblSearchStatus.Text = "No Results Found";
-                        queryResultsLastName.Close();
-                        //queryResultsFirstName.Close();
-                        con.Close();
-                    }
-                    else
-                    {
-                        conversionVariable = Convert.ToString(queryResultsLastName["CustomerID"]);
-                        //searchedCustID = int.Parse(conversionVariable);
-                        searchedCustID = conversionVariable;
-                        customerID = searchedCustID;
-                        queryResultsLastName.Close();
-                        queryResultsFirstName.Close();
-                        queryResultsFullName.Close();
-                        con.Close();
-                    }
-                }
-                else
-                {
-
-                    conversionVariable = Convert.ToString(queryResultsFirstName["CustomerID"]);
-                    searchedCustID = conversionVariable;
-                    customerID = searchedCustID;
-                    queryResultsFirstName.Close();
-
-                    con.Close();
-                }
-
-            }
-            else
-            {
-                conversionVariable = Convert.ToString(queryResultsFullName["CustomerID"]);
-                searchedCustID = conversionVariable;
-                customerID = searchedCustID;
-                queryResultsFullName.Close();
-                con.Close();
+                GridView2.DataSource = null;
+                GridView2.DataBind();
                 
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
 
-            }
 
-            SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con1.Open();
-            string query2 = ("Select CustFirstName,CustLastName,PhoneNumber,Email,CustAddress,CustCity,CustState,CustZip,CustomerID FROM Customer WHERE CustomerID ='" + searchedCustID + "';");
-            SqlCommand cmd1 = new SqlCommand(query2, con1);
-            SqlDataReader myReader3 = cmd1.ExecuteReader();
-            if (myReader3.HasRows)
-            {
-                while (myReader3.Read())
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+  
+                DataTable dtCustomerGridView = new DataTable();
+                sqlAdapter.Fill(dtCustomerGridView);
+
+                if (dtCustomerGridView.Rows.Count == 0)
                 {
-                    lblFirstName.Text = Convert.ToString(myReader3[0]);
-                    lblLastName.Text = Convert.ToString(myReader3[1]);
-                    lblPhoneNo.Text = Convert.ToString(myReader3[2]);
-                    lblEmail.Text = Convert.ToString(myReader3[3]);
-                    lblAddress.Text = Convert.ToString(myReader3[4]);
-                    lblCity.Text = Convert.ToString(myReader3[5]);
-                    lblState.Text = Convert.ToString(myReader3[6]);
-                    lblZip.Text = Convert.ToString(myReader3[7]);
-                    lblCustomerID.Text = Convert.ToString(myReader3[8]);
+                    lblStatus.Text = "No Customers Found with that Name!";
+                    
                 }
-                myReader3.Close();
+                GridView2.DataSource = dtCustomerGridView;
+                GridView2.DataBind();
+
+            }catch (Exception)
+            {
+               lblStatus.ForeColor = System.Drawing.Color.Red;
+                lblStatus.Text = "Error Searching for Customer";
             }
-            con1.Close();
-        }
 
-        protected void btnSelect_Click(object sender, EventArgs e)
-        {
-            Session["FName"] = lblFirstName.Text;
-            Session["LName"] = lblLastName.Text;
-            Session["PhoneNo"] = lblPhoneNo.Text;
-            Session["Email"] = lblEmail.Text;
-            Session["Address"] = lblAddress.Text;
-            Session["City"] = lblCity.Text;
-            Session["State"] = lblState.Text;
-            Session["Zip"] = lblZip.Text;
-            Session["ID"] = lblCustomerID.Text;
-            Session["Notes"] = txtNote.Text;
-            Response.Redirect("EmpLandingPage.aspx");
 
+
+            //SqlConnection con3 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            //con3.Open();
+
+            //SqlCommand cmd1 = new SqlCommand(sqlQuery, con3);
+            //SqlDataReader myReader3 = cmd1.ExecuteReader();
+            //if (myReader3.HasRows)
+            //{
+            //    while (myReader3.Read())
+            //    {
+            //        lblFirstName.Text = Convert.ToString(myReader3[0]);
+            //        lblLastName.Text = Convert.ToString(myReader3[1]);
+            //        lblPhoneNo.Text = Convert.ToString(myReader3[2]);
+            //        lblEmail.Text = Convert.ToString(myReader3[3]);
+            //        lblAddress.Text = Convert.ToString(myReader3[4]);
+            //        lblCity.Text = Convert.ToString(myReader3[5]);
+            //        lblState.Text = Convert.ToString(myReader3[6]);
+            //        lblZip.Text = Convert.ToString(myReader3[7]);
+            //        lblCustomerID.Text = Convert.ToString(myReader3[8]);
+            //    }
+            //    myReader3.Close();
+            //}
+            //con3.Close();
         }
+    
 
         protected void lnkAdd_Click(object sender, EventArgs e)
         {
@@ -155,6 +92,53 @@ namespace CapstoneProject
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
+            Session.Abandon();
+            Response.Redirect("LoginPage.aspx?loggedout=true");
+        }
+
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["FName"] = GridView2.SelectedRow.Cells[1].Text;
+            Session["LName"] = GridView2.SelectedRow.Cells[2].Text;
+            Session["PhoneNo"] = GridView2.SelectedRow.Cells[3].Text;
+            Session["Email"] = GridView2.SelectedRow.Cells[4].Text;
+            Session["Address"] = GridView2.SelectedRow.Cells[5].Text;
+            Session["City"] = GridView2.SelectedRow.Cells[6].Text;
+            Session["State"] = GridView2.SelectedRow.Cells[7].Text;
+            Session["Zip"] = GridView2.SelectedRow.Cells[8].Text;
+            Session["ID"] = GridView2.SelectedRow.Cells[9].Text;
+            Response.Redirect("EmpLandingPage.aspx");
+        }
+
+        protected void btnViewAll_Click(object sender, EventArgs e)
+        {
+            string hex = "#266141";
+            GridView2.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml(hex);
+            GridView2.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            try
+            {
+                GridView2.DataSource = null;
+                GridView2.DataBind();
+
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID FROM Customer;";
+
+
+                SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(sqlQuery, sqlConnect);
+
+                DataTable dtCustomerGridView = new DataTable();
+                sqlAdapter.Fill(dtCustomerGridView);
+
+                GridView2.DataSource = dtCustomerGridView;
+                GridView2.DataBind();
+
+            }
+            catch (Exception)
+            {
+                lblStatus.ForeColor = System.Drawing.Color.Red;
+                lblStatus.Text = "Error Searching for Customer";
+            }
 
         }
     }

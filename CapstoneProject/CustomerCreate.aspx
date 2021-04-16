@@ -10,7 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-               <div style="width: auto; margin: 0 20% ">
+        <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
+               <div style="width: auto; margin: 5% 25% ">
                 <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign ="Center" Width="719px">
         <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell ColumnSpan="2">
@@ -159,7 +160,8 @@
                 <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
-
+<asp:TableRow>
+</asp:TableRow>
     </asp:Table>
         </div>
     </form>

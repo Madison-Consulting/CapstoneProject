@@ -51,6 +51,15 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Button btnAddItemtoList;
 
         /// <summary>
+        /// ddlStorageLocations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStorageLocations;
+
+        /// <summary>
         /// chkbxBringIn control.
         /// </summary>
         /// <remarks>
@@ -292,5 +301,14 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCommitIntialAuction;
+
+        /// <summary>
+        /// datasrcStroageLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource datasrcStroageLocation;
     }
 }

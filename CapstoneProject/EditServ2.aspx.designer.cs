@@ -25,13 +25,21 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.Table tblAuctionInfo;
 
-        protected global::System.Web.UI.WebControls.ListBox lstboxTruckUsed;
+        protected global::System.Web.UI.WebControls.ListBox lstboxMoveTruckUsed;
 
-        protected global::System.Web.UI.WebControls.ListBox lstboxTruckInventory;
+        protected global::System.Web.UI.WebControls.ListBox lstboxMoveTruckInventory;
 
-        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentInventory;
+        protected global::System.Web.UI.WebControls.ListBox lstboxMoveEquipmentInventory;
 
-        protected global::System.Web.UI.WebControls.ListBox lstboxEquipmentUsed;
+        protected global::System.Web.UI.WebControls.ListBox lstboxMoveEquipmentUsed;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionTruckUsed;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionTruckInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionEquipmentInventory;
+
+        protected global::System.Web.UI.WebControls.ListBox lstboxAuctionEquipmentUsed;
 
         /// <summary>
         /// lblDropDownList control.
@@ -92,6 +100,8 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtItemDesc;
 
         protected global::System.Web.UI.WebControls.TextBox txtItemQuant;
+
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveFormID;
 
         /// <summary>
         /// txtNote control.
@@ -175,6 +185,10 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
 
         protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveServiceID;
+
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionServiceID;
+
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionItemID;
 
         /// <summary>
         /// RequiredFieldValidator10 control.
@@ -597,6 +611,9 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnlistDrivewayAccess;
 
+        protected global::System.Web.UI.WebControls.RadioButtonList radioBtnProcurement;
+
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPickup;
 
 
         /// <summary>

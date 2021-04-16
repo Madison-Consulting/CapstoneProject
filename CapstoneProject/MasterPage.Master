@@ -64,7 +64,7 @@
                             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="lblUserLoggedIn" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblUserLoggedIn" runat="server" Text="" Font-Bold="true"></asp:Label>
                         </asp:TableCell>
                         <asp:TableCell>
                                     <asp:Label ID="lblCustomer" runat="server" Text="You are currently filling out files for: "></asp:Label>
