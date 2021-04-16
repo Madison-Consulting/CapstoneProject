@@ -76,6 +76,10 @@
                     <asp:CompareValidator ID="CompareValidator13" runat="server" ErrorMessage="CompareValidator"
                         ControlToValidate="txtItemCost1" Operator="DataTypeCheck" Type="Currency" ForeColor="Red" Text="Enter a monetary value, excluding ($)!"></asp:CompareValidator>
                 </asp:TableCell>
+                <asp:TableCell>
+                        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
+                ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Can be only numbers" />
+                    </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -88,6 +92,10 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
+                <asp:TableCell>
+                        <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date" 
+                ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
+                    </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
