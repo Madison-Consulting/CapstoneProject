@@ -19,6 +19,7 @@ namespace CapstoneProject
             txtPhoneNo.Text = (string)Session["PhoneNo"];
             txtEmail.Text = (string)Session["Email"];
             txtCustID.Text = (string)Session["ID"];
+            txtServID.Text = (string)Session["ServID"];
 
             if ((string)Session["DestAddress"] != null)
             {
@@ -37,13 +38,16 @@ namespace CapstoneProject
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
-            String query2 = "Insert into Completion (Experience, AdditionalNotes, CustomerID) VALUES (@Exp, @Notes, @CustID);";
+            String query2 = "Insert into Completion (Experience, PaymentReceived, FinalCost, AdditionalNotes, ServiceID, CustomerID) VALUES (@Exp, @Pay, @Cost, @Notes, @ServID, @CustID);";
             SqlCommand cmd = new SqlCommand(query2, con);
 
             cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustID.Text));
             cmd.Parameters.AddWithValue("@Exp", HttpUtility.HtmlEncode(rdobtnPosNeg.SelectedValue));
             cmd.Parameters.AddWithValue("@Notes", HttpUtility.HtmlEncode(txtComments.Text));
-        
+            cmd.Parameters.AddWithValue("@Pay", HttpUtility.HtmlEncode(rdoYN.SelectedValue));
+            cmd.Parameters.AddWithValue("@Cost", HttpUtility.HtmlEncode(txtFinalCost.Text));
+            cmd.Parameters.AddWithValue("@ServID", HttpUtility.HtmlEncode(txtServID.Text));
+
 
             cmd.ExecuteNonQuery();
             con.Close();

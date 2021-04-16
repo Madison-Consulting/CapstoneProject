@@ -213,6 +213,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtMovingAddress;
 
         /// <summary>
+        /// lblMovingAddress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMovingAddress2;
+
+        /// <summary>
+        /// txtMovingAddress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovingAddress2;
+
+        /// <summary>
         /// lblMovingCity control.
         /// </summary>
         /// <remarks>

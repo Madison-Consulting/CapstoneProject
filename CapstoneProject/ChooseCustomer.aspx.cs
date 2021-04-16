@@ -35,7 +35,7 @@ namespace CapstoneProject
                 GridView2.DataSource = null;
                 GridView2.DataBind();
                 
-                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address',  CustAddress2 as 'Address 2', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -104,18 +104,27 @@ namespace CapstoneProject
             Session["PhoneNo"] = GridView2.SelectedRow.Cells[3].Text;
             Session["Email"] = GridView2.SelectedRow.Cells[4].Text;
             Session["Address"] = GridView2.SelectedRow.Cells[5].Text;
-            Session["City"] = GridView2.SelectedRow.Cells[6].Text;
-            Session["State"] = GridView2.SelectedRow.Cells[7].Text;
-            Session["Zip"] = GridView2.SelectedRow.Cells[8].Text;
-            Session["ID"] = GridView2.SelectedRow.Cells[9].Text;
-
-          if (GridView2.SelectedRow.Cells[10].Text == null)
+            if (GridView2.SelectedRow.Cells[6].Text == null)
             {
-                Session["Notes"] = Server.HtmlDecode(GridView2.SelectedRow.Cells[10].Text);
+                Session["Address2"] = null;
+
             }
             else
             {
-                Session["Notes"] = GridView2.SelectedRow.Cells[10].Text;
+                Session["Address2"] = GridView2.SelectedRow.Cells[6].Text;
+            }
+            Session["City"] = GridView2.SelectedRow.Cells[7].Text;
+            Session["State"] = GridView2.SelectedRow.Cells[8].Text;
+            Session["Zip"] = GridView2.SelectedRow.Cells[9].Text;
+            Session["ID"] = GridView2.SelectedRow.Cells[10].Text;
+
+            if (GridView2.SelectedRow.Cells[11].Text == null)
+            {
+                Session["Notes"] = Server.HtmlDecode(GridView2.SelectedRow.Cells[11].Text);
+            }
+            else
+            {
+                Session["Notes"] = GridView2.SelectedRow.Cells[11].Text;
                 
             }
           
@@ -134,7 +143,7 @@ namespace CapstoneProject
                 GridView2.DataSource = null;
                 GridView2.DataBind();
 
-                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer;";
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustAddress2 as 'Address 2' , CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer;";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

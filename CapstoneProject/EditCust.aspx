@@ -5,8 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%--            Form to Add Customer Data--%>
-     <div style="width: auto; margin: 20px 20%; left:450px;">
-<%--        <asp:Table ID="Table3" runat="server">
+    <div style="width: auto; margin: 20px 20%; left: 450px;">
+        <%--        <asp:Table ID="Table3" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDropDown" runat="server" Text="Choose a Customer to View"></asp:Label>
@@ -114,6 +114,14 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
+                    <asp:Label ID="lblAddress2" runat="server" Text="Address Line 2"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
                     <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
@@ -170,7 +178,7 @@
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
-<%--            <asp:TableRow HorizontalAlign="center">
+            <%--            <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnAddService" class="btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
@@ -181,7 +189,7 @@
                     </asp:TableCell>
                 </asp:TableRow>--%>
         </asp:Table>
-<%--        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
+        <%--        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>

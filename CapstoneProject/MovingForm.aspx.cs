@@ -18,6 +18,7 @@ namespace CapstoneProject
                 txtFirstName.Text = (string)Session["FName"];
                 txtLastName.Text = (string)Session["LName"];
                 txtOriginAddress.Text = (string)Session["Address"];
+                txtOriginAddress2.Text = (string)Session["Address2"];
                 txtOriginCity.Text = (string)Session["City"];
                 txtOriginState.Text = (string)Session["State"];
               
@@ -98,6 +99,7 @@ namespace CapstoneProject
             Response.Redirect("MoveFormPt2.aspx");
 
             Session["DestAddress"] = txtDestinationAddress.Text;
+            Session["DestAddress2"] = txtDestinationAddress2.Text;
             Session["DestCity"] = txtDestinationCity.Text;
             Session["DestState"] = txtDestinationState.Text;
             Session["DestZip"] = txtDestinationZip.Text;

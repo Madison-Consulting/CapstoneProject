@@ -91,7 +91,7 @@ namespace Lab3
             string selectedItems = String.Join(",", chkService.Items.OfType<ListItem>().Where(r => r.Selected)
           .Select(r => r.Text));
 
-            String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, " +
+            String sqlquery = "UPDATE Customer SET InitialContact = @InitialContact, InterestedService = @InterestedService, HearAbout = @HearAbout, MoveAddress = @MoveAddress, MoveAddress2 = @MoveAddress2, " +
                 "MoveCity =  @MoveCity, MoveState = @MoveState, MoveZip = @MoveZip, DateTimeInitial = @DateTimeInitial, Deadline = @Deadline, Time1 = @Time1, Deadline2 = @Deadline2, " +
                 "Time2 = @Time2 WHERE Customer.CustomerID = @CustID;";
 
@@ -107,6 +107,7 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@InterestedService", selectedItems);
             cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(ddlHearAbout.SelectedValue));
             cmd.Parameters.AddWithValue("@MoveAddress", HttpUtility.HtmlEncode(txtMovingAddress.Text));
+            cmd.Parameters.AddWithValue("@MoveAddress2", HttpUtility.HtmlEncode(txtMovingAddress2.Text));
             cmd.Parameters.AddWithValue("@MoveCity", HttpUtility.HtmlEncode(txtMovingCity.Text));
             cmd.Parameters.AddWithValue("@MoveState", HttpUtility.HtmlEncode(txtMovingState.Text));
             cmd.Parameters.AddWithValue("@MoveZip", HttpUtility.HtmlEncode(txtMovingZip.Text));

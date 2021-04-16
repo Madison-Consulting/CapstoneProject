@@ -13,7 +13,7 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            txtCustName.Text = (string)Session["LName"];
         }
 
         //protected void btnViewAllServices_Click(object sender, EventArgs e)

@@ -59,13 +59,14 @@ namespace Lab2
                 txtNote.Text = (string)Session["Notes"];
 
             }
-                string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
-                lblCustomerName.Text = fullName;
+                
             
             //check if user is logged in
             if (Session["UserName"] != null)
             {
                 lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully logged in";
+                string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
+                lblCustomerName.Text = fullName;
             }
             else
             {
@@ -127,5 +128,6 @@ namespace Lab2
 
             Session["Notes"] = txtNote.Text;
         }
+
     }
 }

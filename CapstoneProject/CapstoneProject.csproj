@@ -87,7 +87,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomerCreate.aspx" />
     <Content Include="CustomerLogin.aspx" />
-    <Content Include="CustomerSearch.aspx" />
     <Content Include="CustomerServInfo.aspx" />
     <Content Include="CustomerServInfo1.aspx" />
     <Content Include="EditCust.aspx" />
@@ -291,13 +290,6 @@
     </Compile>
     <Compile Include="CustomerLogin.aspx.designer.cs">
       <DependentUpon>CustomerLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CustomerSearch.aspx.cs">
-      <DependentUpon>CustomerSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerSearch.aspx.designer.cs">
-      <DependentUpon>CustomerSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerServInfo.aspx.cs">
       <DependentUpon>CustomerServInfo.aspx</DependentUpon>

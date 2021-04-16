@@ -76,6 +76,14 @@
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
+                       <asp:TableCell>
+                        <asp:Label ID="lblAddress2" runat="server" Text="Address Line 2"></asp:Label>
+                    </asp:TableCell>
+                      <asp:TableCell>
+                          <asp:TextBox ID="txtAddress2" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                     </asp:TableCell>

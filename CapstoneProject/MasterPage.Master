@@ -84,6 +84,7 @@
                                       <a class="dropdown-item" href="/NewEmployee.aspx">Add a New Employee</a>
                              <%--         <a class="dropdown-item" href="/SchedulingForm.aspx">Scheduling Form</a>--%>
                                     <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>
+                                      <a class="dropdown-item" onclick="window.open('outlookcal:')">Open Outlook Calendar</a>
                                       
                                   </div>
                                 </div>
@@ -120,7 +121,7 @@
 
             <div id="ftr">
 
-                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1200px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
+                <asp:Table ID="footer" runat="server" BackColor="#266141" Width="1000px" BorderWidth="3px" HorizontalAlign="Center" style="position:relative; left:200px;">
                     <asp:TableRow>
                         <asp:TableCell>
                             <asp:Label ID="GVA" ForeColor="White" Font-Bold="true" runat="server" Text="Green Valley Auctions"></asp:Label>

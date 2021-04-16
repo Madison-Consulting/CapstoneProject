@@ -36,6 +36,7 @@ namespace Lab2
         {
             Random rnd = new Random();
             int ServID = rnd.Next(100000, 1000000);
+            Session["ServID"] = ServID.ToString();
 
             Random rnd2 = new Random();
             int ServTicketID = rnd2.Next(10000, 100000);

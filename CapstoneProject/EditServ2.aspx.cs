@@ -235,8 +235,8 @@ namespace Lab2
             con.Open();
 
             //load data from MoveForm table
-            string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, ";
-            viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationCity, ";
+            string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, MoveForm.OriginaAddress2,";
+            viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationAddress2, MoveForm.DestinationCity, ";
             viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
             viewMoveInfo += "MoveForm.HomeType, MoveForm.LoadingCondition, MoveForm.TruckDistance, MoveForm.Accessibility ";
             viewMoveInfo += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
@@ -252,20 +252,22 @@ namespace Lab2
             txtCustomer.Text = dtMoveInfo.Rows[0][0].ToString();
             txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString();
             txtOriginAddress.Text = dtMoveInfo.Rows[0][2].ToString();
-            txtOriginCity.Text = dtMoveInfo.Rows[0][3].ToString();
-            txtOriginState.Text = dtMoveInfo.Rows[0][4].ToString();
-            txtOriginZip.Text = dtMoveInfo.Rows[0][5].ToString();
-            txtDestinationAddress.Text = dtMoveInfo.Rows[0][6].ToString();
-            txtDestinationCity.Text = dtMoveInfo.Rows[0][7].ToString();
-            txtDestinationState.Text = dtMoveInfo.Rows[0][8].ToString();
-            txtDestinationZip.Text = dtMoveInfo.Rows[0][9].ToString();
-            txtFoodCost.Text = dtMoveInfo.Rows[0][10].ToString();
-            txtFuelCost.Text = dtMoveInfo.Rows[0][11].ToString();
-            txtLodgingCost.Text = dtMoveInfo.Rows[0][12].ToString();
-            txtHomeType.Text = dtMoveInfo.Rows[0][13].ToString();
-            txtLoadingCondition.Text = dtMoveInfo.Rows[0][14].ToString();
-            txtTruckDistance.Text = dtMoveInfo.Rows[0][15].ToString();
-            rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][16].ToString();
+            txtOriginAddress2.Text = dtMoveInfo.Rows[0][3].ToString();
+            txtOriginCity.Text = dtMoveInfo.Rows[0][4].ToString();
+            txtOriginState.Text = dtMoveInfo.Rows[0][5].ToString();
+            txtOriginZip.Text = dtMoveInfo.Rows[0][6].ToString();
+            txtDestinationAddress.Text = dtMoveInfo.Rows[0][7].ToString();
+            txtDestinationAddress2.Text = dtMoveInfo.Rows[0][8].ToString();
+            txtDestinationCity.Text = dtMoveInfo.Rows[0][9].ToString();
+            txtDestinationState.Text = dtMoveInfo.Rows[0][10].ToString();
+            txtDestinationZip.Text = dtMoveInfo.Rows[0][11].ToString();
+            txtFoodCost.Text = dtMoveInfo.Rows[0][12].ToString();
+            txtFuelCost.Text = dtMoveInfo.Rows[0][13].ToString();
+            txtLodgingCost.Text = dtMoveInfo.Rows[0][14].ToString();
+            txtHomeType.Text = dtMoveInfo.Rows[0][15].ToString();
+            txtLoadingCondition.Text = dtMoveInfo.Rows[0][16].ToString();
+            txtTruckDistance.Text = dtMoveInfo.Rows[0][17].ToString();
+            rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][18].ToString();
 
             //load data from EquipmentUsed table
             string viewMoveEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription ";
