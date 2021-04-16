@@ -18,7 +18,7 @@
              
     </asp:Table>--%>
 
-    <div style="width: auto; margin: 0 20%">
+    <div style="width: auto; margin: 20px 20%">
         <asp:Table ID="Table5" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -27,7 +27,7 @@
             </asp:TableRow>
         </asp:Table>
 
-        <asp:Table ID="tblDropInv" runat="server">
+        <%--       <asp:Table ID="tblDropInv" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDropDownListnv" runat="server" Text="Choose a Service to View Inventory For"></asp:Label>
@@ -42,15 +42,39 @@
                     </asp:DropDownList>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
 
-        <asp:SqlDataSource ID="datasrcInvList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustLastName + ' ' + Service.ServiceDate as fullDate, Customer.CustomerID FROM Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID WHERE Service.ServiceType = 'Move'"></asp:SqlDataSource>
+        <%--        <asp:SqlDataSource ID="datasrcInvList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT Customer.CustLastName + ' ' + Service.ServiceDate as fullDate, Customer.CustomerID FROM Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID WHERE Service.ServiceType = 'Move'"></asp:SqlDataSource>--%>
 
 
         <asp:Table ID="Table1" runat="server" Width="654px">
             <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Label ID="lblAddInv" runat="server" Text="Add an Item into Inventory" Font-Size="X-Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtFirstName" runat="server" ReadOnly="true"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtFirstName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtLastName" runat="server" ReadOnly="true"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtLastName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -62,7 +86,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtItemName1" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtItemName1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -82,23 +106,11 @@
                     <asp:Label ID="lblInventoryDate" runat="server" Text="Inventory Date"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtInventoryDate1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtInventoryDate1" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblCustName" runat="server" Text="Customer Last Name"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtCustName" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtCustName" SetFocusOnError="true" ForeColor="Red" Text="Textfield Cannot be blank!"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -106,14 +118,22 @@
                     <asp:TextBox ID="txtServiceID1" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtCustID" runat="server" Visible="false"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnAddInv" class="btn-GreenValleyGreen" runat="server" Text="Add" OnClick="btnAddInv_Click" />
                 </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnViewAllInv" class="btn-GreenValleyGreen" runat="server" Text="View All Items in Inventory" OnClick="btnViewAllInv_Click" CausesValidation="false" />
+                    <asp:Button ID="btnViewAllInv" class="btn-GreenValleyGreen" runat="server" Text="View All Items in Inventory for this Customer" OnClick="btnViewAllInv_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
