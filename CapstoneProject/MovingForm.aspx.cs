@@ -96,6 +96,12 @@ namespace CapstoneProject
                 lblStatus.Text = "Please fill all fields";
 
             Response.Redirect("MoveFormPt2.aspx");
+
+            Session["DestAddress"] = txtDestinationAddress.Text;
+            Session["DestCity"] = txtDestinationCity.Text;
+            Session["DestState"] = txtDestinationState.Text;
+            Session["DestZip"] = txtDestinationZip.Text;
+
         }
 
         protected void btnAddTruck_Click(object sender, EventArgs e)

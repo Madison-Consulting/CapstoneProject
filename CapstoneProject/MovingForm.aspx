@@ -122,6 +122,17 @@
 
             </asp:TableCell>
         </asp:TableRow>
+                 <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="lblDestinationZip" runat="server" Text="Destination Zip: "></asp:Label>
+
+            </asp:TableCell>
+
+            <asp:TableCell>
+              <asp:TextBox ID="txtDestinationZip" runat="server"></asp:TextBox>
+
+            </asp:TableCell>
+        </asp:TableRow>
 
          <asp:TableRow>
             <asp:TableCell>

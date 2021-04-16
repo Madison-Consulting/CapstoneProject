@@ -222,6 +222,24 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtDestinationState;
 
         /// <summary>
+        /// lblDestinationZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDestinationZip;
+
+        /// <summary>
+        /// txtDestinationZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDestinationZip;
+
+        /// <summary>
         /// lblMlsList control.
         /// </summary>
         /// <remarks>

@@ -31,6 +31,7 @@
          <div class="dropdown-container">
              <asp:HyperLink ID="HyperLink4" href="/AddServ.aspx" runat="server">Add a Service Event</asp:HyperLink>
              <asp:HyperLink ID="HyperLink5" href="/EditServ2.aspx" runat="server">Edit or View Existing Service</asp:HyperLink>
+             <asp:HyperLink ID="HyperLink12" href="/Completion.aspx" runat="server">Complete Service Form</asp:HyperLink>
          </div>
 
          <asp:HyperLink ID="HyperLink6" href="/Inventory.aspx" runat="server">Move Inventory</asp:HyperLink>
@@ -81,7 +82,9 @@
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="/testNotifications.aspx">New Service Requests</a>
                                       <a class="dropdown-item" href="/NewEmployee.aspx">Add a New Employee</a>
+                             <%--         <a class="dropdown-item" href="/SchedulingForm.aspx">Scheduling Form</a>--%>
                                     <a class="dropdown-item" href="/LoginPage.aspx" onclick="btnLogout_Click">Logout</a>
+                                      
                                   </div>
                                 </div>
                             </asp:TableCell>

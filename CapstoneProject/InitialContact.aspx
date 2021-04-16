@@ -46,12 +46,19 @@
                     <asp:Label ID="lblHearAbout" runat="server" Text="How did the Customer Hear About Us?"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtHearAbout" runat="server"></asp:TextBox>
+                    <asp:DropDownList id="ddlHearAbout" runat="server">
+                          <asp:ListItem Selected="true" Value="Select">--Select--</asp:ListItem>
+                        <asp:ListItem Value="Realtor">Realtor</asp:ListItem>
+                        <asp:ListItem Value="Facebook">Facebook</asp:ListItem>
+                        <asp:ListItem Value="Google">Google</asp:ListItem>
+                        <asp:ListItem Value="Website">Website</asp:ListItem>
+                        <asp:ListItem Value="Newspaper">Newspaper</asp:ListItem>
+                        <asp:ListItem Value="Word of Mouth">Word of Mouth</asp:ListItem>
+                        <asp:ListItem Value="Mailings">Mailings</asp:ListItem>
+                        <asp:ListItem Value="Other">other</asp:ListItem>
+                    </asp:DropDownList>
                 </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtHearAbout" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
+
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>

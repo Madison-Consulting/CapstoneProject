@@ -105,7 +105,7 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustomerID.Text));
             cmd.Parameters.AddWithValue("@InitialContact", ddlContact.SelectedItem.Text);
             cmd.Parameters.AddWithValue("@InterestedService", selectedItems);
-            cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(txtHearAbout.Text));
+            cmd.Parameters.AddWithValue("@HearAbout", HttpUtility.HtmlEncode(ddlHearAbout.SelectedValue));
             cmd.Parameters.AddWithValue("@MoveAddress", HttpUtility.HtmlEncode(txtMovingAddress.Text));
             cmd.Parameters.AddWithValue("@MoveCity", HttpUtility.HtmlEncode(txtMovingCity.Text));
             cmd.Parameters.AddWithValue("@MoveState", HttpUtility.HtmlEncode(txtMovingState.Text));

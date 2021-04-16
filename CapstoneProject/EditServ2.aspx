@@ -88,6 +88,7 @@
                     <asp:Button ID="btnHistory" class= "btn-GreenValleyGreen" runat="server" Text="View Full Service History" OnClick="btnHistory_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>
+            </asp:Table>
 
 <%--        </asp:Table>
          <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
