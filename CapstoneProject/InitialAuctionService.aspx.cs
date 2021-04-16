@@ -50,6 +50,9 @@ namespace CapstoneProject
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
+            //need to retrieve the AuctionID before inserting below items into AuctionInventory (session variable possibly?)
+            //or maybe we should have the AuctionForm.aspx feed into this form
+            //We need the AuctionID because AuctionInventory now references AuctionSchedule through AuctionID
             String query = "INSERT INTO AuctionInventory (ItemDescription, LocationID)" +
     "VALUES (@ItemDescription, @LocationID)";
             SqlCommand cmd = new SqlCommand(query, con);

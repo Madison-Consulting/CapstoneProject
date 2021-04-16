@@ -110,11 +110,29 @@ namespace CapstoneProject
         {
             //if (!ddlCustomer.SelectedValue.Equals(""))
             {
-                string truckAcc;
-
-
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
+
+                //mike added this 4/16 after DB changes
+                //adding event to service table first, then retrieving the serviceID of that event and
+                //using that serviceID in the AuctionSchedule insert statement
+
+                string insertServiceStatement = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate) VALUES " +
+                    "(@CustomerID, @ServiceType, @ServiceDate)";
+                SqlCommand cmdInsertService = new SqlCommand(insertServiceStatement, con);
+                cmdInsertService.Parameters.AddWithValue("@CustomerID", txtCustomerID.Text);
+                cmdInsertService.Parameters.AddWithValue("@ServiceType", "Auction");
+                cmdInsertService.Parameters.AddWithValue("@ServiceDate", txtAuctionDate.Text);
+                cmdInsertService.ExecuteNonQuery();
+
+                //find ServiceID ^ for most recent insert
+                SqlDataAdapter daForServiceID = new SqlDataAdapter("SELECT MAX(ServiceID) FROM Service", con);
+                DataTable dtForServiceID = new DataTable();
+                daForServiceID.Fill(dtForServiceID);
+                string currentServiceID = dtForServiceID.Rows[0][0].ToString();
+
+
+                string truckAcc;
 
                 if (radioBtnProcurement.SelectedValue.Equals("bringin"))
                 {
@@ -125,10 +143,11 @@ namespace CapstoneProject
 
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
-
+                    cmd.Parameters.AddWithValue("@ServiceID", currentServiceID);
                     cmd.ExecuteNonQuery();
+
+                    
                 }
                 else
                 {
@@ -142,9 +161,9 @@ namespace CapstoneProject
                     //cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
                     cmd.Parameters.AddWithValue("@TruckAcc", radioBtnTruckAccess.SelectedValue);
                     cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
+                    cmd.Parameters.AddWithValue("@ServiceID", currentServiceID);
                     //Later maybe change crew Crew Table
                     cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
 
