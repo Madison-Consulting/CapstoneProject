@@ -35,7 +35,7 @@ namespace CapstoneProject
                 GridView2.DataSource = null;
                 GridView2.DataBind();
                 
-                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -108,6 +108,14 @@ namespace CapstoneProject
             Session["State"] = GridView2.SelectedRow.Cells[7].Text;
             Session["Zip"] = GridView2.SelectedRow.Cells[8].Text;
             Session["ID"] = GridView2.SelectedRow.Cells[9].Text;
+
+          
+            Session["Notes"] = GridView2.SelectedRow.Cells[10].Text;
+
+            if (GridView2.SelectedRow.Cells[10].Text == null)
+            {
+                Session["Notes"] = ' ';
+            }
             Response.Redirect("EmpLandingPage.aspx");
         }
 
@@ -121,7 +129,7 @@ namespace CapstoneProject
                 GridView2.DataSource = null;
                 GridView2.DataBind();
 
-                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID FROM Customer;";
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer;";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

@@ -13,13 +13,13 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-     
+            
 
             if (!IsPostBack)
             {
                 txtFN.Text = (string)Session["FName"];
                 txtLN.Text = (string)Session["LName"];
-                txtCustomerID.Text = (string)Session["ID"];
+                txtCustomerID.Text = (string)Session["ID"];          
                 txtDateTime.Text = DateTime.Now.ToString();                        
             }
          
@@ -84,28 +84,7 @@ namespace Lab3
         //    }
         //}
 
-        protected void ClearAllText(Control p1)
-        {
-            foreach (Control ClearText in p1.Controls)
-            {
-                if (ClearText is TextBox)
-                {
-                    TextBox t = ClearText as TextBox;
 
-                    if (t != null)
-                    {
-                        t.Text = String.Empty;
-                    }
-                }
-                else
-                {
-                    if (ClearText.Controls.Count > 0)
-                    {
-                        ClearAllText(ClearText);
-                    }
-                }
-            }
-        }
 
         protected void btnSaveInitial_Click(object sender, EventArgs e)
         {
@@ -137,6 +116,7 @@ namespace Lab3
             cmd.Parameters.AddWithValue("@Deadline2", HttpUtility.HtmlEncode(txtDeadline2.Text));
             cmd.Parameters.AddWithValue("@Time2", HttpUtility.HtmlEncode(txtTime2.Text));
 
+
             con.Open();
 
             cmd.ExecuteNonQuery();
@@ -145,6 +125,7 @@ namespace Lab3
 
             lblStatus.Text = "Initial Contact Information Added Successfully";
 
+          
 
         }
         //protected void rdobtnServ_SelectedIndexChanged1(object sender, EventArgs e)

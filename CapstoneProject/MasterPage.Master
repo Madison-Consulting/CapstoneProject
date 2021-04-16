@@ -90,6 +90,29 @@
                             </asp:TableCell>
                         </asp:TableRow>
              </asp:Table>
+
+                    <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 80px;">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="150px" Height="100"></asp:TextBox>
+                </asp:TableCell>             
+            </asp:TableRow>
+                        <asp:TableRow HorizontalAlign="Center">
+                            <asp:TableCell>
+                                <asp:Button ID="btnSaveNotes" runat="server" Text="Save Notes" OnClick="btnSaveNotes_Click" class="btn-GreenValleyGreen" CausesValidation="false"/>
+                            </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow HorizontalAlign="Center">
+                            <asp:TableCell>
+                                <asp:Label ID="lblNotesSaved" runat="server" Text=""></asp:Label>
+                            </asp:TableCell>
+                        </asp:TableRow>
+        </asp:Table>
      
             </div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

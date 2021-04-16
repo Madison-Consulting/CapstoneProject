@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.Configuration;
 
 namespace CapstoneProject
 {
@@ -60,9 +61,14 @@ namespace CapstoneProject
                     }
                     myReader3.Close();
                 }
+
                 con1.Close();
+            btnViewPhotos.Enabled = true;
             }
 
+
+
+       
         protected void btnChoose_Click(object sender, EventArgs e)
         {
             Session["FName"] = lblFN.Text;
@@ -77,6 +83,22 @@ namespace CapstoneProject
             Session["Notes"] = lblDetails.Text;
             Session["Date"] = lblDate.Text;
             Response.Redirect("EmpLandingPage.aspx");
+        }
+
+        protected void btnViewPhotos_Click(object sender, EventArgs e)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["Lab3"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter("SELECT Image FROM CustPhotos where CustomerID = '" + txtCustID.Text + "'", conn)) 
+
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    gvImages.DataSource = dt;
+                    gvImages.DataBind();
+                }
+            }
         }
     }
     }

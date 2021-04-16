@@ -89,7 +89,7 @@
                 </asp:TableCell>
             </asp:TableRow>
 
-        </asp:Table>
+<%--        </asp:Table>
          <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
@@ -101,7 +101,7 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="200px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
 
 
         

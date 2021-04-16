@@ -33,7 +33,7 @@
          <asp:TableRow>
 
             <asp:TableCell>
-                <asp:Label ID="lblDateTime" runat="server" Text="What is the date you have to be out of your current address?: "></asp:Label>
+                <asp:Label ID="lblDateTime" runat="server" Text="What is the date you have to be out of your current address? "></asp:Label>
             </asp:TableCell>
 
             <asp:TableCell>
@@ -203,7 +203,7 @@
 
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblDistance" runat="server" Text="How far is the walk to the door: "></asp:Label>
+                <asp:Label ID="lblDistance" runat="server" Text="How far is the walk to the door? "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtDistance" runat="server"></asp:TextBox>
@@ -248,8 +248,8 @@
                                 AutoPostBack="false"></asp:ListBox>
                         </asp:TableCell>
                         <asp:TableCell Width="90">
-                            <asp:Button ID="btnAddTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click" />
-                            <asp:Button ID="btnRemoveTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click" />
+                            <asp:Button ID="btnAddTruck" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddTruck_Click" />
+                            <asp:Button ID="btnRemoveTruck" class="btn-GreenValleyGreen" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveTruck_Click" />
                         </asp:TableCell>
                         <asp:TableCell Width="180">
                             <asp:ListBox ID="lstboxTruckInventory" runat="server"
@@ -285,8 +285,8 @@
                                 AutoPostBack="false"></asp:ListBox>
                         </asp:TableCell>
                         <asp:TableCell Width="90">
-                            <asp:Button ID="btnAddEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click" />
-                            <asp:Button ID="btnRemoveEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click" />
+                            <asp:Button ID="btnAddEquipment" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddEquipment_Click" />
+                            <asp:Button ID="btnRemoveEquipment" class="btn-GreenValleyGreen" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveEquipment_Click" />
                         </asp:TableCell>
                         <asp:TableCell Width="180">
                             <asp:ListBox ID="lstboxEquipmentInventory" runat="server"
@@ -312,7 +312,7 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-                        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 120px; right: 50px;">
+<%--                        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 120px; right: 50px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -323,7 +323,7 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="150px" Height="140"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
 
         <asp:SqlDataSource runat="server"
             ID="dtasrcCustomer"

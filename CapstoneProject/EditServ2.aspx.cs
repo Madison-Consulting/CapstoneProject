@@ -16,6 +16,7 @@ namespace Lab2
         {
           
                 txtDateTime.Text = DateTime.Now.ToString();
+            
 
         }
 

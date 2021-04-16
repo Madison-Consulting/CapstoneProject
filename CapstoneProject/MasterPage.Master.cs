@@ -14,7 +14,11 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (!IsPostBack)
+            {
+                txtNote.Text = (string)Session["Notes"];
+
+            }
                 string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
                 lblCustomerName.Text = fullName;
             
@@ -128,6 +132,31 @@ namespace Lab2
             //    }
             //}
 
+        }
+
+        protected void btnSaveNotes_Click(object sender, EventArgs e)
+        {
+            String sqlquery = "UPDATE Customer SET Note = @Note WHERE Customer.CustomerID = @CustID;";
+
+
+
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            SqlCommand cmd = new SqlCommand(sqlquery, con);
+
+
+            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
+            cmd.Parameters.AddWithValue("@CustID", (string)Session["ID"]);
+          
+
+            con.Open();
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            lblNotesSaved.Text = "Notes Saved Successfully";
+
+            Session["Notes"] = txtNote.Text;
         }
     }
 }

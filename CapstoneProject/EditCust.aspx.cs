@@ -24,7 +24,7 @@ namespace Lab2
                 txtState.Text = (string)Session["State"];
                 txtZip.Text = (string)Session["Zip"];
                 txtCustomerID.Text = (string)Session["ID"];
-                txtNote.Text = (string)Session["Notes"];
+            
             }
         }
 
@@ -60,6 +60,7 @@ namespace Lab2
                 cmd.Parameters.AddWithValue("@City", HttpUtility.HtmlEncode(txtCity.Text));
                 cmd.Parameters.AddWithValue("@State", HttpUtility.HtmlEncode(txtState.Text));
                 cmd.Parameters.AddWithValue("@ZipCode", HttpUtility.HtmlEncode(txtZip.Text));
+                
                 cmd.ExecuteNonQuery();
                 con.Close();
 

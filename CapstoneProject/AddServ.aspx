@@ -119,10 +119,13 @@
                 <asp:TableCell>
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
+                         <asp:TableCell>
+                    <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
+                </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
 
-        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 200px;">
+<%--        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 200px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -134,11 +137,9 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
+       
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
 
     </div>
     <asp:SqlDataSource runat="server"

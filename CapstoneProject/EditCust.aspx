@@ -181,7 +181,7 @@
                     </asp:TableCell>
                 </asp:TableRow>--%>
         </asp:Table>
-        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
+<%--        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -192,6 +192,6 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>
+        </asp:Table>--%>
     </div>
 </asp:Content>

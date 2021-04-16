@@ -27,7 +27,7 @@ namespace CapstoneProject
                 txtState.Text = (string)Session["State"];
                 txtZip.Text = (string)Session["Zip"];
                 txtCustomerID.Text = (string)Session["ID"];
-                txtNote.Text = (string)Session["Notes"];
+              
             }
 
         }

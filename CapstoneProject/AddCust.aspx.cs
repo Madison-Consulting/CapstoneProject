@@ -38,8 +38,8 @@ namespace CapstoneProject
 
 
             String query = "INSERT INTO Customer (CustFirstName,CustLastName,PhoneType, PhoneNumber,Email,CustAddress," +
-                "CustCity,CustState,CustZip,CustomerID) " +
-                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @City, @State, @ZipCode, @CustomerID)";
+                "CustCity,CustState,CustZip,CustomerID, Note) " +
+                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @City, @State, @ZipCode, @CustomerID, @Note)";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
@@ -52,6 +52,7 @@ namespace CapstoneProject
             cmd.Parameters.AddWithValue("@State", HttpUtility.HtmlEncode(txtState.Text));
             cmd.Parameters.AddWithValue("@ZipCode", HttpUtility.HtmlEncode(txtZip.Text));
             cmd.Parameters.AddWithValue("@PhoneType", rdoPhoneType.SelectedValue);
+            cmd.Parameters.AddWithValue("@Note", HttpUtility.HtmlEncode(txtNote.Text));
 
 
             cmd.ExecuteNonQuery();

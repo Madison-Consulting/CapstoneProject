@@ -13,7 +13,7 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         //protected void btnViewAllServices_Click(object sender, EventArgs e)

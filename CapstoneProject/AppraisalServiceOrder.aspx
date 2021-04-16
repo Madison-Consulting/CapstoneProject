@@ -3,6 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20%;"">
+
+<%--                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 206px; right: 329px;" Width="120px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="8" Width="250px"></asp:TextBox>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>--%>
+
             <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; height: 257px; width: 723px; margin:10px;">
                 <asp:TableRow>
                     <asp:TableCell>
@@ -94,19 +108,6 @@
                     </asp:TableCell>
                     </asp:TableRow>
                     </asp:Table>
-
-                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 166px; right: 80px;" Width="120px">
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell>
-                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="8" Width="250px"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
 
     <asp:Table ID="tblAppraisalAssessment" runat="server" Width="551px"  Style="top:360px; left: 250px; margin:10px;">
           <asp:TableRow>
