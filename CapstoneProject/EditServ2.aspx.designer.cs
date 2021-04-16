@@ -111,6 +111,8 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.TextBox txtHiddenMoveItemID;
 
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionCrewSize;
+
         /// <summary>
         /// txtNote control.
         /// </summary>
@@ -677,6 +679,12 @@ namespace Lab2
 
         protected global::System.Web.UI.WebControls.TextBox txtMoveItemDesc;
 
+        protected global::System.Web.UI.WebControls.TextBox txtAuctionDate;
+
+        protected global::System.Web.UI.WebControls.TextBox txtPhotoSpot;
+
+
+
         /// <summary>
         /// lblDateTime control.
         /// </summary>
@@ -775,6 +783,10 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rdoServType;
+
+        protected global::System.Web.UI.WebControls.RadioButtonList radioBtnTruckAccess;
+
+
         /// <summary>
         /// txtServTicketID control.
         /// </summary>

@@ -585,7 +585,7 @@ namespace Lab2
 
                 //load data from AuctionInventory table
                 string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
-                viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
+                viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.AuctionID ";
                 viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
                 viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
 
@@ -598,10 +598,21 @@ namespace Lab2
                 txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
                 txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
                 txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
+                string auctionID = dtAuctInfo.Rows[0][4].ToString();
 
-                //load data from auction
+                //load data from auctionSchedule table
                 string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew FROM AuctionSchedule " +
-                    "WHERE AuctionID = ";
+                    "WHERE AuctionID = " + auctionID;
+                SqlCommand cmdViewAuctionScheduleInfo = new SqlCommand(viewAuctionScheduleInfo, con);
+                SqlDataAdapter daForAuctionScheduleInfo = new SqlDataAdapter(cmd);
+                DataTable dtForAuctionScheduleInfo = new DataTable();
+                daForAuctionScheduleInfo.Fill(dtForAuctionScheduleInfo);
+
+                txtAuctionDate.Text = dtForAuctionScheduleInfo.Rows[0][0].ToString();
+                txtPhotoSpot.Text = dtForAuctionScheduleInfo.Rows[0][1].ToString();
+                radioBtnProcurement.SelectedValue = dtForAuctionScheduleInfo.Rows[0][2].ToString();
+                radioBtnTruckAccess.SelectedValue = dtForAuctionScheduleInfo.Rows[0][3].ToString();
+                txtAuctionCrewSize.Text = dtForAuctionScheduleInfo.Rows[0][4].ToString();
             }
         }
 
