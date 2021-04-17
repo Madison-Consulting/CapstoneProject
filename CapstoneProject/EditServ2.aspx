@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Edit/View Service" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeFile="EditServ2.aspx.cs" Inherits="Lab2.EditServ2" %>
+﻿<%@ Page Title="Edit/View Service" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="EditServ2.aspx.cs" Inherits="Lab2.EditServ2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
