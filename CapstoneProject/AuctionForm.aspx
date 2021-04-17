@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 20% ">
+    <div style="width: auto; margin: 20px 20% ">
 
     <asp:Table ID="tblAuction" runat="server">
         
@@ -47,10 +47,16 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:Label ID="lblPhotoSpot" runat="server" Text="Photo Spot: "></asp:Label>
+                <asp:Label ID="lblPhotoSpot" runat="server" Text="Photos: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtPhotoSpot" runat="server"></asp:TextBox>
+                <asp:FileUpload ID="PhotoAuction" runat="server" allowmultiple="true"/>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Button ID="btnUpload" runat="server" Text="Upload Images" OnClick="btnUpload_Click" Class="btn-GreenValleyGreen" />
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
