@@ -21,8 +21,6 @@ namespace CapstoneProject
                 txtOriginAddress2.Text = (string)Session["Address2"];
                 txtOriginCity.Text = (string)Session["City"];
                 txtOriginState.Text = (string)Session["State"];
-              
-               
 
             }
         }
