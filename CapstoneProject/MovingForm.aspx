@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 20%">
+    <div style="width: auto; margin: 20px 20%">
 
         <asp:Table ID="InitialMove" runat="server">
 
@@ -263,7 +263,7 @@
 
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="5">
-                    <asp:Table ID="tblSelectTrucks" runat="server">
+                    <asp:Table ID="tblSelectTrucks" runat="server" Style="margin:20px;">
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label ID="lblTrucksNeeded" runat="server" Text="Trucks Needed: "></asp:Label>
@@ -300,7 +300,7 @@
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="5">
                     <%-- another table inside of a tablecell, this is for selecting equipment that should be used in move --%>
-                    <asp:Table ID="tblSelectEquipment" runat="server">
+                    <asp:Table ID="tblSelectEquipment" runat="server" Style="margin:15px;">
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label ID="lblEquipmentNeeded" runat="server" Text="Equipment Needed: "></asp:Label>

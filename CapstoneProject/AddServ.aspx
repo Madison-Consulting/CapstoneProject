@@ -19,7 +19,7 @@
     </asp:Table>--%>
 
 
-    <div style="width: auto; margin: 0 20%;">
+    <div style="width: auto; margin: 20px 20%;">
         <asp:Table ID="Table3" runat="server" Width="99%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell>
@@ -114,7 +114,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnCommitServ" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Add Service" OnClick="btnCommitServ_Click" />
+                    <asp:Button ID="btnCommitServ" class="btn-GreenValleyGreen" runat="server" Text="Add Service" OnClick="btnCommitServ_Click" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>

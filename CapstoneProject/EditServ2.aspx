@@ -37,22 +37,10 @@
         <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' +  CustLastName AS fullName, Customer.CustomerID FROM Customer"></asp:SqlDataSource>
 
 
-         <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell>
-                    <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="200px" Height="200"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>--%>
 
 
 
-        <asp:Table ID="tblServiceTicket" runat="server" Style="display: block;">
+        <asp:Table ID="tblServiceTicket" runat="server" Style="display: block; margin:20px;">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:GridView runat="server" ID="grdvwTicketDisplay1" EmptyDataText="No Service Selected!" OnRowDataBound="grdvwTicketDisplay_RowDataBound"></asp:GridView>
@@ -272,8 +260,8 @@
                                     AutoPostBack="false"></asp:ListBox>
                             </asp:TableCell>
                             <asp:TableCell Width="90">
-                                <asp:Button ID="btnAddMoveTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddMoveTruck_Click" />
-                                <asp:Button ID="btnRemoveMoveTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveMoveTruck_Click" />
+                                <asp:Button ID="btnAddMoveTruck" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddMoveTruck_Click" />
+                                <asp:Button ID="btnRemoveMoveTruck" class="btn-GreenValleyGreen" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveMoveTruck_Click" />
                             </asp:TableCell>
                             <asp:TableCell Width="180">
                                 <asp:ListBox ID="lstboxMoveTruckInventory" runat="server"
@@ -309,8 +297,8 @@
                                     AutoPostBack="false"></asp:ListBox>
                             </asp:TableCell>
                             <asp:TableCell Width="90">
-                                <asp:Button ID="btnAddMoveEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddMoveEquipment_Click" />
-                                <asp:Button ID="btnRemoveMoveEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveMoveEquipment_Click" />
+                                <asp:Button ID="btnAddMoveEquipment" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddMoveEquipment_Click" />
+                                <asp:Button ID="btnRemoveMoveEquipment" class="btn-GreenValleyGreen" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveMoveEquipment_Click" />
                             </asp:TableCell>
                             <asp:TableCell Width="180">
                                 <asp:ListBox ID="lstboxMoveEquipmentInventory" runat="server"
@@ -327,8 +315,8 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateMove" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
-                    <asp:Button ID="btnViewMoveItems" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="View Move Items" OnClick="btnViewMoveItems_Click" />
+                    <asp:Button ID="btnUpdateMove" class="btn-GreenValleyGreen" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
+                    <asp:Button ID="btnViewMoveItems" class="btn-GreenValleyGreen" runat="server" Text="View Move Items" OnClick="btnViewMoveItems_Click" />
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow Height="40"></asp:TableRow>
@@ -342,7 +330,7 @@
         <asp:Table ID="tblMoveItems" runat="server" Visible="false" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Left">
-                    <asp:Button ID="btnBack" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Back" OnClick="btnBackToMoveInfo_Click" />
+                    <asp:Button ID="btnBack" class="btn-GreenValleyGreen" runat="server" Text="Back" OnClick="btnBackToMoveInfo_Click" />
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -369,7 +357,7 @@
                         <asp:TextBox ID="txtMoveItemNote" runat="server"></asp:TextBox>
                         &nbsp&nbsp&nbsp&nbsp&nbsp
                         <asp:TextBox ID="txtHiddenMoveItemID" runat="server" Visible="false"></asp:TextBox>
-                        <asp:Button ID="btnUpdateMoveItem" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
+                        <asp:Button ID="btnUpdateMoveItem" class="btn-GreenValleyGreen" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
                     </div>
                 </asp:TableCell>
             </asp:TableRow>

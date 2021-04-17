@@ -13,7 +13,9 @@ namespace Lab2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCustName.Text = (string)Session["LName"];
+            txtFirstName.Text = (string)Session["FName"];
+            txtLastName.Text = (string)Session["LName"];
+            txtCustID.Text = (string)Session["ID"];
         }
 
         //protected void btnViewAllServices_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace Lab2
             grdviewInvDisplay.DataSource = null;
             grdviewInvDisplay.DataBind();
 
-            String sqlQuery = "SELECT Customer.CustFirstName, Customer.CustLastName, Service.ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID INNER JOIN Inventory On Service.ServiceID = Inventory.ServiceID ORDER BY Customer.CustLastName";
+            String sqlQuery = "SELECT Customer.CustFirstName, Customer.CustLastName, Service.ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID INNER JOIN Inventory On Service.ServiceID = Inventory.ServiceID WHERE Customer.CustomerID = '" + txtCustID.Text + "';";
 
 
             SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
@@ -57,9 +59,9 @@ namespace Lab2
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
 
-                string query1 = "SELECT Service.ServiceID FROM Service Inner Join Customer On Customer.CustomerID = Service.CustomerID Where Customer.CustLastName= @lastname;";
+                string query1 = "SELECT Service.ServiceID FROM Service Inner Join Customer On Customer.CustomerID = Service.CustomerID WHERE Customer.CustomerID =@CustID;";
                 SqlCommand cmd1 = new SqlCommand(query1, con);
-                cmd1.Parameters.AddWithValue("@lastname", HttpUtility.HtmlEncode(txtCustName.Text));
+                cmd1.Parameters.AddWithValue("@CustID", HttpUtility.HtmlEncode(txtCustID.Text));
                 SqlDataReader myReader3 = cmd1.ExecuteReader();
                 if (myReader3.HasRows)
                 {
@@ -70,6 +72,7 @@ namespace Lab2
                     }
                     myReader3.Close();
                 }
+
                 
 
 
@@ -85,6 +88,7 @@ namespace Lab2
                 con.Close();
 
             }
+            lblStatus.Text = "Item Added";
         }
 
 
@@ -97,7 +101,7 @@ namespace Lab2
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT Customer.CustFirstName, Customer.CustLastName, Service.ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID Inner Join Inventory On Service.ServiceID = Inventory.ServiceID WHERE Customer.CustomerID = @CustomerID ORDER BY CustLastName", con);
 
-            cmd.Parameters.AddWithValue("@CustomerID", ddlInv.SelectedValue);
+            cmd.Parameters.AddWithValue("@CustomerID", txtCustID.Text);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             DataTable dtCustomerGridView = new DataTable();
             sqlAdapter.Fill(dtCustomerGridView);

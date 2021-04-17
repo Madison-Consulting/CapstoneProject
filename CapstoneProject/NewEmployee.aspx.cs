@@ -88,5 +88,6 @@ namespace Lab3
             Session["Email"] = HttpUtility.HtmlEncode(txtUsername.Text);
             Response.Redirect("LoginPage.aspx");
         }
+
     }
 }

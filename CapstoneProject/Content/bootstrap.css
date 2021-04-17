@@ -141,7 +141,7 @@
 }
 
 /* Add an active class to the active dropdown button */
-.navbar-nav > .active > a {
+.navbar-nav:active > a {
     background-color: #266141;
     color: white;
 }

@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.IO;
+using System.Configuration;
+
 namespace CapstoneProject
 {
     public partial class AuctionForm : System.Web.UI.Page
@@ -19,7 +22,7 @@ namespace CapstoneProject
                 lblFirstName.Text = (string)Session["FName"] + ' ';
                 lblLastName.Text = (string)Session["LName"];
                 txtCustomerID.Text = (string)Session["ID"];
-                
+
             }
         }
 
@@ -107,41 +110,60 @@ namespace CapstoneProject
         {
             //if (!ddlCustomer.SelectedValue.Equals(""))
             {
-                string truckAcc;
-
-
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
+
+                //mike added this 4/16 after DB changes
+                //adding event to service table first, then retrieving the serviceID of that event and
+                //using that serviceID in the AuctionSchedule insert statement
+
+                string insertServiceStatement = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate) VALUES " +
+                    "(@CustomerID, @ServiceType, @ServiceDate)";
+                SqlCommand cmdInsertService = new SqlCommand(insertServiceStatement, con);
+                cmdInsertService.Parameters.AddWithValue("@CustomerID", txtCustomerID.Text);
+                cmdInsertService.Parameters.AddWithValue("@ServiceType", "Auction");
+                cmdInsertService.Parameters.AddWithValue("@ServiceDate", txtAuctionDate.Text);
+                cmdInsertService.ExecuteNonQuery();
+
+                //find ServiceID ^ for most recent insert
+                SqlDataAdapter daForServiceID = new SqlDataAdapter("SELECT MAX(ServiceID) FROM Service", con);
+                DataTable dtForServiceID = new DataTable();
+                daForServiceID.Fill(dtForServiceID);
+                string currentServiceID = dtForServiceID.Rows[0][0].ToString();
+
+
+                string truckAcc;
 
                 if (radioBtnProcurement.SelectedValue.Equals("bringin"))
                 {
                     //truckAcc = "NULL";
-                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, CustomerID, AuctionDate, ProcurementMethod) VALUES (@PhotoSpot, @CustomerID, @AuctionDate, @Procurement)";
+                    String query = "INSERT INTO AuctionSchedule (CustomerID, AuctionDate, ProcurementMethod) VALUES (@CustomerID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
-                    cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
+
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
-
+                    cmd.Parameters.AddWithValue("@ServiceID", currentServiceID);
                     cmd.ExecuteNonQuery();
+
+                    
                 }
                 else
                 {
 
                     //Later add inventoryID
 
-                    String query = "INSERT INTO AuctionSchedule (PhotoSpot, TruckAcc, Crew, CustomerID, AuctionDate, ProcurementMethod) VALUES (@PhotoSpot, @TruckAcc, @Crew, " +
+                    String query = "INSERT INTO AuctionSchedule (TruckAcc, Crew, CustomerID, AuctionDate, ProcurementMethod) VALUES (@TruckAcc, @Crew, " +
                     "@CustomerID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
-                    cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
+                    //cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
                     cmd.Parameters.AddWithValue("@TruckAcc", radioBtnTruckAccess.SelectedValue);
                     cmd.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
+                    cmd.Parameters.AddWithValue("@ServiceID", currentServiceID);
                     //Later maybe change crew Crew Table
                     cmd.Parameters.AddWithValue("@Crew", HttpUtility.HtmlEncode(txtCrewSize.Text));
-                    cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     //Need To have multiple auction dates
                     cmd.Parameters.AddWithValue("@AuctionDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
 
@@ -177,5 +199,43 @@ namespace CapstoneProject
             }
         }
 
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (PhotoAuction.HasFile == true)
+            {
+                foreach (HttpPostedFile postedFile in PhotoAuction.PostedFiles)
+                {
+                    string filename = Path.GetFileName(postedFile.FileName);
+                    postedFile.SaveAs(Server.MapPath("~/AuctionPhotos/") + filename);
+                    string str = PhotoAuction.FileName;
+                    PhotoAuction.PostedFile.SaveAs(Server.MapPath("~/Uploads/" + str));
+                    string Image = "~/AuctionPhotos/" + str.ToString();
+                    string name = PhotoAuction.FileName.ToString();
+
+                              SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                    con1.Open();
+
+                    String query = "Update AuctionSchedule Set PhotoSpot = @Photo WHERE AuctionID = @AuctionID";
+                    SqlCommand cmd = new SqlCommand(query, con1);
+
+           
+                    cmd.Parameters.AddWithValue("@Photo", Image);
+                    cmd.Parameters.AddWithValue("@AuctionID", HttpUtility.HtmlEncode(Session["AuctionID"]));
+
+
+                    cmd.ExecuteNonQuery();
+                    con1.Close();
+
+                    lblUploadStatus.Text = "Image Uploaded";
+                    lblUploadStatus.ForeColor = System.Drawing.Color.ForestGreen;
+
+                }
+            }
+            else
+            {
+                lblUploadStatus.Text = "Please Upload your Image";
+                lblUploadStatus.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

@@ -87,13 +87,31 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblPhotoSpot;
 
         /// <summary>
-        /// txtPhotoSpot control.
+        /// PhotoAuction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhotoSpot;
+        protected global::System.Web.UI.WebControls.FileUpload PhotoAuction;
+
+        /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
+
+        /// <summary>
+        /// lblUploadStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUploadStatus;
 
         /// <summary>
         /// lblProcurementMethod control.

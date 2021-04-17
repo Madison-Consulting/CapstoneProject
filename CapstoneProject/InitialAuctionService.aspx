@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="width: auto; margin: 0 20% ">
+    <div style="width: auto; margin: 20px 20% ">
         <asp:Table runat="server" Width="836px"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
@@ -12,7 +12,7 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtItemsSell" runat="server" Width="250px" Height="20px"></asp:TextBox> 
-                    <asp:Button ID="btnAddItemtoList" runat="server" Text="Add Item" OnClick="btnAddItemtoList_Click" Height="25px" Font-Bold="true" ForeColor="White"  BackColor="#325f57" />
+                    <asp:Button ID="btnAddItemtoList" runat="server" Text="Add Item" OnClick="btnAddItemtoList_Click" Height="25px" class="btn-GreenValleyGreen" />
                 </asp:TableCell>
                  <asp:TableCell>
                     <asp:DropDownList ID="ddlStorageLocations" runat="server" AutoPostBack="true"
@@ -96,11 +96,11 @@
             </asp:TableRow>
 </asp:Table>
     </div>
-    <div class="divNaviagtion" id="divNav" runat="server" style="width: auto; margin: 0 20% " visible="true">
+    <div class="divNaviagtion" id="divNav" runat="server" style="width: auto; margin: 20px 20% " visible="true">
         <asp:Table runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Button ID="btnCommitIntialAuction" class= "btn-GreenValleyGreen" runat="server" Text="Save" OnClick="btnCommitIntialAuction_Click" Height="25px" Width="75px" Font-Bold="true" ForeColor="White"  BackColor="#325f57" />
+                    <asp:Button ID="btnCommitIntialAuction" class= "btn-GreenValleyGreen" runat="server" Text="Save" OnClick="btnCommitIntialAuction_Click" Height="25px" Width="75px" />
                 </asp:TableCell>
             </asp:TableRow>
             
