@@ -128,7 +128,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnCommitServ" class="btn-GreenValleyGreen" runat="server" Text="Add Service" OnClick="btnCommitServ_Click" />
+                    <asp:Button ID="btnCommitServ" class="btn-GreenValleyGreen" runat="server" Text="Add Service" ValidationGroup="valGroup1" OnClick="btnCommitServ_Click" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>

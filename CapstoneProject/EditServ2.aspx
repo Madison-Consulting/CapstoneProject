@@ -374,7 +374,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateMove" class="btn-GreenValleyGreen" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
+                    <asp:Button ID="btnUpdateMove" class="btn-GreenValleyGreen" runat="server" Text="Update" ValidationGroup="valGroupMove" OnClick="btnUpdateMove_Click" />
                     <asp:Button ID="btnViewMoveItems" class="btn-GreenValleyGreen" runat="server" Text="View Move Items" OnClick="btnViewMoveItems_Click" />
                 </asp:TableCell>
             </asp:TableRow>
@@ -425,7 +425,7 @@
                         &nbsp&nbsp&nbsp&nbsp&nbsp
                        
                         <asp:TextBox ID="txtHiddenMoveItemID" runat="server" Visible="false"></asp:TextBox>
-                        <asp:Button ID="btnUpdateMoveItem" class="btn-GreenValleyGreen" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
+                        <asp:Button ID="btnUpdateMoveItem" class="btn-GreenValleyGreen" runat="server" Text="Update" ValidationGroup="valGroupMoveItem" OnClick="btnUpdateMoveItem_Click" />
                     </div>
                 </asp:TableCell>
             </asp:TableRow>
