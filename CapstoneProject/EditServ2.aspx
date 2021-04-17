@@ -4,6 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20%;">
+                <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Edit Service" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
         <asp:Table ID="tblDrop" runat="server">
             <asp:TableRow>
                 <asp:TableCell>

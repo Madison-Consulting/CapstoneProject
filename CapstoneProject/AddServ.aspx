@@ -20,6 +20,15 @@
 
 
     <div style="width: auto; margin: 20px 20%;">
+
+                <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Add a New Service" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
         <asp:Table ID="Table3" runat="server" Width="99%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
             <asp:TableRow>
                 <asp:TableCell>

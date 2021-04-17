@@ -119,7 +119,7 @@ namespace CapstoneProject
 
             if (GridView2.SelectedRow.Cells[11].Text == null)
             {
-                Session["Notes"] = Server.HtmlDecode(GridView2.SelectedRow.Cells[11].Text);
+                Session["Notes"] = "";
             }
             else
             {
