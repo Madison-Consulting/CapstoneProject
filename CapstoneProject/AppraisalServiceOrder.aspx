@@ -4,6 +4,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20%;"">
 
+        <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Appraisal Service Order Form" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
 <%--                <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 206px; right: 329px;" Width="120px">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
@@ -17,7 +25,7 @@
             </asp:TableRow>
         </asp:Table>--%>
 
-            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; margin:10px;" Width="604px">
+            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; margin:10px;" Width="700px">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>

@@ -18,7 +18,18 @@
              
     </asp:Table>--%>
 
-    <div style="width: auto; margin: 20px 20%">
+
+
+    <div style="width: auto; margin: 0 20%;">
+
+        <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Move Inventory" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
         <asp:Table ID="Table5" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -48,11 +59,7 @@
 
 
         <asp:Table ID="Table1" runat="server" Width="654px">
-            <asp:TableRow HorizontalAlign="center">
-                <asp:TableCell ColumnSpan="2">
-                    <asp:Label ID="lblAddInv" runat="server" Text="Add an Item into Inventory" Font-Size="X-Large"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
+
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -97,13 +104,9 @@
                     <asp:TextBox ID="txtItemCost1" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CompareValidator ID="CompareValidator13" runat="server" ErrorMessage="CompareValidator"
-                        ControlToValidate="txtItemCost1" Operator="DataTypeCheck" Type="Currency" ForeColor="Red" Text="Enter a monetary value, excluding ($)!"></asp:CompareValidator>
-                </asp:TableCell>
-                <asp:TableCell>
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Can be only numbers" />
-                    </asp:TableCell>
+                ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can be only numbers" />
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -117,9 +120,9 @@
                         ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
-                        <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date" 
-                ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
-                    </asp:TableCell>
+                    <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date"
+                        ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>

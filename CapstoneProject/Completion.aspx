@@ -4,6 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 20px 20%; position: relative;">
+        <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Completion Form" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
         <asp:Table ID="Table1" runat="server" Width="452px">
             <asp:TableRow>
                 <asp:TableCell>
@@ -19,7 +27,7 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lbl2" runat="server" Text="Last Name:" ></asp:Label>
+                    <asp:Label ID="lbl2" runat="server" Text="Last Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
@@ -67,7 +75,7 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
-                      <asp:TableCell>
+                <asp:TableCell>
                     <asp:Label ID="lblAddress2" runat="server" Text="Address Line 2"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
