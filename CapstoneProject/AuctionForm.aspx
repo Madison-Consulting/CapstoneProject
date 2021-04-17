@@ -53,7 +53,7 @@
                 <asp:FileUpload ID="PhotoAuction" runat="server" allowmultiple="true"/>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:Button ID="btnUpload" runat="server" Text="Upload Images" OnClick="btnUpload_Click" />
+                <asp:Button ID="btnUpload" runat="server" Text="Upload Images" OnClick="btnUpload_Click" Class="btn-GreenValleyGreen" />
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>

@@ -9,13 +9,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="/Image/favicon.ico" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton="btnSearch">
         <asp:Image ID="logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
         <div style="position: absolute; top: 40px; right: 40px;">
             <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
             <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn-GreenValleyGreen" />
         </div>
-        <div style="width: auto; margin: 0 20%">
+        <div style="width: auto; margin: 0 20%" >
 
 
             <asp:Table ID="Table2" runat="server">

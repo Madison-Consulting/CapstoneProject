@@ -19,7 +19,6 @@ namespace CapstoneProject
             {
                 Session["InvalidUse"] = "You must first login to access this page!";
                 Response.Redirect("LoginPage.aspx");
-
             }
         }
 
