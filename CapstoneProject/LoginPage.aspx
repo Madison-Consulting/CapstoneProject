@@ -45,7 +45,7 @@
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
-                        <asp:Button ID="btnLogin" Font-Bold="true" ForeColor="White"  BackColor="#325f57" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                        <asp:Button ID="btnLogin" class="btn-GreenValleyGreen" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow HorizontalAlign="Center">

@@ -25,7 +25,7 @@ namespace CapstoneProject
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-
+            lblStatus.Text = null;
 
             string hex = "#266141";
             GridView2.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml(hex);
@@ -43,7 +43,7 @@ namespace CapstoneProject
   
                 DataTable dtCustomerGridView = new DataTable();
                 sqlAdapter.Fill(dtCustomerGridView);
-
+          
                 if (dtCustomerGridView.Rows.Count == 0)
                 {
                     lblStatus.Text = "No Customers Found with that Name!";

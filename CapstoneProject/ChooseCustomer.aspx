@@ -11,9 +11,9 @@
 <body>
     <form id="form1" runat="server">
         <asp:Image ID="logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
-        <div style="position:absolute; top:40px; right: 40px;">
-        <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
-        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn-GreenValleyGreen" />
+        <div style="position: absolute; top: 40px; right: 40px;">
+            <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
+            <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn-GreenValleyGreen" />
         </div>
         <div style="width: auto; margin: 0 20%">
 
@@ -21,21 +21,27 @@
             <asp:Table ID="Table2" runat="server">
                 <asp:TableRow>
                     <asp:TableCell>
-                        <asp:Label ID="lblCustSearch" runat="server" Text="Search by Customer Name (First or Last)"></asp:Label>
+                        <asp:Label ID="lblCustSearch" runat="server" Text="Search by Customer Name"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtCustSearch" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="btnSearch" class="btn-GreenValleyGreen" runat="server" Text="Search" OnClick="btnSearch_Click" CausesValidation="false" />
+                        <asp:Button ID="btnSearch" class="btn-GreenValleyGreen" runat="server" Text="Search" OnClick="btnSearch_Click" />
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="btnViewAll" runat="server" Text="View All Customers" OnClick="btnViewAll_Click" class="btn-GreenValleyGreen" />
+                        <asp:Button ID="btnViewAll" runat="server" Text="View All Customers" OnClick="btnViewAll_Click" class="btn-GreenValleyGreen" CausesValidation="false" />
                     </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblSearchStatus" runat="server" Text=""></asp:Label>
+                    </asp:TableCell>
+                     <asp:TableCell>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
+                            ControlToValidate="txtCustSearch" ValidationExpression="^[A-Za-z]*$" ForeColor="Red"></asp:RegularExpressionValidator>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>

@@ -13,7 +13,7 @@
         <div style="width: auto; margin: 0 20%">
             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
 
-            <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign="Center" Width="719px">
+            <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign="Center" Width="719px" Style="margin:20px;">
                 <asp:TableRow HorizontalAlign="Center">
 
                     <asp:TableCell ColumnSpan="2">
@@ -27,22 +27,33 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
                     </asp:TableCell>
-                    <asp:TableCell>
+                                        <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtFirstName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                    <asp:TableCell>
+                          <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
+                            ControlToValidate="txtFirstName" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+
+                    </asp:TableCell>
+
                 </asp:TableRow>
-                               <asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
                     </asp:TableCell>
-                    <asp:TableCell>
+                                        <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtLastName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                    <asp:TableCell>
+                          <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
+                            ControlToValidate="txtLastName" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+                    </asp:TableCell>
+
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -63,10 +74,16 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtCell" runat="server"></asp:TextBox>
                     </asp:TableCell>
-                    <asp:TableCell>
+                                        <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtCell" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
+                ControlToValidate="txtCell" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry can be only numbers" />
+
+                    </asp:TableCell>
+
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -75,10 +92,16 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                     </asp:TableCell>
-                    <asp:TableCell>
+                                        <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtEmail" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                    <asp:TableCell>
+                         <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                             ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+
+                    </asp:TableCell>
+
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -99,10 +122,15 @@
                     <asp:TableCell>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                     </asp:TableCell>
-                    <asp:TableCell>
+                                        <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtPassword" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                     </asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ValidationExpression="^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$"
+                            ControlToValidate="txtPassword" Text="Password must contain 1 Uppercase, 1 Lowercase, 1 Number, and 1 Special Character" ForeColor="Red"></asp:RegularExpressionValidator>
+                    </asp:TableCell>
+
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
@@ -124,8 +152,11 @@
                             ForeColor="red" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
-                    <asp:TableCell ColumnSpan="2">
+                           </asp:Table>
+            <br />
+              <asp:Table ID="Table1" runat="server" Style="margin:10px;"  HorizontalAlign="Center">
+                <asp:TableRow>
+                    <asp:TableCell>
                         <asp:Button ID="btnCreateNewEmp" class="btn-GreenValleyGreen" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
