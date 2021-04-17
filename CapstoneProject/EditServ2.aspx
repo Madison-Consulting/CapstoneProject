@@ -7,19 +7,7 @@
         <asp:Table ID="tblDrop" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblServiceTypes" runat="server" Text="Select a service type: "></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RadioButtonList ID="rbtnlistServiceType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" CellPadding="5" OnSelectedIndexChanged="rbtnlistServiceType_SelectedIndexChanged">
-                        <asp:ListItem Value="auction">Auction</asp:ListItem>
-                        <asp:ListItem Value="move">Move</asp:ListItem>
-                        <asp:ListItem Value="other">Other</asp:ListItem>
-                    </asp:RadioButtonList>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblDropDownList" runat="server" Text="Choose a Customer to View"></asp:Label>
+                    <asp:Label ID="lblDropDownList" runat="server" Text="Viewing Services for"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:DropDownList ID="ddlCustomer" runat="server" AutoPostBack="true"
@@ -32,14 +20,26 @@
                     </asp:DropDownList>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="lblServiceTypes" runat="server" Text="Select a service type: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:RadioButtonList ID="rbtnlistServiceType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" CellPadding="5" OnSelectedIndexChanged="rbtnlistServiceType_SelectedIndexChanged">
+                        <asp:ListItem Value="auction">Auction</asp:ListItem>
+                        <asp:ListItem Value="move">Move</asp:ListItem>
+                        <asp:ListItem Value="other">Other</asp:ListItem>
+                    </asp:RadioButtonList>
+                </asp:TableCell>
+            </asp:TableRow>
             <asp:TableRow Height="30"></asp:TableRow>
         </asp:Table>
         <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' +  CustLastName AS fullName, Customer.CustomerID FROM Customer"></asp:SqlDataSource>
 
 
-         <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 50px;">
-            <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell>
+        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 50px;">
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center">
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
@@ -48,7 +48,7 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="200px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>--%>
+        </asp:Table>
 
 
 
@@ -71,7 +71,6 @@
                         <Columns>
                             <asp:ButtonField ButtonType="Button" Text="Edit" HeaderText="" CommandName="editRow" />
                             <asp:BoundField DataField="ItemDescription" HeaderText="Item" />
-                            <asp:BoundField DataField="ItemQuantity" HeaderText="Quantity" />
                             <asp:BoundField DataField="AuctionItemID" HeaderText="AuctionItemID" Visible="false" />
                             <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" Visible="false" />
                         </Columns>
@@ -121,6 +120,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtMoveDate" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtMoveDate" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtMoveDate" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblMoveTime" runat="server" Text="Move Time: "></asp:Label>
@@ -135,6 +140,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginAddress" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtOriginAddress" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtOriginAddress" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
 
                 <asp:TableCell>
@@ -149,6 +160,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginCity" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtOriginCity" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtOriginCity" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -157,12 +174,24 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginState" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtOriginState" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtOriginState" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblOriginZip" runat="server" Text="Origin Zip: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginZip" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtOriginZip" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtOriginZip" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -171,8 +200,14 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationAddress" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtDestinationAddress" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtDestinationAddress" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
-                      <asp:TableCell>
+                <asp:TableCell>
                     <asp:Label ID="lblDestinationAddress2" runat="server" Text="Destination Address 2: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
@@ -183,6 +218,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationCity" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtDestinationCity" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtDestinationCity" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -191,12 +232,24 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationState" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtDestinationState" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtDestinationState" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblDestinationZip" runat="server" Text="Destination Zip: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationZip" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtDestinationZip" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtDestinationZip" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -225,6 +278,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtHomeType" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtHomeType" ValidationGroup="valGroupMove" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtHomeType" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -327,7 +386,8 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateMove" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMove_Click" />
+                    <asp:Button ID="btnUpdateMove" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" ValidationGroup="valGroupMove" OnClick="btnUpdateMove_Click" />
+                    &nbsp&nbsp&nbsp
                     <asp:Button ID="btnViewMoveItems" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="View Move Items" OnClick="btnViewMoveItems_Click" />
                 </asp:TableCell>
             </asp:TableRow>
@@ -350,7 +410,14 @@
                     <div class="divEditMoveItemTextboxes" id="divEditMoveItemTextboxes" runat="server" visible="false">
                         <asp:Label ID="lblMoveItemDesc" runat="server" Text="Item Name: "></asp:Label>
                         <asp:TextBox ID="txtMoveItemDesc" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RFVtxtMoveItemDesc" ValidationGroup="valGroupMoveItem" runat="server" 
+                            ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtMoveItemDesc" 
+                            SetFocusOnError="true" 
+                            ForeColor="Red" 
+                            Text="*"></asp:RequiredFieldValidator>
                         &nbsp&nbsp&nbsp&nbsp&nbsp
+                       
                         <asp:Label ID="lblMoveItemQuant" runat="server" Text="Quantity: "></asp:Label>
                         <asp:DropDownList ID="ddlMoveItemQuant" runat="server">
                             <asp:ListItem Value="1">1</asp:ListItem>
@@ -365,11 +432,13 @@
                             <asp:ListItem Value="10">10</asp:ListItem>
                         </asp:DropDownList>
                         &nbsp&nbsp&nbsp&nbsp&nbsp
+                       
                         <asp:Label ID="lblMoveItemNote" runat="server" Text="Note: "></asp:Label>
                         <asp:TextBox ID="txtMoveItemNote" runat="server"></asp:TextBox>
                         &nbsp&nbsp&nbsp&nbsp&nbsp
+                       
                         <asp:TextBox ID="txtHiddenMoveItemID" runat="server" Visible="false"></asp:TextBox>
-                        <asp:Button ID="btnUpdateMoveItem" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
+                        <asp:Button ID="btnUpdateMoveItem" Font-Bold="true" ForeColor="White" BackColor="#325f57" ValidationGroup="valGroupMoveItem" runat="server" Text="Update" OnClick="btnUpdateMoveItem_Click" />
                     </div>
                 </asp:TableCell>
             </asp:TableRow>
@@ -419,14 +488,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtItemDesc" runat="server"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblItemQuant" runat="server" Text="Quantity: "></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:TextBox ID="txtItemQuant" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtItemDesc" ValidationGroup="valGroupAuction" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtItemDesc" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow Height="40"></asp:TableRow>
@@ -436,6 +503,12 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtAuctionDate" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtAuctionDate" ValidationGroup="valGroupAuction" runat="server" 
+                        ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtAuctionDate" 
+                        SetFocusOnError="true" 
+                        ForeColor="Red" 
+                        Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -513,7 +586,7 @@
                             <asp:TableRow>
                                 <asp:TableCell>
                                     <asp:Label ID="lblAuctionCrewSize" runat="server" Text="Crew Size: "></asp:Label>
-                                    <asp:TextBox ID="txtAuctionCrewSize" runat="server" MaxLength="5" Width="70"></asp:TextBox>
+                                    <asp:TextBox ID="txtAuctionCrewSize" runat="server" MaxLength="2" Width="70"></asp:TextBox>
                                 </asp:TableCell>
                             </asp:TableRow>
                             <asp:TableRow>
@@ -560,7 +633,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateAuction" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Update" OnClick="btnUpdateAuction_Click" />
+                    <asp:Button ID="btnUpdateAuction" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" ValidationGroup="valGroupAuction" Text="Update" OnClick="btnUpdateAuction_Click" />
                 </asp:TableCell>
             </asp:TableRow>
             <%-- <asp:TableRow HorizontalAlign="Center">

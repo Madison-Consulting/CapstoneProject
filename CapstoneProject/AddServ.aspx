@@ -40,8 +40,12 @@
                         <asp:ListItem ID="chkAuctionBringIn" runat="server" Value="Auction Bring In" Text="Auction Bring In"></asp:ListItem>
                         <asp:ListItem ID="chkConsignmentShop" runat="server" Value="Consignment Shop" Text="Consignment Shop"></asp:ListItem>
                     </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RFVrdoServType" runat="server" 
+                        ControlToValidate="rdoServType" 
+                        ValidationGroup="valGroup1"
+                        ErrorMessage="*" 
+                        ForeColor="Red" ></asp:RequiredFieldValidator>
                 </asp:TableCell>
-
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -49,6 +53,11 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtFN" runat="server" ReadOnly="true"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtFN" runat="server" 
+                        ControlToValidate="txtFN" 
+                        ValidationGroup="valGroup1"
+                        ErrorMessage="*" 
+                        ForeColor="Red" ></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -57,6 +66,11 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RFVtxtLN" runat="server" 
+                        ControlToValidate="txtLN" 
+                        ValidationGroup="valGroup1"
+                        ErrorMessage="*" 
+                        ForeColor="Red" ></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
 <%--            <asp:TableRow>
@@ -84,7 +98,7 @@
                     <asp:TextBox ID="txtDate1" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator"
+                    <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ValidationGroup="valGroup1"
                         ControlToValidate="txtDate1" Operator="DataTypeCheck" Type="Date" ForeColor="Red" Text="Entry must be a Date!"></asp:CompareValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -96,7 +110,7 @@
                     <asp:TextBox ID="txtEstCost1" runat="server" ></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="CompareValidator"
+                    <asp:CompareValidator ID="CompareValidator4" runat="server" ErrorMessage="CompareValidator" ValidationGroup="valGroup1"
                         ControlToValidate="txtEstCost1" Operator="DataTypeCheck" Type="Currency" ForeColor="Red" Text="Entry must be a monetary value!"></asp:CompareValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -108,13 +122,13 @@
                     <asp:TextBox ID="txtCompDate1" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="CompareValidator"
+                    <asp:CompareValidator ID="CompareValidator5" runat="server" ErrorMessage="CompareValidator" ValidationGroup="valGroup1"
                         ControlToValidate="txtCompDate1" Operator="DataTypeCheck" Type="Date" ForeColor="Red" Text="Entry must be a Date!"></asp:CompareValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
-                    <asp:Button ID="btnCommitServ" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Add Service" OnClick="btnCommitServ_Click" />
+                    <asp:Button ID="btnCommitServ" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" ValidationGroup="valGroup1" Text="Add Service" OnClick="btnCommitServ_Click" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>

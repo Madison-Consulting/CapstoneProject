@@ -13,7 +13,7 @@
                     <asp:TextBox ID="txtFN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RFVtxtFN" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtFN" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -25,7 +25,7 @@
                     <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RFVtxtLN" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtLN" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -37,7 +37,7 @@
                     <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RFVtxtPhoneNo" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtPhoneNo" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -49,7 +49,7 @@
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtEmail" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -62,7 +62,7 @@
                 </asp:TableCell>
 
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtAddress" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -82,7 +82,7 @@
                     <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtCity" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -94,7 +94,7 @@
                     <asp:TextBox ID="txtState" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtState" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -106,7 +106,7 @@
                     <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -118,7 +118,7 @@
                     <asp:TextBox ID="txtServType" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtServType" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -130,7 +130,7 @@
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDate" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -142,7 +142,7 @@
                     <asp:TextBox ID="txtFinalCost" runat="server"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtFinalCost" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -165,7 +165,7 @@
                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="15" Height="130px"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDate" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -188,7 +188,7 @@
 
             <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="3">
-                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" class="btn-GreenValleyGreen" />
+                    <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="valGroup1" class="btn-GreenValleyGreen" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>

@@ -114,6 +114,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.ListItem chkConsignmentShop;
 
         /// <summary>
+        /// RFVrdoServType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVrdoServType;
+
+        /// <summary>
         /// lblFN control.
         /// </summary>
         /// <remarks>
@@ -132,6 +141,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtFN;
 
         /// <summary>
+        /// RFVtxtFN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtFN;
+
+        /// <summary>
         /// lblLN control.
         /// </summary>
         /// <remarks>
@@ -148,6 +166,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLN;
+
+        /// <summary>
+        /// RFVtxtLN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtLN;
 
         /// <summary>
         /// lblDate control.

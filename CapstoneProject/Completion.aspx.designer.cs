@@ -42,13 +42,13 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtFN;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// RFVtxtFN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtFN;
 
         /// <summary>
         /// lbl2 control.
@@ -69,13 +69,13 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtLN;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// RFVtxtLN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtLN;
 
         /// <summary>
         /// lbl control.
@@ -96,13 +96,13 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNo;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// RFVtxtPhoneNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtPhoneNo;
 
         /// <summary>
         /// lbl3 control.

@@ -14,7 +14,7 @@ namespace Lab2
         //button click methods, most buttons do not get used for this lab
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            ddlCustomer.SelectedValue = Session["ID"].ToString();
         }
 
 
@@ -206,7 +206,7 @@ namespace Lab2
             con.Open();
 
             string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
-            viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
+            viewAuctionItems += "AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
             viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
             viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
 
@@ -218,7 +218,6 @@ namespace Lab2
 
             txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
             txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
-            txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
 
         }
 
@@ -585,7 +584,7 @@ namespace Lab2
 
                 //load data from AuctionInventory table
                 string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
-                viewAuctionItems += "AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.AuctionID ";
+                viewAuctionItems += "AuctionInventory.AuctionItemID, AuctionInventory.AuctionID ";
                 viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
                 viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
 
@@ -597,8 +596,7 @@ namespace Lab2
 
                 txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
                 txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
-                txtItemQuant.Text = dtAuctInfo.Rows[0][2].ToString();
-                string auctionID = dtAuctInfo.Rows[0][4].ToString();
+                string auctionID = dtAuctInfo.Rows[0][3].ToString();
 
                 //load data from auctionSchedule table
                 string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew FROM AuctionSchedule " +
@@ -634,6 +632,61 @@ namespace Lab2
             tblMoveInfo.Visible = false;
             tblMoveItems.Visible = false;
             tblAuctionInfo.Visible = false;
+
+            if (ddlCustomer.SelectedValue.Equals(""))
+            {
+                btnClearServ_Click(sender, e);
+            }
+
+            else
+            {
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+
+                if (rbtnlistServiceType.SelectedValue.Equals("auction"))
+                {
+                    tblMoveInfo.Visible = false;
+                    tblMoveItems.Visible = false;
+
+                    con.Open();
+                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, AuctionInventory.AuctionItemID, Service.ServiceID ";
+                    viewAuctionCommandString += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
+                    viewAuctionCommandString += "Customer ON Service.CustomerID = Customer.CustomerID ";
+                    viewAuctionCommandString += "WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
+
+                    SqlDataAdapter daViewAuctions = new SqlDataAdapter(viewAuctionCommandString, con);
+                    DataTable dtForGridView = new DataTable();
+                    daViewAuctions.Fill(dtForGridView);
+                    grdvwAuctions.DataSource = dtForGridView;
+                    grdvwAuctions.DataBind();
+
+                    grdvwMoves.Visible = false;
+                    grdvwAuctions.Visible = true;
+                }
+                if (rbtnlistServiceType.SelectedValue.Equals("move"))
+                {
+                    tblAuctionInfo.Visible = false;
+
+                    con.Open();
+                    string viewMoveCommandString = "SELECT MoveForm.MoveDateTime AS [Move Date], MoveForm.OriginCity AS [Origin City], MoveForm.OriginState AS [Origin State], MoveForm.DestinationCity AS [Destination City], MoveForm.DestinationState AS [Destination State], MoveForm.MoveFormID, Service.ServiceID ";
+                    viewMoveCommandString += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
+                    viewMoveCommandString += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
+
+                    SqlDataAdapter daViewMoves = new SqlDataAdapter(viewMoveCommandString, con);
+                    DataTable dtForGridView = new DataTable();
+                    daViewMoves.Fill(dtForGridView);
+                    grdvwMoves.DataSource = dtForGridView;
+                    grdvwMoves.DataBind();
+
+                    grdvwAuctions.Visible = false;
+                    grdvwMoves.Visible = true;
+                }
+                if (rbtnlistServiceType.SelectedValue.Equals("other"))
+                {
+
+                }
+
+            }
         }
 
         protected void btnViewMoveItems_Click(object sender, EventArgs e)
