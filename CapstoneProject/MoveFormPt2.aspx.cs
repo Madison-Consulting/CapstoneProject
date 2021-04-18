@@ -51,7 +51,7 @@ namespace CapstoneProject
                     insertRoom.Connection = sc;
                     // INSERT ROOM RECORD
                     insertRoom.CommandText = "INSERT INTO Room (RoomType, MoveFormID) VALUES (@RoomType, @MoveFormID)";
-                    insertRoom.Parameters.Add(new SqlParameter("@RoomType", txtRoom.Text));
+                    insertRoom.Parameters.Add(new SqlParameter("@RoomType", HttpUtility.HtmlEncode(txtRoom.Text)));
                     insertRoom.Parameters.Add(new SqlParameter("@MoveFormID", Session["MoveFormID"]));
                     insertRoom.ExecuteNonQuery();
 
