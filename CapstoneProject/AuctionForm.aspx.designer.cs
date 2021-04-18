@@ -78,6 +78,15 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblLastName;
 
         /// <summary>
+        /// ddlCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCustomer;
+
+        /// <summary>
         /// lblAuctionDate control.
         /// </summary>
         /// <remarks>
@@ -357,13 +366,13 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEquipment;
 
         /// <summary>
-        /// dtasrcCustomer control.
+        /// dtasrcCustomerService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomer;
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcCustomerService;
 
         /// <summary>
         /// txtCustomerID control.

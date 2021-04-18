@@ -53,11 +53,12 @@ namespace CapstoneProject
             //need to retrieve the AuctionID before inserting below items into AuctionInventory (session variable possibly?)
             //or maybe we should have the AuctionForm.aspx feed into this form
             //We need the AuctionID because AuctionInventory now references AuctionSchedule through AuctionID
-            String query = "INSERT INTO AuctionInventory (ItemDescription, LocationID)" +
-    "VALUES (@ItemDescription, @LocationID)";
+            String query = "INSERT INTO AuctionInventory (ItemDescription, LocationID, AuctionID)" +
+    "VALUES (@ItemDescription, @LocationID, @AuctionID)";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@ItemDescription", HttpUtility.HtmlEncode(txtItemsSell.Text));
             cmd.Parameters.AddWithValue("@LocationID", HttpUtility.HtmlEncode(ddlStorageLocations.SelectedValue));
+            cmd.Parameters.AddWithValue("@AuctionID", HttpUtility.HtmlEncode(ddlAuctions.SelectedValue));
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -166,5 +167,8 @@ namespace CapstoneProject
         {
         }
 
+        protected void ddlStorageLocations_SelectedIndexChanged(object sender, EventArgs e)
+        { 
+        }
     }
 }

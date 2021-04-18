@@ -27,21 +27,17 @@
                 <asp:Label ID="lblFirstName" runat="server" Text=""></asp:Label>
                 <asp:Label ID="lblLastName" runat="server" Text=""></asp:Label>
             </asp:TableCell>
-<%--            <asp:TableCell>
-                Get Defult Value For DropDown
+            <asp:TableCell>
+                Select Customers Service
                 <asp:DropDownList ID="ddlCustomer" runat="server"
-                    DataSourceID="dtasrcCustomer"
-                    DataTextField="CustomerName"
-                    DataValueField="CustomerID"
+                    DataSourceID="dtasrcCustomerService"
+                    DataTextField="Customer Service"
+                    DataValueField="ServiceID"
                     AppendDataBoundItems="true">
                     <asp:ListItem Value="">- Select -</asp:ListItem>
                 </asp:DropDownList>
-                &nbsp
-                <asp:Label ID="lblAddCustomer" runat="server" Text="or Add New"></asp:Label>
-                &nbsp
-                <asp:Button ID="btnAddCustomer" Font-Bold="true" BackColor="#26754e" ForeColor="White" runat="server" Text="+" PostBackUrl="~/AddCust.aspx" />
-            </asp:TableCell>--%>
-        </asp:TableRow>
+                </asp:TableCell>
+            </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="lblAuctionDate" runat="server" Text="Auction Date: "></asp:Label>
@@ -210,9 +206,9 @@
     </asp:SqlDataSource>
 
         <asp:SqlDataSource runat="server"
-        ID="dtasrcCustomer"
+        ID="dtasrcCustomerService"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT Customer.CustomerID, Customer.CustFirstName + ' ' + Customer.CustLastName AS CustomerName FROM Customer;" >
+        SelectCommand="SELECT Service.ServiceID, Service.ServiceType, Service.ServiceDate FROM Service WHERE Servcie.CustomerID = @ID  " >
     </asp:SqlDataSource>
 
         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
