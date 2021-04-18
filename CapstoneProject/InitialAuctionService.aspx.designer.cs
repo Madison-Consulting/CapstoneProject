@@ -33,6 +33,15 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.Label lblItemBeingSold;
 
         /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+
+        /// <summary>
         /// txtItemsSell control.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,24 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.DropDownList ddlStorageLocations;
 
         /// <summary>
+        /// ddlAuctions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAuctions;
+
+        /// <summary>
+        /// txtDisplayItemsSell control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDisplayItemsSell;
+
+        /// <summary>
         /// chkbxBringIn control.
         /// </summary>
         /// <remarks>
@@ -76,15 +103,6 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkbxPickUp;
-
-        /// <summary>
-        /// txtDisplayItemsSell control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDisplayItemsSell;
 
         /// <summary>
         /// lblPickUp control.
@@ -310,5 +328,14 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource datasrcStroageLocation;
+
+        /// <summary>
+        /// datasrcAuctions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource datasrcAuctions;
     }
 }
