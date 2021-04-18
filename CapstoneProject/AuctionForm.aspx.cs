@@ -23,6 +23,8 @@ namespace CapstoneProject
                 lblLastName.Text = (string)Session["LName"];
                 txtCustomerID.Text = (string)Session["ID"];
 
+                txtIDforCustomer.Text= (string)Session["ID"];
+
             }
         }
 
@@ -137,7 +139,7 @@ namespace CapstoneProject
                 if (radioBtnProcurement.SelectedValue.Equals("bringin"))
                 {
                     //truckAcc = "NULL";
-                    String query = "INSERT INTO AuctionSchedule (CustomerID, AuctionDate, ProcurementMethod) VALUES (@CustomerID, @AuctionDate, @Procurement)";
+                    String query = "INSERT INTO AuctionSchedule (ServiceID, AuctionDate, ProcurementMethod) VALUES (@ServiceID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
 
@@ -154,8 +156,8 @@ namespace CapstoneProject
 
                     //Later add inventoryID
 
-                    String query = "INSERT INTO AuctionSchedule (TruckAcc, Crew, CustomerID, AuctionDate, ProcurementMethod) VALUES (@TruckAcc, @Crew, " +
-                    "@CustomerID, @AuctionDate, @Procurement)";
+                    String query = "INSERT INTO AuctionSchedule (TruckAcc, Crew, ServiceID, AuctionDate, ProcurementMethod) VALUES (@TruckAcc, @Crew, " +
+                    "@ServiceID, @AuctionDate, @Procurement)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     //cmd.Parameters.AddWithValue("@PhotoSpot", HttpUtility.HtmlEncode(txtPhotoSpot.Text));
