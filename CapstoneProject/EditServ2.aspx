@@ -1,9 +1,17 @@
-﻿<%@ Page Title="Edit/View Service" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeFile="EditServ2.aspx.cs" Inherits="Lab2.EditServ2" %>
+﻿<%@ Page Title="Edit/View Service" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="EditServ2.aspx.cs" Inherits="Lab2.EditServ2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 0 20%;">
+        <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Edit Service" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
         <asp:Table ID="tblDrop" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -32,7 +40,7 @@
                     </asp:RadioButtonList>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow Height="30"></asp:TableRow>
+            <asp:TableRow Height="10"></asp:TableRow>
         </asp:Table>
         <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' +  CustLastName AS fullName, Customer.CustomerID FROM Customer"></asp:SqlDataSource>
 
@@ -46,7 +54,6 @@
                     <asp:GridView runat="server" ID="grdvwTicketDisplay1" EmptyDataText="No Service Selected!" OnRowDataBound="grdvwTicketDisplay_RowDataBound"></asp:GridView>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow Height="40"></asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:GridView runat="server" ID="grdvwAuctions"
@@ -59,6 +66,7 @@
                         <Columns>
                             <asp:ButtonField ButtonType="Button" Text="Edit" HeaderText="" CommandName="editRow" />
                             <asp:BoundField DataField="ItemDescription" HeaderText="Item" />
+                            <asp:BoundField DataField="StorageName" HeaderText="Location" />
                             <asp:BoundField DataField="AuctionItemID" HeaderText="AuctionItemID" Visible="false" />
                             <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" Visible="false" />
                         </Columns>
@@ -87,7 +95,6 @@
 
 
         <asp:Table ID="tblMoveInfo" runat="server" Visible="false" Width="65%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
-            <asp:TableRow Height="40"></asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblCustomer" runat="server" Text="Customer: "></asp:Label>
@@ -107,7 +114,7 @@
                     <asp:Label ID="lblMoveDate" runat="server" Text="Move Date: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtMoveDate" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMoveDate" runat="server" TextMode="Date"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFVtxtMoveDate" ValidationGroup="valGroupMove" runat="server" 
                         ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtMoveDate" 
@@ -119,12 +126,18 @@
                     <asp:Label ID="lblMoveTime" runat="server" Text="Move Time: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtMoveTime" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtMoveTime" runat="server" TextMode="Time"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow>
+            <asp:TableRow BackColor="#ffff99">
                 <asp:TableCell>
-                    <asp:Label ID="lblOriginAddress" runat="server" Text="Origin Address:"></asp:Label>
+                    <asp:Label ID="lblOrigin" runat="server" Text="Origin:"></asp:Label>
+                </asp:TableCell><asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+                <asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow BackColor="#ffff99">
+                <asp:TableCell>
+                    <asp:Label ID="lblOriginAddress" runat="server" Text="Address:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginAddress" runat="server"></asp:TextBox>
@@ -135,14 +148,15 @@
                         ForeColor="Red" 
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
-
                 <asp:TableCell>
                     <asp:Label ID="lblOriginAddress2" runat="server" Text="Address Line 2"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtOriginAddress2" runat="server"></asp:TextBox>
                 </asp:TableCell>
-
+                <asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow BackColor="#ffff99">
                 <asp:TableCell>
                     <asp:Label ID="lblOriginCity" runat="server" Text="City: "></asp:Label>
                 </asp:TableCell>
@@ -155,25 +169,21 @@
                         ForeColor="Red" 
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblOriginState" runat="server" Text="Origin State: "></asp:Label>
+                    <asp:Label ID="lblOriginState" runat="server" Text="State: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtOriginState" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RFVtxtOriginState" ValidationGroup="valGroupMove" runat="server" 
-                        ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtOriginState" 
-                        SetFocusOnError="true" 
-                        ForeColor="Red" 
-                        Text="*"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlOriginState" runat="server" AutoPostBack="false"
+                        DataSourceID="dtasrcStates"
+                        DataTextField="StateName"
+                        DataValueField="StateID">
+                        </asp:DropDownList>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblOriginZip" runat="server" Text="Origin Zip: "></asp:Label>
+                    <asp:Label ID="lblOriginZip" runat="server" Text="Zip: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtOriginZip" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtOriginZip" runat="server" MaxLength="5" Width="45"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFVtxtOriginZip" ValidationGroup="valGroupMove" runat="server" 
                         ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtOriginZip" 
@@ -182,9 +192,15 @@
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow>
+            <asp:TableRow BackColor="#dcf2ee">
                 <asp:TableCell>
-                    <asp:Label ID="lblDestinationAddress" runat="server" Text="Destination Address: "></asp:Label>
+                    <asp:Label ID="lblDestination" runat="server" Text="Destination:"></asp:Label>
+                </asp:TableCell><asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+                <asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow BackColor="#dcf2ee">
+                <asp:TableCell>
+                    <asp:Label ID="lblDestinationAddress" runat="server" Text="Address: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationAddress" runat="server"></asp:TextBox>
@@ -196,11 +212,13 @@
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblDestinationAddress2" runat="server" Text="Destination Address 2: "></asp:Label>
+                    <asp:Label ID="lblDestinationAddress2" runat="server" Text="Address Line 2: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDestinationAddress2" runat="server"></asp:TextBox>
-                </asp:TableCell>
+                </asp:TableCell><asp:TableCell></asp:TableCell><asp:TableCell></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow BackColor="#dcf2ee">
                 <asp:TableCell>
                     <asp:Label ID="lblDestinationCity" runat="server" Text="City: "></asp:Label>
                 </asp:TableCell>
@@ -213,25 +231,21 @@
                         ForeColor="Red" 
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
                 <asp:TableCell>
-                    <asp:Label ID="lblDestinationState" runat="server" Text="Destination State: "></asp:Label>
+                    <asp:Label ID="lblDestinationState" runat="server" Text="State: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtDestinationState" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RFVtxtDestinationState" ValidationGroup="valGroupMove" runat="server" 
-                        ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtDestinationState" 
-                        SetFocusOnError="true" 
-                        ForeColor="Red" 
-                        Text="*"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlDestinationState" runat="server" AutoPostBack="false"
+                        DataSourceID="dtasrcStates"
+                        DataTextField="StateName"
+                        DataValueField="StateID">
+                        </asp:DropDownList>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:Label ID="lblDestinationZip" runat="server" Text="Destination Zip: "></asp:Label>
+                    <asp:Label ID="lblDestinationZip" runat="server" Text="Zip: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtDestinationZip" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDestinationZip" runat="server" MaxLength="5" Width="45"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFVtxtDestinationZip" ValidationGroup="valGroupMove" runat="server" 
                         ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDestinationZip" 
@@ -464,8 +478,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtHiddenAuctionServiceID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                    <asp:TextBox ID="txtHiddenAuctionID" runat="server" Visible="false"></asp:TextBox>
                     <asp:TextBox ID="txtHiddenAuctionItemID" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
@@ -482,6 +495,19 @@
                         ForeColor="Red" 
                         Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblItemLocation" runat="server" Text="Location: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:DropDownList ID="ddlItemLocation" AutoPostBack="false"
+                        DataSourceID="datasrcLocationList"
+                        DataTextField="StorageName"
+                        DataValueField="LocationID"
+                        runat="server"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="">- Select -</asp:ListItem>
+                    </asp:DropDownList>
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow Height="40"></asp:TableRow>
             <asp:TableRow>
@@ -489,7 +515,7 @@
                     <asp:Label ID="lblAuctionDate" runat="server" Text="Auction Date: "></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtAuctionDate" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFVtxtAuctionDate" ValidationGroup="valGroupAuction" runat="server" 
                         ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtAuctionDate" 
@@ -639,6 +665,16 @@
             ID="dtasrcEquipment"
             ConnectionString="<%$ ConnectionStrings:Lab3 %>"
             SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';"></asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="datasrcLocationList"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT LocationID, StorageName FROM StorageLocation"></asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="dtasrcStates"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT StateID, StateName FROM States ORDER BY StateName ASC"></asp:SqlDataSource>
 
     </div>
 

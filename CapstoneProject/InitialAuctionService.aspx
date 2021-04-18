@@ -3,7 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="width: auto; margin: 20px 20% ">
-        <asp:Table runat="server" Width="836px"> 
+                <asp:Table ID="tblTitle" runat="server" Width="773px">
+            <asp:TableRow HorizontalAlign="Center">
+                <asp:TableCell>
+                    <asp:Label ID="title" runat="server" Text="Initial Auction Service Form" Font-Bold="true" Font-Size="Large"></asp:Label>
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+        <br />
+        <asp:Table runat="server" Width="770px"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
                     <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
@@ -59,7 +67,7 @@
                 </asp:TableCell>
             </asp:TableRow>
             </asp:Table>
-        <asp:Table runat="server">
+        <asp:Table runat="server" Width="870px">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblReason" runat="server" Text="Reason For Auction"></asp:Label>

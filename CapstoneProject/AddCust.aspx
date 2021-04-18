@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
         <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
         <div style="width: auto; margin: 0 20%">
 

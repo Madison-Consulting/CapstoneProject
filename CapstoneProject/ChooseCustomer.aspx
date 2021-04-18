@@ -41,7 +41,7 @@
                     </asp:TableCell>
                      <asp:TableCell>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtCustSearch" ValidationExpression="^[A-Za-z]*$" ForeColor="Red"></asp:RegularExpressionValidator>
+                            ControlToValidate="txtCustSearch" ValidationExpression="^[a-zA-Z]+(\s+[a-zA-Z]+)*$" ForeColor="Red"></asp:RegularExpressionValidator>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
