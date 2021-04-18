@@ -65,79 +65,86 @@ namespace CapstoneProject
 
         protected void btnCommitIntialAuction_Click(object sender, EventArgs e)
         {
-            string bringIn = "NO";
-            string pickUp = "NO";
-            string trashRemoval = "NO";
-            string auctionWalkthrough = "NO";
-            string customerRequestedWalk = "NULL";
-            string greenValleyRequested = "NULL";
-            string deadline = "";
-            string pickUpAddress = "";
-            string pickUpCity = "";
-            string pickUpState = "";
-            string pickUpZip = "";
-            if (chkCustReq.Checked)
+            if (chkbxBringIn.Checked == false 
+                && chkbxPickUp.Checked == false)
             {
-                customerRequestedWalk = "YES";
+                lblError.Text = "Please Select Bring In or Pick Up";
             }
-            if (chkGreenReq.Checked)
+            else
             {
-                greenValleyRequested = "YES";
-            }
-            if (chkBringIn.Value.Equals("BringIn"))
-            {
-                bringIn = "YES";
-            }
-            if (chkbxPickUp.Checked)
-            {
-                pickUp = "YES";
-                pickUpAddress = txtAuctionPickUpAddress.Text;
-                pickUpCity = txtCity.Text;
-                pickUpState = txtState.Text;
-                pickUpZip = txtZip.Text;
-            }
-            if (chkTrashRemoval.Value.Equals("Trash"))
-            {
-                trashRemoval = "YES";
-            }
-            if (chkAuctionWalkthrough.Checked)
-            {
-                auctionWalkthrough = "YES";
-            }
-            if (rbtnDeadN.Checked)
-            {
-                deadline = "NO";
-            }
-            if (rbtnDeadY.Checked)
-            {
-                deadline = txtDeadDate.Text;
-            }
+                string bringIn = "NO";
+                string pickUp = "NO";
+                string trashRemoval = "NO";
+                string auctionWalkthrough = "NO";
+                string customerRequestedWalk = "NULL";
+                string greenValleyRequested = "NULL";
+                string deadline = "";
+                string pickUpAddress = "";
+                string pickUpCity = "";
+                string pickUpState = "";
+                string pickUpZip = "";
+                if (chkCustReq.Checked)
+                {
+                    customerRequestedWalk = "YES";
+                }
+                if (chkGreenReq.Checked)
+                {
+                    greenValleyRequested = "YES";
+                }
+                if (chkBringIn.Value.Equals("BringIn"))
+                {
+                    bringIn = "YES";
+                }
+                if (chkbxPickUp.Checked)
+                {
+                    pickUp = "YES";
+                    pickUpAddress = txtAuctionPickUpAddress.Text;
+                    pickUpCity = txtCity.Text;
+                    pickUpState = txtState.Text;
+                    pickUpZip = txtZip.Text;
+                }
+                if (chkTrashRemoval.Value.Equals("Trash"))
+                {
+                    trashRemoval = "YES";
+                }
+                if (chkAuctionWalkthrough.Checked)
+                {
+                    auctionWalkthrough = "YES";
+                }
+                if (rbtnDeadN.Checked)
+                {
+                    deadline = "NO";
+                }
+                if (rbtnDeadY.Checked)
+                {
+                    deadline = txtDeadDate.Text;
+                }
 
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
 
-            String query = "INSERT INTO IntialAuction (ReasonForAuction, Deadline, BringIn, PickUp, TrashRemoval, AuctionLookAt, CustomerRequested, GreenValleyRequested, CustomerID, PickUpAddress, PickUpCity, PickUpState, PickUpZip)" +
-    "VALUES (@ReasonForAuction, @Deadline, @BringIn, @PickUp, @TrashRemoval, @AuctionLookAt, @CustomerRequested, @GreenValleyRequested, @CustomerID,  @PickUpAddress, @PickUpCity, @PickUpState, @PickUpZip)";
-            SqlCommand cmd = new SqlCommand(query, con);
+                String query = "INSERT INTO IntialAuction (ReasonForAuction, Deadline, BringIn, PickUp, TrashRemoval, AuctionLookAt, CustomerRequested, GreenValleyRequested, CustomerID, PickUpAddress, PickUpCity, PickUpState, PickUpZip)" +
+                "VALUES (@ReasonForAuction, @Deadline, @BringIn, @PickUp, @TrashRemoval, @AuctionLookAt, @CustomerRequested, @GreenValleyRequested, @CustomerID,  @PickUpAddress, @PickUpCity, @PickUpState, @PickUpZip)";
+                SqlCommand cmd = new SqlCommand(query, con);
 
-            cmd.Parameters.AddWithValue("@ReasonForAuction", HttpUtility.HtmlEncode(txtReasonfor.Text));
-            cmd.Parameters.AddWithValue("@Deadline", HttpUtility.HtmlEncode(deadline));
-            cmd.Parameters.AddWithValue("@BringIn", HttpUtility.HtmlEncode(bringIn));
-            cmd.Parameters.AddWithValue("@PickUp", HttpUtility.HtmlEncode(pickUp));
-            cmd.Parameters.AddWithValue("@TrashRemoval", HttpUtility.HtmlEncode(trashRemoval));
-            cmd.Parameters.AddWithValue("@AuctionLookAt", HttpUtility.HtmlEncode(auctionWalkthrough));
-            cmd.Parameters.AddWithValue("@CustomerRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
-            cmd.Parameters.AddWithValue("@GreenValleyRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
-            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(CustID));
-            cmd.Parameters.AddWithValue("@PickUpAddress", HttpUtility.HtmlEncode(pickUpAddress));
-            cmd.Parameters.AddWithValue("@PickUpCity", HttpUtility.HtmlEncode(pickUpCity));
-            cmd.Parameters.AddWithValue("@PickUpState", HttpUtility.HtmlEncode(pickUpState));
-            cmd.Parameters.AddWithValue("@PickUpZip", HttpUtility.HtmlEncode(pickUpZip));
-            
+                cmd.Parameters.AddWithValue("@ReasonForAuction", HttpUtility.HtmlEncode(txtReasonfor.Text));
+                cmd.Parameters.AddWithValue("@Deadline", HttpUtility.HtmlEncode(deadline));
+                cmd.Parameters.AddWithValue("@BringIn", HttpUtility.HtmlEncode(bringIn));
+                cmd.Parameters.AddWithValue("@PickUp", HttpUtility.HtmlEncode(pickUp));
+                cmd.Parameters.AddWithValue("@TrashRemoval", HttpUtility.HtmlEncode(trashRemoval));
+                cmd.Parameters.AddWithValue("@AuctionLookAt", HttpUtility.HtmlEncode(auctionWalkthrough));
+                cmd.Parameters.AddWithValue("@CustomerRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
+                cmd.Parameters.AddWithValue("@GreenValleyRequested", HttpUtility.HtmlEncode(txtDisplayItemsSell.Text));
+                cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(CustID));
+                cmd.Parameters.AddWithValue("@PickUpAddress", HttpUtility.HtmlEncode(pickUpAddress));
+                cmd.Parameters.AddWithValue("@PickUpCity", HttpUtility.HtmlEncode(pickUpCity));
+                cmd.Parameters.AddWithValue("@PickUpState", HttpUtility.HtmlEncode(pickUpState));
+                cmd.Parameters.AddWithValue("@PickUpZip", HttpUtility.HtmlEncode(pickUpZip));
 
-            cmd.ExecuteNonQuery();
-            con.Close();
 
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
         }
 
         protected void chkbxPickUp_CheckedChanged(object sender, EventArgs e)
@@ -155,8 +162,9 @@ namespace CapstoneProject
             }
         }
 
-        protected void ddlStorageLocations_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlAuctionDate_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+
     }
 }

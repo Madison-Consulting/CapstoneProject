@@ -16,6 +16,9 @@
                 <asp:TableCell> 
                     <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
             </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+                </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
@@ -33,12 +36,22 @@
                     </asp:DropDownList>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBox ID="chkbxBringIn" runat="server" Text="Bring In" AutoPostBack="true" /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:CheckBox ID="chkbxPickUp" runat="server" Text="Pick Up" AutoPostBack="true" OnCheckedChanged="chkbxPickUp_CheckedChanged" />
+                     <asp:DropDownList ID="ddlAuctions" runat="server" AutoPostBack="true"
+                        DataSourceID="datasrcAuctions"
+                        DataTextField="AuctionDate"
+                        DataValueField="AuctionID"
+                        OnSelectedIndexChanged="ddlAuctionDate_SelectedIndexChanged"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="">- Select Auction -</asp:ListItem>
+                    </asp:DropDownList>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtDisplayItemsSell" runat="server" TextMode="MultiLine" Height="200px" Width="200px"></asp:TextBox>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:CheckBox ID="chkbxBringIn" runat="server" Text="Bring In" AutoPostBack="true" /> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<asp:CheckBox ID="chkbxPickUp" runat="server" Text="Pick Up" AutoPostBack="true" OnCheckedChanged="chkbxPickUp_CheckedChanged" />
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblPickUp" runat="server" Text="Pick Up/Look At Address" Visible="false"></asp:Label><asp:TextBox ID="txtAuctionPickUpAddress" runat="server" Visible="false" ></asp:TextBox>
@@ -118,6 +131,12 @@
             ID="datasrcStroageLocation"
             ConnectionString="<%$ ConnectionStrings:Lab3 %>"
             SelectCommand="SELECT LocationID, StorageName FROM StorageLocation;" >
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="datasrcAuctions"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT AuctionID, AuctionDate FROM AuctionSchedule;" >
         </asp:SqlDataSource>
         </div>
 </asp:Content>

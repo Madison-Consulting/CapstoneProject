@@ -126,7 +126,7 @@ namespace CapstoneProject
                 cmdInsertService.ExecuteNonQuery();
 
                 //find ServiceID ^ for most recent insert
-                SqlDataAdapter daForServiceID = new SqlDataAdapter("SELECT MAX(ServiceID) FROM Service", con);
+                 SqlDataAdapter daForServiceID = new SqlDataAdapter("SELECT MAX(ServiceID) FROM Service", con);
                 DataTable dtForServiceID = new DataTable();
                 daForServiceID.Fill(dtForServiceID);
                 string currentServiceID = dtForServiceID.Rows[0][0].ToString();
