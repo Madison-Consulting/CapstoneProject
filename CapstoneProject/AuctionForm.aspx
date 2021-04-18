@@ -166,6 +166,11 @@
                                                 AutoPostBack="false"></asp:ListBox>
                                         </asp:TableCell>
                                     </asp:TableRow>
+                                    <asp:TableRow>
+                                        <asp:TableCell>
+                                            <asp:TextBox ID="txtIDforCustomer" runat="server" Visible="false"></asp:TextBox>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
                                 </asp:Table>
                             </asp:TableCell>
                         </asp:TableRow>
@@ -208,7 +213,7 @@
         <asp:SqlDataSource runat="server"
         ID="dtasrcCustomerService"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT Service.ServiceID, Service.ServiceType, Service.ServiceDate FROM Service WHERE Servcie.CustomerID = @ID  " >
+        SelectCommand="SELECT Service.ServiceID, Service.ServiceType, Service.ServiceDate FROM Service WHERE Service.CustomerID = 'txtIDforCustomer.Text'  " >
     </asp:SqlDataSource>
 
         <asp:TextBox ID="txtCustomerID" runat="server" Visible="false"></asp:TextBox>
