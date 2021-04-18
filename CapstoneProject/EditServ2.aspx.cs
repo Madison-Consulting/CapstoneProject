@@ -200,101 +200,6 @@ namespace Lab2
             }
         }
 
-        protected void grdvwAuctions_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            string keyValue = grdvwAuctions.DataKeys[e.NewEditIndex].Value.ToString();
-
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
-
-            string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
-            viewAuctionItems += "AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
-            viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
-            viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
-
-            SqlCommand cmd = new SqlCommand(viewAuctionItems, con);
-
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-            DataTable dtAuctInfo = new DataTable();
-            sqlAdapter.Fill(dtAuctInfo);
-
-            txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
-            txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
-
-        }
-
-
-        protected void grdvwMoves_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            string keyValue = grdvwMoves.DataKeys[e.NewEditIndex].Value.ToString();
-            txtHiddenMoveServiceID.Text = keyValue;
-
-            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-            con.Open();
-
-            //load data from MoveForm table
-            string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, MoveForm.OriginaAddress2,";
-            viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationAddress2, MoveForm.DestinationCity, ";
-            viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
-            viewMoveInfo += "MoveForm.HomeType, MoveForm.LoadingCondition, MoveForm.TruckDistance, MoveForm.Accessibility ";
-            viewMoveInfo += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
-            viewMoveInfo += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE MoveForm.ServiceID = @ServiceID";
-
-            SqlCommand cmd = new SqlCommand(viewMoveInfo, con);
-            cmd.Parameters.AddWithValue("ServiceID", keyValue);
-
-            SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
-            DataTable dtMoveInfo = new DataTable();
-            sqlAdapter.Fill(dtMoveInfo);
-
-            txtCustomer.Text = dtMoveInfo.Rows[0][0].ToString();
-            txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString();
-            txtOriginAddress.Text = dtMoveInfo.Rows[0][2].ToString();
-            txtOriginAddress2.Text = dtMoveInfo.Rows[0][3].ToString();
-            txtOriginCity.Text = dtMoveInfo.Rows[0][4].ToString();
-            txtOriginState.Text = dtMoveInfo.Rows[0][5].ToString();
-            txtOriginZip.Text = dtMoveInfo.Rows[0][6].ToString();
-            txtDestinationAddress.Text = dtMoveInfo.Rows[0][7].ToString();
-            txtDestinationAddress2.Text = dtMoveInfo.Rows[0][8].ToString();
-            txtDestinationCity.Text = dtMoveInfo.Rows[0][9].ToString();
-            txtDestinationState.Text = dtMoveInfo.Rows[0][10].ToString();
-            txtDestinationZip.Text = dtMoveInfo.Rows[0][11].ToString();
-            txtFoodCost.Text = dtMoveInfo.Rows[0][12].ToString();
-            txtFuelCost.Text = dtMoveInfo.Rows[0][13].ToString();
-            txtLodgingCost.Text = dtMoveInfo.Rows[0][14].ToString();
-            txtHomeType.Text = dtMoveInfo.Rows[0][15].ToString();
-            txtLoadingCondition.Text = dtMoveInfo.Rows[0][16].ToString();
-            txtTruckDistance.Text = dtMoveInfo.Rows[0][17].ToString();
-            rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][18].ToString();
-
-            //load data from EquipmentUsed table
-            string viewMoveEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription ";
-            viewMoveEquipmentUsed += "FROM  Equipment INNER JOIN EquipmentUsed ON Equipment.EquipmentID = EquipmentUsed.EquipmentID ";
-            viewMoveEquipmentUsed += "INNER JOIN MoveForm ON EquipmentUsed.MoveFormID = MoveForm.MoveFormID ";
-            viewMoveEquipmentUsed += "WHERE MoveForm.ServiceID = " + keyValue;
-
-            SqlCommand cmdForMoveEquipmentUsed = new SqlCommand(viewMoveEquipmentUsed, con);
-            SqlDataAdapter sqlAdapterForMoveEquipmentUsed = new SqlDataAdapter(cmdForMoveEquipmentUsed);
-            DataTable dtMoveEquipment = new DataTable();
-            sqlAdapterForMoveEquipmentUsed.Fill(dtMoveEquipment);
-
-            int dataRowCounter = 0;
-            foreach (DataRow dr in dtMoveEquipment.Rows)
-            {
-                if (dtMoveEquipment.Rows[dataRowCounter][1].ToString().Equals("truck"))
-                {
-                    lstboxMoveTruckUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
-                }
-                else
-                {
-                    lstboxMoveEquipmentUsed.Items.Add(new ListItem(dtMoveEquipment.Rows[dataRowCounter][2].ToString(), dtMoveEquipment.Rows[dataRowCounter][0].ToString()));
-                }
-                dataRowCounter++;
-            }
-
-
-            tblMoveInfo.Visible = true;
-        }
 
         protected void btnAddMoveTruck_Click(object sender, EventArgs e)
         {
@@ -452,26 +357,29 @@ namespace Lab2
             cmdUpdateAuctionInfo.ExecuteNonQuery();
 
             //lastly, update EquipmentUsed
-            //first, delete all EquipmentUsed records for specific AuctionID
-            SqlCommand cmdDeleteAuctionEquipment = new SqlCommand("DELETE EquipmentUsed WHERE AuctionID = " + txtHiddenAuctionID.Text, con);
-            cmdDeleteAuctionEquipment.ExecuteNonQuery();
+            if (radioBtnProcurement.SelectedValue.Equals("pickup"))
+            {
+                //first, delete all EquipmentUsed records for specific AuctionID
+                SqlCommand cmdDeleteAuctionEquipment = new SqlCommand("DELETE EquipmentUsed WHERE AuctionID = " + txtHiddenAuctionID.Text, con);
+                cmdDeleteAuctionEquipment.ExecuteNonQuery();
 
-            //second, re-add records
-            string addAuctionEquipment = "INSERT INTO EquipmentUsed(EquipmentID, AuctionID) VALUES (@EquipmentID, @AuctionID)";
-            SqlCommand cmdAddAuctionEquipment = new SqlCommand(addAuctionEquipment, con);
-            foreach (ListItem li in lstboxAuctionTruckUsed.Items)
-            {
-                cmdAddAuctionEquipment.Parameters.Clear();
-                cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
-                cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
-                cmdAddAuctionEquipment.ExecuteNonQuery();
-            }
-            foreach (ListItem li in lstboxAuctionEquipmentUsed.Items)
-            {
-                cmdAddAuctionEquipment.Parameters.Clear();
-                cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
-                cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
-                cmdAddAuctionEquipment.ExecuteNonQuery();
+                //second, re-add records
+                string addAuctionEquipment = "INSERT INTO EquipmentUsed(EquipmentID, AuctionID) VALUES (@EquipmentID, @AuctionID)";
+                SqlCommand cmdAddAuctionEquipment = new SqlCommand(addAuctionEquipment, con);
+                foreach (ListItem li in lstboxAuctionTruckUsed.Items)
+                {
+                    cmdAddAuctionEquipment.Parameters.Clear();
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                    cmdAddAuctionEquipment.ExecuteNonQuery();
+                }
+                foreach (ListItem li in lstboxAuctionEquipmentUsed.Items)
+                {
+                    cmdAddAuctionEquipment.Parameters.Clear();
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                    cmdAddAuctionEquipment.ExecuteNonQuery();
+                }
             }
         }
 
@@ -480,8 +388,8 @@ namespace Lab2
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
             con.Open();
 
-            string updateMove = "UPDATE MoveForm SET MoveDateTime = @MoveDate, OriginAddress = @OAddress, OriginCity = @OCity, ";
-            updateMove += "OriginState = @OState, OriginZip = @OZip, DestinationAddress = @DAddress, ";
+            string updateMove = "UPDATE MoveForm SET MoveDateTime = @MoveDate, OriginAddress = @OAddress, OriginAddress2 = @OAddress2, OriginCity = @OCity, ";
+            updateMove += "OriginState = @OState, OriginZip = @OZip, DestinationAddress = @DAddress, DestinationAddress2 = @DAddress2, ";
             updateMove += "DestinationCity = @DCity, DestinationState = @DState, DestinationZip = @DZip, FoodCost = @FoodCost, ";
             updateMove += "FuelCost = @FuelCost, LodgingCost = @LodgingCost, HomeType = @HomeType, ";
             updateMove += "LoadingCondition = @LoadCondition, TruckDistance = @TruckDistance, Accessibility = @Accessible ";
@@ -489,14 +397,16 @@ namespace Lab2
 
             SqlCommand cmdUpdateMove = new SqlCommand(updateMove, con);
 
-            cmdUpdateMove.Parameters.AddWithValue("@MoveDate", txtMoveDate.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@MoveDate", txtMoveDate.Text.Trim() + " " + txtMoveTime.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@OAddress", txtOriginAddress.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OAddress2", txtOriginAddress2.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@OCity", txtOriginCity.Text.Trim());
-            cmdUpdateMove.Parameters.AddWithValue("@OState", txtOriginState.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@OState", ddlOriginState.SelectedValue);
             cmdUpdateMove.Parameters.AddWithValue("@OZip", txtOriginZip.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@DAddress", txtDestinationAddress.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DAddress2", txtDestinationAddress2.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@DCity", txtDestinationCity.Text.Trim());
-            cmdUpdateMove.Parameters.AddWithValue("@DState", txtDestinationState.Text.Trim());
+            cmdUpdateMove.Parameters.AddWithValue("@DState", ddlDestinationState.SelectedValue);
             cmdUpdateMove.Parameters.AddWithValue("@DZip", txtDestinationZip.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@FoodCost", txtFoodCost.Text.Trim());
             cmdUpdateMove.Parameters.AddWithValue("@FuelCost", txtFuelCost.Text.Trim());
@@ -555,8 +465,8 @@ namespace Lab2
 
                 //load data from MoveForm table
                 string viewMoveInfo = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, MoveForm.MoveDateTime, MoveForm.OriginAddress, ";
-                viewMoveInfo += "MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationCity, ";
-                viewMoveInfo += "MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
+                viewMoveInfo += "MoveForm.OriginAddress2, MoveForm.OriginCity, MoveForm.OriginState, MoveForm.OriginZip, MoveForm.DestinationAddress, MoveForm.DestinationAddress2, ";
+                viewMoveInfo += "MoveForm.DestinationCity, MoveForm.DestinationState, MoveForm.DestinationZip, MoveForm.FoodCost, MoveForm.FuelCost, MoveForm.LodgingCost, ";
                 viewMoveInfo += "MoveForm.HomeType, MoveForm.LoadingCondition, MoveForm.TruckDistance, MoveForm.Accessibility ";
                 viewMoveInfo += "FROM  Customer INNER JOIN Service ON Customer.CustomerID = Service.CustomerID INNER JOIN ";
                 viewMoveInfo += "MoveForm ON Service.ServiceID = MoveForm.ServiceID WHERE MoveForm.ServiceID = @ServiceID";
@@ -568,23 +478,37 @@ namespace Lab2
                 DataTable dtMoveInfo = new DataTable();
                 sqlAdapter.Fill(dtMoveInfo);
 
+                ddlOriginState.DataBind();
+                ddlDestinationState.DataBind();
+
                 txtCustomer.Text = dtMoveInfo.Rows[0][0].ToString();
-                txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString();
+                //int firstSpaceIndex = dtMoveInfo.Rows[0][1].ToString().IndexOf(" ");
+                DateTime moveDate = Convert.ToDateTime(dtMoveInfo.Rows[0][1].ToString());
+                txtMoveDate.Text = moveDate.ToString("yyyy-MM-dd");
+                txtMoveTime.Text = moveDate.TimeOfDay.ToString();
+                //txtMoveDate.Text = dtMoveInfo.Rows[0][1].ToString().Substring(0, firstSpaceIndex);
+                //int timeSecondsIndex = dtMoveInfo.Rows[0][1].ToString().LastIndexOf(":");
+                //int datetimeLength = dtMoveInfo.Rows[0][1].ToString().Length;
+                //string timeNoSeconds = dtMoveInfo.Rows[0][1].ToString().Substring(firstSpaceIndex + 1, datetimeLength - (timeSecondsIndex + 2));
+                //timeNoSeconds += " " + dtMoveInfo.Rows[0][1].ToString().Substring(timeSecondsIndex + 4);
+                //txtMoveTime.Text = timeNoSeconds;
                 txtOriginAddress.Text = dtMoveInfo.Rows[0][2].ToString();
-                txtOriginCity.Text = dtMoveInfo.Rows[0][3].ToString();
-                txtOriginState.Text = dtMoveInfo.Rows[0][4].ToString();
-                txtOriginZip.Text = dtMoveInfo.Rows[0][5].ToString();
-                txtDestinationAddress.Text = dtMoveInfo.Rows[0][6].ToString();
-                txtDestinationCity.Text = dtMoveInfo.Rows[0][7].ToString();
-                txtDestinationState.Text = dtMoveInfo.Rows[0][8].ToString();
-                txtDestinationZip.Text = dtMoveInfo.Rows[0][9].ToString();
-                txtFoodCost.Text = dtMoveInfo.Rows[0][10].ToString();
-                txtFuelCost.Text = dtMoveInfo.Rows[0][11].ToString();
-                txtLodgingCost.Text = dtMoveInfo.Rows[0][12].ToString();
-                txtHomeType.Text = dtMoveInfo.Rows[0][13].ToString();
-                txtLoadingCondition.Text = dtMoveInfo.Rows[0][14].ToString();
-                txtTruckDistance.Text = dtMoveInfo.Rows[0][15].ToString();
-                rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][16].ToString();
+                txtOriginAddress2.Text = dtMoveInfo.Rows[0][3].ToString();
+                txtOriginCity.Text = dtMoveInfo.Rows[0][4].ToString();
+                ddlOriginState.SelectedValue = dtMoveInfo.Rows[0][5].ToString();
+                txtOriginZip.Text = dtMoveInfo.Rows[0][6].ToString();
+                txtDestinationAddress.Text = dtMoveInfo.Rows[0][7].ToString();
+                txtDestinationAddress2.Text = dtMoveInfo.Rows[0][8].ToString();
+                txtDestinationCity.Text = dtMoveInfo.Rows[0][9].ToString();
+                ddlDestinationState.SelectedValue = dtMoveInfo.Rows[0][10].ToString();
+                txtDestinationZip.Text = dtMoveInfo.Rows[0][11].ToString();
+                txtFoodCost.Text = dtMoveInfo.Rows[0][12].ToString();
+                txtFuelCost.Text = dtMoveInfo.Rows[0][13].ToString();
+                txtLodgingCost.Text = dtMoveInfo.Rows[0][14].ToString();
+                txtHomeType.Text = dtMoveInfo.Rows[0][15].ToString();
+                txtLoadingCondition.Text = dtMoveInfo.Rows[0][16].ToString();
+                txtTruckDistance.Text = dtMoveInfo.Rows[0][17].ToString();
+                rbtnlistDrivewayAccess.SelectedValue = dtMoveInfo.Rows[0][18].ToString();
 
                 //load data from EquipmentUsed table
                 string viewMoveEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription ";
@@ -675,27 +599,30 @@ namespace Lab2
                 radioBtnTruckAccess.SelectedValue = dtForAuctionScheduleInfo.Rows[0][3].ToString();
                 txtAuctionCrewSize.Text = dtForAuctionScheduleInfo.Rows[0][4].ToString();
 
-                //load data from equipmentUsed table
-                string viewAuctionEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription " +
-                    "FROM  AuctionSchedule INNER JOIN EquipmentUsed ON AuctionSchedule.AuctionID = EquipmentUsed.AuctionID " +
-                    "INNER JOIN Equipment ON EquipmentUsed.EquipmentID = Equipment.EquipmentID WHERE EquipmentUsed.AuctionID = " + txtHiddenAuctionID.Text;
-                SqlCommand cmdViewAuctionEquipmentUsed = new SqlCommand(viewAuctionEquipmentUsed, con);
-                SqlDataAdapter daForAuctionEquipmentUsed = new SqlDataAdapter(cmdViewAuctionEquipmentUsed);
-                DataTable dtForAuctionEquipmentUsed = new DataTable();
-                daForAuctionEquipmentUsed.Fill(dtForAuctionEquipmentUsed);
-
-                int dataRowCounter = 0;
-                foreach (DataRow dr in dtForAuctionEquipmentUsed.Rows)
+                if (radioBtnProcurement.SelectedValue.Equals("pickup"))
                 {
-                    if (dtForAuctionEquipmentUsed.Rows[dataRowCounter][1].ToString().Trim().Equals("truck"))
+                    //load data from equipmentUsed table
+                    string viewAuctionEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription " +
+                        "FROM  AuctionSchedule INNER JOIN EquipmentUsed ON AuctionSchedule.AuctionID = EquipmentUsed.AuctionID " +
+                        "INNER JOIN Equipment ON EquipmentUsed.EquipmentID = Equipment.EquipmentID WHERE EquipmentUsed.AuctionID = " + txtHiddenAuctionID.Text;
+                    SqlCommand cmdViewAuctionEquipmentUsed = new SqlCommand(viewAuctionEquipmentUsed, con);
+                    SqlDataAdapter daForAuctionEquipmentUsed = new SqlDataAdapter(cmdViewAuctionEquipmentUsed);
+                    DataTable dtForAuctionEquipmentUsed = new DataTable();
+                    daForAuctionEquipmentUsed.Fill(dtForAuctionEquipmentUsed);
+
+                    int dataRowCounter = 0;
+                    foreach (DataRow dr in dtForAuctionEquipmentUsed.Rows)
                     {
-                        lstboxAuctionTruckUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
+                        if (dtForAuctionEquipmentUsed.Rows[dataRowCounter][1].ToString().Trim().Equals("truck"))
+                        {
+                            lstboxAuctionTruckUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
+                        }
+                        else
+                        {
+                            lstboxAuctionEquipmentUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
+                        }
+                        dataRowCounter++;
                     }
-                    else
-                    {
-                        lstboxAuctionEquipmentUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
-                    }
-                    dataRowCounter++;
                 }
             }
         }

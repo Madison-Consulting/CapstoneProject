@@ -213,6 +213,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtMoveTime;
 
         /// <summary>
+        /// lblOrigin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrigin;
+
+        /// <summary>
         /// lblOriginAddress control.
         /// </summary>
         /// <remarks>
@@ -294,22 +303,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblOriginState;
 
         /// <summary>
-        /// txtOriginState control.
+        /// ddlOriginState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOriginState;
-
-        /// <summary>
-        /// RFVtxtOriginState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtOriginState;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOriginState;
 
         /// <summary>
         /// lblOriginZip control.
@@ -337,6 +337,15 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtOriginZip;
+
+        /// <summary>
+        /// lblDestination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDestination;
 
         /// <summary>
         /// lblDestinationAddress control.
@@ -420,22 +429,13 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.Label lblDestinationState;
 
         /// <summary>
-        /// txtDestinationState control.
+        /// ddlDestinationState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestinationState;
-
-        /// <summary>
-        /// RFVtxtDestinationState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtDestinationState;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDestinationState;
 
         /// <summary>
         /// lblDestinationZip control.
@@ -1237,5 +1237,14 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource datasrcLocationList;
+
+        /// <summary>
+        /// dtasrcStates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dtasrcStates;
     }
 }
