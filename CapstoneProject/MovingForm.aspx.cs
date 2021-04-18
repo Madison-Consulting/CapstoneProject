@@ -179,7 +179,7 @@ namespace CapstoneProject
 
         protected void btnAuctionAssess_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AuctionForm.aspx");
         }
     }
 
