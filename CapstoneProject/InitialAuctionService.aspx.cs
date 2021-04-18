@@ -15,14 +15,7 @@ namespace CapstoneProject
         string CustID;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
-            {
-                if (Session["ID"] != null)
-                {
                      CustID = (string)Session["ID"];
-                }
-            }
         }
 
 
@@ -145,6 +138,19 @@ namespace CapstoneProject
 
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+                txtDeadDate.Text = "";
+                txtDisplayItemsSell.Text = "";
+                txtItemsSell.Text = "";
+                txtReasonfor.Text = "";
+                txtState.Text = "";
+                txtState.Visible = false;
+                txtZip.Text = "";
+                txtZip.Visible = false;
+                txtAuctionPickUpAddress.Text = "";
+                txtAuctionPickUpAddress.Visible = false;
+                txtCity.Text = "";
+                txtCity.Visible = false;
             }
         }
 
@@ -160,6 +166,17 @@ namespace CapstoneProject
                 lblState.Visible = true;
                 lblZip.Visible = true;
                 lblPickUp.Visible = true;
+            }
+            else
+            {
+                txtAuctionPickUpAddress.Visible = false;
+                txtCity.Visible = false;
+                txtState.Visible = false;
+                txtZip.Visible = false;
+                lblCity.Visible = false;
+                lblState.Visible = false;
+                lblZip.Visible = false;
+                lblPickUp.Visible = false;
             }
         }
 

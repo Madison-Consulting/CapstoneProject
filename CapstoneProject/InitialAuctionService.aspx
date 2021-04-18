@@ -14,7 +14,7 @@
         <asp:Table runat="server" Width="770px"> 
             <asp:TableRow ID="IntialAuctionTable" runat="server">
                 <asp:TableCell> 
-                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold"></asp:Label>
+                    <asp:Label ID="lblItemBeingSold" runat="server" Text="Items Being Sold  (Select an Auction and Storage Location Before Entering an Item)"></asp:Label>
             </asp:TableCell>
                 <asp:TableCell>
                     <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
