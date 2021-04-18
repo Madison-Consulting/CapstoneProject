@@ -92,7 +92,7 @@ namespace CapstoneProject
                 {
                     greenValleyRequested = "YES";
                 }
-                if (chkBringIn.Value.Equals("BringIn"))
+                if (chkbxBringIn.Checked)
                 {
                     bringIn = "YES";
                 }
