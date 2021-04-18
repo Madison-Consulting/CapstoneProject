@@ -7,14 +7,16 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.IO;
 
 namespace CapstoneProject
 {
     public partial class ChooseCustomer : System.Web.UI.Page
     {
-
+     
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (Session["Username"] == null)
             {
                 Session["InvalidUse"] = "You must first login to access this page!";
@@ -103,13 +105,25 @@ namespace CapstoneProject
             Session["PhoneNo"] = GridView2.SelectedRow.Cells[3].Text;
             Session["Email"] = GridView2.SelectedRow.Cells[4].Text;
             Session["Address"] = GridView2.SelectedRow.Cells[5].Text;
-            if (GridView2.SelectedRow.Cells[6].Text == null)
+
+            string add2 = GridView2.SelectedRow.Cells[6].Text ;
+
+
+     
+            if (add2.Equals("&nbsp;"))
             {
-                Session["Address2"] = null;
+                Session["Address2"] = "";
+               
 
             }
             else
             {
+                //StringWriter writer = new StringWriter();
+                //Server.HtmlDecode(add2, writer);
+                //String DecodedString = writer.ToString();
+                //Session["Address2"] = DecodedString;
+
+             
                 Session["Address2"] = GridView2.SelectedRow.Cells[6].Text;
             }
             Session["City"] = GridView2.SelectedRow.Cells[7].Text;
@@ -117,23 +131,28 @@ namespace CapstoneProject
             Session["Zip"] = GridView2.SelectedRow.Cells[9].Text;
             Session["ID"] = GridView2.SelectedRow.Cells[10].Text;
 
-            if (GridView2.SelectedRow.Cells[11].Text == null)
+            string notes = GridView2.SelectedRow.Cells[11].Text;
+            if (notes.Equals("&nbsp;"))
             {
-                Session["Notes"] = "";
+                Session["Notes"] ="";
             }
             else
             {
                 Session["Notes"] = GridView2.SelectedRow.Cells[11].Text;
-                
-            }
-          
 
-         
+            }
+
+ 
+
+
+
+
             Response.Redirect("EmpLandingPage.aspx");
         }
 
         protected void btnViewAll_Click(object sender, EventArgs e)
         {
+            lblStatus.Text = null;
             string hex = "#266141";
             GridView2.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml(hex);
             GridView2.HeaderStyle.ForeColor = System.Drawing.Color.White;

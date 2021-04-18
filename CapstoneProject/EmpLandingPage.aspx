@@ -15,9 +15,6 @@
     
     
 
-        
-  <%--      add place for customer name--%>
-
 
 
 

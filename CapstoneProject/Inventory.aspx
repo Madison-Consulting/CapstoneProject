@@ -111,15 +111,12 @@
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblInventoryDate" runat="server" Text="Inventory Date"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtInventoryDate1" runat="server" TextMode="Date"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date"
                         ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
                 </asp:TableCell>
@@ -137,8 +134,7 @@
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnAddInv" class="btn-GreenValleyGreen" runat="server" Text="Add" OnClick="btnAddInv_Click" />
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                 </asp:TableCell>
             </asp:TableRow>
@@ -148,8 +144,6 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-
-
         <asp:Table ID="Table2" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
@@ -157,7 +151,6 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-
         <%--                        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 100px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
@@ -171,5 +164,4 @@
             </asp:TableRow>
         </asp:Table>--%>
     </div>
-
 </asp:Content>
