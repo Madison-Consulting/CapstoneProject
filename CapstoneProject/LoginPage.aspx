@@ -14,7 +14,7 @@
 
               
             <asp:Table ID="tblLogin" runat="server" Width="378px" HorizontalAlign="Center">
-                <asp:TableRow HorizontalAlign="Right">
+                <asp:TableRow>
                         <asp:TableCell  ColumnSpan="2">
                             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg"/>
                         </asp:TableCell>

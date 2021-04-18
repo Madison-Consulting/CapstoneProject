@@ -51,8 +51,8 @@ namespace Lab3
                 myReader3.Close();
             }
             con.Close();
-        
-        
+
+
             Session["Email"] = HttpUtility.HtmlEncode(txtEmail.Text);
 
             try
