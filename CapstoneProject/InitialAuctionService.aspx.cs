@@ -15,7 +15,7 @@ namespace CapstoneProject
         string CustID;
         protected void Page_Load(object sender, EventArgs e)
         {
-                     CustID = (string)Session["ID"];
+                     CustID = (string)Session["ID"]; 
         }
 
 
