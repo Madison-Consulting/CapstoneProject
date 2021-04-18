@@ -95,7 +95,6 @@
             <asp:TableRow>
                     <asp:TableCell>
                     <asp:CheckBoxList ID="chkNeedSch" runat="server" AutoPostBack="true">
-                        <asp:ListItem ID="chkBringIn" runat="server" Value="BringIn" Text="Bring In"></asp:ListItem>
                         <asp:ListItem ID="chkTrashRemoval" runat="server" Value="Trash" Text="Trash Removal & Donation Hauling"></asp:ListItem>
                     </asp:CheckBoxList>
                 </asp:TableCell>

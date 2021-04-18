@@ -46,20 +46,20 @@ namespace CapstoneProject
                     createMove.Connection = sc;
                     // INSERT USER RECORD
                     createMove.CommandText = "INSERT INTO MoveForm (MoveDateTime, OriginAddress, OriginCity, OriginState, DestinationAddress, DestinationCity, DestinationState, MlsListing, SendPhoto, HomeType, Accessibility, TruckDistance, MoveSteps, LoadingCondition, CustomerID) VALUES (@MoveDateTime, @OriginAddress, @OriginCity, @OriginState, @DestinationAddress, @DestinationCity, @DestinationState, @MlsListing, @SendPhoto @HomeType, @Accessibility, @TruckDistance, @MoveSteps, @LoadingCondition, @CustomerID)";
-                    createMove.Parameters.Add(new SqlParameter("@MoveDateTime", txtDateTime.Text));
-                    createMove.Parameters.Add(new SqlParameter("@OriginAddress", txtOriginAddress.Text));
-                    createMove.Parameters.Add(new SqlParameter("@OriginCity", txtOriginCity.Text));
-                    createMove.Parameters.Add(new SqlParameter("@OriginState", txtOriginState.Text));
-                    createMove.Parameters.Add(new SqlParameter("@DestinationAddress", txtDestinationAddress.Text));
-                    createMove.Parameters.Add(new SqlParameter("@DestinationCity", txtDestinationCity.Text));
-                    createMove.Parameters.Add(new SqlParameter("@DestinationState", txtDestinationState.Text));
+                    createMove.Parameters.Add(new SqlParameter("@MoveDateTime", HttpUtility.HtmlEncode(txtDateTime.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@OriginAddress", HttpUtility.HtmlEncode(txtOriginAddress.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@OriginCity", HttpUtility.HtmlEncode(txtOriginCity.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@OriginState", HttpUtility.HtmlEncode(txtOriginState.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationAddress", HttpUtility.HtmlEncode(txtDestinationAddress.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationCity", HttpUtility.HtmlEncode(txtDestinationCity.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@DestinationState", HttpUtility.HtmlEncode(txtDestinationState.Text)));
                     createMove.Parameters.Add(new SqlParameter("@MlsListing", ddlMlsList.SelectedValue));
                     createMove.Parameters.Add(new SqlParameter("@SendPhoto", ddlPhotoNeed.SelectedValue));
                     createMove.Parameters.Add(new SqlParameter("@HomeType", ddlHomeType.SelectedValue));
-                    createMove.Parameters.Add(new SqlParameter("@Accessibility", txtDriveway.Text));
-                    createMove.Parameters.Add(new SqlParameter("@TruckDistance", txtDistance.Text));
-                    createMove.Parameters.Add(new SqlParameter("@MoveSteps", txtMoveSteps.Text));
-                    createMove.Parameters.Add(new SqlParameter("@LoadingCondition", txtLoad.Text));
+                    createMove.Parameters.Add(new SqlParameter("@Accessibility", HttpUtility.HtmlEncode(txtDriveway.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@TruckDistance", HttpUtility.HtmlEncode(txtDistance.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@MoveSteps", HttpUtility.HtmlEncode(txtMoveSteps.Text)));
+                    createMove.Parameters.Add(new SqlParameter("@LoadingCondition", HttpUtility.HtmlEncode(txtLoad.Text)));
                     //createMove.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                     createMove.ExecuteNonQuery();
 
