@@ -36,7 +36,6 @@
                     <asp:RadioButtonList ID="rbtnlistServiceType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal" CellPadding="5" OnSelectedIndexChanged="rbtnlistServiceType_SelectedIndexChanged">
                         <asp:ListItem Value="auction">Auction</asp:ListItem>
                         <asp:ListItem Value="move">Move</asp:ListItem>
-                        <asp:ListItem Value="other">Other</asp:ListItem>
                     </asp:RadioButtonList>
                 </asp:TableCell>
             </asp:TableRow>
