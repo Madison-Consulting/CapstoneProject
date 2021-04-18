@@ -156,7 +156,7 @@
             <asp:TableCell>
                 <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
             </asp:TableCell><asp:TableCell>
-                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" accept=".png,.jpg,.jpeg,.gif,.svg" />
+                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" accept=".png,.jpg,.jpeg,.gif,.svg,.jfif" />
             </asp:TableCell><asp:TableCell>
                 <asp:Button ID="btnUpload" class= "btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
             </asp:TableCell><asp:TableCell>

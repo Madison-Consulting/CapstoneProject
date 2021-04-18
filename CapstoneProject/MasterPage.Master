@@ -169,7 +169,7 @@
             });
         }
     </script>
-    <script>
+<%--    <script>
         var str = location.href.toLowerCase();
         $("#sidenav a").each(function () {
             if (str.indexOf($(this).attr("href").toLowerCase()) > -1) {
@@ -182,7 +182,7 @@
                 $(this).addClass("active");
             }
         });
-    </script>
+    </script>--%>
 
 
 

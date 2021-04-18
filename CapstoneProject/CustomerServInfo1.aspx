@@ -60,7 +60,7 @@
                         <asp:FileUpload ID="FileUpload1" runat="server" allowmultiple="true"/>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <asp:Button ID="btnUpload" class="btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" causesvalidation="false"/>
+                        <asp:Button ID="btnUpload" class="btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" causesvalidation="false"  accept=".png,.jpg,.jpeg,.gif,.svg,.jfif"/>
                     </asp:TableCell>
                     <asp:TableCell>
                         <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>

@@ -26,7 +26,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                       <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtFN" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+                            ControlToValidate="txtFN" ValidationExpression="([A-Za-z])+( [A-Za-z]+)*" ForeColor="Red" ></asp:RegularExpressionValidator>
 
                 </asp:TableCell>
             </asp:TableRow>
@@ -43,7 +43,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                       <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtLN" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+                            ControlToValidate="txtLN" ValidationExpression="([A-Za-z])+( [A-Za-z]+)*" ForeColor="Red" ></asp:RegularExpressionValidator>
 
                 </asp:TableCell>
             </asp:TableRow>
@@ -115,7 +115,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                       <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtCity" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+                            ControlToValidate="txtCity" ValidationExpression="([A-Za-z])+( [A-Za-z]+)*" ForeColor="Red" ></asp:RegularExpressionValidator>
 
                 </asp:TableCell>
             </asp:TableRow>
@@ -132,7 +132,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                       <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtState" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
+                            ControlToValidate="txtState" ValidationExpression="([A-Za-z])+( [A-Za-z]+)*" ForeColor="Red" ></asp:RegularExpressionValidator>
 
                 </asp:TableCell>
             </asp:TableRow>
