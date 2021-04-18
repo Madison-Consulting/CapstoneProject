@@ -106,10 +106,7 @@
                 <asp:TableCell>
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can be only numbers" />
-                </asp:TableCell>
-
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblInventoryDate" runat="server" Text="Inventory Date"></asp:Label>
                 </asp:TableCell><asp:TableCell>
@@ -120,39 +117,25 @@
                 </asp:TableCell><asp:TableCell>
                     <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date"
                         ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtServiceID1" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtCustID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnAddInv" class="btn-GreenValleyGreen" runat="server" Text="Add" OnClick="btnAddInv_Click" />
                 </asp:TableCell><asp:TableCell>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="center">
+                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnViewAllInv" class="btn-GreenValleyGreen" runat="server" Text="View All Items in Inventory for this Customer" OnClick="btnViewAllInv_Click" CausesValidation="false" />
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-        <asp:Table ID="Table2" runat="server">
+                </asp:TableCell></asp:TableRow></asp:Table><asp:Table ID="Table2" runat="server">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:GridView ID="grdviewInvDisplay" runat="server"></asp:GridView>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-        <%--                        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 100px;">
+                </asp:TableCell></asp:TableRow></asp:Table><%--                        <asp:Table ID="tblTxtBox" runat="server" Style="position:fixed; top: 80px; right: 100px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -163,6 +146,4 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>--%>
-    </div>
-</asp:Content>
+        </asp:Table>--%></div></asp:Content>
