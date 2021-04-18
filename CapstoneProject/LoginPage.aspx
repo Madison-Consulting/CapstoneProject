@@ -48,11 +48,11 @@
                         <asp:Button ID="btnLogin" class="btn-GreenValleyGreen" runat="server" Text="Login" OnClick="btnLogin_Click" />
                     </asp:TableCell>
                 </asp:TableRow>
-                <asp:TableRow HorizontalAlign="Center">
+<%--                <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="2">
                         <asp:LinkButton ID="lnkbtnForgot" runat="server" OnClick="lnkbtnForgot_Click" CausesValidation="false">Forgot Username/Password?</asp:LinkButton>
                     </asp:TableCell>
-                </asp:TableRow>
+                </asp:TableRow>--%>
             </asp:Table>
 
             <asp:Table ID="Table1" runat="server" HorizontalAlign = "Center">
