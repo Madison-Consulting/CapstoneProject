@@ -107,6 +107,7 @@
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can be only numbers" />
                 </asp:TableCell>
+
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>

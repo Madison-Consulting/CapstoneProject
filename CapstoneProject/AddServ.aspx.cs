@@ -46,7 +46,7 @@ namespace Lab2
 
             try //insert service statement
             {
-                String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate, Note)" +
+                String query = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate, EstimatedCost, CompletionDate)" +
                     "VALUES (@CustomerID, @ServiceType, @Date, @EstCost, @CompletionDate)";
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -80,7 +80,7 @@ namespace Lab2
             }
             catch (Exception)
             {
-                lblStatus1.Text = "Error saving service and/or ticket info";
+                lblStatus1.Text = "Error saving service and/or ticket info" ;
             }
 
 

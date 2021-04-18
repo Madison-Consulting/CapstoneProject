@@ -393,6 +393,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNo;
 
         /// <summary>
+        /// RegularExpressionValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+
+        /// <summary>
         /// RequiredFieldValidator10 control.
         /// </summary>
         /// <remarks>
