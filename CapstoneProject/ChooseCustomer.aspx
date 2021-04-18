@@ -14,6 +14,8 @@
         <div style="position: absolute; top: 40px; right: 40px;">
             <asp:LinkButton ID="lnkAdd" runat="server" OnClick="lnkAdd_Click" CausesValidation="false">Add a New Customer     </asp:LinkButton>
             <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" class="btn-GreenValleyGreen" />
+            <br />
+            <asp:Button ID="btnViewNew" runat="server" Text="View New Service Requests" class="btn-GreenValleyGreen" OnClick="btnViewNew_Click"/>
         </div>
         <div style="width: auto; margin: 0 20%" >
 
