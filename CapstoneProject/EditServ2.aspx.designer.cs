@@ -15,6 +15,24 @@ namespace Lab2
     {
 
         /// <summary>
+        /// tblTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblTitle;
+
+        /// <summary>
+        /// title control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label title;
+
+        /// <summary>
         /// tblDrop control.
         /// </summary>
         /// <remarks>
@@ -879,6 +897,15 @@ namespace Lab2
         protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionServiceID;
 
         /// <summary>
+        /// txtHiddenAuctionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHiddenAuctionID;
+
+        /// <summary>
         /// txtHiddenAuctionItemID control.
         /// </summary>
         /// <remarks>
@@ -913,6 +940,24 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtItemDesc;
+
+        /// <summary>
+        /// lblItemLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItemLocation;
+
+        /// <summary>
+        /// ddlItemLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlItemLocation;
 
         /// <summary>
         /// lblAuctionDate control.
@@ -1183,5 +1228,14 @@ namespace Lab2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dtasrcEquipment;
+
+        /// <summary>
+        /// datasrcLocationList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource datasrcLocationList;
     }
 }

@@ -40,7 +40,7 @@
                     </asp:RadioButtonList>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow Height="30"></asp:TableRow>
+            <asp:TableRow Height="10"></asp:TableRow>
         </asp:Table>
         <asp:SqlDataSource ID="datasrcCustomerList" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3 %>" SelectCommand="SELECT CustFirstName + ' ' +  CustLastName AS fullName, Customer.CustomerID FROM Customer"></asp:SqlDataSource>
 
@@ -54,7 +54,6 @@
                     <asp:GridView runat="server" ID="grdvwTicketDisplay1" EmptyDataText="No Service Selected!" OnRowDataBound="grdvwTicketDisplay_RowDataBound"></asp:GridView>
                 </asp:TableCell>
             </asp:TableRow>
-            <asp:TableRow Height="40"></asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:GridView runat="server" ID="grdvwAuctions"
@@ -67,6 +66,7 @@
                         <Columns>
                             <asp:ButtonField ButtonType="Button" Text="Edit" HeaderText="" CommandName="editRow" />
                             <asp:BoundField DataField="ItemDescription" HeaderText="Item" />
+                            <asp:BoundField DataField="StorageName" HeaderText="Location" />
                             <asp:BoundField DataField="AuctionItemID" HeaderText="AuctionItemID" Visible="false" />
                             <asp:BoundField DataField="ServiceID" HeaderText="ServiceID" Visible="false" />
                         </Columns>
@@ -95,7 +95,6 @@
 
 
         <asp:Table ID="tblMoveInfo" runat="server" Visible="false" Width="65%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
-            <asp:TableRow Height="40"></asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblCustomer" runat="server" Text="Customer: "></asp:Label>
@@ -472,8 +471,7 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtHiddenAuctionServiceID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                    <asp:TextBox ID="txtHiddenAuctionID" runat="server" Visible="false"></asp:TextBox>
                     <asp:TextBox ID="txtHiddenAuctionItemID" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
@@ -489,6 +487,19 @@
                         SetFocusOnError="true" 
                         ForeColor="Red" 
                         Text="*"></asp:RequiredFieldValidator>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="lblItemLocation" runat="server" Text="Location: "></asp:Label>
+                </asp:TableCell>
+                <asp:TableCell>
+                    <asp:DropDownList ID="ddlItemLocation" AutoPostBack="false"
+                        DataSourceID="datasrcLocationList"
+                        DataTextField="StorageName"
+                        DataValueField="LocationID"
+                        runat="server"
+                        AppendDataBoundItems="true">
+                        <asp:ListItem Value="">- Select -</asp:ListItem>
+                    </asp:DropDownList>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow Height="40"></asp:TableRow>
@@ -647,6 +658,11 @@
             ID="dtasrcEquipment"
             ConnectionString="<%$ ConnectionStrings:Lab3 %>"
             SelectCommand="SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription FROM Equipment WHERE Equipment.EquipmentName != 'truck';"></asp:SqlDataSource>
+
+        <asp:SqlDataSource runat="server"
+            ID="datasrcLocationList"
+            ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+            SelectCommand="SELECT LocationID, StorageName FROM StorageLocation"></asp:SqlDataSource>
 
     </div>
 

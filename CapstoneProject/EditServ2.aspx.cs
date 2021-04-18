@@ -67,10 +67,12 @@ namespace Lab2
                     tblMoveItems.Visible = false;
 
                     con.Open();
-                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, AuctionInventory.ItemQuantity, AuctionInventory.AuctionItemID, AuctionInventory.ServiceID ";
-                    viewAuctionCommandString += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
-                    viewAuctionCommandString += "Customer ON Service.CustomerID = Customer.CustomerID ";
-                    viewAuctionCommandString += "WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
+                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, StorageLocation.StorageName, AuctionInventory.AuctionItemID, Service.ServiceID " +
+                        "FROM  AuctionInventory INNER JOIN AuctionSchedule ON AuctionInventory.AuctionID " +
+                        "= AuctionSchedule.AuctionID INNER JOIN Service ON AuctionSchedule.ServiceID = " +
+                        "Service.ServiceID INNER JOIN Customer ON Service.CustomerID = Customer.CustomerID " +
+                        "INNER JOIN StorageLocation ON AuctionInventory.LocationID = StorageLocation.LocationID ";
+                    viewAuctionCommandString += "WHERE Service.CustomerID = " + ddlCustomer.SelectedValue;
 
                     SqlDataAdapter daViewAuctions = new SqlDataAdapter(viewAuctionCommandString, con);
                     DataTable dtForGridView = new DataTable();
@@ -422,7 +424,55 @@ namespace Lab2
 
         protected void btnUpdateAuction_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+            con.Open();
 
+            //first, update auction item
+            string updateAuctionItem = "UPDATE AuctionInventory SET ItemDescription = @ItemDesc, LocationID = @LocationID " +
+                "WHERE AuctionItemID = " + txtHiddenAuctionItemID.Text;
+
+            SqlCommand cmdUpdateAuctionItem = new SqlCommand(updateAuctionItem, con);
+            cmdUpdateAuctionItem.Parameters.AddWithValue("@ItemDesc", txtItemDesc.Text.Trim());
+            cmdUpdateAuctionItem.Parameters.AddWithValue("@LocationID", ddlItemLocation.SelectedValue);
+
+            cmdUpdateAuctionItem.ExecuteNonQuery();
+
+            //second, update AuctionSchedule table
+            string updateAuctionInfo = "UPDATE AuctionSchedule SET PhotoSpot = @PhotoSpot, TruckAcc = @TruckAcc, " +
+                "Crew = @Crew, AuctionDate = @AuctionDate, ProcurementMethod = @Procurement ";
+            updateAuctionInfo += "WHERE AuctionID = " + txtHiddenAuctionID.Text;
+
+            SqlCommand cmdUpdateAuctionInfo = new SqlCommand(updateAuctionInfo, con);
+            cmdUpdateAuctionInfo.Parameters.AddWithValue("@PhotoSpot", txtPhotoSpot.Text.Trim());
+            cmdUpdateAuctionInfo.Parameters.AddWithValue("@TruckAcc", radioBtnTruckAccess.SelectedValue);
+            cmdUpdateAuctionInfo.Parameters.AddWithValue("@Crew", txtAuctionCrewSize.Text.Trim());
+            cmdUpdateAuctionInfo.Parameters.AddWithValue("@AuctionDate", txtAuctionDate.Text.Trim());
+            cmdUpdateAuctionInfo.Parameters.AddWithValue("@Procurement", radioBtnProcurement.SelectedValue);
+
+            cmdUpdateAuctionInfo.ExecuteNonQuery();
+
+            //lastly, update EquipmentUsed
+            //first, delete all EquipmentUsed records for specific AuctionID
+            SqlCommand cmdDeleteAuctionEquipment = new SqlCommand("DELETE EquipmentUsed WHERE AuctionID = " + txtHiddenAuctionID.Text, con);
+            cmdDeleteAuctionEquipment.ExecuteNonQuery();
+
+            //second, re-add records
+            string addAuctionEquipment = "INSERT INTO EquipmentUsed(EquipmentID, AuctionID) VALUES (@EquipmentID, @AuctionID)";
+            SqlCommand cmdAddAuctionEquipment = new SqlCommand(addAuctionEquipment, con);
+            foreach (ListItem li in lstboxAuctionTruckUsed.Items)
+            {
+                cmdAddAuctionEquipment.Parameters.Clear();
+                cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                cmdAddAuctionEquipment.ExecuteNonQuery();
+            }
+            foreach (ListItem li in lstboxAuctionEquipmentUsed.Items)
+            {
+                cmdAddAuctionEquipment.Parameters.Clear();
+                cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
+                cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                cmdAddAuctionEquipment.ExecuteNonQuery();
+            }
         }
 
         protected void btnUpdateMove_Click(object sender, EventArgs e)
@@ -571,22 +621,25 @@ namespace Lab2
         {
             if (e.CommandName.Equals("editRow"))
             {
+                tblAuctionInfo.Visible = true;
+
                 //getting serviceID value
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
-                string keyValue = grdvwMoves.DataKeys[rowIndex]["ServiceID"].ToString();
+                string keyValue = grdvwAuctions.DataKeys[rowIndex]["ServiceID"].ToString();
                 txtHiddenAuctionServiceID.Text = keyValue;
                 //getting MoveFormID value 
-                string keyAuctionItemIDValue = grdvwMoves.DataKeys[rowIndex]["AuctionItemID"].ToString();
+                string keyAuctionItemIDValue = grdvwAuctions.DataKeys[rowIndex]["AuctionItemID"].ToString();
                 txtHiddenAuctionItemID.Text = keyAuctionItemIDValue;
 
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
                 con.Open();
 
                 //load data from AuctionInventory table
-                string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, ";
-                viewAuctionItems += "AuctionInventory.AuctionItemID, AuctionInventory.AuctionID ";
-                viewAuctionItems += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
-                viewAuctionItems += "Customer ON Service.CustomerID = Customer.CustomerID WHERE AuctionItemID = " + keyValue;
+                string viewAuctionItems = "SELECT Customer.CustFirstName + ' ' + Customer.CustLastName AS Customer, AuctionInventory.ItemDescription, AuctionInventory.LocationID, ";
+                viewAuctionItems += "AuctionInventory.AuctionItemID, AuctionInventory.AuctionID FROM  AuctionInventory INNER JOIN ";
+                viewAuctionItems += "AuctionSchedule ON AuctionInventory.AuctionID = AuctionSchedule.AuctionID INNER JOIN Service ";
+                viewAuctionItems += "ON AuctionSchedule.ServiceID = Service.ServiceID INNER JOIN Customer ON Service.CustomerID = Customer.CustomerID ";
+                viewAuctionItems += "WHERE AuctionInventory.AuctionItemID = " + keyAuctionItemIDValue;
 
                 SqlCommand cmd = new SqlCommand(viewAuctionItems, con);
 
@@ -596,13 +649,23 @@ namespace Lab2
 
                 txtAuctCustomer.Text = dtAuctInfo.Rows[0][0].ToString();
                 txtItemDesc.Text = dtAuctInfo.Rows[0][1].ToString();
-                string auctionID = dtAuctInfo.Rows[0][3].ToString();
+                ddlItemLocation.DataBind();
+                if (dtAuctInfo.Rows[0][2].ToString().Equals(null))
+                {
+                    ddlItemLocation.SelectedValue = "";
+                }
+                else
+                {
+                    ddlItemLocation.SelectedValue = dtAuctInfo.Rows[0][2].ToString();
+                }
+                txtHiddenAuctionItemID.Text = dtAuctInfo.Rows[0][3].ToString();
+                txtHiddenAuctionID.Text = dtAuctInfo.Rows[0][4].ToString();
 
                 //load data from auctionSchedule table
-                string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, Procurement, TruckAcc, Crew FROM AuctionSchedule " +
-                    "WHERE AuctionID = " + auctionID;
+                string viewAuctionScheduleInfo = "SELECT AuctionDate, PhotoSpot, ProcurementMethod, TruckAcc, Crew FROM AuctionSchedule " +
+                    "WHERE AuctionID = " + txtHiddenAuctionID.Text;
                 SqlCommand cmdViewAuctionScheduleInfo = new SqlCommand(viewAuctionScheduleInfo, con);
-                SqlDataAdapter daForAuctionScheduleInfo = new SqlDataAdapter(cmd);
+                SqlDataAdapter daForAuctionScheduleInfo = new SqlDataAdapter(cmdViewAuctionScheduleInfo);
                 DataTable dtForAuctionScheduleInfo = new DataTable();
                 daForAuctionScheduleInfo.Fill(dtForAuctionScheduleInfo);
 
@@ -611,6 +674,29 @@ namespace Lab2
                 radioBtnProcurement.SelectedValue = dtForAuctionScheduleInfo.Rows[0][2].ToString();
                 radioBtnTruckAccess.SelectedValue = dtForAuctionScheduleInfo.Rows[0][3].ToString();
                 txtAuctionCrewSize.Text = dtForAuctionScheduleInfo.Rows[0][4].ToString();
+
+                //load data from equipmentUsed table
+                string viewAuctionEquipmentUsed = "SELECT Equipment.EquipmentID, Equipment.EquipmentName, Equipment.EquipmentDescription " +
+                    "FROM  AuctionSchedule INNER JOIN EquipmentUsed ON AuctionSchedule.AuctionID = EquipmentUsed.AuctionID " +
+                    "INNER JOIN Equipment ON EquipmentUsed.EquipmentID = Equipment.EquipmentID WHERE EquipmentUsed.AuctionID = " + txtHiddenAuctionID.Text;
+                SqlCommand cmdViewAuctionEquipmentUsed = new SqlCommand(viewAuctionEquipmentUsed, con);
+                SqlDataAdapter daForAuctionEquipmentUsed = new SqlDataAdapter(cmdViewAuctionEquipmentUsed);
+                DataTable dtForAuctionEquipmentUsed = new DataTable();
+                daForAuctionEquipmentUsed.Fill(dtForAuctionEquipmentUsed);
+
+                int dataRowCounter = 0;
+                foreach (DataRow dr in dtForAuctionEquipmentUsed.Rows)
+                {
+                    if (dtForAuctionEquipmentUsed.Rows[dataRowCounter][1].ToString().Trim().Equals("truck"))
+                    {
+                        lstboxAuctionTruckUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
+                    }
+                    else
+                    {
+                        lstboxAuctionEquipmentUsed.Items.Add(new ListItem(dtForAuctionEquipmentUsed.Rows[dataRowCounter][2].ToString(), dtForAuctionEquipmentUsed.Rows[dataRowCounter][0].ToString()));
+                    }
+                    dataRowCounter++;
+                }
             }
         }
 
@@ -649,10 +735,12 @@ namespace Lab2
                     tblMoveItems.Visible = false;
 
                     con.Open();
-                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, AuctionInventory.AuctionItemID, Service.ServiceID ";
-                    viewAuctionCommandString += "FROM  AuctionInventory INNER JOIN Service ON AuctionInventory.AuctionItemID = Service.ServiceID INNER JOIN ";
-                    viewAuctionCommandString += "Customer ON Service.CustomerID = Customer.CustomerID ";
-                    viewAuctionCommandString += "WHERE Customer.CustomerID = " + ddlCustomer.SelectedValue;
+                    string viewAuctionCommandString = "SELECT AuctionInventory.ItemDescription, StorageLocation.StorageName, AuctionInventory.AuctionItemID, Service.ServiceID " +
+                        "FROM  AuctionInventory INNER JOIN AuctionSchedule ON AuctionInventory.AuctionID " +
+                        "= AuctionSchedule.AuctionID INNER JOIN Service ON AuctionSchedule.ServiceID = " +
+                        "Service.ServiceID INNER JOIN Customer ON Service.CustomerID = Customer.CustomerID " +
+                        "INNER JOIN StorageLocation ON AuctionInventory.LocationID = StorageLocation.LocationID ";
+                    viewAuctionCommandString += "WHERE Service.CustomerID = " + ddlCustomer.SelectedValue;
 
                     SqlDataAdapter daViewAuctions = new SqlDataAdapter(viewAuctionCommandString, con);
                     DataTable dtForGridView = new DataTable();
