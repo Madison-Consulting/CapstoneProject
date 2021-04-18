@@ -151,102 +151,67 @@
                     <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Enter Valid Zip Code" />
 
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lbl4" runat="server" Text="Service Type:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtServType" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtServType" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lbl5" runat="server" Text="Service Date:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtDate" runat="server" TextMode="Date"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDate" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblFinalCost" runat="server" Text="Final Cost:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtFinalCost" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtFinalCost" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtFinalCost" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry can be only numbers" />
 
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblPaymentRec" runat="server" Text="Payment Received?"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RadioButtonList ID="rdoYN" runat="server">
                         <asp:ListItem Value="Yes" Selected="True">Yes</asp:ListItem>
                         <asp:ListItem Value="No">No</asp:ListItem>
                     </asp:RadioButtonList>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblComments" runat="server" Text="Comments:"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtComments" runat="server" TextMode="MultiLine" Rows="15" Height="130px"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ValidationGroup="valGroup1" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDate" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblExperince" runat="server" Text="Service Experience?"></asp:Label>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RadioButtonList ID="rdobtnPosNeg" runat="server">
                         <asp:ListItem Value="Positive" Selected="True">Positive</asp:ListItem>
                         <asp:ListItem Value="Negative">Negative</asp:ListItem>
                     </asp:RadioButtonList>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtCustID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-
-            <asp:TableRow HorizontalAlign="center">
+                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="3">
                     <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="valGroup1" class="btn-GreenValleyGreen" />
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtServID" runat="server" Visible="false"></asp:TextBox>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-    </div>
-</asp:Content>
+                </asp:TableCell></asp:TableRow></asp:Table></div></asp:Content>

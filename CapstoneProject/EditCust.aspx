@@ -162,10 +162,8 @@
                         ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
                 </asp:TableCell><asp:TableCell>
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can Only Be Numbers!" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Can be only numbers" />
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID"></asp:Label>
                 </asp:TableCell><asp:TableCell>
@@ -173,19 +171,13 @@
                 </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtCustomerID" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnUpdateCust" runat="server" class="btn-GreenValleyGreen" Text="Update Customer" OnClick="btnUpdateCust_Click" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus1" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-            <%--            <asp:TableRow HorizontalAlign="center">
+                </asp:TableCell></asp:TableRow><%--            <asp:TableRow HorizontalAlign="center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnAddService" class="btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
@@ -193,9 +185,7 @@
                     <asp:TableCell ColumnSpan="2">
                          <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </asp:TableCell>
-                </asp:TableRow>--%>
-        </asp:Table>
-        <%--        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
+                </asp:TableRow>--%></asp:Table><%--        <asp:Table ID="tblTxtBox" runat="server" Style="position: fixed; top: 80px; right: 150px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell>
                     <asp:Label ID="lblNotes" runat="server" Text="Notes"></asp:Label>
@@ -206,6 +196,4 @@
                     <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Rows="15" Width="250px" Height="200"></asp:TextBox>
                 </asp:TableCell>
             </asp:TableRow>
-        </asp:Table>--%>
-    </div>
-</asp:Content>
+        </asp:Table>--%></div></asp:Content>

@@ -194,5 +194,10 @@ namespace CapstoneProject
             }
 
         }
+
+        protected void btnViewNew_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("testNotifications.aspx");
+        }
     }
 }

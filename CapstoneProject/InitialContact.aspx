@@ -159,9 +159,7 @@
                 <asp:TableCell>
                     <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtMovingZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Textfield Can Only Contain Numbers" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDateTime" runat="server" Text="Date and Time of Initial Contact"></asp:Label>
                 </asp:TableCell><asp:TableCell>
@@ -170,9 +168,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDateTime" SetFocusOnError="true" ForeColor="Red" Text="*">
                     </asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow>
+                </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDeadline" runat="server" Text="Deadline for your Service (One Date and Time or a Range)?"></asp:Label>
                 </asp:TableCell><asp:TableCell>
@@ -184,8 +180,7 @@
                 </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtDeadline2" runat="server" Text="Date" TextMode="Date"></asp:TextBox>
                     <asp:TextBox ID="txtTime2" runat="server" Text="Time" TextMode="Time"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
+                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtDeadline" SetFocusOnError="true" ForeColor="Red" Text="*">
                     </asp:RequiredFieldValidator>
@@ -193,22 +188,14 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtTime" SetFocusOnError="true" ForeColor="Red" Text="*">
                     </asp:RequiredFieldValidator>
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
                     <asp:Button ID="btnSaveInitial" class="btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
-                </asp:TableCell>
-            </asp:TableRow>
-            <%--            <asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow><%--            <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
                     <asp:Button ID="btnAddService" class="btn-GreenValleyGreen" runat="server" Text="Add a Service for this Customer" OnClick="btnAddService_Click" CausesValidation="false" />
                 </asp:TableCell>
             </asp:TableRow>--%><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
-    </div>
-</asp:Content>
+                </asp:TableCell></asp:TableRow></asp:Table></div></asp:Content>

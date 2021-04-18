@@ -15,48 +15,14 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //check buttons to color
-            switch (Page.Title)
-            {
-                case "Home":
-                    HyperLink1.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Initial Contact Form":
-                    HyperLink2.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Edit or View an Existing Customer":
-                    HyperLink3.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Add a Service Event":
-                    HyperLink4.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Edit or View Existing Service":
-                    HyperLink5.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Move Inventory":
-                    HyperLink6.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Appraisal Service Order Form":
-                    HyperLink7.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Auction Form":
-                    HyperLink8.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Initial Auction Service Form":
-                    HyperLink9.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Moving Form":
-                    HyperLink10.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-                case "Choose a Different Customer":
-                    HyperLink11.ForeColor = ColorTranslator.FromHtml("#266141");
-                    break;
-            }
+           
 
-            txtNote.Text = txtNote.Text.Replace("&nbsp;", "");
+            
+
             if (!IsPostBack)
             {                
                 txtNote.Text = (string)Session["Notes"];
+                
 
             }
                 
@@ -65,8 +31,13 @@ namespace Lab2
             if (Session["UserName"] != null)
             {
                 lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully logged in";
-                string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
-                lblCustomerName.Text = fullName;
+
+                if (Session["FName"] != null)
+                {
+                    string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
+                    lblCustomerName.Text = fullName;
+                }
+
             }
             else
             {
