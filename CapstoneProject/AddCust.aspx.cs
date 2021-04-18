@@ -37,9 +37,9 @@ namespace CapstoneProject
             con.Open();
 
 
-            String query = "INSERT INTO Customer (CustFirstName,CustLastName,PhoneType, PhoneNumber,Email,CustAddress, CustAddress2" +
+            String query = "INSERT INTO Customer (CustFirstName,CustLastName,PhoneType, PhoneNumber,Email,CustAddress, CustAddress2," +
                 "CustCity,CustState,CustZip,CustomerID, Note) " +
-                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @Address2@City, @State, @ZipCode, @CustomerID, @Note)";
+                "VALUES (@FirstName, @LastName, @PhoneType, @CustomerPhone, @CustomerEmail, @Address, @Address2, @City, @State, @ZipCode, @CustomerID, @Note)";
 
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));

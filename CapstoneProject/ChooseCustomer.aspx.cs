@@ -100,6 +100,7 @@ namespace CapstoneProject
 
         protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             Session["FName"] = GridView2.SelectedRow.Cells[1].Text;
             Session["LName"] = GridView2.SelectedRow.Cells[2].Text;
             Session["PhoneNo"] = GridView2.SelectedRow.Cells[3].Text;
@@ -142,12 +143,24 @@ namespace CapstoneProject
 
             }
 
- 
 
 
+            {
+                SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+                con.Open();
 
+
+                String query = "Update ServiceRequest SET TIcketStatus = 'Assigned' WHERE CustomerID = @CustomerID";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@CustomerID", Session["ID"]);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
 
             Response.Redirect("EmpLandingPage.aspx");
+
+
         }
 
         protected void btnViewAll_Click(object sender, EventArgs e)

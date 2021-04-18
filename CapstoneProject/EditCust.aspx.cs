@@ -73,7 +73,18 @@ namespace Lab2
                 lblStatus1.Text = "Error updating customer";
             }
 
+            Session["FName"] = txtFirstName.Text;
+            Session["LName"] = txtLastName.Text;
+            Session["PhoneNo"] = txtPhoneNo.Text;
+            Session["Email"] = txtEmail.Text;
+            Session["Address"] = txtAddress.Text;
+            Session["Address2"] = txtAddress2.Text;
+            Session["City"] = txtCity.Text;
+            Session["State"] = txtState.Text;
+            Session["Zip"] = txtZip.Text;
+           
         }
+
         //drop down list of current customers
         //protected void CustDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         //{
@@ -179,7 +190,7 @@ namespace Lab2
         //    }
         //    else
         //    {
-                
+
         //        conversionVariable = Convert.ToString(queryResultsFirstName["CustomerID"]);
         //        searchedCustID = conversionVariable;
         //        customerID = searchedCustID;
@@ -187,7 +198,7 @@ namespace Lab2
 
         //        con.Close();
         //    }
-        
+
         //    SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         //    con1.Open();
         //    string query2 =("Select CustFirstName,CustLastName,PhoneNumber,Email,CustAddress,CustCity,CustState,CustZip,CustomerID FROM Customer WHERE CustomerID ='" + searchedCustID + "';");

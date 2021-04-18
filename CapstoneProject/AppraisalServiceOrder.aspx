@@ -56,8 +56,9 @@
                           <asp:TextBox ID="txtPhoneNo" runat="server"></asp:TextBox>
                     </asp:TableCell>
                     <asp:TableCell>
-                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtPhoneNo" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry can be only numbers" />
+                                               <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Enter valid Phone number" 
+                            ControlToValidate="txtPhoneNo" Forecolor="Red" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ></asp:RegularExpressionValidator> 
+
                      </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtPhoneNo" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
@@ -155,7 +156,7 @@
             <asp:TableCell>
                 <asp:Label ID="lblPhotos" runat="server" Text="Photos"></asp:Label>
             </asp:TableCell><asp:TableCell>
-                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" accept=".png,.jpg,.jpeg,.gif,.svg" />
+                <asp:FileUpload ID="upldPhoto" runat="server" allowmultiple="true" accept=".png,.jpg,.jpeg,.gif,.svg,.jfif" />
             </asp:TableCell><asp:TableCell>
                 <asp:Button ID="btnUpload" class= "btn-GreenValleyGreen" runat="server" Text="Upload" OnClick="btnUpload_Click" CausesValidation="false" />
             </asp:TableCell><asp:TableCell>

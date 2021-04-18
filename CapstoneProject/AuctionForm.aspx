@@ -54,7 +54,7 @@
                 <asp:Label ID="lblPhotoSpot" runat="server" Text="Photos: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:FileUpload ID="PhotoAuction" runat="server" allowmultiple="true"/>
+                <asp:FileUpload ID="PhotoAuction" runat="server" allowmultiple="true"  accept=".png,.jpg,.jpeg,.gif,.svg,.jfif"/>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:Button ID="btnUpload" runat="server" Text="Upload Images" OnClick="btnUpload_Click" Class="btn-GreenValleyGreen" />

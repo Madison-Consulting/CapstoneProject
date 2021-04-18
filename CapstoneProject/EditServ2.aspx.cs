@@ -15,6 +15,7 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
             ddlCustomer.SelectedValue = Session["ID"].ToString();
+         
         }
 
 
@@ -381,6 +382,13 @@ namespace Lab2
                     cmdAddAuctionEquipment.ExecuteNonQuery();
                 }
             }
+
+            Session["DestAddress"] = txtDestinationAddress.Text;
+            Session["DestAddress2"] = txtDestinationAddress2.Text;
+            Session["DestCity"] = txtDestinationCity.Text;
+            Session["DestState"] = ddlDestinationState.SelectedValue;
+            Session["DestZip"] = txtDestinationZip.Text;
+
         }
 
         protected void btnUpdateMove_Click(object sender, EventArgs e)
