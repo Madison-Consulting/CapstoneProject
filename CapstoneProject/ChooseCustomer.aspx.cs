@@ -36,7 +36,7 @@ namespace CapstoneProject
                 GridView2.DataSource = null;
                 GridView2.DataBind();
                 
-                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address',  CustAddress2 as 'Address 2', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer WHERE CustFirstName LIKE '%" + txtCustSearch.Text + "%' or CustLastName LIKE '%" + txtCustSearch.Text + "%' or CustFullName LIKE '%" + txtCustSearch.Text + "%';";
+                String sqlQuery = "Select CustFirstName as 'Customer First Name', CustLastName as 'Customer Last Name', PhoneNumber as 'Phone Number', Email, CustAddress  as 'Address',  CustAddress2 as 'Address 2', CustCity as 'City', CustState as 'State', CustZip as 'Zip', CustomerID, Note as 'Notes' FROM Customer WHERE CustFirstName LIKE '%" + HttpUtility.HtmlEncode(txtCustSearch.Text) + "%' or CustLastName LIKE '%" + HttpUtility.HtmlEncode(txtCustSearch.Text) + "%' or CustFullName LIKE '%" + HttpUtility.HtmlEncode(txtCustSearch.Text) + "%';";
 
 
                 SqlConnection sqlConnect = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

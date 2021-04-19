@@ -38,17 +38,17 @@ namespace Lab3
                     createUser.Connection = sc;
                     // INSERT USER RECORD
                     createUser.CommandText = "INSERT INTO CustPerson (FirstName, LastName, Username) VALUES (@FName, @LName, @Username)";
-                    createUser.Parameters.Add(new SqlParameter("@FName", txtFirstName.Text));
-                    createUser.Parameters.Add(new SqlParameter("@LName", txtLastName.Text));
-                    createUser.Parameters.Add(new SqlParameter("@Username", txtEmail.Text));
+                    createUser.Parameters.Add(new SqlParameter("@FName", HttpUtility.HtmlEncode(txtFirstName.Text)));
+                    createUser.Parameters.Add(new SqlParameter("@LName", HttpUtility.HtmlEncode(txtLastName.Text)));
+                    createUser.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
                     createUser.ExecuteNonQuery();
 
                     System.Data.SqlClient.SqlCommand setPass = new System.Data.SqlClient.SqlCommand();
                     setPass.Connection = sc;
                     // INSERT PASSWORD RECORD AND CONNECT TO USER
                     setPass.CommandText = "INSERT INTO CustPass  (Username, PasswordHash) VALUES (@Username, @Password)";
-                    setPass.Parameters.Add(new SqlParameter("@Username", txtEmail.Text));
-                    setPass.Parameters.Add(new SqlParameter("@Password", PasswordHash.HashPassword(txtPassword.Text))); // hash entered password
+                    setPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtEmail.Text)));
+                    setPass.Parameters.Add(new SqlParameter("@Password", HttpUtility.HtmlEncode(PasswordHash.HashPassword(txtPassword.Text)))); // hash entered password
                     setPass.ExecuteNonQuery();
 
                     sc.Close();

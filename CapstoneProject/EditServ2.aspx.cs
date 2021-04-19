@@ -335,7 +335,7 @@ namespace Lab2
 
             //first, update auction item
             string updateAuctionItem = "UPDATE AuctionInventory SET ItemDescription = @ItemDesc, LocationID = @LocationID " +
-                "WHERE AuctionItemID = " + txtHiddenAuctionItemID.Text;
+                "WHERE AuctionItemID = " + HttpUtility.HtmlEncode(txtHiddenAuctionItemID.Text);
 
             SqlCommand cmdUpdateAuctionItem = new SqlCommand(updateAuctionItem, con);
             cmdUpdateAuctionItem.Parameters.AddWithValue("@ItemDesc", txtItemDesc.Text.Trim());
@@ -361,7 +361,7 @@ namespace Lab2
             if (radioBtnProcurement.SelectedValue.Equals("pickup"))
             {
                 //first, delete all EquipmentUsed records for specific AuctionID
-                SqlCommand cmdDeleteAuctionEquipment = new SqlCommand("DELETE EquipmentUsed WHERE AuctionID = " + txtHiddenAuctionID.Text, con);
+                SqlCommand cmdDeleteAuctionEquipment = new SqlCommand("DELETE EquipmentUsed WHERE AuctionID = " + HttpUtility.HtmlEncode(txtHiddenAuctionID.Text), con);
                 cmdDeleteAuctionEquipment.ExecuteNonQuery();
 
                 //second, re-add records
@@ -371,14 +371,14 @@ namespace Lab2
                 {
                     cmdAddAuctionEquipment.Parameters.Clear();
                     cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
-                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", HttpUtility.HtmlEncode(txtHiddenAuctionID.Text));
                     cmdAddAuctionEquipment.ExecuteNonQuery();
                 }
                 foreach (ListItem li in lstboxAuctionEquipmentUsed.Items)
                 {
                     cmdAddAuctionEquipment.Parameters.Clear();
                     cmdAddAuctionEquipment.Parameters.AddWithValue("@EquipmentID", li.Value);
-                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", txtHiddenAuctionID.Text);
+                    cmdAddAuctionEquipment.Parameters.AddWithValue("@AuctionID", HttpUtility.HtmlEncode(txtHiddenAuctionID.Text));
                     cmdAddAuctionEquipment.ExecuteNonQuery();
                 }
             }

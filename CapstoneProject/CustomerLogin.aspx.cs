@@ -39,7 +39,7 @@ namespace Lab3
             //create new customer
             String query = "Select CustomerID from customer where email = @email";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@email", txtEmail.Text); ;
+            cmd.Parameters.AddWithValue("@email", HttpUtility.HtmlEncode(txtEmail.Text)); ;
             SqlDataReader myReader3 = cmd.ExecuteReader();
             if (myReader3.HasRows)
             {

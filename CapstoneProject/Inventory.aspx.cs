@@ -101,7 +101,7 @@ namespace Lab2
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT Customer.CustFirstName, Customer.CustLastName, Service.ServiceDate, Inventory.ItemInInventory, Inventory.ItemCost, Inventory.ItemID, Inventory.InventoryDate FROM Customer INNER JOIN Service On Customer.CustomerID = Service.CustomerID Inner Join Inventory On Service.ServiceID = Inventory.ServiceID WHERE Customer.CustomerID = @CustomerID ORDER BY CustLastName", con);
 
-            cmd.Parameters.AddWithValue("@CustomerID", txtCustID.Text);
+            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustID.Text));
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(cmd);
             DataTable dtCustomerGridView = new DataTable();
             sqlAdapter.Fill(dtCustomerGridView);

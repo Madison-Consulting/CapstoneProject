@@ -42,7 +42,7 @@ namespace Lab2
                 findPass.Connection = sc;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
                 findPass.CommandText = "SELECT PasswordHash FROM EmpPass WHERE Username = @Username";
-                findPass.Parameters.Add(new SqlParameter("@Username", txtUserName.Text));
+                findPass.Parameters.Add(new SqlParameter("@Username", HttpUtility.HtmlEncode(txtUserName.Text)));
 
                 SqlDataReader reader = findPass.ExecuteReader(); // create a reader
 

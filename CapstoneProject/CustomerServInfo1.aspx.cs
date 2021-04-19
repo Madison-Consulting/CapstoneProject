@@ -79,7 +79,7 @@ namespace CapstoneProject
 
             SqlCommand cmd1 = new SqlCommand("SELECT CustomerID From Customer WHERE Email = @Email", con);
 
-            cmd1.Parameters.AddWithValue("@Email", txtEmail.Text);
+            cmd1.Parameters.AddWithValue("@Email", HttpUtility.HtmlEncode(txtEmail.Text));
 
             SqlDataReader myReader3 = cmd1.ExecuteReader();
             if (myReader3.HasRows)
