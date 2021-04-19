@@ -15,37 +15,32 @@ namespace Lab2
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           
-
-            
-
             if (!IsPostBack)
-            {                
-                txtNote.Text = (string)Session["Notes"];
-                
-
-            }
-                
-            
-            //check if user is logged in
-            if (Session["UserName"] != null)
             {
-                lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully logged in";
+                txtNote.Text = (string)Session["Notes"];
+            }
 
-                if (Session["FName"] != null)
+
+
+                //check if user is logged in
+                if (Session["UserName"] != null)
                 {
-                    string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
-                    lblCustomerName.Text = fullName;
+                    lblUserLoggedIn.Text = Session["UserName"].ToString() + " successfully logged in";
+
+                    if (Session["FName"] != null)
+                    {
+                        string fullName = Session["FName"].ToString() + " " + Session["LName"].ToString();
+                        lblCustomerName.Text = fullName;
+                    }
+
+                }
+                else
+                {
+                    Session["InvalidUse"] = "You must first login to access this page!";
+                    Response.Redirect("LoginPage.aspx");
                 }
 
-            }
-            else
-            {
-                Session["InvalidUse"] = "You must first login to access this page!";
-                Response.Redirect("LoginPage.aspx");
-            }
-
-
+            
 
         }
 

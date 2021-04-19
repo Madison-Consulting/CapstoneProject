@@ -578,8 +578,8 @@
                                                     AutoPostBack="false"></asp:ListBox>
                                             </asp:TableCell>
                                             <asp:TableCell Width="90">
-                                                <asp:Button ID="btnAddAuctionTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddAuctionTruck_Click" />
-                                                <asp:Button ID="btnRemoveAuctionTruck" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveAuctionTruck_Click" />
+                                                <asp:Button ID="btnAddAuctionTruck" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddAuctionTruck_Click" />
+                                                <asp:Button ID="btnRemoveAuctionTruck" class="btn-GreenValleyGreen" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveAuctionTruck_Click" />
                                             </asp:TableCell>
                                             <asp:TableCell Width="180">
                                                 <asp:ListBox ID="lstboxAuctionTruckInventory" runat="server"
@@ -622,8 +622,8 @@
                                                     AutoPostBack="false"></asp:ListBox>
                                             </asp:TableCell>
                                             <asp:TableCell Width="90">
-                                                <asp:Button ID="btnAddAuctionEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="<-Add" Width="90" OnClick="btnAddAuctionEquipment_Click" />
-                                                <asp:Button ID="btnRemoveAuctionEquipment" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveAuctionEquipment_Click" />
+                                                <asp:Button ID="btnAddAuctionEquipment" class="btn-GreenValleyGreen" runat="server" Text="<-Add" Width="90" OnClick="btnAddAuctionEquipment_Click" />
+                                                <asp:Button ID="btnRemoveAuctionEquipment" class="btn-GreenValleyGreen" runat="server" Text="Remove->" Width="90" OnClick="btnRemoveAuctionEquipment_Click" />
                                             </asp:TableCell>
                                             <asp:TableCell Width="180">
                                                 <asp:ListBox ID="lstboxAuctionEquipmentInventory" runat="server"
@@ -645,7 +645,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center" Height="40">
                 <asp:TableCell ColumnSpan="6">
-                    <asp:Button ID="btnUpdateAuction" Font-Bold="true" ForeColor="White" BackColor="#325f57" runat="server" ValidationGroup="valGroupAuction" Text="Update" OnClick="btnUpdateAuction_Click" />
+                    <asp:Button ID="btnUpdateAuction" class="btn-GreenValleyGreen" runat="server" ValidationGroup="valGroupAuction" Text="Update" OnClick="btnUpdateAuction_Click" />
                 </asp:TableCell>
             </asp:TableRow>
             <%-- <asp:TableRow HorizontalAlign="Center">

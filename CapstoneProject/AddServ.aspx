@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddServ.aspx.cs" Inherits="Lab2.AddServ" %>
+﻿<%@ Page Title="Add a Service" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddServ.aspx.cs" Inherits="Lab2.AddServ" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -30,11 +30,6 @@
         </asp:Table>
         <br />
         <asp:Table ID="Table3" runat="server" Width="99%" HorizontalAlign="Center" Style="display: inline-block; margin-right: 0px;">
-            <asp:TableRow>
-                <asp:TableCell>
-                    <asp:Label ID="lblAddServEvent" runat="server" Text="Add a New Service Event" Font-Size="X-Large"></asp:Label>
-                </asp:TableCell>
-            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblServiceType" runat="server" Text="Service Type:"></asp:Label>

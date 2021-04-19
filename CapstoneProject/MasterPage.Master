@@ -58,6 +58,7 @@
             </div>
             <asp:HyperLink ID="HyperLink11" href="/ChooseCustomer.aspx" runat="server">Choose a Different Customer</asp:HyperLink>
         </div>
+
         <div class="main">
             <asp:Table ID="header" runat="server" Width="865px">
                 <asp:TableRow>
