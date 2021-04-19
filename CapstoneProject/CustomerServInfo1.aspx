@@ -66,6 +66,8 @@
                         <asp:Label ID="lblUploadStatus" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
+        </asp:Table>
+          <asp:Table ID="Table2" runat="server" style="margin:20px" Width="621px">
                 <asp:TableRow HorizontalAlign="Center">
                     <asp:TableCell ColumnSpan="3">
                         <asp:Button ID="btnSubmitRequest" class="btn-GreenValleyGreen" runat="server" Text="Submit Service Request" OnClick="btnSubmitRequest_Click" />
