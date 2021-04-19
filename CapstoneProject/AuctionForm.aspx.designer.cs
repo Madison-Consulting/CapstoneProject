@@ -105,6 +105,15 @@ namespace CapstoneProject
         protected global::System.Web.UI.WebControls.TextBox txtAuctionDate;
 
         /// <summary>
+        /// rfvtxtAuctionDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtAuctionDate;
+
+        /// <summary>
         /// lblPhotoSpot control.
         /// </summary>
         /// <remarks>
@@ -274,6 +283,15 @@ namespace CapstoneProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCrewSize;
+
+        /// <summary>
+        /// rfvtxtCrew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtCrew;
 
         /// <summary>
         /// tblSelectEquipment control.

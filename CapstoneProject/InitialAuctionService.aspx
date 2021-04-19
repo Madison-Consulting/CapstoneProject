@@ -73,7 +73,9 @@
                     <asp:Label ID="lblReason" runat="server" Text="Reason For Auction"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtReasonfor" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtReasonfor" runat="server"></asp:TextBox>  <asp:RequiredFieldValidator ID="rfvtxtReason" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtReasonfor" SetFocusOnError="true" ForeColor="Red" Text="* Required"></asp:RequiredFieldValidator>
+
                 </asp:TableCell>
                 
                 <asp:TableCell>

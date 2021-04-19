@@ -59,7 +59,7 @@ namespace CapstoneProject
                         {
                             cmd.Connection = con;
                             cmd.Parameters.AddWithValue("@Name", filename);
-                            cmd.Parameters.AddWithValue("@CustomerID", txtCustomerID.Text);
+                            cmd.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
 
                             //cmd.Parameters.AddWithValue("@ContentType", contentType);
                             //cmd.Parameters.AddWithValue("@Data", bytes);

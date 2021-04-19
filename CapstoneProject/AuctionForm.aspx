@@ -43,7 +43,9 @@
                 <asp:Label ID="lblAuctionDate" runat="server" Text="Auction Date: "></asp:Label>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtAuctionDate" runat="server" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="txtAuctionDate" runat="server" TextMode="Date"></asp:TextBox> <asp:RequiredFieldValidator ID="rfvtxtAuctionDate" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtAuctionDate" SetFocusOnError="true" ForeColor="Red" Text="Please Enter an Auction Date"></asp:RequiredFieldValidator>
+
             </asp:TableCell>
 <%--            <asp:TableCell>
                 <asp:Label ID="lblTempHolder2" runat="server" Text="should we have this as text box?"></asp:Label>
@@ -129,7 +131,11 @@
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:Label ID="lblCrewSize" runat="server" Text="Crew Size: "></asp:Label>
-                                <asp:TextBox ID="txtCrewSize" runat="server" MaxLength="5" Width="70"></asp:TextBox>
+                                <asp:TextBox ID="txtCrewSize" runat="server" MaxLength="5" Width="70"></asp:TextBox> <asp:RequiredFieldValidator ID="rfvtxtCrew" runat="server" ErrorMessage="RequiredFieldValidator"
+                            ControlToValidate="txtCrewSize" SetFocusOnError="true" ForeColor="Red" Text="* Required"></asp:RequiredFieldValidator> <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
+                ControlToValidate="txtCrewSize" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry can be only numbers" />
+
+
                             </asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>

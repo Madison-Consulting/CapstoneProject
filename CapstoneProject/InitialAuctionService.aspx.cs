@@ -92,10 +92,10 @@ namespace CapstoneProject
                 if (chkbxPickUp.Checked)
                 {
                     pickUp = "YES";
-                    pickUpAddress = txtAuctionPickUpAddress.Text;
-                    pickUpCity = txtCity.Text;
-                    pickUpState = txtState.Text;
-                    pickUpZip = txtZip.Text;
+                    pickUpAddress = HttpUtility.HtmlEncode(txtAuctionPickUpAddress.Text);
+                    pickUpCity = HttpUtility.HtmlEncode(txtCity.Text);
+                    pickUpState = HttpUtility.HtmlEncode(txtState.Text);
+                    pickUpZip = HttpUtility.HtmlEncode(txtZip.Text);
                 }
                 if (chkTrashRemoval.Value.Equals("Trash"))
                 {
@@ -111,7 +111,7 @@ namespace CapstoneProject
                 }
                 if (rbtnDeadY.Checked)
                 {
-                    deadline = txtDeadDate.Text;
+                    deadline = HttpUtility.HtmlEncode(txtDeadDate.Text);
                 }
 
                 SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);

@@ -122,9 +122,9 @@ namespace CapstoneProject
                 string insertServiceStatement = "INSERT INTO Service (CustomerID, ServiceType, ServiceDate) VALUES " +
                     "(@CustomerID, @ServiceType, @ServiceDate)";
                 SqlCommand cmdInsertService = new SqlCommand(insertServiceStatement, con);
-                cmdInsertService.Parameters.AddWithValue("@CustomerID", txtCustomerID.Text);
+                cmdInsertService.Parameters.AddWithValue("@CustomerID", HttpUtility.HtmlEncode(txtCustomerID.Text));
                 cmdInsertService.Parameters.AddWithValue("@ServiceType", "Auction");
-                cmdInsertService.Parameters.AddWithValue("@ServiceDate", txtAuctionDate.Text);
+                cmdInsertService.Parameters.AddWithValue("@ServiceDate", HttpUtility.HtmlEncode(txtAuctionDate.Text));
                 cmdInsertService.ExecuteNonQuery();
 
                 //find ServiceID ^ for most recent insert
