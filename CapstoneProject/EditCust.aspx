@@ -159,10 +159,10 @@
                     <asp:TextBox ID="txtZip" runat="server"></asp:TextBox>
                 </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" Text="FieldText Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell><asp:TableCell>
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Can be only numbers" />
+                ControlToValidate="txtZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can Only Be Numbers" />
                 </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblCustomerID" runat="server" Text="Customer ID"></asp:Label>

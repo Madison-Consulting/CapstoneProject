@@ -66,10 +66,8 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtFirstName" runat="server" ReadOnly="true"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtFirstName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtFirstName" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -78,10 +76,8 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtLastName" runat="server" ReadOnly="true"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtLastName" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtLastName" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -90,10 +86,8 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtItemName1" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtItemName1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator"
+                        ControlToValidate="txtItemName1" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -102,21 +96,15 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:TextBox ID="txtItemCost1" runat="server"></asp:TextBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                        <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry Can be only numbers" />
+                <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
+                ControlToValidate="txtItemCost1" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Excluding($) Round To Nearest Whole Dollar" />
                 </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblInventoryDate" runat="server" Text="Inventory Date"></asp:Label>
                 </asp:TableCell><asp:TableCell>
                     <asp:TextBox ID="txtInventoryDate1" runat="server" TextMode="Date"></asp:TextBox>
-                </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell><asp:TableCell>
-                    <asp:CompareValidator ID="CompareValidator14" runat="server" Operator="DataTypeCheck" Type="Date"
-                        ControlToValidate="txtInventoryDate1" ForeColor="Red" ErrorMessage="MM/DD/YYYY" />
+                        ControlToValidate="txtInventoryDate1" SetFocusOnError="true" ForeColor="Red" Text="Must Select Date!"></asp:RequiredFieldValidator>
                 </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:TextBox ID="txtServiceID1" runat="server" Visible="false"></asp:TextBox>
