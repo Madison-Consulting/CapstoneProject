@@ -27,7 +27,7 @@
                     <asp:TextBox ID="txtFN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtFN" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -39,7 +39,7 @@
                     <asp:TextBox ID="txtLN" runat="server" ReadOnly="true"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtLN" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -58,7 +58,7 @@
                     <asp:TextBox ID="txtOther" runat="server" Visible="false"></asp:TextBox>
                 </asp:TableCell>
                 <asp:TableCell>
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" ErrorMessage="RequiredFieldValidator"
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="ddlContact" SetFocusOnError="true" ForeColor="Red" Text="Must Make A Selection!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
@@ -104,8 +104,8 @@
                         <asp:ListItem ID="chkAuctionBringIn" runat="server" Value="Auction Bring In" Text="Auction Bring In"></asp:ListItem>
                         <asp:ListItem ID="chkConsignmentShop" runat="server" Value="Consignment Shop" Text="Consignment Shop"></asp:ListItem>
                     </asp:CheckBoxList>
-                    </asp:TableCell>
-               </asp:TableRow>
+                </asp:TableCell>
+            </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lbltoAddress" runat="server" Text=" Moving Address"></asp:Label>
@@ -169,9 +169,9 @@
                 <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtMovingZip" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
- 
-                    <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                ControlToValidate="txtMovingZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="TextField Can Only Contain Numbers" />
+
+                    <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer"
+                        ControlToValidate="txtMovingZip" SetFocusOnError="true" ForeColor="Red" ErrorMessage="TextField Can Only Contain Numbers" />
                 </asp:TableCell></asp:TableRow><asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblDateTime" runat="server" Text="Date and Time of Initial Contact"></asp:Label>
@@ -202,8 +202,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtTime" SetFocusOnError="true" ForeColor="Red" Text="*">
                     </asp:RequiredFieldValidator>
-                </asp:TableCell>
-               </asp:TableRow><asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow></asp:Table><asp:Table ID="Table3" runat="server" Width="626px" Style="margin: 20px;"><asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="4">
                     <asp:Button ID="btnSaveInitial" class="btn-GreenValleyGreen" runat="server" Text="Save Initial Contact Information" OnClick="btnSaveInitial_Click" />
                 </asp:TableCell></asp:TableRow><%--            <asp:TableRow HorizontalAlign="Center">

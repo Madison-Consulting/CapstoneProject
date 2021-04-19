@@ -13,7 +13,7 @@
         <div style="width: auto; margin: 0 20%">
             <asp:Image ID="Logo" runat="server" ImageUrl="/Image/GVALogo.jpg" />
 
-            <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign="Center" Width="719px" Style="margin:20px;">
+            <asp:Table ID="tblCustLogin" runat="server" HorizontalAlign="Center" Width="775px" Style="margin:20px;">
                 <asp:TableRow HorizontalAlign="Center">
 
                     <asp:TableCell ColumnSpan="2">
@@ -82,99 +82,58 @@
                         <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
                 ControlToValidate="txtCell" SetFocusOnError="true" ForeColor="Red" ErrorMessage="Entry can be only numbers" />
 
-                    </asp:TableCell>
-
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                                        <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtEmail" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                          <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                              ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
 
-                    </asp:TableCell>
-
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtUsername" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                    </asp:TableCell>
-                                        <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtPassword" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ValidationExpression="^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!*@#$%^&+=]).*$"
                             ControlToValidate="txtPassword" Text="Password must contain 1 Uppercase, 1 Lowercase, 1 Number, and 1 Special Character" ForeColor="Red"></asp:RegularExpressionValidator>
-                    </asp:TableCell>
-
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirm Password"></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="RequiredFieldValidator"
                             ControlToValidate="txtConfirmPassword" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
-                    <asp:TableCell>
+                    </asp:TableCell><asp:TableCell>
                         <asp:CompareValidator ID="ComparePass" runat="server"
                             ControlToValidate="txtConfirmPassword"
                             ControlToCompare="txtPassword"
                             ErrorMessage="Passwords must match!"
                             SetFocusOnError="true"
                             ForeColor="red" />
-                    </asp:TableCell>
-                </asp:TableRow>
-                           </asp:Table>
-            <br />
+                    </asp:TableCell></asp:TableRow></asp:Table><br />
               <asp:Table ID="Table1" runat="server" Style="margin:10px;"  HorizontalAlign="Center">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Button ID="btnCreateNewEmp" class="btn-GreenValleyGreen" runat="server" Text="Submit" OnClick="btnCreateNewEmp_Click" />
-                    </asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
-                    </asp:TableCell>
-
-                </asp:TableRow>
-
-            </asp:Table>
-
-        </div>
-
-    </form>
-    <script src="Scripts/jquery-3.5.1.min.js"></script>
-    <script src="Scripts/popper.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+                    </asp:TableCell></asp:TableRow></asp:Table></div></form><script src="Scripts/jquery-3.5.1.min.js"></script><script src="Scripts/popper.min.js"></script><script src="Scripts/bootstrap.bundle.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/></body></html>

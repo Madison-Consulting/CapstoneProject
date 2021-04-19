@@ -67,7 +67,7 @@
                 </asp:TableCell>
             </asp:TableRow>
             </asp:Table>
-        <asp:Table runat="server" Width="870px">
+        <asp:Table runat="server" Width="890px">
             <asp:TableRow>
                 <asp:TableCell>
                     <asp:Label ID="lblReason" runat="server" Text="Reason For Auction"></asp:Label>

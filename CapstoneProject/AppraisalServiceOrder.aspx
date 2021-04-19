@@ -25,7 +25,7 @@
             </asp:TableRow>
         </asp:Table>--%>
 
-            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; margin:10px;" Width="700px">
+            <asp:Table ID="Table3" runat="server" Style="left:250px; top: 100px; margin:10px;" Width="553px">
                 <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblFirstName" runat="server" Text="First Name"></asp:Label>
@@ -36,7 +36,9 @@
                     <asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtFirstName" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell>
+                        </asp:TableCell>
+                </asp:TableRow>
+                 <asp:TableRow>               
                     <asp:TableCell>
                         <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
                     </asp:TableCell>
@@ -68,12 +70,12 @@
                     </asp:TableCell><asp:TableCell>
                          <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                     </asp:TableCell><asp:TableCell>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" 
-                ControlToValidate="txtEmail" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell><asp:TableCell>
                          <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                              ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
-                     </asp:TableCell></asp:TableRow><asp:TableRow>
+                     </asp:TableCell><asp:TableCell>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator" 
+                ControlToValidate="txtEmail" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
+                    </asp:TableCell></asp:TableRow><asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
                     </asp:TableCell><asp:TableCell>
@@ -91,13 +93,17 @@
                         <asp:Label ID="lblCity" runat="server" Text="City"></asp:Label>
                     </asp:TableCell><asp:TableCell>
                          <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                        <asp:TableCell>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
+                            ControlToValidate="txtCity" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
                     </asp:TableCell><asp:TableCell>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator" 
                 ControlToValidate="txtCity" SetFocusOnError ="true" ForeColor="Red" Text ="*"></asp:RequiredFieldValidator>
-                    </asp:TableCell><asp:TableCell>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="No Numbers or Special Characters Allowed"
-                            ControlToValidate="txtCity" ValidationExpression="^[A-Za-z]*$" ForeColor="Red" ></asp:RegularExpressionValidator>
-                    </asp:TableCell></asp:TableRow><asp:TableRow>
+                    </asp:TableCell>
+
+                                                   </asp:TableRow>
+                <asp:TableRow>
                     <asp:TableCell>
                         <asp:Label ID="lblState" runat="server" Text="State"></asp:Label>
                     </asp:TableCell><asp:TableCell>

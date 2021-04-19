@@ -93,11 +93,11 @@
                 </asp:TableCell>
                 <asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtPhoneNo" SetFocusOnError="true" ForeColor="Red" Text="FieldText Cannot Be Blank!"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtPhoneNo" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter valid Phone number" 
-                            ControlToValidate="txtPhoneNo" Forecolor="Red" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$" ></asp:RegularExpressionValidator> 
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter valid Phone number"
+                        ControlToValidate="txtPhoneNo" ForeColor="Red" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"></asp:RegularExpressionValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -107,11 +107,11 @@
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFieldValidator"
-                        ControlToValidate="txtEmail" SetFocusOnError="true" ForeColor="Red" Text="FieldText Cannot Be Blank!"></asp:RequiredFieldValidator>
+                        ControlToValidate="txtEmail" SetFocusOnError="true" ForeColor="Red" Text="TextField Cannot Be Blank!"></asp:RequiredFieldValidator>
                 </asp:TableCell>
                 <asp:TableCell>
-                     <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                             ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="regexEmailValid" runat="server" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                        ControlToValidate="txtEmail" ErrorMessage="Invalid Email Format" ForeColor="Red"></asp:RegularExpressionValidator>
 
                 </asp:TableCell>
             </asp:TableRow>
@@ -171,7 +171,9 @@
                 </asp:TableCell><asp:TableCell>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="RequiredFieldValidator"
                         ControlToValidate="txtCustomerID" SetFocusOnError="true" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
-                </asp:TableCell></asp:TableRow><asp:TableRow HorizontalAlign="Center">
+                </asp:TableCell></asp:TableRow></asp:Table><br />
+        <asp:Table ID="Table1" runat="server">
+            <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnUpdateCust" runat="server" class="btn-GreenValleyGreen" Text="Update Customer" OnClick="btnUpdateCust_Click" />
                 </asp:TableCell></asp:TableRow><asp:TableRow>

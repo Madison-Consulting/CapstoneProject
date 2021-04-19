@@ -130,6 +130,8 @@
                         ControlToValidate="txtCompDate1" Operator="DataTypeCheck" Type="Date" ForeColor="Red" Text="Entry must be a Date!"></asp:CompareValidator>
                 </asp:TableCell>
             </asp:TableRow>
+                  </asp:Table>
+        <asp:Table ID="Table1" runat="server" Width="325px" Style="margin: 20px;">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
                     <asp:Button ID="btnCommitServ" class="btn-GreenValleyGreen" runat="server" Text="Add Service" ValidationGroup="valGroup1" OnClick="btnCommitServ_Click" />

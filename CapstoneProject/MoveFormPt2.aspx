@@ -505,10 +505,9 @@
                 <asp:Label ID="lblStatus" runat="server"></asp:Label>
             </asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell Height="40"></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
+        </asp:Table>
+        <asp:Table ID="Table1" runat="server" Width="325px" Style="margin: 20px;">
+            <asp:TableRow HorizontalAlign="Center">
             <asp:TableCell>
                 <asp:Button ID="btnCommit" class= "btn-GreenValleyGreen" runat="server" Text="Save Room" OnClick="btnCommit_Click" />
             </asp:TableCell>
